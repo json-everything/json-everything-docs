@@ -825,59 +825,32 @@ $sidebar-display: 'sidebar-display';
 
   ul {
     height: $tab-height * $tab-count;
-    margin-bottom: 2rem;
     padding-left: 0;
 
     li {
       width: 100%;
 
-      &:last-child {
-        a {
-          position: relative;
-          left: calc($cursor-width / 2);
-          width: 100%;
-        }
+        &:last-child {
+          a {
+            position: relative;
+            left: calc($cursor-width / 2);
+            width: 100%;
+          }
 
-        /* the cursor */
-        &::after {
-          display: table;
-          visibility: hidden;
-          content: '';
-          position: relative;
-          right: 1px;
-          width: $cursor-width;
-          height: $tab-cursor-height;
-          border-radius: 1px;
-          background-color: var(--nav-cursor-color);
-          pointer-events: none;
-        }
-      }
-    } /* li */
-
-    @mixin fix-cursor($top) {
-      top: $top;
-      visibility: visible;
-    }
-
-    @for $i from 1 through $tab-count {
-      $offset: $tab-count - $i;
-      $top: (-$offset * $tab-height) +
-        (($tab-height - $tab-cursor-height) * 0.5);
-
-      @if $i < $tab-count {
-        > li.active:nth-child(#{$i}),
-        > li.nav-item:nth-child(#{$i}):hover {
-          ~ li:last-child::after {
-            @include fix-cursor($top);
+          /* the cursor */
+          &::after {
+            display: table;
+            visibility: hidden;
+            content: '';
+            position: relative;
+            right: 1px;
+            width: $cursor-width;
+            border-radius: 1px;
+            background-color: var(--nav-cursor-color);
+            pointer-events: none;
           }
         }
-      } @else {
-        > li.active:nth-child(#{$i}):last-child::after,
-        > li.nav-item:nth-child(#{$i}):last-child:hover::after {
-          @include fix-cursor($top);
-        }
-      }
-    } /* @for */
+    } /* li */
   } /* ul */
 
   .sidebar-bottom {

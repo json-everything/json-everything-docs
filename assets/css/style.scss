@@ -11,20 +11,16 @@ $tab-count: {{ site.tabs | size | plus: 1 }}; // plus 1 for home tab
 
 /* append your custom style below */
 
-#sidebar #avatar>a {
-  border: none;
+#topbar-wrapper {
+  background-color: #201d2d;
 }
 
 #sidebar {
   background: radial-gradient(circle, #6800B7 0%, #1d1f27 100%);
 }
 
-#sidebar .sidebar-bottom .mode-toggle, #sidebar a {
-  text-shadow: 1px 1px #1d1f27;
-}
-
-#topbar-wrapper {
-  background-color: #201d2d;
+#sidebar #avatar>a {
+  border: none;
 }
 
 #sidebar #avatar img:hover {
@@ -32,6 +28,47 @@ $tab-count: {{ site.tabs | size | plus: 1 }}; // plus 1 for home tab
   transform: none;
 }
 
+#sidebar .sidebar-bottom .mode-toggle, #sidebar a {
+  text-shadow: 1px 1px #6a6072;
+}
+
+#sidebar .nav-item {
+  height: 1rem;
+  line-height: normal;
+  text-align: inherit;
+}
+
+#sidebar ul {
+  padding-left: 1rem;
+  height: auto;
+}
+
+#sidebar .extra-lpad{
+  padding-left: 2.5rem;
+}
+
+#sidebar label {
+  display: block;
+  margin-bottom: 0;
+}
+
 img {
   border-radius: 10px;
 }
+
+input[type="checkbox"]{
+  position: absolute;
+  left: -9999px;
+}
+
+input[type="checkbox"] ~ ul{
+  height: 0 !important;
+  transform: scaleY(0);
+}
+
+input[type="checkbox"]:checked ~ ul{
+  height: 100% !important;
+  transform-origin: top;
+  transform: scaleY(1);
+}
+

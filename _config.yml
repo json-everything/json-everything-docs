@@ -145,6 +145,9 @@ collections:
   tabs:
     output: true
     sort_by: order
+  docs:
+    output: true
+    sort_by: order
 
 defaults:
   - scope:
@@ -158,15 +161,18 @@ defaults:
       # to update the code of all other post links in this project.
       permalink: /posts/:title/
   - scope:
-      path: _drafts
-    values:
-      comments: false
-  - scope:
       path: ""
       type: tabs # see `site.collections`
     values:
       layout: page
       permalink: /:title/
+  - scope:
+      path: ""
+      type: docs # see `site.collections`
+    values:
+      layout: page
+      permalink: /:title/
+      toc: true
   - scope:
       path: assets/img/favicons
     values:

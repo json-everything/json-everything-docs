@@ -1,0 +1,17 @@
+<!-- A single item on the side bar, recursive -->
+
+{% if if doc.first %}
+<details>
+  <summary>{{ doc.bookmark }}</summary>
+  {% for doc_item in doc %}
+    {% include doc-item.html doc=doc_item %}
+  {% endfor %}
+</details>
+{% else %}
+<li class="nav-item{% if doc.url == page.url %}{{ " active" }}{% endif %}">
+  <a href="{{ doc.url | relative_url }}" class="nav-link">
+    <!-- <span>{{ doc.bookmark | default: doc.title }}</span> -->
+    <span>{{ doc }}</span>
+  </a>
+</li>
+{% endif %}
