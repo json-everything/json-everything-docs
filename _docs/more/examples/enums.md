@@ -2,6 +2,7 @@
 layout: page
 title: Serializing Enumerations by Name
 bookmark: Enum Serialization
+permalink: /more/examples/:title/
 icon: fas fa-tag
 order: "6.2.1"
 ---

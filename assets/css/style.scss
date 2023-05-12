@@ -29,7 +29,7 @@ $tab-count: {{ site.tabs | size | plus: 1 }}; // plus 1 for home tab
 }
 
 #sidebar .sidebar-bottom .mode-toggle, #sidebar a {
-  text-shadow: 1px 1px #6a6072;
+  text-shadow: 1px 1px #3f3944;
 }
 
 #sidebar .nav-item {
@@ -50,6 +50,16 @@ $tab-count: {{ site.tabs | size | plus: 1 }}; // plus 1 for home tab
 #sidebar label {
   display: block;
   margin-bottom: 0;
+}
+
+#sidebar hr {
+  display: block;
+  height: 1px;
+  width: 85% !important;
+  border: 0;
+  border-top: 1px solid rgba(117,117,117,.9);
+  margin: 1em 0;
+  padding: 0;
 }
 
 img {

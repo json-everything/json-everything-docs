@@ -1,7 +1,9 @@
 ---
 layout: page
 title: Json.More.Net Basics
+md_title: _Json.More.Net_ Basics
 bookmark: Basics
+permalink: /more/:title/
 icon: fas fa-tag
 order: "6.1"
 ---
