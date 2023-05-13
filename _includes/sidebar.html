@@ -33,9 +33,11 @@
       {% endif %}
       {% if doc.folder %}
         <li class="nav-item">
-          <input type="checkbox" id="{{ doc.order }}">
+          <input type="checkbox" id="{{ doc.order }}" class="doc-folder" onclick="saveDocumentListExpansion()">
           <label for="{{ doc.order }}" class="nav-item">
-            <a class="nav-link"><span>{{ doc.bookmark | default: doc.title }}</span></a>
+            <a class="nav-link">
+              <span>{{ doc.bookmark | default: doc.title }}</span>
+            </a>
           </label>
           <ul class="w-100">
       {% elsif doc.close %}
@@ -65,4 +67,55 @@
   </div>
   <!-- .sidebar-bottom -->
 </div>
+
+<script>
+
+function saveDocumentListExpansion() {
+  const checkboxes = $('.doc-folder');
+  const data = checkboxes.toArray().reduce((obj, cur) => (obj[cur.id] = cur.checked, obj), {});
+  const content = JSON.stringify(data);
+  setCookie('expansion', content, 1);
+}
+
+function loadDocumentListExpansion() {
+  const checkboxes = $('.doc-folder');
+  const byId = checkboxes.toArray().reduce((obj, cur) => (obj[cur.id] = cur, obj), {});
+  const cookie = getCookie('expansion');
+  if (!cookie) return;
+
+  const data = JSON.parse(cookie);
+  for (var key of Object.keys(data)) {
+    var checkbox = byId[key];
+    var newState = data[key];
+    checkbox.checked = newState;
+  }
+}
+
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  let expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+$(document).ready(loadDocumentListExpansion);
+
+</script>
 <!-- #sidebar -->
+
