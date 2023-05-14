@@ -29,7 +29,13 @@ $tab-count: {{ site.tabs | size | plus: 1 }}; // plus 1 for home tab
 }
 
 #sidebar .sidebar-bottom .mode-toggle, #sidebar a {
+  color: rgba(184, 184, 184, 0.9);
   text-shadow: 1px 1px #3f3944;
+}
+
+#sidebar .sidebar-bottom .mode-toggle, #sidebar a :hover {
+  color: white;
+  transition: color .35s ease-in-out;
 }
 
 #sidebar .nav-item {
@@ -57,7 +63,7 @@ $tab-count: {{ site.tabs | size | plus: 1 }}; // plus 1 for home tab
   height: 1px;
   width: 85% !important;
   border: 0;
-  border-top: 1px solid rgba(117,117,117,.9);
+  border-top: 1px solid rgba(184, 184, 184, 0.9);
   margin: 1em 0;
   padding: 0;
 }
