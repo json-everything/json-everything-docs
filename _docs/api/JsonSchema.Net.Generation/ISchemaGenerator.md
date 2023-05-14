@@ -3,7 +3,7 @@ layout: "page"
 title: "ISchemaGenerator Interface"
 bookmark: "ISchemaGenerator"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.69"
+order: "9.05.21"
 ---
 **Namespace:** Json.Schema.Generation.Generators
 
@@ -29,9 +29,11 @@ intents to the context.
 ```c#
 public abstract void AddConstraints(SchemaGenerationContextBase context)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | context | SchemaGenerationContextBase | The generation context. |
+
 
 ### Handles(Type type)
 
@@ -42,9 +44,11 @@ Determines whether the generator can be used to generate a schema for this type.
 ```c#
 public abstract bool Handles(Type type)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | type | Type | The type. |
+
 
 #### Returns
 

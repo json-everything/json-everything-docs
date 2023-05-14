@@ -3,7 +3,7 @@ layout: "page"
 title: "SchemaOrPropertyList Class"
 bookmark: "SchemaOrPropertyList"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.16"
+order: "9.01.92"
 ---
 **Namespace:** Json.Schema
 
@@ -22,8 +22,9 @@ A holder for either a schema dependency or a requirements dependency.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Schema** | JsonSchema | The schema dependency. |
 | **Requirements** | List\<string\> | The property dependency. |
+| **Schema** | JsonSchema | The schema dependency. |
+
 ## Constructors
 
 ### SchemaOrPropertyList(JsonSchema schema)
@@ -35,9 +36,11 @@ Creates a schema dependency.
 ```c#
 public SchemaOrPropertyList(JsonSchema schema)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | schema | JsonSchema | The schema dependency. |
+
 
 ### SchemaOrPropertyList(IEnumerable\<string\> requirements)
 
@@ -48,9 +51,11 @@ Creates a property dependency.
 ```c#
 public SchemaOrPropertyList(IEnumerable<string> requirements)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | requirements | IEnumerable\<string\> | The property dependency. |
+
 
 ## Methods
 
@@ -63,9 +68,11 @@ Indicates whether the current object is equal to another object of the same type
 ```c#
 public bool Equals(SchemaOrPropertyList other)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | other | SchemaOrPropertyList | An object to compare with this object. |
+
 
 #### Returns
 
@@ -80,9 +87,11 @@ Determines whether the specified object is equal to the current object.
 ```c#
 public override bool Equals(object obj)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | obj | object | The object to compare with the current object. |
+
 
 #### Returns
 
@@ -97,6 +106,7 @@ Serves as the default hash function.
 ```c#
 public override int GetHashCode()
 ```
+
 
 #### Returns
 

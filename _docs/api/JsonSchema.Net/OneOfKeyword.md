@@ -3,7 +3,7 @@ layout: "page"
 title: "OneOfKeyword Class"
 bookmark: "OneOfKeyword"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.72"
+order: "9.01.71"
 ---
 **Namespace:** Json.Schema
 
@@ -25,11 +25,13 @@ Handles `oneOf`.
 | Name | Type | Summary |
 |---|---|---|
 | **Name** | string | The JSON name of the keyword. |
+
 ## Properties
 
 | Name | Type | Summary |
 |---|---|---|
 | **Schemas** | IReadOnlyList\<JsonSchema\> | The keywords schema collection. |
+
 ## Constructors
 
 ### OneOfKeyword(params JsonSchema[] values)
@@ -41,9 +43,11 @@ Creates a new **Json.Schema.OneOfKeyword**.
 ```c#
 public OneOfKeyword(params JsonSchema[] values)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | values | params JsonSchema[] | The keywords schema collection. |
+
 
 ### OneOfKeyword(IEnumerable\<JsonSchema\> values)
 
@@ -54,9 +58,11 @@ Creates a new **Json.Schema.OneOfKeyword**.
 ```c#
 public OneOfKeyword(IEnumerable<JsonSchema> values)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | values | IEnumerable\<JsonSchema\> | The keywords schema collection. |
+
 
 ## Methods
 
@@ -69,9 +75,11 @@ Indicates whether the current object is equal to another object of the same type
 ```c#
 public bool Equals(OneOfKeyword other)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | other | OneOfKeyword | An object to compare with this object. |
+
 
 #### Returns
 
@@ -86,9 +94,11 @@ Determines whether the specified object is equal to the current object.
 ```c#
 public override bool Equals(object obj)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | obj | object | The object to compare with the current object. |
+
 
 #### Returns
 
@@ -103,9 +113,11 @@ Performs evaluation for the keyword.
 ```c#
 public void Evaluate(EvaluationContext context)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | context | EvaluationContext | Contextual details for the evaluation process. |
+
 
 ### GetHashCode()
 
@@ -116,6 +128,7 @@ Serves as the default hash function.
 ```c#
 public override int GetHashCode()
 ```
+
 
 #### Returns
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "VocabularyRegistry Class"
 bookmark: "VocabularyRegistry"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.109"
+order: "9.01.112"
 ---
 **Namespace:** Json.Schema
 
@@ -19,6 +19,7 @@ A registry for vocabularies.
 | Name | Type | Summary |
 |---|---|---|
 | **Global** | VocabularyRegistry | The global registry. |
+
 ## Methods
 
 ### Get(Uri vocabularyId)
@@ -30,9 +31,11 @@ Retrieves the vocabulary associated with the URI ID, if known.
 ```c#
 public Vocabulary Get(Uri vocabularyId)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | vocabularyId | Uri | The URI ID. |
+
 
 #### Returns
 
@@ -47,9 +50,11 @@ Indicates whether a vocabulary is known by URI ID and/or anchor.
 ```c#
 public bool IsKnown(Uri vocabularyId)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | vocabularyId | Uri | The URI ID. |
+
 
 #### Returns
 
@@ -66,7 +71,9 @@ keywords.  This must be done separately.
 ```c#
 public void Register(Vocabulary vocabulary)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | vocabulary | Vocabulary |  |
+
 

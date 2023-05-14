@@ -3,7 +3,7 @@ layout: "page"
 title: "RegexFormat Class"
 bookmark: "RegexFormat"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.86"
+order: "9.01.87"
 ---
 **Namespace:** Json.Schema
 
@@ -21,6 +21,7 @@ A regular-expression-based format.
 | Name | Type | Summary |
 |---|---|---|
 | **Key** | string | The format key. |
+
 ## Constructors
 
 ### RegexFormat(string key, string regex)
@@ -32,10 +33,12 @@ Creates a new **Json.Schema.RegexFormat**.
 ```c#
 public RegexFormat(string key, string regex)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | key | string | The format key. |
 | regex | string | The regular expression. |
+
 
 ## Methods
 
@@ -48,10 +51,12 @@ Validates an instance against a format and provides an error message.
 ```c#
 public override bool Validate(JsonNode node, out string errorMessage)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | node | JsonNode | The node to validate. |
 | errorMessage | out string | An error message. |
+
 
 #### Returns
 

@@ -21,6 +21,7 @@ A **Json.Schema.Format** that uses a predicate for evaluation.
 | Name | Type | Summary |
 |---|---|---|
 | **Key** | string | The format key. |
+
 ## Constructors
 
 ### PredicateFormat(string key, Func\<JsonNode, bool\> predicate)
@@ -32,10 +33,12 @@ Creates a new **Json.Schema.PredicateFormat**.
 ```c#
 public PredicateFormat(string key, Func<JsonNode, bool> predicate)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | key | string | The format key. |
 | predicate | Func\<JsonNode, bool\> | The predicate. |
+
 
 ### PredicateFormat(string key, PredicateWithErrorMessage predicate)
 
@@ -46,10 +49,12 @@ Creates a new **Json.Schema.PredicateFormat**.
 ```c#
 public PredicateFormat(string key, PredicateWithErrorMessage predicate)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | key | string | The format key. |
 | predicate | PredicateWithErrorMessage | The predicate. |
+
 
 ## Methods
 
@@ -62,10 +67,12 @@ Validates an instance against a format and provides an error message.
 ```c#
 public override bool Validate(JsonNode element, out string errorMessage)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | element | JsonNode | The element to validate. |
 | errorMessage | out string |  |
+
 
 #### Returns
 

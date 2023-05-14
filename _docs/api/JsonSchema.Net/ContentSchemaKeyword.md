@@ -3,7 +3,7 @@ layout: "page"
 title: "ContentSchemaKeyword Class"
 bookmark: "ContentSchemaKeyword"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.11"
+order: "9.01.10"
 ---
 **Namespace:** Json.Schema
 
@@ -25,11 +25,13 @@ Handles `contentSchema`.
 | Name | Type | Summary |
 |---|---|---|
 | **Name** | string | The JSON name of the keyword. |
+
 ## Properties
 
 | Name | Type | Summary |
 |---|---|---|
 | **Schema** | JsonSchema | The schema against which to evaluate the content. |
+
 ## Constructors
 
 ### ContentSchemaKeyword(JsonSchema value)
@@ -41,9 +43,11 @@ Creates a new **Json.Schema.ContentSchemaKeyword**.
 ```c#
 public ContentSchemaKeyword(JsonSchema value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | JsonSchema | The schema against which to evaluate the content. |
+
 
 ## Methods
 
@@ -56,9 +60,11 @@ Indicates whether the current object is equal to another object of the same type
 ```c#
 public bool Equals(ContentSchemaKeyword other)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | other | ContentSchemaKeyword | An object to compare with this object. |
+
 
 #### Returns
 
@@ -73,9 +79,11 @@ Determines whether the specified object is equal to the current object.
 ```c#
 public override bool Equals(object obj)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | obj | object | The object to compare with the current object. |
+
 
 #### Returns
 
@@ -90,9 +98,11 @@ Performs evaluation for the keyword.
 ```c#
 public void Evaluate(EvaluationContext context)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | context | EvaluationContext | Contextual details for the evaluation process. |
+
 
 ### GetHashCode()
 
@@ -103,6 +113,7 @@ Serves as the default hash function.
 ```c#
 public override int GetHashCode()
 ```
+
 
 #### Returns
 

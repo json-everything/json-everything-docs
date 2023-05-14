@@ -3,7 +3,7 @@ layout: "page"
 title: "IKeyedSchemaCollector Interface"
 bookmark: "IKeyedSchemaCollector"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.45"
+order: "9.01.43"
 ---
 **Namespace:** Json.Schema
 
@@ -17,3 +17,4 @@ Indicates that the keyword contains a named collection of schemas.
 | Name | Type | Summary |
 |---|---|---|
 | **Schemas** | IReadOnlyDictionary\<string, JsonSchema\> | The subschemas. |
+

@@ -3,7 +3,7 @@ layout: "page"
 title: "ISelector Interface"
 bookmark: "ISelector"
 permalink: "/api/JsonPath.Net/:title/"
-order: "9.07.08"
+order: "9.07.05"
 ---
 **Namespace:** Json.Path
 
@@ -23,9 +23,11 @@ Builds a string using a string builder.
 ```c#
 public abstract void BuildString(StringBuilder builder)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | StringBuilder | The string builder. |
+
 
 ### Evaluate(Node node, JsonNode rootNode)
 
@@ -36,10 +38,12 @@ Evaluates the selector.
 ```c#
 public abstract IEnumerable<Node> Evaluate(Node node, JsonNode rootNode)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | node | Node | The node to evaluate. |
 | rootNode | JsonNode | The root node (typically used by filter selectors, e.g. `$[?@foo < $.bar]`) |
+
 
 #### Returns
 

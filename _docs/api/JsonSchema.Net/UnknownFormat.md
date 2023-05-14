@@ -3,7 +3,7 @@ layout: "page"
 title: "UnknownFormat Class"
 bookmark: "UnknownFormat"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.102"
+order: "9.01.104"
 ---
 **Namespace:** Json.Schema
 
@@ -21,6 +21,7 @@ Represents an unknown format.
 | Name | Type | Summary |
 |---|---|---|
 | **Key** | string | The format key. |
+
 ## Constructors
 
 ### UnknownFormat(string key)
@@ -32,9 +33,11 @@ Creates a new **Json.Schema.UnknownFormat** instance.
 ```c#
 public UnknownFormat(string key)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | key | string | The key. |
+
 
 ## Methods
 
@@ -47,10 +50,12 @@ Validates an instance against a format and provides an error message.
 ```c#
 public override bool Validate(JsonNode node, out string errorMessage)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | node | JsonNode | The node to validate. |
 | errorMessage | out string | An error message. |
+
 
 #### Returns
 

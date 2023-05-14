@@ -3,7 +3,7 @@ layout: "page"
 title: "MinimumAttribute Class"
 bookmark: "MinimumAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.20"
+order: "9.05.35"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -24,8 +24,9 @@ Applies a `minimum` keyword.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Value** | decimal | The minimum. |
 | **TypeId** | object |  |
+| **Value** | decimal | The minimum. |
+
 ## Constructors
 
 ### MinimumAttribute(double value)
@@ -37,7 +38,9 @@ Creates a new **Json.Schema.Generation.MinimumAttribute** instance.
 ```c#
 public MinimumAttribute(double value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | double | The value. |
+
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "AdditionalItemsIntent Class"
 bookmark: "AdditionalItemsIntent"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.41"
+order: "9.05.01"
 ---
 **Namespace:** Json.Schema.Generation.Intents
 
@@ -24,6 +24,7 @@ Provides intent to create an `additionalItems` keyword.
 | Name | Type | Summary |
 |---|---|---|
 | **Context** | SchemaGenerationContextBase | The context that represents the inner requirements. |
+
 ## Constructors
 
 ### AdditionalItemsIntent(SchemaGenerationContextBase context)
@@ -35,9 +36,11 @@ Creates a new **Json.Schema.Generation.Intents.AdditionalItemsIntent** instance.
 ```c#
 public AdditionalItemsIntent(SchemaGenerationContextBase context)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | context | SchemaGenerationContextBase | The context. |
+
 
 ## Methods
 
@@ -50,9 +53,11 @@ Applies the keyword to the **Json.Schema.JsonSchemaBuilder**.
 ```c#
 public void Apply(JsonSchemaBuilder builder)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
+
 
 ### GetContexts()
 
@@ -63,6 +68,7 @@ Gets the contexts.
 ```c#
 public IEnumerable<SchemaGenerationContextBase> GetContexts()
 ```
+
 
 #### Returns
 
@@ -77,8 +83,10 @@ Replaces one context with another.
 ```c#
 public void Replace(int hashCode, SchemaGenerationContextBase newContext)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | hashCode | int | The hashcode of the context to replace. |
 | newContext | SchemaGenerationContextBase | The new context. |
+
 

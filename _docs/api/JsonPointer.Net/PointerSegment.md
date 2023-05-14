@@ -23,6 +23,7 @@ Represents a single segment of a JSON Pointer.
 | Name | Type | Summary |
 |---|---|---|
 | **Value** | string | Gets the segment value. |
+
 ## Methods
 
 ### Create(string value)
@@ -34,9 +35,11 @@ Creates a new **Json.Pointer.PointerSegment**.
 ```c#
 public static PointerSegment Create(string value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | string | The value. |
+
 
 #### Returns
 
@@ -51,9 +54,11 @@ Indicates whether the current object is equal to another object of the same type
 ```c#
 public bool Equals(PointerSegment other)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | other | PointerSegment | An object to compare with this object. |
+
 
 #### Returns
 
@@ -68,9 +73,11 @@ Indicates whether this instance and a specified object are equal.
 ```c#
 public override bool Equals(object obj)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | obj | object | The object to compare with the current instance. |
+
 
 #### Returns
 
@@ -86,6 +93,7 @@ Returns the hash code for this instance.
 public override int GetHashCode()
 ```
 
+
 #### Returns
 
 A 32-bit signed integer that is the hash code for this instance.
@@ -99,9 +107,11 @@ Parses a JSON Pointer segment from a string.
 ```c#
 public static PointerSegment Parse(string source)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | source | string | The source string. |
+
 
 #### Returns
 
@@ -116,9 +126,11 @@ Returns the string representation of this instance.
 ```c#
 public string ToString(JsonPointerStyle pointerStyle)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | pointerStyle | JsonPointerStyle | Indicates whether to URL-encode the pointer. |
+
 
 #### Returns
 
@@ -133,10 +145,12 @@ Parses a JSON Pointer segment from a string.
 ```c#
 public static bool TryParse(string source, out PointerSegment segment)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | source | string | The source string. |
 | segment | out PointerSegment | The resulting segments. |
+
 
 #### Returns
 

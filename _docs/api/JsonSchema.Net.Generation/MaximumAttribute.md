@@ -3,7 +3,7 @@ layout: "page"
 title: "MaximumAttribute Class"
 bookmark: "MaximumAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.16"
+order: "9.05.28"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -24,8 +24,9 @@ Applies a `maximum` keyword.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Value** | decimal | The maximum. |
 | **TypeId** | object |  |
+| **Value** | decimal | The maximum. |
+
 ## Constructors
 
 ### MaximumAttribute(double value)
@@ -37,7 +38,9 @@ Creates a new **Json.Schema.Generation.MaximumAttribute** instance.
 ```c#
 public MaximumAttribute(double value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | double | The value. |
+
 

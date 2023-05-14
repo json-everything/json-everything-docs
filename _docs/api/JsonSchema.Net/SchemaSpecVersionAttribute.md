@@ -3,7 +3,7 @@ layout: "page"
 title: "SchemaSpecVersionAttribute Class"
 bookmark: "SchemaSpecVersionAttribute"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.93"
+order: "9.01.95"
 ---
 **Namespace:** Json.Schema
 
@@ -20,8 +20,9 @@ Indicates which JSON Schema specification versions are supported by a keyword.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Version** | SpecVersion | The supported version. |
 | **TypeId** | object |  |
+| **Version** | SpecVersion | The supported version. |
+
 ## Constructors
 
 ### SchemaSpecVersionAttribute(SpecVersion version)
@@ -33,7 +34,9 @@ Creates a new **Json.Schema.SchemaSpecVersionAttribute**.
 ```c#
 public SchemaSpecVersionAttribute(SpecVersion version)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | version | SpecVersion | The supported version. |
+
 

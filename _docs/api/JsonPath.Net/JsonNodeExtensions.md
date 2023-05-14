@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonNodeExtensions Class"
 bookmark: "JsonNodeExtensions"
 permalink: "/api/JsonPath.Net/:title/"
-order: "9.07.09"
+order: "9.07.06"
 ---
 **Namespace:** Json.Path
 
@@ -25,9 +25,11 @@ Ensures a **System.Text.Json.Nodes.JsonNode** only represents a single value.
 ```c#
 public static JsonNode TryGetSingleValue(this JsonNode node)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | node | JsonNode |  |
+
 
 #### Returns
 
@@ -55,9 +57,11 @@ Ensures a **Json.Path.NodeList** only represents a single value.
 ```c#
 public static JsonNode TryGetSingleValue(this NodeList nodeList)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | nodeList | NodeList |  |
+
 
 #### Returns
 
@@ -84,6 +88,7 @@ composition is possible (e.g. `min(max(@,0),10)`) and functions return nodelists
 ```c#
 public static bool TryGetValue(this JsonNode node, out T value)
 ```
+
 
 #### Returns
 

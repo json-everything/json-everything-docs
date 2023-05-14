@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonNodeBaseDocument Class"
 bookmark: "JsonNodeBaseDocument"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.50"
+order: "9.01.48"
 ---
 **Namespace:** Json.Schema
 
@@ -23,6 +23,7 @@ Provides a general **Json.Schema.IBaseDocument** implementation for a **System.T
 | Name | Type | Summary |
 |---|---|---|
 | **BaseUri** | Uri | Gets the base URI that applies to this schema.  This may be defined by a parent schema. |
+
 ## Constructors
 
 ### JsonNodeBaseDocument(JsonNode node, Uri baseUri)
@@ -34,10 +35,12 @@ Creates a new **Json.Schema.JsonNodeBaseDocument**.
 ```c#
 public JsonNodeBaseDocument(JsonNode node, Uri baseUri)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | node | JsonNode | The JsonNode. |
 | baseUri | Uri | The identifying base URI. |
+
 
 ## Methods
 
@@ -50,10 +53,12 @@ Finds a schema within the document.
 ```c#
 public JsonSchema FindSubschema(JsonPointer pointer, EvaluationOptions options)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | pointer | JsonPointer | A JSON Pointer to the location of the schema within the document. |
 | options | EvaluationOptions | Evaluation options.  This is needed for internal processing. |
+
 
 #### Returns
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "PredicateWithErrorMessage Delegate"
 bookmark: "PredicateWithErrorMessage"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.113"
+order: "9.01.77"
 ---
 # PredicateWithErrorMessage Delegate
 
@@ -30,10 +30,12 @@ A predicate that also supplies an `out` error message parameter.
 ```c#
 public delegate bool PredicateWithErrorMessage(JsonNode element, out string errorMessage)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | element | JsonNode | The element to validate. |
 | errorMessage | out string | An error message. |
+
 
 #### Returns
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonLogicException Class"
 bookmark: "JsonLogicException"
 permalink: "/api/JsonLogic/:title/"
-order: "9.10.01"
+order: "9.10.10"
 ---
 **Namespace:** Json.Logic
 
@@ -24,14 +24,15 @@ Thrown when a rule cannot be processed or deserialized.
 
 | Name | Type | Summary |
 |---|---|---|
-| **TargetSite** | MethodBase |  |
-| **Message** | string |  |
 | **Data** | IDictionary |  |
-| **InnerException** | Exception |  |
 | **HelpLink** | string |  |
-| **Source** | string |  |
 | **HResult** | int |  |
+| **InnerException** | Exception |  |
+| **Message** | string |  |
+| **Source** | string |  |
 | **StackTrace** | string |  |
+| **TargetSite** | MethodBase |  |
+
 ## Constructors
 
 ### JsonLogicException(string message)
@@ -43,7 +44,9 @@ Creates a new instance of the **Json.Logic.JsonLogicException** class.
 ```c#
 public JsonLogicException(string message)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | message | string | The exception message. |
+
 

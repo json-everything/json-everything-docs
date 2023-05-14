@@ -3,7 +3,7 @@ layout: "page"
 title: "SchemaPriorityAttribute Class"
 bookmark: "SchemaPriorityAttribute"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.91"
+order: "9.01.93"
 ---
 **Namespace:** Json.Schema
 
@@ -27,6 +27,7 @@ keywords in the proper sequence.
 |---|---|---|
 | **Priority** | int | The keyword priority. |
 | **TypeId** | object |  |
+
 ## Constructors
 
 ### SchemaPriorityAttribute(int priority)
@@ -38,7 +39,9 @@ Creates a new **Json.Schema.SchemaPriorityAttribute**.
 ```c#
 public SchemaPriorityAttribute(int priority)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | priority | int | The keyword priority. |
+
 

@@ -23,6 +23,7 @@ Provides intent to create a `uniqueItems` keyword.
 | Name | Type | Summary |
 |---|---|---|
 | **Value** | bool | The value. |
+
 ## Constructors
 
 ### UniqueItemsIntent(bool value)
@@ -34,9 +35,11 @@ Creates a new **Json.Schema.Generation.Intents.UniqueItemsIntent** instance.
 ```c#
 public UniqueItemsIntent(bool value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | bool | The value. |
+
 
 ## Methods
 
@@ -49,7 +52,9 @@ Applies the keyword to the **Json.Schema.JsonSchemaBuilder**.
 ```c#
 public void Apply(JsonSchemaBuilder builder)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
+
 

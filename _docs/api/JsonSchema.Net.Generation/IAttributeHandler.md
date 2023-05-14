@@ -3,7 +3,7 @@ layout: "page"
 title: "IAttributeHandler Interface"
 bookmark: "IAttributeHandler"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.08"
+order: "9.05.18"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -24,10 +24,12 @@ intents to the context.
 ```c#
 public abstract void AddConstraints(SchemaGenerationContextBase context, Attribute attribute)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | context | SchemaGenerationContextBase | The generation context. |
 | attribute | Attribute | The attribute. |
+
 
 #### Remarks
 

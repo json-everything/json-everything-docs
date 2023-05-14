@@ -3,7 +3,7 @@ layout: "page"
 title: "RuleExtensions Class"
 bookmark: "RuleExtensions"
 permalink: "/api/JsonLogic/:title/"
-order: "9.10.07"
+order: "9.10.37"
 ---
 **Namespace:** Json.Logic
 
@@ -25,9 +25,11 @@ Calls **Json.Logic.Rule.Apply(System.Text.Json.Nodes.JsonNode,System.Text.Json.N
 ```c#
 public static JsonNode Apply(this Rule rule)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | rule | Rule | The rule. |
+
 
 #### Returns
 

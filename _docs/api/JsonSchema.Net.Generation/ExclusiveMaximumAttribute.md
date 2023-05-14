@@ -3,7 +3,7 @@ layout: "page"
 title: "ExclusiveMaximumAttribute Class"
 bookmark: "ExclusiveMaximumAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.05"
+order: "9.05.12"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -24,8 +24,9 @@ Applies an `exclusiveMaximum` keyword.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Value** | decimal | The exclusive maximum. |
 | **TypeId** | object |  |
+| **Value** | decimal | The exclusive maximum. |
+
 ## Constructors
 
 ### ExclusiveMaximumAttribute(double value)
@@ -37,7 +38,9 @@ Creates a new **Json.Schema.Generation.ExclusiveMaximumAttribute** instance.
 ```c#
 public ExclusiveMaximumAttribute(double value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | double | The value. |
+
 

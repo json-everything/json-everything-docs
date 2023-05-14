@@ -3,7 +3,7 @@ layout: "page"
 title: "RefIntent Class"
 bookmark: "RefIntent"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.63"
+order: "9.05.54"
 ---
 **Namespace:** Json.Schema.Generation.Intents
 
@@ -23,6 +23,7 @@ Provides intent to create a `$ref` keyword.
 | Name | Type | Summary |
 |---|---|---|
 | **Reference** | Uri | The reference. |
+
 ## Constructors
 
 ### RefIntent(Uri reference)
@@ -34,9 +35,11 @@ Creates a new **Json.Schema.Generation.Intents.RefIntent** instance.
 ```c#
 public RefIntent(Uri reference)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | reference | Uri | The reference. |
+
 
 ## Methods
 
@@ -49,7 +52,9 @@ Applies the keyword to the **Json.Schema.JsonSchemaBuilder**.
 ```c#
 public void Apply(JsonSchemaBuilder builder)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
+
 

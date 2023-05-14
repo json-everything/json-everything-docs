@@ -23,11 +23,13 @@ Represents a JSON Pointer IAW RFC 6901.
 | Name | Type | Summary |
 |---|---|---|
 | **Empty** | JsonPointer | The empty pointer. |
+
 ## Properties
 
 | Name | Type | Summary |
 |---|---|---|
 | **Segments** | PointerSegment[] | Gets the collection of pointer segments. |
+
 ## Methods
 
 ### Combine(JsonPointer other)
@@ -39,9 +41,11 @@ Concatenates a pointer onto the current pointer.
 ```c#
 public JsonPointer Combine(JsonPointer other)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | other | JsonPointer | Another pointer. |
+
 
 #### Returns
 
@@ -56,9 +60,11 @@ Concatenates additional segments onto the current pointer.
 ```c#
 public JsonPointer Combine(params PointerSegment[] additionalSegments)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | additionalSegments | params PointerSegment[] | The additional segments. |
+
 
 #### Returns
 
@@ -73,9 +79,11 @@ Creates a new JSON Pointer from a collection of segments.
 ```c#
 public static JsonPointer Create(params PointerSegment[] segments)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | segments | params PointerSegment[] | A collection of segments. |
+
 
 #### Returns
 
@@ -94,9 +102,11 @@ Creates a new JSON Pointer from a collection of segments.
 ```c#
 public static JsonPointer Create(IEnumerable<PointerSegment> segments)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | segments | IEnumerable\<PointerSegment\> | A collection of segments. |
+
 
 #### Returns
 
@@ -111,9 +121,11 @@ Generates a JSON Pointer from a lambda expression.
 ```c#
 public static JsonPointer Create(Expression<Func<T, object>> expression)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | expression | Expression\<Func\<T, object\>\> | The lambda expression which gives the pointer path. |
+
 
 #### Returns
 
@@ -128,9 +140,11 @@ Indicates whether the current object is equal to another object of the same type
 ```c#
 public bool Equals(JsonPointer other)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | other | JsonPointer | An object to compare with this object. |
+
 
 #### Returns
 
@@ -145,9 +159,11 @@ Indicates whether this instance and a specified object are equal.
 ```c#
 public override bool Equals(object obj)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | obj | object | The object to compare with the current instance. |
+
 
 #### Returns
 
@@ -162,9 +178,11 @@ Evaluates the pointer over a **System.Text.Json.JsonElement**.
 ```c#
 public JsonElement? Evaluate(JsonElement root)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | root | JsonElement | The **System.Text.Json.JsonElement**. |
+
 
 #### Returns
 
@@ -180,6 +198,7 @@ Returns the hash code for this instance.
 public override int GetHashCode()
 ```
 
+
 #### Returns
 
 A 32-bit signed integer that is the hash code for this instance.
@@ -193,9 +212,11 @@ Parses a JSON Pointer from a string.
 ```c#
 public static JsonPointer Parse(string source)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | source | string | The source string. |
+
 
 #### Returns
 
@@ -211,6 +232,7 @@ Returns the string representation of this instance.
 public override string ToString()
 ```
 
+
 #### Returns
 
 The string representation.
@@ -224,9 +246,11 @@ Returns the string representation of this instance.
 ```c#
 public string ToString(JsonPointerStyle pointerStyle)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | pointerStyle | JsonPointerStyle | Indicates whether to URL-encode the pointer. |
+
 
 #### Returns
 
@@ -241,10 +265,12 @@ Evaluates the pointer over a **System.Text.Json.Nodes.JsonNode**.
 ```c#
 public bool TryEvaluate(JsonNode root, out JsonNode result)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | root | JsonNode | The **System.Text.Json.Nodes.JsonNode**. |
 | result | out JsonNode | The result, if return value is true; null otherwise |
+
 
 #### Returns
 
@@ -259,10 +285,12 @@ Parses a JSON Pointer from a string.
 ```c#
 public static bool TryParse(string source, out JsonPointer pointer)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | source | string | The source string. |
 | pointer | out JsonPointer | The resulting pointer. |
+
 
 #### Returns
 

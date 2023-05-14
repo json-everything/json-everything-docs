@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonPathExtensions Class"
 bookmark: "JsonPathExtensions"
 permalink: "/api/JsonPath.Net/:title/"
-order: "9.07.12"
+order: "9.07.09"
 ---
 **Namespace:** Json.Path
 
@@ -25,9 +25,11 @@ Renders a Singular Path as a JSON Pointer.
 ```c#
 public static string AsJsonPointer(this JsonPath path)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | path | JsonPath | A JSON Path which is a Singular Path. |
+
 
 #### Returns
 

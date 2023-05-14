@@ -3,7 +3,7 @@ layout: "page"
 title: "GeneratorRegistry Class"
 bookmark: "GeneratorRegistry"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.07"
+order: "9.05.17"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -25,9 +25,11 @@ Registers a new generator.
 ```c#
 public static void Register(ISchemaGenerator generator)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | generator | ISchemaGenerator | The generator. |
+
 
 #### Remarks
 

@@ -22,10 +22,11 @@ Represents a single JSON Patch operation.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Op** | OperationType | Gets the operation type. |
 | **From** | JsonPointer | Gets the source path. |
+| **Op** | OperationType | Gets the operation type. |
 | **Path** | JsonPointer | Gets the target path. |
 | **Value** | JsonNode | Gets the discrete value. |
+
 ## Methods
 
 ### Add(JsonPointer path, JsonNode value)
@@ -37,10 +38,12 @@ Creates an `add` operation.
 ```c#
 public static PatchOperation Add(JsonPointer path, JsonNode value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | path | JsonPointer | The source path. |
 | value | JsonNode | The value to add. |
+
 
 #### Returns
 
@@ -55,10 +58,12 @@ Creates an `copy` operation.
 ```c#
 public static PatchOperation Copy(JsonPointer from, JsonPointer path)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | path | JsonPointer | The target path. |
 | from | JsonPointer | The path to the value to move. |
+
 
 #### Returns
 
@@ -73,9 +78,11 @@ Indicates whether the current object is equal to another object of the same type
 ```c#
 public bool Equals(PatchOperation other)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | other | PatchOperation | An object to compare with this object. |
+
 
 #### Returns
 
@@ -90,9 +97,11 @@ Indicates whether this instance and a specified object are equal.
 ```c#
 public override bool Equals(object obj)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | obj | object | The object to compare with the current instance. |
+
 
 #### Returns
 
@@ -108,6 +117,7 @@ Returns the hash code for this instance.
 public override int GetHashCode()
 ```
 
+
 #### Returns
 
 A 32-bit signed integer that is the hash code for this instance.
@@ -121,10 +131,12 @@ Creates an `move` operation.
 ```c#
 public static PatchOperation Move(JsonPointer from, JsonPointer path)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | path | JsonPointer | The target path. |
 | from | JsonPointer | The path to the value to move. |
+
 
 #### Returns
 
@@ -139,9 +151,11 @@ Creates an `remove` operation.
 ```c#
 public static PatchOperation Remove(JsonPointer path)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | path | JsonPointer | The source path. |
+
 
 #### Returns
 
@@ -156,10 +170,12 @@ Creates an `replace` operation.
 ```c#
 public static PatchOperation Replace(JsonPointer path, JsonNode value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | path | JsonPointer | The source path. |
 | value | JsonNode | The value to add. |
+
 
 #### Returns
 
@@ -174,10 +190,12 @@ Creates an `test` operation.
 ```c#
 public static PatchOperation Test(JsonPointer path, JsonNode value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | path | JsonPointer | The source path. |
 | value | JsonNode | The value to match. |
+
 
 #### Returns
 

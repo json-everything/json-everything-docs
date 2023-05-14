@@ -3,7 +3,7 @@ layout: "page"
 title: "ContextExtensions Class"
 bookmark: "ContextExtensions"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.03"
+order: "9.05.06"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -26,9 +26,11 @@ get member attributes.
 ```c#
 public static IEnumerable<Attribute> GetAttributes(this SchemaGenerationContextBase context)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | context | SchemaGenerationContextBase | The context. |
+
 
 #### Returns
 

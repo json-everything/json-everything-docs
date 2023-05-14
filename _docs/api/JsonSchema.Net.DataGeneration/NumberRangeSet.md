@@ -18,10 +18,11 @@ Managees a collection of number ranges as a single entity.
 
 | Name | Type | Summary |
 |---|---|---|
-| **None** | NumberRangeSet | Represent the empty set. |
 | **Full** | NumberRangeSet | Represents the full range of representable values. |
+| **None** | NumberRangeSet | Represent the empty set. |
 | **NonNegative** | NumberRangeSet | Represents the range of 0 and all positive numbers. |
 | **Ranges** | IReadOnlyList\<NumberRange\> | Gets the ranges. |
+
 ## Constructors
 
 ### NumberRangeSet(NumberRange range)
@@ -34,6 +35,7 @@ Creates a new set from a single range.
 public NumberRangeSet(NumberRange range)
 ```
 
+
 ### NumberRangeSet(NumberRangeSet other)
 
 Copies a range set.
@@ -44,6 +46,7 @@ Copies a range set.
 public NumberRangeSet(NumberRangeSet other)
 ```
 
+
 ### NumberRangeSet(IEnumerable\<NumberRange\> other)
 
 Creates a new set from a collection of ranges.
@@ -53,9 +56,11 @@ Creates a new set from a collection of ranges.
 ```c#
 public NumberRangeSet(IEnumerable<NumberRange> other)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | other | IEnumerable\<NumberRange\> |  |
+
 
 ## Methods
 
@@ -68,6 +73,7 @@ Applies a ceiling (upper bound).
 ```c#
 public NumberRangeSet Ceiling(decimal ceiling)
 ```
+
 
 #### Returns
 
@@ -82,9 +88,11 @@ Applies a floor (lower bound).
 ```c#
 public NumberRangeSet Floor(decimal floor)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | floor | decimal |  |
+
 
 #### Returns
 
@@ -100,6 +108,7 @@ Gets the complement, or inversion, of the set.
 public NumberRangeSet GetComplement()
 ```
 
+
 #### Returns
 
 
@@ -114,6 +123,7 @@ Calculates the intersection of two sets.
 public static NumberRangeSet Intersect(NumberRangeSet left, NumberRangeSet right)
 ```
 
+
 #### Returns
 
 The resulting set of ranges that exist in both parameters.
@@ -127,9 +137,11 @@ Calculates the set of one set omitting another.
 ```c#
 public NumberRangeSet Subtract(NumberRange range)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | range | NumberRange | The operating set. |
+
 
 #### Returns
 
@@ -144,10 +156,12 @@ Calculates the set of one set omitting another.
 ```c#
 public static NumberRangeSet Subtract(NumberRangeSet left, NumberRangeSet right)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | left | NumberRangeSet | The source set. |
 | right | NumberRangeSet | The operating set. |
+
 
 #### Returns
 
@@ -163,6 +177,7 @@ Returns a string that represents the current object.
 public override string ToString()
 ```
 
+
 #### Returns
 
 A string that represents the current object.
@@ -177,6 +192,7 @@ Calculates the union of two sets.
 public NumberRangeSet Union(NumberRange range)
 ```
 
+
 #### Returns
 
 The resulting set of ranges that exist in either parameters.
@@ -190,6 +206,7 @@ Calculates the union of two sets.
 ```c#
 public static NumberRangeSet Union(NumberRangeSet left, NumberRangeSet right)
 ```
+
 
 #### Returns
 

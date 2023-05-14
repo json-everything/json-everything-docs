@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonPath Class"
 bookmark: "JsonPath"
 permalink: "/api/JsonPath.Net/:title/"
-order: "9.07.10"
+order: "9.07.07"
 ---
 **Namespace:** Json.Path
 
@@ -18,9 +18,10 @@ Represents a JSON Path.
 
 | Name | Type | Summary |
 |---|---|---|
+| **IsSingular** | bool | Gets whether the path is a singular path.  That is, it can only return a nodelist<br>containing at most a single value. |
 | **Root** | JsonPath | Gets a JSON Path with only a global root and no selectors, namely `$`. |
 | **Scope** | PathScope | Gets the scope of the path. |
-| **IsSingular** | bool | Gets whether the path is a singular path.  That is, it can only return a nodelist<br>containing at most a single value. |
+
 ## Methods
 
 ### BuildString(StringBuilder builder)
@@ -32,9 +33,11 @@ Builds a string representation of the path using a **System.Text.StringBuilder**
 ```c#
 public void BuildString(StringBuilder builder)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | StringBuilder | The string builder. |
+
 
 ### Evaluate(JsonNode root, PathEvaluationOptions options)
 
@@ -45,10 +48,12 @@ Evaluates the path against a JSON instance.
 ```c#
 public PathResult Evaluate(JsonNode root, PathEvaluationOptions options)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | root | JsonNode | The root of the JSON instance. |
 | options | PathEvaluationOptions | Evaluation options. |
+
 
 #### Returns
 
@@ -63,10 +68,12 @@ Parses a **Json.Path.JsonPath** from a string.
 ```c#
 public static JsonPath Parse(string source, PathParsingOptions options)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | source | string | The source string. |
 | options | PathParsingOptions | (optional) The parsing options. |
+
 
 #### Returns
 
@@ -82,6 +89,7 @@ Returns a string that represents the current object.
 public override string ToString()
 ```
 
+
 #### Returns
 
 A string that represents the current object.
@@ -95,11 +103,13 @@ Parses a **Json.Path.JsonPath** from a string.
 ```c#
 public static bool TryParse(string source, out JsonPath path, PathParsingOptions options)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | source | string | The source string. |
 | options | out JsonPath | (optional) The parsing options. |
 | path | PathParsingOptions | The parsed path, if successful; otherwise null. |
+
 
 #### Returns
 

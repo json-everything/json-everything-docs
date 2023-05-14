@@ -3,7 +3,7 @@ layout: "page"
 title: "MaxLengthAttribute Class"
 bookmark: "MaxLengthAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.18"
+order: "9.05.32"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -26,6 +26,7 @@ Applies a `maxLength` keyword.
 |---|---|---|
 | **Length** | uint | The maximum length. |
 | **TypeId** | object |  |
+
 ## Constructors
 
 ### MaxLengthAttribute(uint length)
@@ -37,7 +38,9 @@ Creates a new **Json.Schema.Generation.MaxLengthAttribute** instance.
 ```c#
 public MaxLengthAttribute(uint length)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | length | uint | The value. |
+
 

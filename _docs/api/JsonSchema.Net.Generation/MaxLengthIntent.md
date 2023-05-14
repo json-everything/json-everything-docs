@@ -3,7 +3,7 @@ layout: "page"
 title: "MaxLengthIntent Class"
 bookmark: "MaxLengthIntent"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.54"
+order: "9.05.33"
 ---
 **Namespace:** Json.Schema.Generation.Intents
 
@@ -23,6 +23,7 @@ Provides intent to create a `maxLength` keyword.
 | Name | Type | Summary |
 |---|---|---|
 | **Value** | uint | The value. |
+
 ## Constructors
 
 ### MaxLengthIntent(uint value)
@@ -34,9 +35,11 @@ Creates a new **Json.Schema.Generation.Intents.MaxLengthIntent** instance.
 ```c#
 public MaxLengthIntent(uint value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | uint | The value. |
+
 
 ## Methods
 
@@ -49,7 +52,9 @@ Applies the keyword to the **Json.Schema.JsonSchemaBuilder**.
 ```c#
 public void Apply(JsonSchemaBuilder builder)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
+
 

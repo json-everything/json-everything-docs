@@ -23,6 +23,7 @@ Handles data references that are URIs.
 | Name | Type | Summary |
 |---|---|---|
 | **Target** | Uri | The URI target. |
+
 ## Constructors
 
 ### UriIdentifier(Uri target)
@@ -34,9 +35,11 @@ Creates a new instance of **Json.Schema.Data.UriIdentifier**.
 ```c#
 public UriIdentifier(Uri target)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | target | Uri | The target. |
+
 
 ## Methods
 
@@ -49,6 +52,7 @@ Returns a string that represents the current object.
 ```c#
 public override string ToString()
 ```
+
 
 #### Returns
 
@@ -63,10 +67,12 @@ Attempts to resolve the reference.
 ```c#
 public bool TryResolve(EvaluationContext context, out JsonNode value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | context | EvaluationContext | The schema evaluation context. |
 | value | out JsonNode | If return is true, the value at the indicated location. |
+
 
 #### Returns
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "SearchFunction Class"
 bookmark: "SearchFunction"
 permalink: "/api/JsonPath.Net/:title/"
-order: "9.07.23"
+order: "9.07.22"
 ---
 **Namespace:** Json.Path
 
@@ -27,6 +27,7 @@ a string matches a regular expression.
 | Name | Type | Summary |
 |---|---|---|
 | **Name** | string | Gets the function name. |
+
 ## Methods
 
 ### Evaluate(JsonNode value, JsonNode pattern)
@@ -38,10 +39,12 @@ Evaluates the function.
 ```c#
 public bool Evaluate(JsonNode value, JsonNode pattern)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | JsonNode | The value to test. |
 | pattern | JsonNode | The iregexp pattern to test against. |
+
 
 #### Returns
 

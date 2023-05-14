@@ -3,7 +3,7 @@ layout: "page"
 title: "ReadOnlyAttribute Class"
 bookmark: "ReadOnlyAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.30"
+order: "9.05.52"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -24,8 +24,9 @@ Applies a `readOnly` keyword.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Value** | bool | Whether the property should be read-only. |
 | **TypeId** | object |  |
+| **Value** | bool | Whether the property should be read-only. |
+
 ## Constructors
 
 ### ReadOnlyAttribute()
@@ -38,6 +39,7 @@ Creates a new **Json.Schema.Generation.ReadOnlyAttribute** instance with a value
 public ReadOnlyAttribute()
 ```
 
+
 ### ReadOnlyAttribute(bool value)
 
 Creates a new **Json.Schema.Generation.ReadOnlyAttribute** instance.
@@ -47,7 +49,9 @@ Creates a new **Json.Schema.Generation.ReadOnlyAttribute** instance.
 ```c#
 public ReadOnlyAttribute(bool value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | bool | The value. |
+
 

@@ -24,11 +24,13 @@ Represents the `data` keyword.
 | Name | Type | Summary |
 |---|---|---|
 | **Name** | string | The JSON name of the keyword. |
+
 ## Properties
 
 | Name | Type | Summary |
 |---|---|---|
 | **Keys** | IEnumerable\<JsonPointer\> | The collection of keywords and references. |
+
 ## Constructors
 
 ### UniqueKeysKeyword(IEnumerable\<JsonPointer\> references)
@@ -40,9 +42,11 @@ Creates an instance of the **Json.Schema.UniqueKeys.UniqueKeysKeyword** class.
 ```c#
 public UniqueKeysKeyword(IEnumerable<JsonPointer> references)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | references | IEnumerable\<JsonPointer\> | The collection of keywords and references. |
+
 
 ## Methods
 
@@ -55,9 +59,11 @@ Indicates whether the current object is equal to another object of the same type
 ```c#
 public bool Equals(UniqueKeysKeyword other)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | other | UniqueKeysKeyword | An object to compare with this object. |
+
 
 #### Returns
 
@@ -72,9 +78,11 @@ Determines whether the specified object is equal to the current object.
 ```c#
 public override bool Equals(object obj)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | obj | object | The object to compare with the current object. |
+
 
 #### Returns
 
@@ -89,9 +97,11 @@ Performs evaluation for the keyword.
 ```c#
 public void Evaluate(EvaluationContext context)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | context | EvaluationContext | Contextual details for the evaluation process. |
+
 
 ### GetHashCode()
 
@@ -102,6 +112,7 @@ Serves as the default hash function.
 ```c#
 public override int GetHashCode()
 ```
+
 
 #### Returns
 

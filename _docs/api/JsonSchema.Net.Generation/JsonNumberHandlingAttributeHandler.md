@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonNumberHandlingAttributeHandler Class"
 bookmark: "JsonNumberHandlingAttributeHandler"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.14"
+order: "9.05.26"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -17,7 +17,7 @@ order: "9.05.14"
 - IAttributeHandler\<JsonNumberHandlingAttribute\>
 - IAttributeHandler
 
-Handler for the **System.Text.Json.Serialization.JsonNumberHandlingAttribute**.
+Handler for the **Json.Schema.Generation.JsonNumberHandlingAttribute**.
 
 ## Methods
 
@@ -31,8 +31,10 @@ intents to the context.
 ```c#
 public void AddConstraints(SchemaGenerationContextBase context, Attribute attribute)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | context | SchemaGenerationContextBase | The generation context. |
 | attribute | Attribute |  |
+
 

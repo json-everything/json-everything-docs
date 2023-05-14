@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonLogic Class"
 bookmark: "JsonLogic"
 permalink: "/api/JsonLogic/:title/"
-order: "9.10.00"
+order: "9.10.09"
 ---
 **Namespace:** Json.Logic
 
@@ -25,10 +25,12 @@ Creates a `+` ("add") rule.
 ```c#
 public static Rule Add(Rule a, params Rule[] more)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | a | Rule | The first rule. |
 | more | params Rule[] | Subsequent rules. |
+
 
 #### Returns
 
@@ -43,10 +45,12 @@ Creates an `all` rule.
 ```c#
 public static Rule All(Rule input, Rule rule)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | input | Rule | The input rule. |
 | rule | Rule | The predicate to test by. |
+
 
 #### Returns
 
@@ -61,10 +65,12 @@ Creates an `and` rule.
 ```c#
 public static Rule And(Rule a, params Rule[] more)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | a | Rule | The first rule. |
 | more | params Rule[] | Subsequent rules. |
+
 
 #### Returns
 
@@ -79,11 +85,13 @@ Creates a three-argument `&lt;` ("exclusive between") rule.
 ```c#
 public static Rule BetweenExclusive(Rule a, Rule b, Rule c)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | a | Rule | The lower limit rule. |
 | b | Rule | The rule. |
 | c | Rule | The upper limit rule. |
+
 
 #### Returns
 
@@ -98,11 +106,13 @@ Creates a three-argument `&lt;=` ("inclusive between") rule.
 ```c#
 public static Rule BetweenInclusive(Rule a, Rule b, Rule c)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | a | Rule | The lower limit rule. |
 | b | Rule | The second rule. |
 | c | Rule | The upper limit rule. |
+
 
 #### Returns
 
@@ -117,9 +127,11 @@ Creates a `!!` ("boolean cast") rule.
 ```c#
 public static Rule BoolCast(Rule value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | Rule | The rule to negate. |
+
 
 #### Returns
 
@@ -134,10 +146,12 @@ Creates a `cat` ("concatenation") rule.
 ```c#
 public static Rule Cat(Rule a, params Rule[] more)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | a | Rule | The first rule. |
 | more | params Rule[] | Subsequent rules. |
+
 
 #### Returns
 
@@ -152,10 +166,12 @@ Creates a `/` ("divide") rule.
 ```c#
 public static Rule Divide(Rule a, Rule b)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | a | Rule | The first rule. |
 | b | Rule |  |
+
 
 #### Returns
 
@@ -170,10 +186,12 @@ Creates a `filter` rule.
 ```c#
 public static Rule Filter(Rule input, Rule rule)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | input | Rule | The input rule. |
 | rule | Rule | The predicate to test by. |
+
 
 #### Returns
 
@@ -188,9 +206,11 @@ Creates an `if` rule.
 ```c#
 public static Rule If(params Rule[] components)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | components | params Rule[] | The rule chain to process. |
+
 
 #### Returns
 
@@ -205,10 +225,12 @@ Creates a `none` rule.
 ```c#
 public static Rule In(Rule test, Rule input)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | test | Rule | The predicate to test by. |
 | input | Rule | The input rule. |
+
 
 #### Returns
 
@@ -223,10 +245,12 @@ Creates a `&lt;` ("less than") rule.
 ```c#
 public static Rule LessThan(Rule a, Rule b)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | a | Rule | The lower limit rule. |
 | b | Rule | The upper limit rule. |
+
 
 #### Returns
 
@@ -241,10 +265,12 @@ Creates a `&lt;=` ("less than or equal") rule.
 ```c#
 public static Rule LessThanOrEqual(Rule a, Rule b)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | a | Rule | The lower limit rule. |
 | b | Rule | The upper limit rule. |
+
 
 #### Returns
 
@@ -259,9 +285,11 @@ Creates a rule that stands in for a literal JSON value.
 ```c#
 public static Rule Literal(JsonNode value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | JsonNode | The JSON value. |
+
 
 #### Returns
 
@@ -276,9 +304,11 @@ Functions as a no-op.  Processes the rule, then logs and returns the output.
 ```c#
 public static Rule Log(Rule log)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | log | Rule | The rule to log. |
+
 
 #### Returns
 
@@ -293,10 +323,12 @@ Creates a `==` ("loose equal") rule.
 ```c#
 public static Rule LooseEquals(Rule a, Rule b)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | a | Rule | The first rule. |
 | b | Rule | The second rule. |
+
 
 #### Returns
 
@@ -311,10 +343,12 @@ Creates a `!=` ("loose not equal") rule.
 ```c#
 public static Rule LooseNotEquals(Rule a, Rule b)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | a | Rule | The first rule. |
 | b | Rule | The second rule. |
+
 
 #### Returns
 
@@ -329,10 +363,12 @@ Creates a `map` rule.
 ```c#
 public static Rule Map(Rule input, Rule rule)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | input | Rule | The input rule. |
 | rule | Rule | The predicate to test by. |
+
 
 #### Returns
 
@@ -347,10 +383,12 @@ Creates a `max` rule.
 ```c#
 public static Rule Max(Rule a, params Rule[] more)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | a | Rule | The first rule. |
 | more | params Rule[] | Subsequent rules. |
+
 
 #### Returns
 
@@ -365,9 +403,11 @@ Creates a `merge` rule.
 ```c#
 public static Rule Merge(params Rule[] items)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | items | params Rule[] | The items to merge. |
+
 
 #### Returns
 
@@ -382,10 +422,12 @@ Creates a `min` rule.
 ```c#
 public static Rule Min(Rule a, params Rule[] more)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | a | Rule | The first rule. |
 | more | params Rule[] | Subsequent rules. |
+
 
 #### Returns
 
@@ -400,9 +442,11 @@ Creates a `missing` rule.
 ```c#
 public static Rule Missing(params Rule[] components)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | components | params Rule[] | The missing components. |
+
 
 #### Returns
 
@@ -417,10 +461,12 @@ Creates a `missing-some` rule.
 ```c#
 public static Rule MissingSome(Rule requiredCount, Rule components)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | requiredCount | Rule | The required count. |
 | components | Rule | The missing components. |
+
 
 #### Returns
 
@@ -435,10 +481,12 @@ Creates a `%` ("modulus") rule.
 ```c#
 public static Rule Modulus(Rule a, Rule b)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | a | Rule | The first rule. |
 | b | Rule |  |
+
 
 #### Returns
 
@@ -453,10 +501,12 @@ Creates a `&gt;` ("more than") rule.
 ```c#
 public static Rule MoreThan(Rule a, Rule b)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | a | Rule | The upper limit rule. |
 | b | Rule | The lower limit rule. |
+
 
 #### Returns
 
@@ -471,10 +521,12 @@ Creates a `&gt;=` ("more than or equal") rule.
 ```c#
 public static Rule MoreThanOrEqual(Rule a, Rule b)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | a | Rule | The upper limit rule. |
 | b | Rule | The lower limit rule. |
+
 
 #### Returns
 
@@ -489,10 +541,12 @@ Creates a `*` ("multiply") rule.
 ```c#
 public static Rule Multiply(Rule a, params Rule[] more)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | a | Rule | The first rule. |
 | more | params Rule[] | Subsequent rules. |
+
 
 #### Returns
 
@@ -507,10 +561,12 @@ Creates a `none` rule.
 ```c#
 public static Rule None(Rule input, Rule rule)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | input | Rule | The input rule. |
 | rule | Rule | The predicate to test by. |
+
 
 #### Returns
 
@@ -525,9 +581,11 @@ Creates a `!` ("not") rule.
 ```c#
 public static Rule Not(Rule value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | Rule | The rule to negate. |
+
 
 #### Returns
 
@@ -542,10 +600,12 @@ Creates an `or` rule.
 ```c#
 public static Rule Or(Rule a, params Rule[] more)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | a | Rule | The first rule. |
 | more | params Rule[] | Subsequent rules. |
+
 
 #### Returns
 
@@ -560,11 +620,13 @@ Creates a `reduce` rule.
 ```c#
 public static Rule Reduce(Rule input, Rule rule, Rule initial)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | input | Rule | The input rule. |
 | rule | Rule | The predicate to test by. |
 | initial | Rule | The initial rule. |
+
 
 #### Returns
 
@@ -579,10 +641,12 @@ Creates a `some` ("any") rule.
 ```c#
 public static Rule Some(Rule input, Rule rule)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | input | Rule | The input rule. |
 | rule | Rule | The predicate to test by. |
+
 
 #### Returns
 
@@ -597,10 +661,12 @@ Creates a `===` ("strict equal") rule.
 ```c#
 public static Rule StrictEquals(Rule a, Rule b)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | a | Rule | The first rule. |
 | b | Rule | The second rule. |
+
 
 #### Returns
 
@@ -615,10 +681,12 @@ Creates a `!==` ("strict not equal") rule.
 ```c#
 public static Rule StrictNotEquals(Rule a, Rule b)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | a | Rule | The first rule. |
 | b | Rule | The second rule. |
+
 
 #### Returns
 
@@ -633,10 +701,12 @@ Creates a `substr` ("concatenation") rule.
 ```c#
 public static Rule Substr(Rule input, Rule start)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | input | Rule | The input rule. |
 | start | Rule | The start rule. |
+
 
 #### Returns
 
@@ -651,11 +721,13 @@ Creates a `substr` ("concatenation") rule.
 ```c#
 public static Rule Substr(Rule input, Rule start, Rule count)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | input | Rule | The input rule. |
 | start | Rule | The start rule. |
 | count | Rule | The count rule. |
+
 
 #### Returns
 
@@ -670,10 +742,12 @@ Creates a `-` ("subtract") rule.
 ```c#
 public static Rule Subtract(Rule a, params Rule[] more)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | a | Rule | The first rule. |
 | more | params Rule[] | Subsequent rules. |
+
 
 #### Returns
 
@@ -688,9 +762,11 @@ Creates a `var` rule that accesses data.
 ```c#
 public static Rule Variable(string path)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | path | string |  |
+
 
 #### Returns
 
@@ -705,10 +781,12 @@ Creates a `var` rule that accesses data.
 ```c#
 public static Rule Variable(string path, Rule defaultValue)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | path | string | The dot-delimited path. |
 | defaultValue | Rule | A default value to use if the path is not found. |
+
 
 #### Returns
 

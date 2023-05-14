@@ -3,7 +3,7 @@ layout: "page"
 title: "SchemaValueType Enum"
 bookmark: "SchemaValueType"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.94"
+order: "9.01.96"
 ---
 # SchemaValueType Enum
 
@@ -27,3 +27,4 @@ types can be bit-wise OR'd `|` together.
 | **Number** | Indicates the value should be a number. |
 | **Integer** | Indicates the value should be an integer. |
 | **Null** | Indicates the value should be null. |
+

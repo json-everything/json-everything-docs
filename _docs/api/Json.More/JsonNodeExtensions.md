@@ -25,10 +25,12 @@ Gets JSON string representation for **System.Text.Json.Nodes.JsonNode**, includi
 ```c#
 public static string AsJsonString(this JsonNode node, JsonSerializerOptions options)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | node | JsonNode | A node. |
 | options | JsonSerializerOptions | Serializer options |
+
 
 #### Returns
 
@@ -43,9 +45,11 @@ Creates a copy of a node by passing it through the serializer.
 ```c#
 public static JsonNode Copy(this JsonNode source)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | source | JsonNode | A node. |
+
 
 #### Returns
 
@@ -65,10 +69,12 @@ Generate a consistent JSON-value-based hash code for the element.
 ```c#
 public static int GetEquivalenceHashCode(this JsonNode node, int maxHashDepth)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | node | JsonNode | The element. |
 | maxHashDepth | int | Maximum depth to calculate.  Default is -1 which utilizes the entire structure without limitation. |
+
 
 #### Returns
 
@@ -90,9 +96,11 @@ Gets a node's underlying numeric value if it's an integer.
 ```c#
 public static long? GetInteger(this JsonValue value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | JsonValue | A JSON value. |
+
 
 #### Returns
 
@@ -107,9 +115,11 @@ Gets a node's underlying numeric value.
 ```c#
 public static decimal? GetNumber(this JsonValue value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | JsonValue | A JSON value. |
+
 
 #### Returns
 
@@ -125,10 +135,12 @@ its JSON structure.
 ```c#
 public static string GetPathFromRoot(this JsonNode node, bool useShorthand)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | node | JsonNode | The node to find. |
 | useShorthand | bool | Determines whether shorthand syntax is used when possible, e.g. `$.foo`. |
+
 
 #### Returns
 
@@ -144,9 +156,11 @@ its JSON structure.
 ```c#
 public static string GetPointerFromRoot(this JsonNode node)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | node | JsonNode | The node to find. |
+
 
 #### Returns
 
@@ -161,10 +175,12 @@ Determines JSON-compatible equivalence.
 ```c#
 public static bool IsEquivalentTo(this JsonNode a, JsonNode b)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | a | JsonNode | The first element. |
 | b | JsonNode | The second element. |
+
 
 #### Returns
 
@@ -179,9 +195,11 @@ Creates a new **System.Text.Json.Nodes.JsonArray** from an enumerable of nodes.
 ```c#
 public static JsonArray ToJsonArray(this IEnumerable<JsonNode> nodes)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | nodes | IEnumerable\<JsonNode\> | The nodes. |
+
 
 #### Returns
 
@@ -197,12 +215,14 @@ and catches argument exceptions.
 ```c#
 public static bool TryGetValue(this JsonObject obj, string propertyName, out JsonNode node, out Exception e)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | obj | JsonObject | The JSON object. |
 | propertyName | string | The property name |
 | node | out JsonNode | The node under the property name if it exists and is singular; null otherwise. |
 | e | out Exception | An exception if one was thrown during the access attempt. |
+
 
 #### Returns
 

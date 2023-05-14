@@ -3,7 +3,7 @@ layout: "page"
 title: "ISchemaRefiner Interface"
 bookmark: "ISchemaRefiner"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.12"
+order: "9.05.23"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -29,9 +29,11 @@ Runs the refiner.
 ```c#
 public abstract void Run(SchemaGenerationContextBase context)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | context | SchemaGenerationContextBase |  |
+
 
 ### ShouldRun(SchemaGenerationContextBase context)
 
@@ -42,9 +44,11 @@ Determines if the refiner should run.
 ```c#
 public abstract bool ShouldRun(SchemaGenerationContextBase context)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | context | SchemaGenerationContextBase |  |
+
 
 #### Returns
 

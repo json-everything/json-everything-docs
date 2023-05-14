@@ -3,7 +3,7 @@ layout: "page"
 title: "PatternAttribute Class"
 bookmark: "PatternAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.26"
+order: "9.05.45"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -24,8 +24,9 @@ Applies a `pattern` keyword.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Value** | string | The regular expression pattern. |
 | **TypeId** | object |  |
+| **Value** | string | The regular expression pattern. |
+
 ## Constructors
 
 ### PatternAttribute(string value)
@@ -37,7 +38,9 @@ Creates a new **Json.Schema.Generation.PatternAttribute** instance.
 ```c#
 public PatternAttribute(string value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | string | The value. |
+
 

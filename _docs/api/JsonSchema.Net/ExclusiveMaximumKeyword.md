@@ -3,7 +3,7 @@ layout: "page"
 title: "ExclusiveMaximumKeyword Class"
 bookmark: "ExclusiveMaximumKeyword"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.34"
+order: "9.01.32"
 ---
 **Namespace:** Json.Schema
 
@@ -24,11 +24,13 @@ Handles `exclusiveMaximum`.
 | Name | Type | Summary |
 |---|---|---|
 | **Name** | string | The JSON name of the keyword. |
+
 ## Properties
 
 | Name | Type | Summary |
 |---|---|---|
 | **Value** | decimal | The maximum value. |
+
 ## Constructors
 
 ### ExclusiveMaximumKeyword(decimal value)
@@ -40,9 +42,11 @@ Creates a new **Json.Schema.ExclusiveMaximumKeyword**.
 ```c#
 public ExclusiveMaximumKeyword(decimal value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | decimal | The maximum value. |
+
 
 ## Methods
 
@@ -55,9 +59,11 @@ Indicates whether the current object is equal to another object of the same type
 ```c#
 public bool Equals(ExclusiveMaximumKeyword other)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | other | ExclusiveMaximumKeyword | An object to compare with this object. |
+
 
 #### Returns
 
@@ -72,9 +78,11 @@ Determines whether the specified object is equal to the current object.
 ```c#
 public override bool Equals(object obj)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | obj | object | The object to compare with the current object. |
+
 
 #### Returns
 
@@ -89,9 +97,11 @@ Performs evaluation for the keyword.
 ```c#
 public void Evaluate(EvaluationContext context)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | context | EvaluationContext | Contextual details for the evaluation process. |
+
 
 ### GetHashCode()
 
@@ -102,6 +112,7 @@ Serves as the default hash function.
 ```c#
 public override int GetHashCode()
 ```
+
 
 #### Returns
 

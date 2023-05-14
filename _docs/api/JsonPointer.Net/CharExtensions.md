@@ -25,9 +25,11 @@ Translates the character to its hexadecimal numeric value.
 ```c#
 public static int GetHexadecimalValue(this char c)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | c | char | A **System.Char**. |
+
 
 #### Returns
 
@@ -42,9 +44,11 @@ Determines if the char represents a hexadecimal value.
 ```c#
 public static bool IsHexadecimal(this char c)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | c | char | A **System.Char**. |
+
 
 #### Returns
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "ILog Interface"
 bookmark: "ILog"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.46"
+order: "9.01.44"
 ---
 **Namespace:** Json.Schema
 
@@ -23,8 +23,10 @@ Logs a message with a newline.
 ```c#
 public abstract void Write(Func<string> message, int indent)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | message | Func\<string\> | The message. |
 | indent | int |  |
+
 

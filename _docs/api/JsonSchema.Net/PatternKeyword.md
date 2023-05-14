@@ -3,7 +3,7 @@ layout: "page"
 title: "PatternKeyword Class"
 bookmark: "PatternKeyword"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.74"
+order: "9.01.73"
 ---
 **Namespace:** Json.Schema
 
@@ -24,12 +24,14 @@ Handles `pattern`.
 | Name | Type | Summary |
 |---|---|---|
 | **Name** | string | The JSON name of the keyword. |
+
 ## Properties
 
 | Name | Type | Summary |
 |---|---|---|
-| **Value** | Regex | The regular expression. |
 | **InvalidPattern** | string | If the pattern is invalid or unsupported by **System.Text.RegularExpressions.Regex**, it will appear here. |
+| **Value** | Regex | The regular expression. |
+
 ## Constructors
 
 ### PatternKeyword(Regex value)
@@ -41,9 +43,11 @@ Creates a new **Json.Schema.PatternKeyword**.
 ```c#
 public PatternKeyword(Regex value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | Regex | The regular expression. |
+
 
 ## Methods
 
@@ -56,9 +60,11 @@ Indicates whether the current object is equal to another object of the same type
 ```c#
 public bool Equals(PatternKeyword other)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | other | PatternKeyword | An object to compare with this object. |
+
 
 #### Returns
 
@@ -73,9 +79,11 @@ Determines whether the specified object is equal to the current object.
 ```c#
 public override bool Equals(object obj)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | obj | object | The object to compare with the current object. |
+
 
 #### Returns
 
@@ -90,9 +98,11 @@ Performs evaluation for the keyword.
 ```c#
 public void Evaluate(EvaluationContext context)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | context | EvaluationContext | Contextual details for the evaluation process. |
+
 
 ### GetHashCode()
 
@@ -103,6 +113,7 @@ Serves as the default hash function.
 ```c#
 public override int GetHashCode()
 ```
+
 
 #### Returns
 

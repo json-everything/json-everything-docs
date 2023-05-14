@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonNodeExtensions Class"
 bookmark: "JsonNodeExtensions"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.51"
+order: "9.01.49"
 ---
 **Namespace:** Json.Schema
 
@@ -25,9 +25,11 @@ Provides the JSON Schema type of a node.
 ```c#
 public static SchemaValueType GetSchemaValueType(this JsonNode node)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | node | JsonNode | The node. |
+
 
 #### Returns
 
@@ -43,9 +45,11 @@ therefore be processed.
 ```c#
 public static bool VerifyJsonObject(this JsonObject obj)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | obj | JsonObject | The object. |
+
 
 #### Returns
 

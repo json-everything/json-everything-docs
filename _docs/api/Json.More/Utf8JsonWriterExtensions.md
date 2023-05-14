@@ -25,8 +25,10 @@ Writes a **System.Text.Json.JsonElement** to the stream.
 ```c#
 public static void WriteValue(this Utf8JsonWriter writer, JsonElement element)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | writer | Utf8JsonWriter | The JSON stream writer. |
 | element | JsonElement | The element to write. |
+
 

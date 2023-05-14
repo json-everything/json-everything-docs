@@ -25,9 +25,11 @@ Converts all of the documents in a YAML stream to **System.Text.Json.Nodes.JsonN
 ```c#
 public static IEnumerable<JsonNode> ToJsonNode(this YamlStream yaml)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | yaml | YamlStream | The YAML stream. |
+
 
 #### Returns
 
@@ -42,9 +44,11 @@ Converts a single YAML document to a **System.Text.Json.Nodes.JsonNode**.
 ```c#
 public static JsonNode ToJsonNode(this YamlDocument yaml)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | yaml | YamlDocument | The YAML document. |
+
 
 #### Returns
 
@@ -59,9 +63,11 @@ Converts a single YAML node to a **System.Text.Json.Nodes.JsonNode**.
 ```c#
 public static JsonNode ToJsonNode(this YamlNode yaml)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | yaml | YamlNode | The YAML node. |
+
 
 #### Returns
 
@@ -76,9 +82,11 @@ Converts a single JSON node to a **YamlDotNet.RepresentationModel.YamlNode**.
 ```c#
 public static YamlNode ToYamlNode(this JsonNode json)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | json | JsonNode |  |
+
 
 #### Returns
 

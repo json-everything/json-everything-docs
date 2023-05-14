@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonSchemaBuilderExtensions Class"
 bookmark: "JsonSchemaBuilderExtensions"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.15"
+order: "9.05.27"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -25,10 +25,12 @@ Generates a schema from a CLR type.
 ```c#
 public static JsonSchemaBuilder FromType(this JsonSchemaBuilder builder, SchemaGeneratorConfiguration configuration)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The schema builder. |
 | configuration | SchemaGeneratorConfiguration | The generator configuration. |
+
 
 #### Returns
 
@@ -43,11 +45,13 @@ Generates a schema from a CLR type.
 ```c#
 public static JsonSchemaBuilder FromType(this JsonSchemaBuilder builder, Type type, SchemaGeneratorConfiguration configuration)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The schema builder. |
 | type | Type | The type to generate. |
 | configuration | SchemaGeneratorConfiguration | The generator configuration. |
+
 
 #### Returns
 

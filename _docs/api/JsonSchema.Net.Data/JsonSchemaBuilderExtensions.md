@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonSchemaBuilderExtensions Class"
 bookmark: "JsonSchemaBuilderExtensions"
 permalink: "/api/JsonSchema.Net.Data/:title/"
-order: "9.02.04"
+order: "9.02.03"
 ---
 **Namespace:** Json.Schema.Data
 
@@ -25,10 +25,12 @@ Adds a `data` keyword.
 ```c#
 public static JsonSchemaBuilder Data(this JsonSchemaBuilder builder, IReadOnlyDictionary<string, string> data)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | data | IReadOnlyDictionary\<string, string\> | The collection of keywords and references. |
+
 
 #### Returns
 
@@ -43,10 +45,12 @@ Adds a `data` keyword.
 ```c#
 public static JsonSchemaBuilder Data(this JsonSchemaBuilder builder, params (string name, string reference)[] data)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | data | params (string name, string reference)[] | The collection of keywords and references. |
+
 
 #### Returns
 

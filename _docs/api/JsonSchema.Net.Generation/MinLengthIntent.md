@@ -3,7 +3,7 @@ layout: "page"
 title: "MinLengthIntent Class"
 bookmark: "MinLengthIntent"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.57"
+order: "9.05.40"
 ---
 **Namespace:** Json.Schema.Generation.Intents
 
@@ -23,6 +23,7 @@ Provides intent to create a `minLength` keyword.
 | Name | Type | Summary |
 |---|---|---|
 | **Value** | uint | The value. |
+
 ## Constructors
 
 ### MinLengthIntent(uint value)
@@ -34,9 +35,11 @@ Creates a new **Json.Schema.Generation.Intents.MinLengthIntent** instance.
 ```c#
 public MinLengthIntent(uint value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | uint | The value. |
+
 
 ## Methods
 
@@ -49,7 +52,9 @@ Applies the keyword to the **Json.Schema.JsonSchemaBuilder**.
 ```c#
 public void Apply(JsonSchemaBuilder builder)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
+
 

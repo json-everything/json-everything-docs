@@ -3,7 +3,7 @@ layout: "page"
 title: "Format Class"
 bookmark: "Format"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.36"
+order: "9.01.34"
 ---
 **Namespace:** Json.Schema
 
@@ -19,6 +19,7 @@ Represents a format.
 | Name | Type | Summary |
 |---|---|---|
 | **Key** | string | The format key. |
+
 ## Constructors
 
 ### Format(string key)
@@ -30,9 +31,11 @@ Creates a new **Json.Schema.Format**.
 ```c#
 public Format(string key)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | key | string | The format key. |
+
 
 ## Methods
 
@@ -45,10 +48,12 @@ Validates an instance against a format and provides an error message.
 ```c#
 public virtual bool Validate(JsonNode node, out string errorMessage)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | node | JsonNode | The node to validate. |
 | errorMessage | out string | An error message. |
+
 
 #### Returns
 

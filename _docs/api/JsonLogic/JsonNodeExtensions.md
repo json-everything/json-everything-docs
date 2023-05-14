@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonNodeExtensions Class"
 bookmark: "JsonNodeExtensions"
 permalink: "/api/JsonLogic/:title/"
-order: "9.10.02"
+order: "9.10.11"
 ---
 **Namespace:** Json.Logic
 
@@ -25,9 +25,11 @@ Flattens an array into its root components (removes intermediate arrays).
 ```c#
 public static IEnumerable<JsonNode> Flatten(this JsonNode root)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | root | JsonNode | The element. |
+
 
 #### Returns
 
@@ -42,9 +44,11 @@ Determines whether a value can be considered as `true`.
 ```c#
 public static bool IsTruthy(this JsonNode node)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | node | JsonNode | The element. |
+
 
 #### Returns
 
@@ -66,10 +70,12 @@ Provides loose equality comparison of **System.Text.Json.Nodes.JsonNode** values
 ```c#
 public static bool LooseEquals(this JsonNode a, JsonNode b)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | a | JsonNode | The first value. |
 | b | JsonNode | The second value. |
+
 
 #### Returns
 
@@ -88,9 +94,11 @@ Provides a loose-cast to a number.
 ```c#
 public static decimal? Numberify(this JsonNode node)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | node | JsonNode | The node. |
+
 
 #### Returns
 
@@ -112,9 +120,11 @@ Provides a loose-cast to a string.
 ```c#
 public static string Stringify(this JsonNode node)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | node | JsonNode | The node. |
+
 
 #### Returns
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "UriExtensions Class"
 bookmark: "UriExtensions"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.104"
+order: "9.01.106"
 ---
 **Namespace:** Json.Schema
 
@@ -25,9 +25,11 @@ Gets the Uri to the parent object.
 ```c#
 public static Uri GetParentUri(this Uri uri)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | uri | Uri | The **System.Uri** of a resource, for which the parent Uri should be retrieved. |
+
 
 #### Returns
 

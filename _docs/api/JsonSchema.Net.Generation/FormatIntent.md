@@ -3,7 +3,7 @@ layout: "page"
 title: "FormatIntent Class"
 bookmark: "FormatIntent"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.50"
+order: "9.05.16"
 ---
 **Namespace:** Json.Schema.Generation.Intents
 
@@ -23,6 +23,7 @@ Provides intent to create a `format` keyword.
 | Name | Type | Summary |
 |---|---|---|
 | **Format** | Format | The format. |
+
 ## Constructors
 
 ### FormatIntent(Format format)
@@ -34,9 +35,11 @@ Creates a new **Json.Schema.Generation.Intents.FormatIntent** instance.
 ```c#
 public FormatIntent(Format format)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | format | Format | The format. |
+
 
 ## Methods
 
@@ -49,7 +52,9 @@ Applies the keyword to the **Json.Schema.JsonSchemaBuilder**.
 ```c#
 public void Apply(JsonSchemaBuilder builder)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
+
 

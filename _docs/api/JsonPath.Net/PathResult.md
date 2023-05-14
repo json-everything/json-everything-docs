@@ -3,7 +3,7 @@ layout: "page"
 title: "PathResult Class"
 bookmark: "PathResult"
 permalink: "/api/JsonPath.Net/:title/"
-order: "9.07.20"
+order: "9.07.19"
 ---
 **Namespace:** Json.Path
 
@@ -18,5 +18,6 @@ The results of a JSON Path evaluation against a JSON instance.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Matches** | NodeList | The list of matches. |
 | **Error** | string | An error, if any, that occurred during evaluation. |
+| **Matches** | NodeList | The list of matches. |
+

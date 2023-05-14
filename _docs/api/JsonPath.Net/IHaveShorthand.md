@@ -24,6 +24,7 @@ Appends the shorthand syntax string to a string builder.
 public abstract void AppendShorthandString(StringBuilder builder)
 ```
 
+
 ### ToShorthandString()
 
 Gets the shorthand syntax string.
@@ -33,6 +34,7 @@ Gets the shorthand syntax string.
 ```c#
 public abstract string ToShorthandString()
 ```
+
 
 #### Returns
 

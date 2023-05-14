@@ -25,9 +25,11 @@ Gets a collection-oriented hash code by combining the hash codes of its elements
 ```c#
 public static int GetCollectionHashCode(this IEnumerable<T> collection)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | collection | IEnumerable\<T\> | The collection of elements. |
+
 
 #### Returns
 

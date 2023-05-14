@@ -3,7 +3,7 @@ layout: "page"
 title: "PropertyDependenciesKeyword Class"
 bookmark: "PropertyDependenciesKeyword"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.79"
+order: "9.01.80"
 ---
 **Namespace:** Json.Schema
 
@@ -25,11 +25,13 @@ Handles the `propertyDependencies` keyword.
 | Name | Type | Summary |
 |---|---|---|
 | **Name** | string | The JSON name of the keyword. |
+
 ## Properties
 
 | Name | Type | Summary |
 |---|---|---|
 | **Dependencies** | IReadOnlyDictionary\<string, PropertyDependency\> | Gets the collection of dependencies. |
+
 ## Constructors
 
 ### PropertyDependenciesKeyword(IReadOnlyDictionary\<string, PropertyDependency\> dependencies)
@@ -41,9 +43,11 @@ Creates a new instance of the **Json.Schema.PropertyDependenciesKeyword**.
 ```c#
 public PropertyDependenciesKeyword(IReadOnlyDictionary<string, PropertyDependency> dependencies)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | dependencies | IReadOnlyDictionary\<string, PropertyDependency\> | The collection of dependencies. |
+
 
 ## Methods
 
@@ -56,9 +60,11 @@ Indicates whether the current object is equal to another object of the same type
 ```c#
 public bool Equals(PropertyDependenciesKeyword other)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | other | PropertyDependenciesKeyword | An object to compare with this object. |
+
 
 #### Returns
 
@@ -73,9 +79,11 @@ Determines whether the specified object is equal to the current object.
 ```c#
 public override bool Equals(object obj)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | obj | object | The object to compare with the current object. |
+
 
 #### Returns
 
@@ -90,9 +98,11 @@ Performs evaluation for the keyword.
 ```c#
 public void Evaluate(EvaluationContext context)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | context | EvaluationContext | Contextual details for the evaluation process. |
+
 
 ### GetHashCode()
 
@@ -103,6 +113,7 @@ Serves as the default hash function.
 ```c#
 public override int GetHashCode()
 ```
+
 
 #### Returns
 

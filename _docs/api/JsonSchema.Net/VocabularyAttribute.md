@@ -3,7 +3,7 @@ layout: "page"
 title: "VocabularyAttribute Class"
 bookmark: "VocabularyAttribute"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.107"
+order: "9.01.110"
 ---
 **Namespace:** Json.Schema
 
@@ -22,6 +22,7 @@ Indicates the ID of the vocabulary a keyword belongs to.
 |---|---|---|
 | **Id** | Uri | The vocabulary ID. |
 | **TypeId** | object |  |
+
 ## Constructors
 
 ### VocabularyAttribute(string id)
@@ -33,7 +34,9 @@ Creates a new **Json.Schema.VocabularyAttribute**.
 ```c#
 public VocabularyAttribute(string id)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | id | string | The vocabulary ID. |
+
 

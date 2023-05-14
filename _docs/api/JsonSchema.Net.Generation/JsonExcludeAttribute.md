@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonExcludeAttribute Class"
 bookmark: "JsonExcludeAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.13"
+order: "9.05.25"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -29,6 +29,7 @@ a property but schema generation should ignore it.
 | Name | Type | Summary |
 |---|---|---|
 | **TypeId** | object |  |
+
 ## Constructors
 
 ### JsonExcludeAttribute()
@@ -40,4 +41,5 @@ Initializes a new instance of **Json.Schema.Generation.JsonExcludeAttribute**.
 ```c#
 public JsonExcludeAttribute()
 ```
+
 

@@ -25,10 +25,12 @@ Determines JSON-compatible equivalence.
 ```c#
 public static bool IsEquivalentTo(this JsonDocument a, JsonDocument b)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | a | JsonDocument | The first document. |
 | b | JsonDocument | The second document. |
+
 
 #### Returns
 
@@ -43,10 +45,12 @@ Converts an object to a **System.Text.Json.JsonDocument**.
 ```c#
 public static JsonDocument ToJsonDocument(this T value, JsonSerializerOptions options)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | T | The value to convert. |
 | options | JsonSerializerOptions | (optional) JSON serialization options. |
+
 
 #### Returns
 

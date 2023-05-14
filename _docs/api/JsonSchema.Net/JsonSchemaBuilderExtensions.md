@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonSchemaBuilderExtensions Class"
 bookmark: "JsonSchemaBuilderExtensions"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.54"
+order: "9.01.53"
 ---
 **Namespace:** Json.Schema
 
@@ -25,10 +25,12 @@ Add an `additionalItems` keyword.
 ```c#
 public static JsonSchemaBuilder AdditionalItems(this JsonSchemaBuilder builder, JsonSchema schema)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | schema | JsonSchema | The schema for `additionalItems`. |
+
 
 #### Returns
 
@@ -43,10 +45,12 @@ Add an `additionalProperties` keyword.
 ```c#
 public static JsonSchemaBuilder AdditionalProperties(this JsonSchemaBuilder builder, JsonSchema schema)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | schema | JsonSchema | The schema for `additionalProperties`. |
+
 
 #### Returns
 
@@ -61,10 +65,12 @@ Add an `allOf` keyword.
 ```c#
 public static JsonSchemaBuilder AllOf(this JsonSchemaBuilder builder, params JsonSchema[] schemas)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | schemas | params JsonSchema[] | The schemas for `allOf`. |
+
 
 #### Returns
 
@@ -79,10 +85,12 @@ Add an `allOf` keyword.
 ```c#
 public static JsonSchemaBuilder AllOf(this JsonSchemaBuilder builder, IEnumerable<JsonSchema> schemas)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | schemas | IEnumerable\<JsonSchema\> | The schemas for `allOf`. |
+
 
 #### Returns
 
@@ -97,10 +105,12 @@ Add an `$anchor` keyword.
 ```c#
 public static JsonSchemaBuilder Anchor(this JsonSchemaBuilder builder, string reference)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | reference | string | The anchor reference. |
+
 
 #### Returns
 
@@ -115,10 +125,12 @@ Add an `anyOf` keyword.
 ```c#
 public static JsonSchemaBuilder AnyOf(this JsonSchemaBuilder builder, params JsonSchema[] schemas)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | schemas | params JsonSchema[] | The schemas for `anyOf`. |
+
 
 #### Returns
 
@@ -133,10 +145,12 @@ Add an `anyOf` keyword.
 ```c#
 public static JsonSchemaBuilder AnyOf(this JsonSchemaBuilder builder, IEnumerable<JsonSchema> schemas)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | schemas | IEnumerable\<JsonSchema\> | The schemas for `anyOf`. |
+
 
 #### Returns
 
@@ -151,10 +165,12 @@ Add a `$comment` keyword.
 ```c#
 public static JsonSchemaBuilder Comment(this JsonSchemaBuilder builder, string comment)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | comment | string | The comment. |
+
 
 #### Returns
 
@@ -169,10 +185,12 @@ Add a `const` keyword.
 ```c#
 public static JsonSchemaBuilder Const(this JsonSchemaBuilder builder, JsonNode node)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | node | JsonNode | The constant value. |
+
 
 #### Returns
 
@@ -187,10 +205,12 @@ Add an `contains` keyword.
 ```c#
 public static JsonSchemaBuilder Contains(this JsonSchemaBuilder builder, JsonSchema schema)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | schema | JsonSchema | The schema for `contains`. |
+
 
 #### Returns
 
@@ -205,10 +225,12 @@ Add a `default` keyword.
 ```c#
 public static JsonSchemaBuilder Default(this JsonSchemaBuilder builder, JsonNode node)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | node | JsonNode | The value. |
+
 
 #### Returns
 
@@ -223,10 +245,12 @@ Add a `definitions` keyword.
 ```c#
 public static JsonSchemaBuilder Definitions(this JsonSchemaBuilder builder, IReadOnlyDictionary<string, JsonSchema> defs)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | defs | IReadOnlyDictionary\<string, JsonSchema\> | The schema definition map. |
+
 
 #### Returns
 
@@ -241,10 +265,12 @@ Add a `definitions` keyword.
 ```c#
 public static JsonSchemaBuilder Definitions(this JsonSchemaBuilder builder, params (string name, JsonSchema schema)[] defs)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | defs | params (string name, JsonSchema schema)[] | The schema definition map. |
+
 
 #### Returns
 
@@ -259,10 +285,12 @@ Add a `$defs` keyword.
 ```c#
 public static JsonSchemaBuilder Defs(this JsonSchemaBuilder builder, IReadOnlyDictionary<string, JsonSchema> defs)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | defs | IReadOnlyDictionary\<string, JsonSchema\> | The schema definition map. |
+
 
 #### Returns
 
@@ -277,10 +305,12 @@ Add a `$defs` keyword.
 ```c#
 public static JsonSchemaBuilder Defs(this JsonSchemaBuilder builder, params (string name, JsonSchema schema)[] defs)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | defs | params (string name, JsonSchema schema)[] | The schema definition map. |
+
 
 #### Returns
 
@@ -295,10 +325,12 @@ Add a `dependencies` keyword.
 ```c#
 public static JsonSchemaBuilder Dependencies(this JsonSchemaBuilder builder, IReadOnlyDictionary<string, SchemaOrPropertyList> deps)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | deps | IReadOnlyDictionary\<string, SchemaOrPropertyList\> | The dependencies. |
+
 
 #### Returns
 
@@ -313,10 +345,12 @@ Add a `dependencies` keyword.
 ```c#
 public static JsonSchemaBuilder Dependencies(this JsonSchemaBuilder builder, params (string name, SchemaOrPropertyList dep)[] deps)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | deps | params (string name, SchemaOrPropertyList dep)[] | The dependencies. |
+
 
 #### Returns
 
@@ -331,10 +365,12 @@ Add a `dependentRequired` keyword.
 ```c#
 public static JsonSchemaBuilder DependentRequired(this JsonSchemaBuilder builder, IReadOnlyDictionary<string, IReadOnlyList<string>> deps)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | deps | IReadOnlyDictionary\<string, IReadOnlyList\<string\>\> | The dependencies. |
+
 
 #### Returns
 
@@ -349,10 +385,12 @@ Add a `dependentRequired` keyword.
 ```c#
 public static JsonSchemaBuilder DependentRequired(this JsonSchemaBuilder builder, params (string name, IEnumerable<string> properties)[] deps)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | deps | params (string name, IEnumerable\<string\> properties)[] | The dependencies. |
+
 
 #### Returns
 
@@ -367,10 +405,12 @@ Add a `dependentSchemas` keyword.
 ```c#
 public static JsonSchemaBuilder DependentSchemas(this JsonSchemaBuilder builder, IReadOnlyDictionary<string, JsonSchema> deps)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | deps | IReadOnlyDictionary\<string, JsonSchema\> | The dependencies. |
+
 
 #### Returns
 
@@ -385,10 +425,12 @@ Add a `dependentSchemas` keyword.
 ```c#
 public static JsonSchemaBuilder DependentSchemas(this JsonSchemaBuilder builder, params (string name, JsonSchema schema)[] deps)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | deps | params (string name, JsonSchema schema)[] | The dependencies. |
+
 
 #### Returns
 
@@ -403,10 +445,12 @@ Add a `deprecated` keyword.
 ```c#
 public static JsonSchemaBuilder Deprecated(this JsonSchemaBuilder builder, bool deprecated)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | deprecated | bool | Whether the schema is deprecated. |
+
 
 #### Returns
 
@@ -421,10 +465,12 @@ Add a `description` keyword.
 ```c#
 public static JsonSchemaBuilder Description(this JsonSchemaBuilder builder, string description)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | description | string | The description. |
+
 
 #### Returns
 
@@ -439,10 +485,12 @@ Add an `$dynamicAnchor` keyword.
 ```c#
 public static JsonSchemaBuilder DynamicAnchor(this JsonSchemaBuilder builder, string reference)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | reference | string | The anchor reference. |
+
 
 #### Returns
 
@@ -457,10 +505,12 @@ Add a `$dynamicRef` keyword.
 ```c#
 public static JsonSchemaBuilder DynamicRef(this JsonSchemaBuilder builder, Uri reference)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | reference | Uri | The URI reference. |
+
 
 #### Returns
 
@@ -475,10 +525,12 @@ Add a `$dynamicRef` keyword.
 ```c#
 public static JsonSchemaBuilder DynamicRef(this JsonSchemaBuilder builder, string reference)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | reference | string | The URI reference. |
+
 
 #### Returns
 
@@ -493,10 +545,12 @@ Add an `else` keyword.
 ```c#
 public static JsonSchemaBuilder Else(this JsonSchemaBuilder builder, JsonSchema schema)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | schema | JsonSchema | The schema for `else`. |
+
 
 #### Returns
 
@@ -511,10 +565,12 @@ Add an `enum` keyword.
 ```c#
 public static JsonSchemaBuilder Enum(this JsonSchemaBuilder builder, IEnumerable<JsonNode> elements)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | elements | IEnumerable\<JsonNode\> | The values for the enum. |
+
 
 #### Returns
 
@@ -529,10 +585,12 @@ Add an `enum` keyword.
 ```c#
 public static JsonSchemaBuilder Enum(this JsonSchemaBuilder builder, params JsonNode[] elements)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | elements | params JsonNode[] | The values for the enum. |
+
 
 #### Returns
 
@@ -547,10 +605,12 @@ Add an `enum` keyword.
 ```c#
 public static JsonSchemaBuilder Enum(this JsonSchemaBuilder builder, IEnumerable<string> elements)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | elements | IEnumerable\<string\> | The values for the enum. |
+
 
 #### Returns
 
@@ -569,11 +629,13 @@ Convenience method that builds and evaluates with a single call.
 ```c#
 public static EvaluationResults Evaluate(this JsonSchemaBuilder builder, JsonNode root, EvaluationOptions options)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | root | JsonNode | The root instance. |
 | options | EvaluationOptions | The options to use for this evaluation. |
+
 
 #### Returns
 
@@ -588,10 +650,12 @@ Add an `examples` keyword.
 ```c#
 public static JsonSchemaBuilder Examples(this JsonSchemaBuilder builder, IEnumerable<JsonNode> elements)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | elements | IEnumerable\<JsonNode\> | The example values. |
+
 
 #### Returns
 
@@ -606,10 +670,12 @@ Add an `examples` keyword.
 ```c#
 public static JsonSchemaBuilder Examples(this JsonSchemaBuilder builder, params JsonNode[] elements)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | elements | params JsonNode[] | The example values. |
+
 
 #### Returns
 
@@ -624,10 +690,12 @@ Add an `exclusiveMaximum` keyword.
 ```c#
 public static JsonSchemaBuilder ExclusiveMaximum(this JsonSchemaBuilder builder, decimal max)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | max | decimal | The max value. |
+
 
 #### Returns
 
@@ -642,10 +710,12 @@ Add an `exclusiveMinimum` keyword.
 ```c#
 public static JsonSchemaBuilder ExclusiveMinimum(this JsonSchemaBuilder builder, decimal min)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | min | decimal | The min value. |
+
 
 #### Returns
 
@@ -660,10 +730,12 @@ Add a `format` keyword.
 ```c#
 public static JsonSchemaBuilder Format(this JsonSchemaBuilder builder, string format)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | format | string | The format. |
+
 
 #### Returns
 
@@ -678,10 +750,12 @@ Add a `format` keyword.
 ```c#
 public static JsonSchemaBuilder Format(this JsonSchemaBuilder builder, Format format)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | format | Format | The format. |
+
 
 #### Returns
 
@@ -696,10 +770,12 @@ Add an `$id` keyword.
 ```c#
 public static JsonSchemaBuilder Id(this JsonSchemaBuilder builder, Uri id)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | id | Uri | The ID. |
+
 
 #### Returns
 
@@ -714,10 +790,12 @@ Add an `$id` keyword.
 ```c#
 public static JsonSchemaBuilder Id(this JsonSchemaBuilder builder, string id)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | id | string | The ID. |
+
 
 #### Returns
 
@@ -732,10 +810,12 @@ Add an `if` keyword.
 ```c#
 public static JsonSchemaBuilder If(this JsonSchemaBuilder builder, JsonSchema schema)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | schema | JsonSchema | The schema for `if`. |
+
 
 #### Returns
 
@@ -750,10 +830,12 @@ Add a single-schema `items` keyword.
 ```c#
 public static JsonSchemaBuilder Items(this JsonSchemaBuilder builder, JsonSchema schema)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | schema | JsonSchema | The schema for `items`. |
+
 
 #### Returns
 
@@ -768,10 +850,12 @@ Add a schema-array `items` keyword.
 ```c#
 public static JsonSchemaBuilder Items(this JsonSchemaBuilder builder, IEnumerable<JsonSchema> schemas)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | schemas | IEnumerable\<JsonSchema\> | The schemas for `items`. |
+
 
 #### Returns
 
@@ -786,10 +870,12 @@ Add a `maxContains` keyword.
 ```c#
 public static JsonSchemaBuilder MaxContains(this JsonSchemaBuilder builder, uint value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | value | uint | The max number of expected matches. |
+
 
 #### Returns
 
@@ -804,10 +890,12 @@ Add a `maximum` keyword.
 ```c#
 public static JsonSchemaBuilder Maximum(this JsonSchemaBuilder builder, decimal value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | value | decimal | The max value. |
+
 
 #### Returns
 
@@ -822,10 +910,12 @@ Add a `maxItems` keyword.
 ```c#
 public static JsonSchemaBuilder MaxItems(this JsonSchemaBuilder builder, uint value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | value | uint | The max number of expected items. |
+
 
 #### Returns
 
@@ -840,10 +930,12 @@ Add a `maxLength` keyword.
 ```c#
 public static JsonSchemaBuilder MaxLength(this JsonSchemaBuilder builder, uint value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | value | uint | The max string length. |
+
 
 #### Returns
 
@@ -858,10 +950,12 @@ Add a `maxProperties` keyword.
 ```c#
 public static JsonSchemaBuilder MaxProperties(this JsonSchemaBuilder builder, uint value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | value | uint | The max number of expected properties. |
+
 
 #### Returns
 
@@ -876,10 +970,12 @@ Add a `minContains` keyword.
 ```c#
 public static JsonSchemaBuilder MinContains(this JsonSchemaBuilder builder, uint value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | value | uint | The min number of expected matches. |
+
 
 #### Returns
 
@@ -894,10 +990,12 @@ Add a `minimum` keyword.
 ```c#
 public static JsonSchemaBuilder Minimum(this JsonSchemaBuilder builder, decimal value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | value | decimal | The min value. |
+
 
 #### Returns
 
@@ -912,10 +1010,12 @@ Add a `minItems` keyword.
 ```c#
 public static JsonSchemaBuilder MinItems(this JsonSchemaBuilder builder, uint value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | value | uint | The min number of expected items. |
+
 
 #### Returns
 
@@ -930,10 +1030,12 @@ Add a `minLength` keyword.
 ```c#
 public static JsonSchemaBuilder MinLength(this JsonSchemaBuilder builder, uint value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | value | uint | The min string length. |
+
 
 #### Returns
 
@@ -948,10 +1050,12 @@ Add a `minProperties` keyword.
 ```c#
 public static JsonSchemaBuilder MinProperties(this JsonSchemaBuilder builder, uint value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | value | uint | The min number of expected properties. |
+
 
 #### Returns
 
@@ -966,10 +1070,12 @@ Add a `multipleOf` keyword.
 ```c#
 public static JsonSchemaBuilder MultipleOf(this JsonSchemaBuilder builder, decimal value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | value | decimal | The divisor. |
+
 
 #### Returns
 
@@ -984,10 +1090,12 @@ Add a `not` keyword.
 ```c#
 public static JsonSchemaBuilder Not(this JsonSchemaBuilder builder, JsonSchema schema)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | schema | JsonSchema | The schema for `not`. |
+
 
 #### Returns
 
@@ -1002,10 +1110,12 @@ Add a `oneOf` keyword.
 ```c#
 public static JsonSchemaBuilder OneOf(this JsonSchemaBuilder builder, params JsonSchema[] schemas)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | schemas | params JsonSchema[] | The schema for `oneOf`. |
+
 
 #### Returns
 
@@ -1020,10 +1130,12 @@ Add a `oneOf` keyword.
 ```c#
 public static JsonSchemaBuilder OneOf(this JsonSchemaBuilder builder, IEnumerable<JsonSchema> schemas)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | schemas | IEnumerable\<JsonSchema\> | The schemas for `oneOf`. |
+
 
 #### Returns
 
@@ -1038,10 +1150,12 @@ Add a `pattern` keyword.
 ```c#
 public static JsonSchemaBuilder Pattern(this JsonSchemaBuilder builder, Regex pattern)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | pattern | Regex | The pattern to match. |
+
 
 #### Returns
 
@@ -1056,10 +1170,12 @@ Add a `pattern` keyword.
 ```c#
 public static JsonSchemaBuilder Pattern(this JsonSchemaBuilder builder, string pattern)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | pattern | string | The pattern to match. |
+
 
 #### Returns
 
@@ -1074,10 +1190,12 @@ Add a `patternProperties` keyword.
 ```c#
 public static JsonSchemaBuilder PatternProperties(this JsonSchemaBuilder builder, IReadOnlyDictionary<Regex, JsonSchema> props)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | props | IReadOnlyDictionary\<Regex, JsonSchema\> | The property schemas. |
+
 
 #### Returns
 
@@ -1092,10 +1210,12 @@ Add a `patternProperties` keyword.
 ```c#
 public static JsonSchemaBuilder PatternProperties(this JsonSchemaBuilder builder, params (Regex pattern, JsonSchema schema)[] props)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | props | params (Regex pattern, JsonSchema schema)[] | The property schemas. |
+
 
 #### Returns
 
@@ -1110,10 +1230,12 @@ Add a `patternProperties` keyword.
 ```c#
 public static JsonSchemaBuilder PatternProperties(this JsonSchemaBuilder builder, IReadOnlyDictionary<string, JsonSchema> props)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | props | IReadOnlyDictionary\<string, JsonSchema\> | The property schemas. |
+
 
 #### Returns
 
@@ -1128,10 +1250,12 @@ Add a `patternProperties` keyword.
 ```c#
 public static JsonSchemaBuilder PatternProperties(this JsonSchemaBuilder builder, params (string pattern, JsonSchema schema)[] props)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | props | params (string pattern, JsonSchema schema)[] | The property schemas. |
+
 
 #### Returns
 
@@ -1146,10 +1270,12 @@ Add a `prefixItems` keyword.
 ```c#
 public static JsonSchemaBuilder PrefixItems(this JsonSchemaBuilder builder, params JsonSchema[] schemas)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | schemas | params JsonSchema[] | The schemas for `prefixItems`. |
+
 
 #### Returns
 
@@ -1164,10 +1290,12 @@ Add a `prefixItems` keyword.
 ```c#
 public static JsonSchemaBuilder PrefixItems(this JsonSchemaBuilder builder, IEnumerable<JsonSchema> schemas)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | schemas | IEnumerable\<JsonSchema\> | The schemas for `prefixItems`. |
+
 
 #### Returns
 
@@ -1182,10 +1310,12 @@ Add a `properties` keyword.
 ```c#
 public static JsonSchemaBuilder Properties(this JsonSchemaBuilder builder, IReadOnlyDictionary<string, JsonSchema> props)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | props | IReadOnlyDictionary\<string, JsonSchema\> | The property schemas. |
+
 
 #### Returns
 
@@ -1200,10 +1330,12 @@ Add a `properties` keyword.
 ```c#
 public static JsonSchemaBuilder Properties(this JsonSchemaBuilder builder, params (string name, JsonSchema schema)[] props)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | props | params (string name, JsonSchema schema)[] | The property schemas. |
+
 
 #### Returns
 
@@ -1218,10 +1350,12 @@ Adds a `propertyDependencies` keyword.
 ```c#
 public static JsonSchemaBuilder PropertyDependencies(this JsonSchemaBuilder builder, IReadOnlyDictionary<string, PropertyDependency> dependencies)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | dependencies | IReadOnlyDictionary\<string, PropertyDependency\> | The property dependency schemas. |
+
 
 #### Returns
 
@@ -1236,10 +1370,12 @@ Adds a `propertyDependencies` keyword.
 ```c#
 public static JsonSchemaBuilder PropertyDependencies(this JsonSchemaBuilder builder, params (string property, PropertyDependency dependency)[] dependencies)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | dependencies | params (string property, PropertyDependency dependency)[] | The property dependency schemas. |
+
 
 #### Returns
 
@@ -1254,10 +1390,12 @@ Add a `propertyNames` keyword.
 ```c#
 public static JsonSchemaBuilder PropertyNames(this JsonSchemaBuilder builder, JsonSchema schema)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | schema | JsonSchema | The schema for `propertyNames`. |
+
 
 #### Returns
 
@@ -1272,10 +1410,12 @@ Add a `readOnly` keyword.
 ```c#
 public static JsonSchemaBuilder ReadOnly(this JsonSchemaBuilder builder, bool value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | value | bool | Whether the instance is read-only. |
+
 
 #### Returns
 
@@ -1290,10 +1430,12 @@ Add a `$recursiveAnchor` keyword.
 ```c#
 public static JsonSchemaBuilder RecursiveAnchor(this JsonSchemaBuilder builder, bool value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | value | bool | The value. |
+
 
 #### Returns
 
@@ -1312,10 +1454,12 @@ Add a `$recursiveRef` keyword.
 ```c#
 public static JsonSchemaBuilder RecursiveRef(this JsonSchemaBuilder builder, Uri reference)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | reference | Uri | The URI reference. |
+
 
 #### Returns
 
@@ -1330,10 +1474,12 @@ Add a `$recursiveRef` keyword.
 ```c#
 public static JsonSchemaBuilder RecursiveRef(this JsonSchemaBuilder builder, string reference)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | reference | string | The URI reference. |
+
 
 #### Returns
 
@@ -1348,10 +1494,12 @@ Add a `$ref` keyword.
 ```c#
 public static JsonSchemaBuilder Ref(this JsonSchemaBuilder builder, Uri reference)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | reference | Uri | The URI reference. |
+
 
 #### Returns
 
@@ -1366,10 +1514,12 @@ Add a `$ref` keyword.
 ```c#
 public static JsonSchemaBuilder Ref(this JsonSchemaBuilder builder, string reference)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | reference | string | The URI reference. |
+
 
 #### Returns
 
@@ -1384,10 +1534,12 @@ Add a `required` keyword.
 ```c#
 public static JsonSchemaBuilder Required(this JsonSchemaBuilder builder, IEnumerable<string> properties)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | properties | IEnumerable\<string\> | The required property collections. |
+
 
 #### Returns
 
@@ -1402,10 +1554,12 @@ Add a `required` keyword.
 ```c#
 public static JsonSchemaBuilder Required(this JsonSchemaBuilder builder, params string[] properties)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | properties | params string[] | The required property collections. |
+
 
 #### Returns
 
@@ -1420,10 +1574,12 @@ Add a `$schema` keyword.
 ```c#
 public static JsonSchemaBuilder Schema(this JsonSchemaBuilder builder, Uri uri)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | uri | Uri | The uri of the meta-schema. |
+
 
 #### Returns
 
@@ -1438,10 +1594,12 @@ Add a `$schema` keyword.
 ```c#
 public static JsonSchemaBuilder Schema(this JsonSchemaBuilder builder, string uri)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | uri | string | The uri of the meta-schema. |
+
 
 #### Returns
 
@@ -1456,10 +1614,12 @@ Add a `then` keyword.
 ```c#
 public static JsonSchemaBuilder Then(this JsonSchemaBuilder builder, JsonSchema schema)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | schema | JsonSchema | The schema for `then`. |
+
 
 #### Returns
 
@@ -1474,10 +1634,12 @@ Add a `title` keyword.
 ```c#
 public static JsonSchemaBuilder Title(this JsonSchemaBuilder builder, string title)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | title | string | The title. |
+
 
 #### Returns
 
@@ -1492,10 +1654,12 @@ Add a `type` keyword.
 ```c#
 public static JsonSchemaBuilder Type(this JsonSchemaBuilder builder, SchemaValueType type)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | type | SchemaValueType | The type.  Can be combined with the bit-wise OR operator `\|`. |
+
 
 #### Returns
 
@@ -1510,10 +1674,12 @@ Add a `type` keyword.
 ```c#
 public static JsonSchemaBuilder Type(this JsonSchemaBuilder builder, params SchemaValueType[] types)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | types | params SchemaValueType[] | The types. |
+
 
 #### Returns
 
@@ -1528,10 +1694,12 @@ Add a `type` keyword.
 ```c#
 public static JsonSchemaBuilder Type(this JsonSchemaBuilder builder, IEnumerable<SchemaValueType> types)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | types | IEnumerable\<SchemaValueType\> | The types. |
+
 
 #### Returns
 
@@ -1546,10 +1714,12 @@ Add an `unevaluatedItems` keyword.
 ```c#
 public static JsonSchemaBuilder UnevaluatedItems(this JsonSchemaBuilder builder, JsonSchema schema)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | schema | JsonSchema | The schema for `unevaluatedItems`. |
+
 
 #### Returns
 
@@ -1564,10 +1734,12 @@ Add an `unevaluatedProperties` keyword.
 ```c#
 public static JsonSchemaBuilder UnevaluatedProperties(this JsonSchemaBuilder builder, JsonSchema schema)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | schema | JsonSchema | The schema for `unevaluatedProperties`. |
+
 
 #### Returns
 
@@ -1582,10 +1754,12 @@ Add a `uniqueItems` keyword.
 ```c#
 public static JsonSchemaBuilder UniqueItems(this JsonSchemaBuilder builder, bool value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | value | bool | Whether to expect a unique item set. |
+
 
 #### Returns
 
@@ -1600,11 +1774,13 @@ Adds a keyword that's not recognized by any vocabulary - extra data - to the sch
 ```c#
 public static JsonSchemaBuilder Unrecognized(this JsonSchemaBuilder builder, string name, JsonNode value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | name | string | The keyword name. |
 | value | JsonNode | The value. |
+
 
 #### Returns
 
@@ -1619,11 +1795,13 @@ Convenience method that builds and evaluates with a single call.
 ```c#
 public static EvaluationResults Validate(this JsonSchemaBuilder builder, JsonNode root, EvaluationOptions options)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | root | JsonNode | The root instance. |
 | options | EvaluationOptions | The options to use for this evaluation. |
+
 
 #### Returns
 
@@ -1638,10 +1816,12 @@ Add an `$vocabulary` keyword.
 ```c#
 public static JsonSchemaBuilder Vocabulary(this JsonSchemaBuilder builder, params (Uri id, bool required)[] vocabs)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | vocabs | params (Uri id, bool required)[] | The vocabulary callouts. |
+
 
 #### Returns
 
@@ -1656,10 +1836,12 @@ Add an `$vocabulary` keyword.
 ```c#
 public static JsonSchemaBuilder Vocabulary(this JsonSchemaBuilder builder, params (string id, bool required)[] vocabs)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | vocabs | params (string id, bool required)[] | The vocabulary callouts. |
+
 
 #### Returns
 
@@ -1674,10 +1856,12 @@ Add an `$vocabulary` keyword.
 ```c#
 public static JsonSchemaBuilder Vocabulary(this JsonSchemaBuilder builder, IReadOnlyDictionary<Uri, bool> vocabs)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | vocabs | IReadOnlyDictionary\<Uri, bool\> | The vocabulary callouts. |
+
 
 #### Returns
 
@@ -1692,10 +1876,12 @@ Add an `$vocabulary` keyword.
 ```c#
 public static JsonSchemaBuilder Vocabulary(this JsonSchemaBuilder builder, IReadOnlyDictionary<string, bool> vocabs)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | vocabs | IReadOnlyDictionary\<string, bool\> | The vocabulary callouts. |
+
 
 #### Returns
 
@@ -1710,10 +1896,12 @@ Add a `writeOnly` keyword.
 ```c#
 public static JsonSchemaBuilder WriteOnly(this JsonSchemaBuilder builder, bool value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | value | bool | Whether the instance is write-only. |
+
 
 #### Returns
 

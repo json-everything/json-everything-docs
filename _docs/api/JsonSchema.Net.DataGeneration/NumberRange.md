@@ -24,8 +24,9 @@ Defines a number range.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Minimum** | Bound | Gets the minimum (lower bound). |
 | **Maximum** | Bound | Gets the maximum (upper bound). |
+| **Minimum** | Bound | Gets the minimum (lower bound). |
+
 ## Constructors
 
 ### NumberRange(Bound minimum, Bound maximum)
@@ -37,10 +38,12 @@ Creates a new number range.
 ```c#
 public NumberRange(Bound minimum, Bound maximum)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | minimum | Bound | The minimum |
 | maximum | Bound | The maximum |
+
 
 ## Methods
 
@@ -53,6 +56,7 @@ Calculates whether a single value is contained in the range.
 ```c#
 public bool Contains(decimal value)
 ```
+
 
 #### Returns
 
@@ -67,10 +71,12 @@ Calculates the set of one range omitting another.  May be multiple ranges.
 ```c#
 public static IEnumerable<NumberRange> Difference(NumberRange a, NumberRange b)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | a | NumberRange | The source range |
 | b | NumberRange | The operating range. |
+
 
 #### Returns
 
@@ -85,9 +91,11 @@ Indicates whether the current object is equal to another object of the same type
 ```c#
 public bool Equals(NumberRange other)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | other | NumberRange | An object to compare with this object. |
+
 
 #### Returns
 
@@ -102,9 +110,11 @@ Indicates whether this instance and a specified object are equal.
 ```c#
 public override bool Equals(object obj)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | obj | object | The object to compare with the current instance. |
+
 
 #### Returns
 
@@ -120,6 +130,7 @@ Returns the hash code for this instance.
 public override int GetHashCode()
 ```
 
+
 #### Returns
 
 A 32-bit signed integer that is the hash code for this instance.
@@ -133,6 +144,7 @@ Calculates the intersection of two number ranges.  May be multiple ranges.
 ```c#
 public static IEnumerable<NumberRange> Intersection(NumberRange a, NumberRange b)
 ```
+
 
 #### Returns
 
@@ -148,6 +160,7 @@ Returns the fully qualified type name of this instance.
 public override string ToString()
 ```
 
+
 #### Returns
 
 The fully qualified type name.
@@ -161,6 +174,7 @@ Calculates the union of two number ranges.  May be multiple ranges.
 ```c#
 public static IEnumerable<NumberRange> Union(NumberRange a, NumberRange b)
 ```
+
 
 #### Returns
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "ReadOnlyIntent Class"
 bookmark: "ReadOnlyIntent"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.62"
+order: "9.05.53"
 ---
 **Namespace:** Json.Schema.Generation.Intents
 
@@ -23,6 +23,7 @@ Provides intent to create a `readOnly` keyword.
 | Name | Type | Summary |
 |---|---|---|
 | **Value** | bool | The value. |
+
 ## Constructors
 
 ### ReadOnlyIntent(bool value)
@@ -34,9 +35,11 @@ Creates a new **Json.Schema.Generation.Intents.ReadOnlyIntent** instance.
 ```c#
 public ReadOnlyIntent(bool value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | bool | The value. |
+
 
 ## Methods
 
@@ -49,7 +52,9 @@ Applies the keyword to the **Json.Schema.JsonSchemaBuilder**.
 ```c#
 public void Apply(JsonSchemaBuilder builder)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
+
 

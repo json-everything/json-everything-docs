@@ -25,9 +25,11 @@ Registers a new function implementation, allowing it to be parsed.
 ```c#
 public static void Register(ValueFunctionDefinition function)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | function | ValueFunctionDefinition | The function. |
+
 
 ### Register(LogicalFunctionDefinition function)
 
@@ -38,9 +40,11 @@ Registers a new function implementation, allowing it to be parsed.
 ```c#
 public static void Register(LogicalFunctionDefinition function)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | function | LogicalFunctionDefinition | The function. |
+
 
 ### Register(NodelistFunctionDefinition function)
 
@@ -51,9 +55,11 @@ Registers a new function implementation, allowing it to be parsed.
 ```c#
 public static void Register(NodelistFunctionDefinition function)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | function | NodelistFunctionDefinition | The function. |
+
 
 ### TryGet(string name, out IPathFunctionDefinition function)
 
@@ -64,10 +70,12 @@ Gets a function implementation by name.
 ```c#
 public static bool TryGet(string name, out IPathFunctionDefinition function)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | name | string | A function name. |
 | function | out IPathFunctionDefinition | The function, if found; otherwise null. |
+
 
 #### Returns
 
@@ -83,6 +91,7 @@ Unregisters a function implementation.
 public static void Unregister()
 ```
 
+
 ### Unregister(string name)
 
 Unregisters a function implementation.
@@ -92,4 +101,5 @@ Unregisters a function implementation.
 ```c#
 public static void Unregister(string name)
 ```
+
 

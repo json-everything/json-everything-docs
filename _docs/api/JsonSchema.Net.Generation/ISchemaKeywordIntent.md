@@ -3,7 +3,7 @@ layout: "page"
 title: "ISchemaKeywordIntent Interface"
 bookmark: "ISchemaKeywordIntent"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.11"
+order: "9.05.22"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -35,7 +35,9 @@ Applies the keyword to the **Json.Schema.JsonSchemaBuilder**.
 ```c#
 public abstract void Apply(JsonSchemaBuilder builder)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
+
 

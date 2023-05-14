@@ -3,7 +3,7 @@ layout: "page"
 title: "KeywordExtensions Class"
 bookmark: "KeywordExtensions"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.57"
+order: "9.01.56"
 ---
 **Namespace:** Json.Schema
 
@@ -25,9 +25,11 @@ Gets the keyword string.
 ```c#
 public static string Keyword(this IJsonSchemaKeyword keyword)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | keyword | IJsonSchemaKeyword | The keyword. |
+
 
 #### Returns
 
@@ -42,9 +44,11 @@ Gets the keyword string.
 ```c#
 public static string Keyword(this Type keywordType)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | keywordType | Type | The keyword type. |
+
 
 #### Returns
 
@@ -59,9 +63,11 @@ Gets the keyword priority.
 ```c#
 public static long Priority(this IJsonSchemaKeyword keyword)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | keyword | IJsonSchemaKeyword | The keyword. |
+
 
 #### Returns
 
@@ -76,10 +82,12 @@ Determines if a keyword is declared by a given version of the JSON Schema specif
 ```c#
 public static bool SupportsVersion(this IJsonSchemaKeyword keyword, SpecVersion version)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | keyword | IJsonSchemaKeyword | The keyword. |
 | version | SpecVersion | The queried version. |
+
 
 #### Returns
 
@@ -94,9 +102,11 @@ Gets the specification versions supported by a keyword.
 ```c#
 public static SpecVersion VersionsSupported(this IJsonSchemaKeyword keyword)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | keyword | IJsonSchemaKeyword | The keyword. |
+
 
 #### Returns
 

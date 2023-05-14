@@ -3,7 +3,7 @@ layout: "page"
 title: "DescriptionAttribute Class"
 bookmark: "DescriptionAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.04"
+order: "9.05.09"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -26,6 +26,7 @@ Applies a `description` keyword.
 |---|---|---|
 | **Description** | string | The description. |
 | **TypeId** | object |  |
+
 ## Constructors
 
 ### DescriptionAttribute(string description)
@@ -37,7 +38,9 @@ Creates a new **Json.Schema.Generation.DescriptionAttribute** instance.
 ```c#
 public DescriptionAttribute(string description)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | description | string | The value. |
+
 

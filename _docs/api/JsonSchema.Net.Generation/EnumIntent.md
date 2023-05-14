@@ -3,7 +3,7 @@ layout: "page"
 title: "EnumIntent Class"
 bookmark: "EnumIntent"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.47"
+order: "9.05.11"
 ---
 **Namespace:** Json.Schema.Generation.Intents
 
@@ -23,6 +23,7 @@ Provides intent to create an `enum` keyword.
 | Name | Type | Summary |
 |---|---|---|
 | **Names** | List\<string\> | The names defined by the enumeration. |
+
 ## Constructors
 
 ### EnumIntent(IEnumerable\<string\> names)
@@ -34,9 +35,11 @@ Creates a new **Json.Schema.Generation.Intents.EnumIntent** instance.
 ```c#
 public EnumIntent(IEnumerable<string> names)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | names | IEnumerable\<string\> | The names defined by the enumeration. |
+
 
 ### EnumIntent(params string[] names)
 
@@ -47,9 +50,11 @@ Creates a new **Json.Schema.Generation.Intents.EnumIntent** instance.
 ```c#
 public EnumIntent(params string[] names)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | names | params string[] | The names defined by the enumeration. |
+
 
 ## Methods
 
@@ -62,7 +67,9 @@ Applies the keyword to the **Json.Schema.JsonSchemaBuilder**.
 ```c#
 public void Apply(JsonSchemaBuilder builder)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
+
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "RuleRegistry Class"
 bookmark: "RuleRegistry"
 permalink: "/api/JsonLogic/:title/"
-order: "9.10.08"
+order: "9.10.38"
 ---
 **Namespace:** Json.Logic
 
@@ -26,6 +26,7 @@ Registers a new rule type.
 public static void AddRule()
 ```
 
+
 #### Remarks
 
 Rules must contain a parameterless constructor.
@@ -45,9 +46,11 @@ Gets a **Json.Logic.Rule** implementation for a given identifier string.
 ```c#
 public static Type GetRule(string identifier)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | identifier | string | The identifier. |
+
 
 #### Returns
 

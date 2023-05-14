@@ -3,7 +3,7 @@ layout: "page"
 title: "ValueFunctionDefinition Class"
 bookmark: "ValueFunctionDefinition"
 permalink: "/api/JsonPath.Net/:title/"
-order: "9.07.05"
+order: "9.07.24"
 ---
 **Namespace:** Json.Path
 
@@ -24,3 +24,4 @@ Base class for defining an expression function which returns `ValueType`.
 | Name | Type | Summary |
 |---|---|---|
 | **Name** | string | Gets the function name. |
+

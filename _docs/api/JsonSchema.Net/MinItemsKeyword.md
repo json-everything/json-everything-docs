@@ -3,7 +3,7 @@ layout: "page"
 title: "MinItemsKeyword Class"
 bookmark: "MinItemsKeyword"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.67"
+order: "9.01.66"
 ---
 **Namespace:** Json.Schema
 
@@ -24,11 +24,13 @@ Handles `minItems`.
 | Name | Type | Summary |
 |---|---|---|
 | **Name** | string | The JSON name of the keyword. |
+
 ## Properties
 
 | Name | Type | Summary |
 |---|---|---|
 | **Value** | uint | The expected minimum number of items. |
+
 ## Constructors
 
 ### MinItemsKeyword(uint value)
@@ -40,9 +42,11 @@ Create a new **Json.Schema.MinItemsKeyword**.
 ```c#
 public MinItemsKeyword(uint value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | uint | The expected minimum number of items. |
+
 
 ## Methods
 
@@ -55,9 +59,11 @@ Indicates whether the current object is equal to another object of the same type
 ```c#
 public bool Equals(MinItemsKeyword other)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | other | MinItemsKeyword | An object to compare with this object. |
+
 
 #### Returns
 
@@ -72,9 +78,11 @@ Determines whether the specified object is equal to the current object.
 ```c#
 public override bool Equals(object obj)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | obj | object | The object to compare with the current object. |
+
 
 #### Returns
 
@@ -89,9 +97,11 @@ Performs evaluation for the keyword.
 ```c#
 public void Evaluate(EvaluationContext context)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | context | EvaluationContext | Contextual details for the evaluation process. |
+
 
 ### GetHashCode()
 
@@ -102,6 +112,7 @@ Serves as the default hash function.
 ```c#
 public override int GetHashCode()
 ```
+
 
 #### Returns
 

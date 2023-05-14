@@ -18,5 +18,6 @@ Defines a meta-schema for the
 
 | Name | Type | Summary |
 |---|---|---|
-| **UniqueKeysId** | Uri | The data vocabulary meta-schema ID. |
 | **UniqueKeys** | JsonSchema | The data vocabulary meta-schema. |
+| **UniqueKeysId** | Uri | The data vocabulary meta-schema ID. |
+

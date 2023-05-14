@@ -19,3 +19,4 @@ Defines formats used by the OpenAPI v3.1 specification.
 | Name | Type | Summary |
 |---|---|---|
 | **MediaRange** | Format | Defines the `media-range` custom format used by OpenAPI v3.1. |
+

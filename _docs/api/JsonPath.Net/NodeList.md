@@ -3,7 +3,7 @@ layout: "page"
 title: "NodeList Class"
 bookmark: "NodeList"
 permalink: "/api/JsonPath.Net/:title/"
-order: "9.07.16"
+order: "9.07.14"
 ---
 **Namespace:** Json.Path
 
@@ -26,12 +26,14 @@ A collection of nodes, generally resulting from an operation or query.
 | Name | Type | Summary |
 |---|---|---|
 | **Empty** | NodeList | An empty nodelist. |
+
 ## Properties
 
 | Name | Type | Summary |
 |---|---|---|
 | **Count** | int | Gets the number of elements in the collection. |
 | **Item** | Node | Gets the element at the specified index in the read-only list. |
+
 ## Constructors
 
 ### NodeList(IEnumerable\<Node\> nodes)
@@ -43,9 +45,11 @@ Creates a new nodelist.
 ```c#
 public NodeList(IEnumerable<Node> nodes)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | nodes | IEnumerable\<Node\> | The nodes. |
+
 
 ## Methods
 
@@ -58,6 +62,7 @@ Returns an enumerator that iterates through the collection.
 ```c#
 public IEnumerator<Node> GetEnumerator()
 ```
+
 
 #### Returns
 

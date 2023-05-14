@@ -3,7 +3,7 @@ layout: "page"
 title: "PatternIntent Class"
 bookmark: "PatternIntent"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.59"
+order: "9.05.46"
 ---
 **Namespace:** Json.Schema.Generation.Intents
 
@@ -23,6 +23,7 @@ Provides intent to create a `pattern` keyword.
 | Name | Type | Summary |
 |---|---|---|
 | **Value** | string | The value. |
+
 ## Constructors
 
 ### PatternIntent(string value)
@@ -34,9 +35,11 @@ Creates a new **Json.Schema.Generation.Intents.PatternIntent** instance.
 ```c#
 public PatternIntent(string value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | string | The value. |
+
 
 ## Methods
 
@@ -49,7 +52,9 @@ Applies the keyword to the **Json.Schema.JsonSchemaBuilder**.
 ```c#
 public void Apply(JsonSchemaBuilder builder)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
+
 

@@ -25,9 +25,11 @@ Determines whether the type is a non-integer floating point number.
 ```c#
 public static bool IsFloatingPoint(this Type type)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | type | Type | The type. |
+
 
 #### Returns
 
@@ -42,9 +44,11 @@ Determines whether the type is considered an integer.
 ```c#
 public static bool IsInteger(this Type type)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | type | Type | The type. |
+
 
 #### Returns
 
@@ -59,9 +63,11 @@ Determines whether the type is a number.
 ```c#
 public static bool IsNumber(this Type type)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | type | Type | The type. |
+
 
 #### Returns
 

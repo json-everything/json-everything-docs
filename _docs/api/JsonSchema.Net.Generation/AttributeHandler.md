@@ -3,7 +3,7 @@ layout: "page"
 title: "AttributeHandler Class"
 bookmark: "AttributeHandler"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.02"
+order: "9.05.05"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -26,6 +26,7 @@ Adds a handler for a custom attribute that cannot be made to implement **Json.Sc
 public static void AddHandler()
 ```
 
+
 ### AddHandler(IAttributeHandler handler)
 
 Adds a handler for a custom attribute that cannot be made to implement **Json.Schema.Generation.IAttributeHandler**.
@@ -35,9 +36,11 @@ Adds a handler for a custom attribute that cannot be made to implement **Json.Sc
 ```c#
 public static void AddHandler(IAttributeHandler handler)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | handler | IAttributeHandler | The handler. |
+
 
 ### RemoveHandler()
 
@@ -48,4 +51,5 @@ Removes a handler type.
 ```c#
 public static void RemoveHandler()
 ```
+
 

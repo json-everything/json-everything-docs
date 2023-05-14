@@ -3,7 +3,7 @@ layout: "page"
 title: "SpecVersion Enum"
 bookmark: "SpecVersion"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.95"
+order: "9.01.97"
 ---
 # SpecVersion Enum
 
@@ -21,3 +21,4 @@ Enumerates the supported JSON Schema specification versions.
 | **Draft201909** | JSON Schema Draft 2019-09. |
 | **Draft202012** | JSON Schema Draft 2020-12. |
 | **DraftNext** | JSON Schema Draft Next. |
+

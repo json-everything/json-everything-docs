@@ -3,7 +3,7 @@ layout: "page"
 title: "MinLengthAttribute Class"
 bookmark: "MinLengthAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.22"
+order: "9.05.39"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -26,6 +26,7 @@ Applies a `minimum` keyword.
 |---|---|---|
 | **Length** | uint | The minimum length. |
 | **TypeId** | object |  |
+
 ## Constructors
 
 ### MinLengthAttribute(uint length)
@@ -37,7 +38,9 @@ Creates a new **Json.Schema.Generation.MinLengthAttribute** instance.
 ```c#
 public MinLengthAttribute(uint length)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | length | uint | The value. |
+
 

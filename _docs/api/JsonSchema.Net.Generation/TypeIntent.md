@@ -3,7 +3,7 @@ layout: "page"
 title: "TypeIntent Class"
 bookmark: "TypeIntent"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.66"
+order: "9.05.65"
 ---
 **Namespace:** Json.Schema.Generation.Intents
 
@@ -23,6 +23,7 @@ Provides intent to create a `type` keyword.
 | Name | Type | Summary |
 |---|---|---|
 | **Type** | SchemaValueType | The type. |
+
 ## Constructors
 
 ### TypeIntent(SchemaValueType type)
@@ -34,9 +35,11 @@ Creates a new **Json.Schema.Generation.Intents.TypeIntent** instance.
 ```c#
 public TypeIntent(SchemaValueType type)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | type | SchemaValueType | The type. |
+
 
 ## Methods
 
@@ -49,7 +52,9 @@ Applies the keyword to the **Json.Schema.JsonSchemaBuilder**.
 ```c#
 public void Apply(JsonSchemaBuilder builder)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
+
 

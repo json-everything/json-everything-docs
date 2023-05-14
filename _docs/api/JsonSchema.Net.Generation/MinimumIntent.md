@@ -3,7 +3,7 @@ layout: "page"
 title: "MinimumIntent Class"
 bookmark: "MinimumIntent"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.55"
+order: "9.05.36"
 ---
 **Namespace:** Json.Schema.Generation.Intents
 
@@ -23,6 +23,7 @@ Provides intent to create a `minimum` keyword.
 | Name | Type | Summary |
 |---|---|---|
 | **Value** | decimal | The value. |
+
 ## Constructors
 
 ### MinimumIntent(decimal value)
@@ -34,9 +35,11 @@ Creates a new **Json.Schema.Generation.Intents.MinimumIntent** instance.
 ```c#
 public MinimumIntent(decimal value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | decimal | The value. |
+
 
 ## Methods
 
@@ -49,7 +52,9 @@ Applies the keyword to the **Json.Schema.JsonSchemaBuilder**.
 ```c#
 public void Apply(JsonSchemaBuilder builder)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
+
 

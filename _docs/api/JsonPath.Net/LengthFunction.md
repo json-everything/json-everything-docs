@@ -3,7 +3,7 @@ layout: "page"
 title: "LengthFunction Class"
 bookmark: "LengthFunction"
 permalink: "/api/JsonPath.Net/:title/"
-order: "9.07.13"
+order: "9.07.10"
 ---
 **Namespace:** Json.Path
 
@@ -29,6 +29,7 @@ Implements the `length()` function to get:
 | Name | Type | Summary |
 |---|---|---|
 | **Name** | string | Gets the function name. |
+
 ## Methods
 
 ### Evaluate(JsonNode value)
@@ -40,9 +41,11 @@ Evaluates the function.
 ```c#
 public JsonNode Evaluate(JsonNode value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | JsonNode | An object, array, or string |
+
 
 #### Returns
 

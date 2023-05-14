@@ -29,3 +29,4 @@ See https://github.com/dotnet/runtime/issues/68128 for more information.
 | Name | Type | Summary |
 |---|---|---|
 | **SignalNode** | JsonNode | Provides a static instance of this class wrapped in a **System.Text.Json.Nodes.JsonNode**. |
+

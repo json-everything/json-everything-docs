@@ -3,7 +3,7 @@ layout: "page"
 title: "MinItemsAttribute Class"
 bookmark: "MinItemsAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.21"
+order: "9.05.37"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -24,8 +24,9 @@ Applies a `minItems` keyword.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Value** | uint | The minimum number of items. |
 | **TypeId** | object |  |
+| **Value** | uint | The minimum number of items. |
+
 ## Constructors
 
 ### MinItemsAttribute(uint value)
@@ -37,7 +38,9 @@ Creates a new **Json.Schema.Generation.MinItemsAttribute** instance.
 ```c#
 public MinItemsAttribute(uint value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | uint | The value. |
+
 

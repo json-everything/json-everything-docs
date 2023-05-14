@@ -3,7 +3,7 @@ layout: "page"
 title: "ExclusiveMinimumAttribute Class"
 bookmark: "ExclusiveMinimumAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.06"
+order: "9.05.14"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -24,8 +24,9 @@ Applies an `exclusiveMinimum` keyword.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Value** | decimal | The exclusive minimum. |
 | **TypeId** | object |  |
+| **Value** | decimal | The exclusive minimum. |
+
 ## Constructors
 
 ### ExclusiveMinimumAttribute(double value)
@@ -37,7 +38,9 @@ Creates a new **Json.Schema.Generation.ExclusiveMinimumAttribute** instance.
 ```c#
 public ExclusiveMinimumAttribute(double value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | double | The value. |
+
 

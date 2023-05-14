@@ -3,7 +3,7 @@ layout: "page"
 title: "Node Class"
 bookmark: "Node"
 permalink: "/api/JsonPath.Net/:title/"
-order: "9.07.15"
+order: "9.07.13"
 ---
 **Namespace:** Json.Path
 
@@ -18,5 +18,6 @@ Represents a single match.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Value** | JsonNode | The value at the matching location. |
 | **Location** | JsonPath | The location where the value was found. |
+| **Value** | JsonNode | The value at the matching location. |
+

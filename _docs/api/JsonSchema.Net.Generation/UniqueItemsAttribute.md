@@ -3,7 +3,7 @@ layout: "page"
 title: "UniqueItemsAttribute Class"
 bookmark: "UniqueItemsAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.39"
+order: "9.05.66"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -24,8 +24,9 @@ Applies a `uniqueItems` keyword.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Value** | bool | Whether the items should be unique. |
 | **TypeId** | object |  |
+| **Value** | bool | Whether the items should be unique. |
+
 ## Constructors
 
 ### UniqueItemsAttribute(bool value)
@@ -37,7 +38,9 @@ Creates a new **Json.Schema.Generation.UniqueItemsAttribute** instance.
 ```c#
 public UniqueItemsAttribute(bool value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | bool | The value. |
+
 

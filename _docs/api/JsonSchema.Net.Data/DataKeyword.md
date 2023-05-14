@@ -3,7 +3,7 @@ layout: "page"
 title: "DataKeyword Class"
 bookmark: "DataKeyword"
 permalink: "/api/JsonSchema.Net.Data/:title/"
-order: "9.02.01"
+order: "9.02.00"
 ---
 **Namespace:** Json.Schema.Data
 
@@ -24,13 +24,15 @@ Represents the `data` keyword.
 | Name | Type | Summary |
 |---|---|---|
 | **Name** | string | The JSON name of the keyword. |
+
 ## Properties
 
 | Name | Type | Summary |
 |---|---|---|
-| **Fetch** | Func\<Uri, JsonNode\> | Gets or sets a method to download external references. |
 | **ExternalDataRegistry** | ConcurrentDictionary\<Uri, JsonNode\> | Provides a registry for known external data sources. |
+| **Fetch** | Func\<Uri, JsonNode\> | Gets or sets a method to download external references. |
 | **References** | IReadOnlyDictionary\<string, IDataResourceIdentifier\> | The collection of keywords and references. |
+
 ## Constructors
 
 ### DataKeyword(IReadOnlyDictionary\<string, IDataResourceIdentifier\> references)
@@ -42,9 +44,11 @@ Creates an instance of the **Json.Schema.Data.DataKeyword** class.
 ```c#
 public DataKeyword(IReadOnlyDictionary<string, IDataResourceIdentifier> references)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | references | IReadOnlyDictionary\<string, IDataResourceIdentifier\> | The collection of keywords and references. |
+
 
 ## Methods
 
@@ -57,9 +61,11 @@ Indicates whether the current object is equal to another object of the same type
 ```c#
 public bool Equals(DataKeyword other)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | other | DataKeyword | An object to compare with this object. |
+
 
 #### Returns
 
@@ -74,9 +80,11 @@ Determines whether the specified object is equal to the current object.
 ```c#
 public override bool Equals(object obj)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | obj | object | The object to compare with the current object. |
+
 
 #### Returns
 
@@ -91,9 +99,11 @@ Performs evaluation for the keyword.
 ```c#
 public void Evaluate(EvaluationContext context)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | context | EvaluationContext | Contextual details for the evaluation process. |
+
 
 ### GetHashCode()
 
@@ -104,6 +114,7 @@ Serves as the default hash function.
 ```c#
 public override int GetHashCode()
 ```
+
 
 #### Returns
 
@@ -118,9 +129,11 @@ Provides a simple data fetch method that supports `http`, `https`, and `file` UR
 ```c#
 public static JsonNode SimpleDownload(Uri uri)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | uri | Uri | The URI to fetch. |
+
 
 #### Returns
 

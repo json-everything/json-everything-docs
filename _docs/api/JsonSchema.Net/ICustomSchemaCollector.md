@@ -3,7 +3,7 @@ layout: "page"
 title: "ICustomSchemaCollector Interface"
 bookmark: "ICustomSchemaCollector"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.40"
+order: "9.01.38"
 ---
 **Namespace:** Json.Schema
 
@@ -19,6 +19,7 @@ fit with **Json.Schema.ISchemaContainer**, **Json.Schema.ISchemaCollector**, or
 | Name | Type | Summary |
 |---|---|---|
 | **Schemas** | IEnumerable\<JsonSchema\> | The subschemas. |
+
 ## Methods
 
 ### FindSubschema(IReadOnlyList\<PointerSegment\> segments)
@@ -30,9 +31,11 @@ Gets the indicated subschema.
 ```c#
 public abstract (JsonSchema Schema, int SegmentsConsumed) FindSubschema(IReadOnlyList<PointerSegment> segments)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | segments | IReadOnlyList\<PointerSegment\> | The JSON Pointer segments to follow. |
+
 
 #### Returns
 

@@ -30,6 +30,7 @@ This comparison is compliant with the ideals expressed by JSON:
 | Name | Type | Summary |
 |---|---|---|
 | **Instance** | JsonElementEqualityComparer | A singleton instance for convenience. |
+
 ## Methods
 
 ### Equals(JsonElement x, JsonElement y)
@@ -41,10 +42,12 @@ Determines whether the specified objects are equal.
 ```c#
 public bool Equals(JsonElement x, JsonElement y)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | x | JsonElement | The first object of type T to compare. |
 | y | JsonElement | The second object of type T to compare. |
+
 
 #### Returns
 
@@ -59,9 +62,11 @@ Returns a hash code for the specified object.
 ```c#
 public int GetHashCode(JsonElement obj)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | obj | JsonElement | The **System.Object** for which a hash code is to be returned. |
+
 
 #### Returns
 

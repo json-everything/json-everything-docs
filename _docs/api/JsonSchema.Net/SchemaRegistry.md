@@ -3,7 +3,7 @@ layout: "page"
 title: "SchemaRegistry Class"
 bookmark: "SchemaRegistry"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.92"
+order: "9.01.94"
 ---
 **Namespace:** Json.Schema
 
@@ -18,8 +18,9 @@ A registry for schemas.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Global** | SchemaRegistry | The global registry. |
 | **Fetch** | Func\<Uri, IBaseDocument\> | Gets or sets a method to enable automatic download of schemas by `$id` URI. |
+| **Global** | SchemaRegistry | The global registry. |
+
 ## Methods
 
 ### Get(Uri uri)
@@ -31,9 +32,11 @@ Gets a schema by URI ID and/or anchor.
 ```c#
 public IBaseDocument Get(Uri uri)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | uri | Uri | The URI ID. |
+
 
 #### Returns
 
@@ -49,9 +52,11 @@ Registers a schema by URI.
 ```c#
 public void Register(IBaseDocument document)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | document | IBaseDocument | The schema. |
+
 
 ### Register(Uri uri, IBaseDocument document)
 
@@ -62,8 +67,10 @@ Registers a schema by URI.
 ```c#
 public void Register(Uri uri, IBaseDocument document)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | uri | Uri | The URI ID of the schema.. |
 | document | IBaseDocument | The schema. |
+
 

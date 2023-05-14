@@ -3,7 +3,7 @@ layout: "page"
 title: "PropertiesIntent Class"
 bookmark: "PropertiesIntent"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.60"
+order: "9.05.47"
 ---
 **Namespace:** Json.Schema.Generation.Intents
 
@@ -24,6 +24,7 @@ Provides intent to create an `additionalProperties` keyword.
 | Name | Type | Summary |
 |---|---|---|
 | **Properties** | Dictionary\<string, SchemaGenerationContextBase\> | The contexts that represent the properties. |
+
 ## Constructors
 
 ### PropertiesIntent(Dictionary\<string, SchemaGenerationContextBase\> properties)
@@ -35,9 +36,11 @@ Creates a new **Json.Schema.Generation.Intents.PropertiesIntent** instance.
 ```c#
 public PropertiesIntent(Dictionary<string, SchemaGenerationContextBase> properties)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | properties | Dictionary\<string, SchemaGenerationContextBase\> | The contexts. |
+
 
 ## Methods
 
@@ -50,9 +53,11 @@ Applies the keyword to the **Json.Schema.JsonSchemaBuilder**.
 ```c#
 public void Apply(JsonSchemaBuilder builder)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
+
 
 ### Replace(int hashCode, SchemaGenerationContextBase newContext)
 
@@ -63,8 +68,10 @@ Replaces one context with another.
 ```c#
 public void Replace(int hashCode, SchemaGenerationContextBase newContext)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | hashCode | int | The hashcode of the context to replace. |
 | newContext | SchemaGenerationContextBase | The new context. |
+
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "IDataResourceIdentifier Interface"
 bookmark: "IDataResourceIdentifier"
 permalink: "/api/JsonSchema.Net.Data/:title/"
-order: "9.02.02"
+order: "9.02.01"
 ---
 **Namespace:** Json.Schema.Data
 
@@ -23,10 +23,12 @@ Attempts to resolve the reference.
 ```c#
 public abstract bool TryResolve(EvaluationContext context, out JsonNode value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | context | EvaluationContext | The schema evaluation context. |
 | value | out JsonNode | If return is true, the value at the indicated location. |
+
 
 #### Returns
 

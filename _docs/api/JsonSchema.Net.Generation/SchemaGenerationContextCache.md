@@ -3,7 +3,7 @@ layout: "page"
 title: "SchemaGenerationContextCache Class"
 bookmark: "SchemaGenerationContextCache"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.33"
+order: "9.05.58"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -26,10 +26,12 @@ type and attribute set.
 ```c#
 public static SchemaGenerationContextBase Get(Type type, List<Attribute> memberAttributes)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | type | Type | The type to generate. |
 | memberAttributes | List\<Attribute\> | A collection of extra attributes.  Only use if requesting a context to represent<br>a member. |
+
 
 #### Returns
 

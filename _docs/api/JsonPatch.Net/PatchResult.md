@@ -18,7 +18,8 @@ Results for a JSON Patch application.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Result** | JsonNode | Gets the resulting JSON document. |
 | **Error** | string | Gets any error that occurred. |
-| **Operation** | int | Gets the last operation that was attempted. |
 | **IsSuccess** | bool | Gets whether there was an error. |
+| **Operation** | int | Gets the last operation that was attempted. |
+| **Result** | JsonNode | Gets the resulting JSON document. |
+

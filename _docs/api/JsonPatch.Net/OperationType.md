@@ -22,3 +22,4 @@ Enumerates the valid JSON Patch operation types.
 | **Move** | Represents the `move` operation. |
 | **Copy** | Represents the `copy` operation. |
 | **Test** | Represents the `test` operation. |
+

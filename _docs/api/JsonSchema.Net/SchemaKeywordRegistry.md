@@ -3,7 +3,7 @@ layout: "page"
 title: "SchemaKeywordRegistry Class"
 bookmark: "SchemaKeywordRegistry"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.90"
+order: "9.01.91"
 ---
 **Namespace:** Json.Schema
 
@@ -31,9 +31,11 @@ Gets the implementation for a given keyword name.
 ```c#
 public static Type GetImplementationType(string keyword)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | keyword | string | The keyword name. |
+
 
 #### Returns
 
@@ -49,6 +51,7 @@ Registers a new keyword type.
 public static void Register()
 ```
 
+
 ### RegisterNullValue(T nullKeyword)
 
 Registers a null-value for a keyword.
@@ -58,9 +61,11 @@ Registers a null-value for a keyword.
 ```c#
 public static void RegisterNullValue(T nullKeyword)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | nullKeyword | T |  |
+
 
 #### Remarks
 
@@ -76,4 +81,5 @@ Unregisters a keyword type.
 ```c#
 public static void Unregister()
 ```
+
 

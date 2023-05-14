@@ -3,7 +3,7 @@ layout: "page"
 title: "PropertyNamingMethod Delegate"
 bookmark: "PropertyNamingMethod"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.27"
+order: "9.05.49"
 ---
 # PropertyNamingMethod Delegate
 
@@ -30,9 +30,11 @@ Declares a property naming method which is used to alter property names.
 ```c#
 public delegate string PropertyNamingMethod(string input)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | input | string | The property name. |
+
 
 #### Returns
 

@@ -18,7 +18,8 @@ Holds the result of an instance generation operation.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Result** | JsonNode | Gets the resulting JSON data, if successful. |
 | **ErrorMessage** | string | Gets the error message from the generation, if unsuccessful. |
 | **InnerResults** | IEnumerable\<GenerationResult\> | Gets the result objects from nested data generations. |
 | **IsSuccess** | bool | Gets whether the data generation was successful. |
+| **Result** | JsonNode | Gets the resulting JSON data, if successful. |
+

@@ -3,7 +3,7 @@ layout: "page"
 title: "MaximumIntent Class"
 bookmark: "MaximumIntent"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.52"
+order: "9.05.29"
 ---
 **Namespace:** Json.Schema.Generation.Intents
 
@@ -23,6 +23,7 @@ Provides intent to create a `maximum` keyword.
 | Name | Type | Summary |
 |---|---|---|
 | **Value** | decimal | The value. |
+
 ## Constructors
 
 ### MaximumIntent(decimal value)
@@ -34,9 +35,11 @@ Creates a new **Json.Schema.Generation.Intents.MaximumIntent** instance.
 ```c#
 public MaximumIntent(decimal value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | decimal | The value. |
+
 
 ## Methods
 
@@ -49,7 +52,9 @@ Applies the keyword to the **Json.Schema.JsonSchemaBuilder**.
 ```c#
 public void Apply(JsonSchemaBuilder builder)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
+
 

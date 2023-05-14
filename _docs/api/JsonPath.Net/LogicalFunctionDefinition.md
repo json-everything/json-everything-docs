@@ -3,7 +3,7 @@ layout: "page"
 title: "LogicalFunctionDefinition Class"
 bookmark: "LogicalFunctionDefinition"
 permalink: "/api/JsonPath.Net/:title/"
-order: "9.07.06"
+order: "9.07.11"
 ---
 **Namespace:** Json.Path
 
@@ -24,3 +24,4 @@ Base class for defining an expression function which returns `LogicalType`.
 | Name | Type | Summary |
 |---|---|---|
 | **Name** | string | Gets the function name. |
+

@@ -3,7 +3,7 @@ layout: "page"
 title: "NodelistFunctionDefinition Class"
 bookmark: "NodelistFunctionDefinition"
 permalink: "/api/JsonPath.Net/:title/"
-order: "9.07.07"
+order: "9.07.15"
 ---
 **Namespace:** Json.Path
 
@@ -24,3 +24,4 @@ Base class for defining an expression function which returns `NodesType`.
 | Name | Type | Summary |
 |---|---|---|
 | **Name** | string | Gets the function name. |
+

@@ -26,6 +26,7 @@ Gets the `discriminator` keyword if it exists.
 public static DiscriminatorKeyword GetDiscriminator(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -39,6 +40,7 @@ Gets the value of `example` if the keyword exists.
 ```c#
 public static JsonNode GetExample(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -54,6 +56,7 @@ Gets the value of `externalDocs` if the keyword exists.
 public static string GetExternalDocs(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -67,6 +70,7 @@ Gets the `xml` keyword if it exists.
 ```c#
 public static XmlKeyword GetXml(this JsonSchema schema)
 ```
+
 
 #### Returns
 

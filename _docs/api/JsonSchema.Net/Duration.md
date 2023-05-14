@@ -3,7 +3,7 @@ layout: "page"
 title: "Duration Struct"
 bookmark: "Duration"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.22"
+order: "9.01.20"
 ---
 **Namespace:** Json.Schema
 
@@ -20,13 +20,14 @@ Represents an ISO 8601 ABNF duration value.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Years** | uint | The number of years. |
-| **Months** | uint | The number of months. |
-| **Weeks** | uint | The number of weeks.  Incompatible with **Json.Schema.Duration.Years**, **Json.Schema.Duration.Months**, and **Json.Schema.Duration.Days**. |
 | **Days** | uint | The number of days. |
 | **Hours** | uint | The number of hours. |
 | **Minutes** | uint | The number of minutes. |
+| **Months** | uint | The number of months. |
 | **Seconds** | uint | The number of seconds. |
+| **Weeks** | uint | The number of weeks.  Incompatible with **Json.Schema.Duration.Years**, **Json.Schema.Duration.Months**, and **Json.Schema.Duration.Days**. |
+| **Years** | uint | The number of years. |
+
 ## Methods
 
 ### Parse(string source)
@@ -38,9 +39,11 @@ Parses a **Json.Schema.Duration** from a string.
 ```c#
 public static Duration Parse(string source)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | source | string | The source string. |
+
 
 #### Returns
 
@@ -55,10 +58,12 @@ Parses a **Json.Schema.Duration** from a string.
 ```c#
 public static bool TryParse(string source, out Duration duration)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | source | string | The source string. |
 | duration | out Duration | The resulting duration. |
+
 
 #### Returns
 

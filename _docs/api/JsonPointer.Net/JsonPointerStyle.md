@@ -18,3 +18,4 @@ Enumerates the different styles of JSON pointers.
 | **Unspecified** | No format specified. |
 | **Plain** | Indicates only plain JSON pointers. |
 | **UriEncoded** | Indicates only URI-encoded JSON pointers. |
+

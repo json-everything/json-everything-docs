@@ -25,9 +25,11 @@ Attempts to generate sample data that meets the requirements of the schema.
 ```c#
 public static GenerationResult GenerateData(this JsonSchema schema)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | schema | JsonSchema | The schema. |
+
 
 #### Returns
 

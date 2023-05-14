@@ -3,7 +3,7 @@ layout: "page"
 title: "IContextContainer Interface"
 bookmark: "IContextContainer"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.10"
+order: "9.05.20"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -29,10 +29,12 @@ Replaces one context with another.
 ```c#
 public abstract void Replace(int hashCode, SchemaGenerationContextBase newContext)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | hashCode | int | The hashcode of the context to replace. |
 | newContext | SchemaGenerationContextBase | The new context. |
+
 
 #### Remarks
 

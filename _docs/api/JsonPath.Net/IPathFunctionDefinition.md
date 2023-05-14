@@ -21,3 +21,4 @@ Functions must be registered with one of the static `Register()`
 | Name | Type | Summary |
 |---|---|---|
 | **Name** | string | Gets the function name. |
+

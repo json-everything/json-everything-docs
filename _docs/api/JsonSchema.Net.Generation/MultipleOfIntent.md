@@ -3,7 +3,7 @@ layout: "page"
 title: "MultipleOfIntent Class"
 bookmark: "MultipleOfIntent"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.58"
+order: "9.05.42"
 ---
 **Namespace:** Json.Schema.Generation.Intents
 
@@ -23,6 +23,7 @@ Provides intent to create a `multipleOf` keyword.
 | Name | Type | Summary |
 |---|---|---|
 | **Value** | decimal | The value. |
+
 ## Constructors
 
 ### MultipleOfIntent(decimal value)
@@ -34,9 +35,11 @@ Creates a new **Json.Schema.Generation.Intents.MultipleOfIntent** instance.
 ```c#
 public MultipleOfIntent(decimal value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | decimal | The value. |
+
 
 ## Methods
 
@@ -49,7 +52,9 @@ Applies the keyword to the **Json.Schema.JsonSchemaBuilder**.
 ```c#
 public void Apply(JsonSchemaBuilder builder)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
+
 

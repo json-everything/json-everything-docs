@@ -23,6 +23,7 @@ Comparator for **Json.Schema.DataGeneration.Bound**.
 | Name | Type | Summary |
 |---|---|---|
 | **Instance** | IEqualityComparer\<Bound\> | Static instance of the comparer. |
+
 ## Methods
 
 ### Equals(Bound x, Bound y)
@@ -34,10 +35,12 @@ Determines whether the specified objects are equal.
 ```c#
 public bool Equals(Bound x, Bound y)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | x | Bound | The first object of type T to compare. |
 | y | Bound | The second object of type T to compare. |
+
 
 #### Returns
 
@@ -52,9 +55,11 @@ Returns a hash code for the specified object.
 ```c#
 public int GetHashCode(Bound obj)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | obj | Bound | The **System.Object** for which a hash code is to be returned. |
+
 
 #### Returns
 

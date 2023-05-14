@@ -23,6 +23,7 @@ Models a JSON Patch document.
 | Name | Type | Summary |
 |---|---|---|
 | **Operations** | IReadOnlyList\<PatchOperation\> | Gets the collection of operations. |
+
 ## Constructors
 
 ### JsonPatch(params PatchOperation[] operations)
@@ -34,9 +35,11 @@ Creates a new instance of the **Json.Patch.JsonPatch** class.
 ```c#
 public JsonPatch(params PatchOperation[] operations)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | operations | params PatchOperation[] | The collection of operations. |
+
 
 ### JsonPatch(IEnumerable\<PatchOperation\> operations)
 
@@ -47,9 +50,11 @@ Creates a new instance of the **Json.Patch.JsonPatch** class.
 ```c#
 public JsonPatch(IEnumerable<PatchOperation> operations)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | operations | IEnumerable\<PatchOperation\> | The collection of operations. |
+
 
 ## Methods
 
@@ -62,9 +67,11 @@ Applies the patch to a JSON document.
 ```c#
 public PatchResult Apply(JsonNode source)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | source | JsonNode | The JSON document. |
+
 
 #### Returns
 
@@ -79,9 +86,11 @@ Indicates whether the current object is equal to another object of the same type
 ```c#
 public bool Equals(JsonPatch other)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | other | JsonPatch | An object to compare with this object. |
+
 
 #### Returns
 
@@ -96,9 +105,11 @@ Determines whether the specified object is equal to the current object.
 ```c#
 public override bool Equals(object obj)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | obj | object | The object to compare with the current object. |
+
 
 #### Returns
 
@@ -113,6 +124,7 @@ Serves as the default hash function.
 ```c#
 public override int GetHashCode()
 ```
+
 
 #### Returns
 

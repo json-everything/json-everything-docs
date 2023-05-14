@@ -25,9 +25,11 @@ Converts a **System.Int64** to a **System.Text.Json.JsonElement**.
 ```c#
 public static JsonElement AsJsonElement(this long value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | long | The value to convert. |
+
 
 #### Returns
 
@@ -46,9 +48,11 @@ Converts a **System.Int32** to a **System.Text.Json.JsonElement**.
 ```c#
 public static JsonElement AsJsonElement(this int value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | int | The value to convert. |
+
 
 #### Returns
 
@@ -67,9 +71,11 @@ Converts a **System.Int16** to a **System.Text.Json.JsonElement**.
 ```c#
 public static JsonElement AsJsonElement(this short value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | short | The value to convert. |
+
 
 #### Returns
 
@@ -88,9 +94,11 @@ Converts a **System.Boolean** to a **System.Text.Json.JsonElement**.
 ```c#
 public static JsonElement AsJsonElement(this bool value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | bool | The value to convert. |
+
 
 #### Returns
 
@@ -109,9 +117,11 @@ Converts a **System.Int64** to a **System.Text.Json.JsonElement**.
 ```c#
 public static JsonElement AsJsonElement(this decimal value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | decimal | The value to convert. |
+
 
 #### Returns
 
@@ -130,9 +140,11 @@ Converts a **System.Double** to a **System.Text.Json.JsonElement**.
 ```c#
 public static JsonElement AsJsonElement(this double value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | double | The value to convert. |
+
 
 #### Returns
 
@@ -151,9 +163,11 @@ Converts a **System.Single** to a **System.Text.Json.JsonElement**.
 ```c#
 public static JsonElement AsJsonElement(this float value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | float | The value to convert. |
+
 
 #### Returns
 
@@ -172,9 +186,11 @@ Converts a **System.String** to a **System.Text.Json.JsonElement**.  Can also be
 ```c#
 public static JsonElement AsJsonElement(this string value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | string | The value to convert. |
+
 
 #### Returns
 
@@ -193,9 +209,11 @@ Converts a **System.Int64** to a **System.Text.Json.JsonElement**.
 ```c#
 public static JsonElement AsJsonElement(this IEnumerable<JsonElement> values)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | values | IEnumerable\<JsonElement\> | The array of values to convert. |
+
 
 #### Returns
 
@@ -214,9 +232,11 @@ Converts a **System.Int64** to a **System.Text.Json.JsonElement**.
 ```c#
 public static JsonElement AsJsonElement(this IDictionary<string, JsonElement> values)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | values | IDictionary\<string, JsonElement\> | The value to convert. |
+
 
 #### Returns
 
@@ -235,9 +255,11 @@ Converts a **System.Text.Json.JsonElement** to a **System.Text.Json.Nodes.JsonNo
 ```c#
 public static JsonNode AsNode(this JsonElement element)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | element | JsonElement | The element. |
+
 
 #### Returns
 
@@ -257,10 +279,12 @@ Generate a consistent JSON-value-based hash code for the element.
 ```c#
 public static int GetEquivalenceHashCode(this JsonElement element, int maxHashDepth)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | element | JsonElement | The element. |
 | maxHashDepth | int | Maximum depth to calculate.  Default is -1 which utilizes the entire structure without limitation. |
+
 
 #### Returns
 
@@ -282,10 +306,12 @@ Determines JSON-compatible equivalence.
 ```c#
 public static bool IsEquivalentTo(this JsonElement a, JsonElement b)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | a | JsonElement | The first element. |
 | b | JsonElement | The second element. |
+
 
 #### Returns
 
@@ -300,9 +326,11 @@ Just a shortcut for calling `JsonSerializer.Serialize()` because `.ToString()` d
 ```c#
 public static string ToJsonString(this JsonElement element)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | element | JsonElement | The value to convert. |
+
 
 #### Returns
 

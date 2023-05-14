@@ -3,7 +3,7 @@ layout: "page"
 title: "NullableAttribute Class"
 bookmark: "NullableAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.25"
+order: "9.05.44"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -27,6 +27,7 @@ adds or removes `null` in the `type` keyword.
 |---|---|---|
 | **IsNullable** | bool | Gets whether `null` should be included in the `type` keyword. |
 | **TypeId** | object |  |
+
 ## Constructors
 
 ### NullableAttribute(bool isNullable)
@@ -38,7 +39,9 @@ Creates a new **Json.Schema.Generation.NullableAttribute** instance.
 ```c#
 public NullableAttribute(bool isNullable)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | isNullable | bool | Whether `null` should be included in the `type` keyword. |
+
 

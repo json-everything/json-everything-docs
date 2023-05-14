@@ -24,14 +24,15 @@ Thrown during parsing when the source string contains invalid JSON Pointer data.
 
 | Name | Type | Summary |
 |---|---|---|
-| **TargetSite** | MethodBase |  |
-| **Message** | string |  |
 | **Data** | IDictionary |  |
-| **InnerException** | Exception |  |
 | **HelpLink** | string |  |
-| **Source** | string |  |
 | **HResult** | int |  |
+| **InnerException** | Exception |  |
+| **Message** | string |  |
+| **Source** | string |  |
 | **StackTrace** | string |  |
+| **TargetSite** | MethodBase |  |
+
 ## Constructors
 
 ### PointerParseException()
@@ -44,6 +45,7 @@ Creates a **Json.Pointer.PointerParseException**.
 public PointerParseException()
 ```
 
+
 ### PointerParseException(string message)
 
 Creates a **Json.Pointer.PointerParseException**.
@@ -54,6 +56,7 @@ Creates a **Json.Pointer.PointerParseException**.
 public PointerParseException(string message)
 ```
 
+
 ### PointerParseException(string message, Exception inner)
 
 Creates a **Json.Pointer.PointerParseException**.
@@ -63,4 +66,5 @@ Creates a **Json.Pointer.PointerParseException**.
 ```c#
 public PointerParseException(string message, Exception inner)
 ```
+
 

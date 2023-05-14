@@ -3,7 +3,7 @@ layout: "page"
 title: "Nullability Enum"
 bookmark: "Nullability"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.24"
+order: "9.05.43"
 ---
 # Nullability Enum
 
@@ -19,3 +19,4 @@ Indicates whether to apply `null` to the `type` keyword.
 | **AllowForNullableValueTypes** | Indicates that `null` will be applied to **System.Nullable`1** types. |
 | **AllowForReferenceTypes** | Indicates that `null` will be applied to reference types. |
 | **AllowForAllTypes** | Indicates that `null` will be applied to both reference types and **System.Nullable`1** types. |
+

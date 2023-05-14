@@ -3,7 +3,7 @@ layout: "page"
 title: "DefsIntent Class"
 bookmark: "DefsIntent"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.44"
+order: "9.05.07"
 ---
 **Namespace:** Json.Schema.Generation.Intents
 
@@ -23,6 +23,7 @@ Provides intent to create a `$defs` keyword.
 | Name | Type | Summary |
 |---|---|---|
 | **Definitions** | Dictionary\<string, SchemaGenerationContextBase\> | The contexts that represent the definitions. |
+
 ## Constructors
 
 ### DefsIntent(Dictionary\<string, SchemaGenerationContextBase\> definitions)
@@ -34,9 +35,11 @@ Creates a new **Json.Schema.Generation.Intents.DefsIntent** instance.
 ```c#
 public DefsIntent(Dictionary<string, SchemaGenerationContextBase> definitions)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | definitions | Dictionary\<string, SchemaGenerationContextBase\> | The contexts. |
+
 
 ## Methods
 
@@ -49,7 +52,9 @@ Applies the keyword to the **Json.Schema.JsonSchemaBuilder**.
 ```c#
 public void Apply(JsonSchemaBuilder builder)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
+
 

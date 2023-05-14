@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonSchemaExtensions Class"
 bookmark: "JsonSchemaExtensions"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.56"
+order: "9.01.55"
 ---
 **Namespace:** Json.Schema
 
@@ -26,10 +26,12 @@ in a single document.
 ```c#
 public static JsonSchema Bundle(this JsonSchema jsonSchema, EvaluationOptions options)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | jsonSchema | JsonSchema | The root schema. |
 | options | EvaluationOptions | Options (used for the schema registry) |
+
 
 #### Returns
 
@@ -44,11 +46,13 @@ Extends **Json.Schema.JsonSchema.Evaluate(System.Text.Json.Nodes.JsonNode,Json.S
 ```c#
 public static EvaluationResults Evaluate(this JsonSchema jsonSchema, JsonDocument jsonDocument, EvaluationOptions options)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | jsonSchema | JsonSchema | The schema. |
 | jsonDocument | JsonDocument | Instance to be evaluated. |
 | options | EvaluationOptions | The options to use for this evaluation. |
+
 
 #### Returns
 
@@ -63,11 +67,13 @@ Extends **Json.Schema.JsonSchema.Evaluate(System.Text.Json.Nodes.JsonNode,Json.S
 ```c#
 public static EvaluationResults Evaluate(this JsonSchema jsonSchema, JsonElement jsonElement, EvaluationOptions options)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | jsonSchema | JsonSchema | The schema. |
 | jsonElement | JsonElement | Instance to be evaluated. |
 | options | EvaluationOptions | The options to use for this evaluation. |
+
 
 #### Returns
 
@@ -83,6 +89,7 @@ Gets the schema for `additionalItems` if the keyword exists.
 public static JsonSchema GetAdditionalItems(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -96,6 +103,7 @@ Gets the schema for `additionalProperties` if the keyword exists.
 ```c#
 public static JsonSchema GetAdditionalProperties(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -111,6 +119,7 @@ Gets the schemas in `allOf` if the keyword exists.
 public static IReadOnlyCollection<JsonSchema> GetAllOf(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -124,6 +133,7 @@ Gets the value of `$anchor` if the keyword exists.
 ```c#
 public static string GetAnchor(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -139,6 +149,7 @@ Gets the schemas in `anyOf` if the keyword exists.
 public static IReadOnlyCollection<JsonSchema> GetAnyOf(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -152,6 +163,7 @@ Gets the value of `$comment` if the keyword exists.
 ```c#
 public static string GetComment(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -167,6 +179,7 @@ Gets the value of `const` if the keyword exists.
 public static JsonNode GetConst(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -180,6 +193,7 @@ Gets the schema for `contains` if the keyword exists.
 ```c#
 public static JsonSchema GetContains(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -195,6 +209,7 @@ Gets the value of `contentEncoding` if the keyword exists.
 public static string GetContentEncoding(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -208,6 +223,7 @@ Gets the value of `contentMediaType` if the keyword exists.
 ```c#
 public static string GetContentMediaType(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -223,6 +239,7 @@ Gets the schema for `contentSchema` if the keyword exists.
 public static JsonSchema GetContentSchema(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -236,6 +253,7 @@ Gets the value of `default` if the keyword exists.
 ```c#
 public static JsonNode GetDefault(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -251,6 +269,7 @@ Gets the schemas in `definitions` if the keyword exists.
 public static IReadOnlyDictionary<string, JsonSchema> GetDefinitions(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -264,6 +283,7 @@ Gets the schemas in `$defs` if the keyword exists.
 ```c#
 public static IReadOnlyDictionary<string, JsonSchema> GetDefs(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -279,6 +299,7 @@ Gets the requirements in `dependencies` if the keyword exists.
 public static IReadOnlyDictionary<string, SchemaOrPropertyList> GetDependencies(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -292,6 +313,7 @@ Gets the requirements in `dependentRequired` if the keyword exists.
 ```c#
 public static IReadOnlyDictionary<string, IReadOnlyList<string>> GetDependentRequired(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -307,6 +329,7 @@ Gets the schemas in `dependentSchemas` if the keyword exists.
 public static IReadOnlyDictionary<string, JsonSchema> GetDependentSchemas(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -320,6 +343,7 @@ Gets the value of `deprecated` if the keyword exists.
 ```c#
 public static bool? GetDeprecated(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -335,6 +359,7 @@ Gets the value of `description` if the keyword exists.
 public static string GetDescription(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -348,6 +373,7 @@ Gets the value of `$dynamicAnchor` if the keyword exists.
 ```c#
 public static string GetDynamicAnchor(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -363,6 +389,7 @@ Gets the value of `$dynamicRef` if the keyword exists.
 public static Uri GetDynamicRef(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -376,6 +403,7 @@ Gets the schema for `else` if the keyword exists.
 ```c#
 public static JsonSchema GetElse(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -391,6 +419,7 @@ Gets the values in `enum` if the keyword exists.
 public static IReadOnlyCollection<JsonNode> GetEnum(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -404,6 +433,7 @@ Gets the values in `examples` if the keyword exists.
 ```c#
 public static IReadOnlyCollection<JsonNode> GetExamples(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -419,6 +449,7 @@ Gets the value of `exclusiveMaximum` if the keyword exists.
 public static decimal? GetExclusiveMaximum(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -432,6 +463,7 @@ Gets the value of `exclusiveMinimum` if the keyword exists.
 ```c#
 public static decimal? GetExclusiveMinimum(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -447,6 +479,7 @@ Gets the value of `format` if the keyword exists.
 public static Format GetFormat(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -460,6 +493,7 @@ Gets the value of `$id` if the keyword exists.
 ```c#
 public static Uri GetId(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -475,6 +509,7 @@ Gets the schema for `if` if the keyword exists.
 public static JsonSchema GetIf(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -488,6 +523,7 @@ Gets the schema for `items` if the keyword exists and is a single schema.
 ```c#
 public static JsonSchema GetItems(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -503,6 +539,7 @@ Gets the schemas in `items` if the keyword exists and is an array of schemas.
 public static IReadOnlyCollection<JsonSchema> GetItemsArrayForm(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -516,6 +553,7 @@ Gets the value of `type` if the keyword exists.
 ```c#
 public static SchemaValueType? GetJsonType(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -531,6 +569,7 @@ Gets the value of `maxContains` if the keyword exists.
 public static uint? GetMaxContains(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -544,6 +583,7 @@ Gets the value of `maximum` if the keyword exists.
 ```c#
 public static decimal? GetMaximum(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -559,6 +599,7 @@ Gets the value of `maxItems` if the keyword exists.
 public static uint? GetMaxItems(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -572,6 +613,7 @@ Gets the value of `maxLength` if the keyword exists.
 ```c#
 public static uint? GetMaxLength(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -587,6 +629,7 @@ Gets the value of `maxProperties` if the keyword exists.
 public static uint? GetMaxProperties(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -600,6 +643,7 @@ Gets the value of `minContains` if the keyword exists.
 ```c#
 public static uint? GetMinContains(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -615,6 +659,7 @@ Gets the value of `minimum` if the keyword exists.
 public static decimal? GetMinimum(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -628,6 +673,7 @@ Gets the value of `minItems` if the keyword exists.
 ```c#
 public static uint? GetMinItems(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -643,6 +689,7 @@ Gets the value of `minLength` if the keyword exists.
 public static uint? GetMinLength(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -656,6 +703,7 @@ Gets the value of `minProperties` if the keyword exists.
 ```c#
 public static uint? GetMinProperties(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -671,6 +719,7 @@ Gets the value of `multipleOf` if the keyword exists.
 public static decimal? GetMultipleOf(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -684,6 +733,7 @@ Gets the schema for `not` if the keyword exists.
 ```c#
 public static JsonSchema GetNot(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -699,6 +749,7 @@ Gets the schemas in `oneOf` if the keyword exists.
 public static IReadOnlyCollection<JsonSchema> GetOneOf(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -712,6 +763,7 @@ Gets the value of `pattern` if the keyword exists.
 ```c#
 public static Regex GetPattern(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -727,6 +779,7 @@ Gets the schemas in `patternProperties` if the keyword exists.
 public static IReadOnlyDictionary<Regex, JsonSchema> GetPatternProperties(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -740,6 +793,7 @@ Gets the schemas in `prefixItems` if the keyword exists.
 ```c#
 public static IReadOnlyCollection<JsonSchema> GetPrefixItems(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -755,6 +809,7 @@ Gets the schemas in `properties` if the keyword exists.
 public static IReadOnlyDictionary<string, JsonSchema> GetProperties(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -768,6 +823,7 @@ Gets the schemas for `propertyDependencies` if the keyword exists.
 ```c#
 public static IReadOnlyDictionary<string, PropertyDependency> GetPropertyDependencies(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -783,6 +839,7 @@ Gets the schema for `propertyNames` if the keyword exists.
 public static JsonSchema GetPropertyNames(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -796,6 +853,7 @@ Gets the value of `readOnly` if the keyword exists.
 ```c#
 public static bool? GetReadOnly(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -811,6 +869,7 @@ Gets the value of `$recursiveAnchor` if the keyword exists.
 public static bool? GetRecursiveAnchor(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -824,6 +883,7 @@ Gets the value of `$recursiveRef` if the keyword exists.
 ```c#
 public static Uri GetRecursiveRef(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -839,6 +899,7 @@ Gets the value of `$ref` if the keyword exists.
 public static Uri GetRef(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -852,6 +913,7 @@ Gets the values in `required` if the keyword exists.
 ```c#
 public static IReadOnlyList<string> GetRequired(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -867,6 +929,7 @@ Gets the value of `$schema` if the keyword exists.
 public static Uri GetSchema(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -880,6 +943,7 @@ Gets the schema for `then` if the keyword exists.
 ```c#
 public static JsonSchema GetThen(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -895,6 +959,7 @@ Gets the value of `title` if the keyword exists.
 public static string GetTitle(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -908,6 +973,7 @@ Gets the schema for `unevaluatedItems` if the keyword exists.
 ```c#
 public static JsonSchema GetUnevaluatedItems(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -923,6 +989,7 @@ Gets the schema for `unevaluatedProperties` if the keyword exists.
 public static JsonSchema GetUnevaluatedProperties(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -936,6 +1003,7 @@ Gets the value of `uniqueItems` if the keyword exists.
 ```c#
 public static bool? GetUniqueItems(this JsonSchema schema)
 ```
+
 
 #### Returns
 
@@ -951,6 +1019,7 @@ Gets the values in `$vocabulary` if the keyword exists.
 public static IReadOnlyDictionary<Uri, bool> GetVocabulary(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -965,6 +1034,7 @@ Gets the value of `writeOnly` if the keyword exists.
 public static bool? GetWriteOnly(this JsonSchema schema)
 ```
 
+
 #### Returns
 
 
@@ -978,11 +1048,13 @@ Extends **Json.Schema.JsonSchema.Evaluate(System.Text.Json.Nodes.JsonNode,Json.S
 ```c#
 public static EvaluationResults Validate(this JsonSchema jsonSchema, JsonNode jsonNode, EvaluationOptions options)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | jsonSchema | JsonSchema | The schema. |
 | jsonNode | JsonNode | Instance to be evaluated. |
 | options | EvaluationOptions | The options to use for this evaluation. |
+
 
 #### Returns
 
@@ -997,11 +1069,13 @@ Extends **Json.Schema.JsonSchema.Evaluate(System.Text.Json.Nodes.JsonNode,Json.S
 ```c#
 public static EvaluationResults Validate(this JsonSchema jsonSchema, JsonDocument jsonDocument, EvaluationOptions options)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | jsonSchema | JsonSchema | The schema. |
 | jsonDocument | JsonDocument | Instance to be evaluated. |
 | options | EvaluationOptions | The options to use for this evaluation. |
+
 
 #### Returns
 
@@ -1016,11 +1090,13 @@ Extends **Json.Schema.JsonSchema.Evaluate(System.Text.Json.Nodes.JsonNode,Json.S
 ```c#
 public static EvaluationResults Validate(this JsonSchema jsonSchema, JsonElement jsonElement, EvaluationOptions options)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | jsonSchema | JsonSchema | The schema. |
 | jsonElement | JsonElement | Instance to be evaluated. |
 | options | EvaluationOptions | The options to use for this evaluation. |
+
 
 #### Returns
 

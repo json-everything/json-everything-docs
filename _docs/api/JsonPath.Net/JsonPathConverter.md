@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonPathConverter Class"
 bookmark: "JsonPathConverter"
 permalink: "/api/JsonPath.Net/:title/"
-order: "9.07.11"
+order: "9.07.08"
 ---
 **Namespace:** Json.Path
 
@@ -23,6 +23,7 @@ JSON converter for **Json.Path.JsonPath**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+
 ## Methods
 
 ### Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
@@ -34,11 +35,13 @@ Reads and converts the JSON to type **Json.Path.JsonPath**.
 ```c#
 public override JsonPath Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | reader | ref Utf8JsonReader | The reader. |
 | typeToConvert | Type | The type to convert. |
 | options | JsonSerializerOptions | An object that specifies serialization options to use. |
+
 
 #### Returns
 
@@ -53,9 +56,11 @@ Writes a specified value as JSON.
 ```c#
 public override void Write(Utf8JsonWriter writer, JsonPath value, JsonSerializerOptions options)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | writer | Utf8JsonWriter | The writer to write to. |
 | value | JsonPath | The value to convert to JSON. |
 | options | JsonSerializerOptions | An object that specifies serialization options to use. |
+
 

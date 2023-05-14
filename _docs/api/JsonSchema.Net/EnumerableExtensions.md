@@ -3,7 +3,7 @@ layout: "page"
 title: "EnumerableExtensions Class"
 bookmark: "EnumerableExtensions"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.27"
+order: "9.01.25"
 ---
 **Namespace:** Json.Schema
 
@@ -25,10 +25,12 @@ Determines contents-based equality: each element appears equally in each set.
 ```c#
 public static bool ContentsEqual(this IReadOnlyList<T> collection, IReadOnlyList<T> other)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | collection | IReadOnlyList\<T\> | The first collection. |
 | other | IReadOnlyList\<T\> | The second collection. |
+
 
 #### Returns
 
@@ -43,11 +45,13 @@ Determines contents-based equality: each element appears equally in each set.
 ```c#
 public static bool ContentsEqual(this IReadOnlyList<T> collection, IReadOnlyList<T> other, IEqualityComparer<T> comparer)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | collection | IReadOnlyList\<T\> | The first collection. |
 | other | IReadOnlyList\<T\> | The second collection. |
 | comparer | IEqualityComparer\<T\> | A custom equality comparer. |
+
 
 #### Returns
 
@@ -62,9 +66,11 @@ Gets a string-dictionary-oriented hash code by combining the hash codes of its e
 ```c#
 public static int GetStringDictionaryHashCode(this IDictionary<string, T> collection)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | collection | IDictionary\<string, T\> | The collection of elements. |
+
 
 #### Returns
 
@@ -84,9 +90,11 @@ Gets a string-dictionary-oriented hash code by combining the hash codes of its e
 ```c#
 public static int GetStringDictionaryHashCode(this IReadOnlyDictionary<string, T> collection)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | collection | IReadOnlyDictionary\<string, T\> | The collection of elements. |
+
 
 #### Returns
 
@@ -106,9 +114,11 @@ Gets a collection-oriented hash code by combining the hash codes of its elements
 ```c#
 public static int GetUnorderedCollectionHashCode(this IEnumerable<T> collection)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | collection | IEnumerable\<T\> | The collection of elements. |
+
 
 #### Returns
 

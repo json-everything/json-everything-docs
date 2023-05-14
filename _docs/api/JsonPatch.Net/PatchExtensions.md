@@ -25,11 +25,13 @@ Apply a patch to an object to transform its data.
 ```c#
 public static T Apply(this JsonPatch patch, T obj, JsonSerializerOptions options)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | patch | JsonPatch | The patch |
 | obj | T | The object |
 | options | JsonSerializerOptions | Serializer options. |
+
 
 #### Returns
 
@@ -44,11 +46,13 @@ Apply a patch to an object to transform it to another type.
 ```c#
 public static TTarget Apply(this JsonPatch patch, TOriginal obj, JsonSerializerOptions options)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | patch | JsonPatch | The patch |
 | obj | TOriginal | The object |
 | options | JsonSerializerOptions | Serializer options. |
+
 
 #### Returns
 
@@ -63,10 +67,12 @@ Create JsonPatch from difference between original and target
 ```c#
 public static JsonPatch CreatePatch(this JsonNode original, JsonNode target)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | original | JsonNode | Original object |
 | target | JsonNode | target object |
+
 
 #### Returns
 
@@ -81,11 +87,13 @@ Creates a **Json.Patch.JsonPatch** by analyzing the difference between original 
 ```c#
 public static JsonPatch CreatePatch(this TOriginal original, TTarget target, JsonSerializerOptions options)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | original | TOriginal | The original object. |
 | target | TTarget | The target object. |
 | options | JsonSerializerOptions | Serializer options. |
+
 
 #### Returns
 

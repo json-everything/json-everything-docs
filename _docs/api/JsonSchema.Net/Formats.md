@@ -3,7 +3,7 @@ layout: "page"
 title: "Formats Class"
 bookmark: "Formats"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.38"
+order: "9.01.36"
 ---
 **Namespace:** Json.Schema
 
@@ -37,6 +37,7 @@ The formats supported by JSON Schema base specifications.
 | **UriReference** | Format | Defines the `uri-reference` format. |
 | **UriTemplate** | Format | Defines the `uri-template` format. |
 | **Uuid** | Format | Defines the `uuid` format. |
+
 ## Methods
 
 ### CreateUnknown(string name)
@@ -48,9 +49,11 @@ Creates an unknown format.
 ```c#
 public static Format CreateUnknown(string name)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | name | string | The format key. |
+
 
 #### Returns
 
@@ -65,9 +68,11 @@ Gets a format by its key.
 ```c#
 public static Format Get(string key)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | key | string | The key. |
+
 
 #### Returns
 
@@ -82,7 +87,9 @@ Registers a new format.
 ```c#
 public static void Register(Format format)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | format | Format | The format. |
+
 

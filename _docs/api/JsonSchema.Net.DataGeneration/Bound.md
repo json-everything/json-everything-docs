@@ -25,8 +25,9 @@ Describes a lower or upper bound to a **Json.Schema.DataGeneration.NumberRange**
 
 | Name | Type | Summary |
 |---|---|---|
-| **Value** | decimal | Gets the bound value. |
 | **Inclusive** | bool | Gets whether the value is included in the bound. |
+| **Value** | decimal | Gets the bound value. |
+
 ## Constructors
 
 ### Bound(decimal value, bool inclusive)
@@ -38,10 +39,12 @@ Creates a new **Json.Schema.DataGeneration.Bound**.
 ```c#
 public Bound(decimal value, bool inclusive)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | decimal | The value |
 | inclusive | bool | Whether the value is included. Default is true. |
+
 
 ## Methods
 
@@ -54,6 +57,7 @@ Defines a generalized comparison method that a value type or class implements to
 ```c#
 public int CompareTo(Bound other)
 ```
+
 
 #### Returns
 
@@ -69,6 +73,7 @@ Identifies the complement of a bound, which is the same value and inverted inclu
 public static Bound Complement(Bound b)
 ```
 
+
 #### Returns
 
 
@@ -82,9 +87,11 @@ Indicates whether this instance and a specified object are equal.
 ```c#
 public override bool Equals(object obj)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | obj | object | The object to compare with the current instance. |
+
 
 #### Returns
 
@@ -99,9 +106,11 @@ Indicates whether the current object is equal to another object of the same type
 ```c#
 public bool Equals(Bound other)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | other | Bound | An object to compare with this object. |
+
 
 #### Returns
 
@@ -117,6 +126,7 @@ Returns the hash code for this instance.
 public override int GetHashCode()
 ```
 
+
 #### Returns
 
 A 32-bit signed integer that is the hash code for this instance.
@@ -131,6 +141,7 @@ Identifies the maximum of two bounds, including their inclusivity.
 public static Bound Maximum(Bound a, Bound b)
 ```
 
+
 #### Returns
 
 
@@ -144,6 +155,7 @@ Identifies the minimum of two bounds, including their inclusivity.
 ```c#
 public static Bound Minimum(Bound a, Bound b)
 ```
+
 
 #### Returns
 

@@ -20,6 +20,7 @@ Declares the vocabularies of the supported drafts.
 |---|---|---|
 | **Data** | Vocabulary | The data vocabulary. |
 | **DataId** | string | The data vocabulary ID. |
+
 ## Methods
 
 ### Register(VocabularyRegistry vocabRegistry, SchemaRegistry schemaRegistry)
@@ -31,4 +32,5 @@ Registers the all components required to use the data vocabulary.
 ```c#
 public static void Register(VocabularyRegistry vocabRegistry, SchemaRegistry schemaRegistry)
 ```
+
 

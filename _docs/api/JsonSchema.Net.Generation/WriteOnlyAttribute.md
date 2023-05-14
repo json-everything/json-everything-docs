@@ -3,7 +3,7 @@ layout: "page"
 title: "WriteOnlyAttribute Class"
 bookmark: "WriteOnlyAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.40"
+order: "9.05.68"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -24,8 +24,9 @@ Applies a `writeOnly` keyword.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Value** | bool | Whether the property should be write-only. |
 | **TypeId** | object |  |
+| **Value** | bool | Whether the property should be write-only. |
+
 ## Constructors
 
 ### WriteOnlyAttribute()
@@ -38,6 +39,7 @@ Creates a new **Json.Schema.Generation.WriteOnlyAttribute** instance with a valu
 public WriteOnlyAttribute()
 ```
 
+
 ### WriteOnlyAttribute(bool value)
 
 Creates a new **Json.Schema.Generation.WriteOnlyAttribute** instance.
@@ -47,7 +49,9 @@ Creates a new **Json.Schema.Generation.WriteOnlyAttribute** instance.
 ```c#
 public WriteOnlyAttribute(bool value)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | value | bool | The value. |
+
 

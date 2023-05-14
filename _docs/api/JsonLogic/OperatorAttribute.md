@@ -3,7 +3,7 @@ layout: "page"
 title: "OperatorAttribute Class"
 bookmark: "OperatorAttribute"
 permalink: "/api/JsonLogic/:title/"
-order: "9.10.04"
+order: "9.10.32"
 ---
 **Namespace:** Json.Logic
 
@@ -22,6 +22,7 @@ Decorates **Json.Logic.Rule** implementations to identify a rule.
 |---|---|---|
 | **Name** | string | The identifier. |
 | **TypeId** | object |  |
+
 ## Constructors
 
 ### OperatorAttribute(string name)
@@ -33,7 +34,9 @@ Creates a new **Json.Logic.OperatorAttribute** instance.
 ```c#
 public OperatorAttribute(string name)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | name | string | The identifier. |
+
 

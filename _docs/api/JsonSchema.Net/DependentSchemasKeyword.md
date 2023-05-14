@@ -3,7 +3,7 @@ layout: "page"
 title: "DependentSchemasKeyword Class"
 bookmark: "DependentSchemasKeyword"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.18"
+order: "9.01.16"
 ---
 **Namespace:** Json.Schema
 
@@ -25,11 +25,13 @@ Handles `dependentSchemas`.
 | Name | Type | Summary |
 |---|---|---|
 | **Name** | string | The JSON name of the keyword. |
+
 ## Properties
 
 | Name | Type | Summary |
 |---|---|---|
 | **Schemas** | IReadOnlyDictionary\<string, JsonSchema\> | The collection of "schema"-type dependencies. |
+
 ## Constructors
 
 ### DependentSchemasKeyword(IReadOnlyDictionary\<string, JsonSchema\> values)
@@ -41,9 +43,11 @@ Creates a new **Json.Schema.DependentSchemasKeyword**.
 ```c#
 public DependentSchemasKeyword(IReadOnlyDictionary<string, JsonSchema> values)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | values | IReadOnlyDictionary\<string, JsonSchema\> | The collection of "schema"-type dependencies. |
+
 
 ## Methods
 
@@ -56,9 +60,11 @@ Indicates whether the current object is equal to another object of the same type
 ```c#
 public bool Equals(DependentSchemasKeyword other)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | other | DependentSchemasKeyword | An object to compare with this object. |
+
 
 #### Returns
 
@@ -73,9 +79,11 @@ Determines whether the specified object is equal to the current object.
 ```c#
 public override bool Equals(object obj)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | obj | object | The object to compare with the current object. |
+
 
 #### Returns
 
@@ -90,9 +98,11 @@ Performs evaluation for the keyword.
 ```c#
 public void Evaluate(EvaluationContext context)
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | context | EvaluationContext | Contextual details for the evaluation process. |
+
 
 ### GetHashCode()
 
@@ -103,6 +113,7 @@ Serves as the default hash function.
 ```c#
 public override int GetHashCode()
 ```
+
 
 #### Returns
 
