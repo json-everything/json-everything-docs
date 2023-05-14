@@ -62,7 +62,8 @@ All of these and more are supplied via a set of attributes that can be applied t
 
 \*\* The `[JsonExclude]` attribute functions equivalently to `[JsonIgnore]` (see below).  It is included to allow generation to skip a property while allowing serialization to consider it.
 
-***NOTE** The `System.ComponentModel.DataAnnotations` annotations are not (and likely will not be) supported by this library.  Defining the above attributes separately allows alignment with JSON Schema and separation of concerns between serialization and validation.*
+> The `System.ComponentModel.DataAnnotations` annotations are not (and likely will not be) supported by this library.  Defining the above attributes separately allows alignment with JSON Schema and separation of concerns between serialization and validation.
+{: .prompt-info }
 
 Simply add the attributes directly to the properties and the corresponding keywords will be added to the schema.
 
@@ -99,7 +100,8 @@ will be translated to this schema:
 
 The `minimum` is applied to the `items` because that keyword is not relevant for an array.
 
-***NOTE** This means that the generator will have trouble determining where to apply keywords to properties like `List<List<T>>` because the attributes could be relevant for both the outer and inner lists.*
+> This means that the generator will have trouble determining where to apply keywords to properties like `List<List<T>>` because the attributes could be relevant for both the outer and inner lists.
+{: .prompt-info }
 
 The generator also supports these .Net-defined attributes:
 
@@ -146,9 +148,11 @@ There are four options:
 - `AllowForReferenceTypes` - This will add `null` to the `type` keyword for reference types unless `[Nullable(false)]` is used.
 - `AllowForAllTypes` - This is a combination of the previous two and will add `null` to the type keyword for any type unless `[Nullable(false)]` is used.
 
-***NOTE** This library [cannot detect](https://stackoverflow.com/a/62186551/878701) whether the consuming code has nullable reference types enabled.  Therefore all reference types are considered nullable.*
+> This library [cannot detect](https://stackoverflow.com/a/62186551/878701) whether the consuming code has nullable reference types enabled.  Therefore all reference types are considered nullable.
+{: .prompt-info }
 
-***BONUS NOTE** The library makes a distinction between nullable value types and reference types because value types must be explicitly nullable.  This differs from reference types which are implicitly nullable, and there's not a way (via the type itself) to make a reference type non-nullable.*
+> The library makes a distinction between nullable value types and reference types because value types must be explicitly nullable.  This differs from reference types which are implicitly nullable, and there's not a way (via the type itself) to make a reference type non-nullable.
+{: .prompt-info }
 
 ### Property naming {#schema-schemagen-property-names}
 
@@ -191,7 +195,8 @@ These are the first phase of generation.  When encountering a type, the system w
 
 To create a new generator, you'll need to implement the `ISchemaGenerator` interface and register it using the `GeneratorRegistry.Register()` static method.  This will insert your generator at the top of the list so that it has priority.
 
-***IMPORTANT** This means that the order your generators are registered is important: last one wins.  So if you want one generator to have priority over another, register the higher priority one last.*
+> This means that the order your generators are registered is important: last one wins.  So if you want one generator to have priority over another, register the higher priority one last.
+{: .prompt-warning }
 
 This class doesn't need to be complex.  Here's the implementation for the `BooleanSchemaGenerator`:
 
@@ -220,7 +225,8 @@ The context holds all of the data you need to determine which intents need to be
 
 `TypeGenerationContext` represents generation of just a type (including attributes present on the type itself), whereas `MemberGenerationContext` represents generation of an object member, which will have a type (and its attributes) _and_ possibly additional attributes as a member.
 
-***IMPORTANT** `MemberGenerationContext` will only be created if there are _handled_ attributes; attributes which are unhandled will be ignored, so two properties with the same type, but different sets of unhandled custom attributes will receive the same context object.  See the Attributes section below for more on handling custom attributes.*
+> `MemberGenerationContext` will only be created if there are _handled_ attributes; attributes which are unhandled will be ignored, so two properties with the same type, but different sets of unhandled custom attributes will receive the same context object.  See the Attributes section below for more on handling custom attributes.
+{: .prompt-warning }
 
 The data exposed by contexts are:
 
@@ -262,7 +268,8 @@ public class TypeIntent : ISchemaKeywordIntent
 
 See?  The `Apply()` method just takes the builder, and adds a keyword with the data that it already collected.  Pretty easy.
 
-***NOTE** In v1.x of the library, implementing the equality methods (`Equals()` and `GetHashCode()`) was required.  As of v2.0, this is unnecessary.*
+> In v1.x of the library, implementing the equality methods (`Equals()` and `GetHashCode()`) was required.  As of v2.0, this is unnecessary.
+{: .prompt-info }
 
 This will work for most intents, but some keywords contain subschemas.  For these, we don't want to hold a subschema because, as mentioned before, they can't be edited.  Instead, we'll hold a context object that represents the subschema: its type, attribute set, and the intents required to build it.  For these intents, we *also* want to implement `IContextContainer`.  Here's the `ItemsIntent`:
 
@@ -288,7 +295,8 @@ public class ItemsIntent : ISchemaKeywordIntent, IContextContainer
 
 As of v3, `IContextContainer` requires only a single method: `Replace()`.
 
-***NOTE** Another method `GetContexts()` was used in v1.x but was no longer used as of v2.0 and was marked obsolete with v2.0.1.*
+> Another method `GetContexts()` was used in v1.x but was no longer used as of v2.0 and was marked obsolete with v2.0.1.
+{: .prompt-info }
 
 `Replace()` replaces a context with a given hash code with a new context.  This is called when the system is creating `$ref` intents that point to the new `$defs` intent it's building and distributing them throughout the context tree.  Once all the `$ref`s are distributed, the system will add the `$defs` intent to the root context to be applied at the last step.
 
@@ -326,7 +334,8 @@ public class MaximumAttribute : Attribute, IAttributeHandler<MaximumAttribute>
 
 The `AddConstraints()` method works exactly the same as in the generator class.  A key difference here is that you will need to guard against unrelated types.  For instance, with `MaximumAttribute` above, it doesn't make sense to have `maximum` on a non-numeric type, so we check it before adding the intent.
 
-***NOTE** `.IsNumber()` is an extension method on `Type` that determines if it's a numeric type.  It is defined in Json.More.Net.  There are a few more of these helper extensions as well.*
+> `.IsNumber()` is an extension method on `Type` that determines if it's a numeric type.  It is defined in Json.More.Net.  There are a few more of these helper extensions as well.
+{: .prompt-info }
 
 The occasion may arise where you want to handle an attribute that's defined in some other assembly, and you can't make it implement `IAttributeHandler<T>`.  For these cases, just implement the handler class, and then add it using one of the `AttributeHandler.AddHandler()` static methods.  A handler can be removed using the `AttributeHandler.RemoveHandler<T>()` static method, passing the handler type for `T`.
 
