@@ -15,9 +15,9 @@ References typically come in two flavors: internal and external.  Internal refer
 
 ## Resolving references {#example-schema-registration}
 
-JsonSchema.Net will automatically handle internal references.  The schema document is loaded, and the library can easily resolve pointers inside of it.
+*JsonSchema.Net* will automatically handle internal references.  The schema document is loaded, and the library can easily resolve pointers inside of it.
 
-In order for JsonSchema.Net to handle external schemas, however, the schemas must be loaded and registered before validation starts.
+In order for *JsonSchema.Net* to handle external schemas, however, the schemas must be loaded and registered before validation starts.
 
 Suppose you have a subfolder where you store your schema files.  To load them, just iterate through the files and register them with `SchemaRegistry`.
 

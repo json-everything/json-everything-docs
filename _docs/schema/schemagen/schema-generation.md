@@ -6,7 +6,7 @@ permalink: /schema/:title/
 icon: fas fa-tag
 order: "1.5.1"
 ---
-*JsonSchema.Net.Generation* is an extension package to JsonSchema.Net that provides JSON Schema generation from .Net types.
+*JsonSchema.Net.Generation* is an extension package to *JsonSchema.Net* that provides JSON Schema generation from .Net types.
 
 Using it is quite simple.  First you need a `JsonSchemaBuilder`.  Then...
 

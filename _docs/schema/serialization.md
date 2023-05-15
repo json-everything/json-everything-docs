@@ -6,7 +6,7 @@ permalink: /schema/:title/
 icon: fas fa-tag
 order: "1.2"
 ---
-JsonSchema.Net includes a JSON converter implementation that provides JSON validation support _during_ deserialization.
+*JsonSchema.Net* includes a JSON converter implementation that provides JSON validation support _during_ deserialization.
 
 To enable this support, you'll need to include the `ValidatingJsonConverter` in the serialization options and then annotate any types that need validation with the `[JsonSchema()]` attribute, pointing the the schema for that type.
 

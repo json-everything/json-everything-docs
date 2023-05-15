@@ -345,7 +345,7 @@ The default output format is Flag, but this can be configured via the `Evaluatio
 }
 ```
 
-</details><br>
+</details>
 
 <details>
   <summary>List</summary>

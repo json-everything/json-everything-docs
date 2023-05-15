@@ -7,11 +7,11 @@ permalink: /logic/:title/
 icon: fas fa-tag
 order: "5.1"
 ---
-[JsonLogic](https://jsonlogic.com) is a mechanism that can be used to apply logical transformations to JSON values and that is also itself expressed in JSON.
+[JSON Logic](https://jsonlogic.com) is a mechanism that can be used to apply logical transformations to JSON values and that is also itself expressed in JSON.
 
 # The syntax {#logic-syntax}
 
-JsonLogic is expressed using single-keyed objects called _rules_.  The key is the operator and the value is (usually) an array containing the parameters for the operation.  Here are a few examples:
+JSON Logic is expressed using single-keyed objects called _rules_.  The key is the operator and the value is (usually) an array containing the parameters for the operation.  Here are a few examples:
 
 - Less than: `{"<" : [1, 2]}`
 - Merging arrays: `{"merge":[ [1,2], [3,4] ]}`

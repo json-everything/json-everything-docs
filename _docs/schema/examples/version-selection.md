@@ -6,7 +6,7 @@ permalink: /schema/examples/:title/
 icon: fas fa-tag
 order: "1.4.3"
 ---
-JSON Schema version (or "draft") selection can be an important factor in ensuring evaluation works as expected.  Selecting the wrong draft may result in some keywords not being processed.  For example, `prefixItems` was only added with draft 2020-12.  Evaluating a schema with this keyword under a previous draft will ignore the keyword completely.
+Selecting the right JSON Schema version (historically known as "draft") can be an important factor in ensuring evaluation works as expected.  Selecting the wrong draft may result in some keywords not being processed.  For example, `prefixItems` was only added with draft 2020-12.  Evaluating a schema with this keyword under a previous draft will ignore the keyword completely.
 
 *JsonSchema.Net* has a couple ways to specify which version a evaluation should use.
 

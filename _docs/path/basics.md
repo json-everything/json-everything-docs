@@ -9,11 +9,16 @@ order: "2.1"
 ---
 JSON Path is a query language for JSON documents inspired by what XPath provides for XML documents.  It was [originally proposed](https://goessner.net/articles/JsonPath/) by Matt Goëssner, and now a [specification](https://github.com/jsonpath-standard/internet-draft) is in progress.
 
-Version 0.4.x is aligned with the specification as of the end of Feb 2023, including support for functions (recently merged) and arithmetic operations in expressions (not part of the spec yet).
+Version 0.5.x is aligned with the specification as of the end of April 2023, plus additional support for the following features, which were not included in the specification:
+
+- arithmetic operations in expressions
+- `in` operator in expressions
+- starting a path with `@` instead of `$` (relative paths)
+- object and arrays in expressions (does not support single quotes)
 
 ## Syntax {#path-syntax}
 
-A path consists of start indicator followed by a series of segments, chained one after another.  Each segment contains one or more selectors.  Each selector takes in a collection of JSON nodes and produces a collection of JSON nodes (called a "nodelist") based on their function.  The output of the segment is the collective output of all of that segment's selectors.  Each segment takes as input the output of the previous selector.
+A path consists of start indicator `$` followed by a series of segments, chained one after another.  Each segment contains one or more selectors.  Each selector takes in a collection of JSON nodes and produces a collection of JSON nodes (called a "nodelist") based on their function.  The output of the segment is the collective output of all of that segment's selectors.  Each segment takes as input the output of the previous selector.
 
 - `$` - This is the root.  A path must always begin with it.  It effectively "selects" the root document.  It can also be used in query expressions, which we'll come to later.
 - `[...]` - Square brackets indicate a segment.  Selectors are found between the brackets, separated by commas.  There are several kinds of selectors:

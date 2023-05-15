@@ -7,7 +7,7 @@ permalink: /more/:title/
 icon: fas fa-tag
 order: "6.1"
 ---
-Json.More<nsp>.Net aims to fill gaps left by `System.Text.Json`.  To this end, it supplies four additional functions.
+*Json.More.Net* aims to fill gaps left by `System.Text.Json`.  To this end, it supplies four additional functions.
 
 # Equality comparison {#more-equality}
 
@@ -28,7 +28,7 @@ Additionally, an `IEqualityComparer<JsonElement>` is supplied (`JsonElementEqual
 > Comparers are also supplied for `JsonDocument` and `JsonNode`.
 {: .prompt-info }
 
-# Explicitly specifying JSON null with `JsonNode` {#more-null}
+# Explicitly specifying JSON null with `JsonNull` {#more-null}
 
 Because `JsonNode` was designed to unify .Net null with JSON null, it's difficult (and sometimes impossible) to determine when a JSON null is explicitly provided vs when it is merely the result of a missing property.  Ordinarily (e.g. during deserialization) this isn't much of a problem.
 
@@ -41,9 +41,9 @@ Under the covers, it's just a singleton `JsonValue<JsonNull>`.  Use `ReferenceEq
 
 # Enum serialization {#more-enums}
 
-The `EnumStringConverter<T>` class enables string encoding of enum values.  `T` is the enum.
+The `EnumStringConverter<T>` class enables string encoding of enum values.  `T` is the enum type.
 
-The default behavior is to simply encode the C# enum value name.  This can be overridden with the `System.ComponentModel.DescripitionAttribute`.
+The default behavior is to simply encode the C# enum value name.  This can be overridden with the `System.ComponentModel.DescriptionAttribute`.
 
 ```c#
 public enum MyEnum
@@ -54,7 +54,7 @@ public enum MyEnum
 }
 ```
 
-It also supports `[Flags]` enums by encoding the base values into an array.  It does not support composite values.
+It also supports `[Flags]` enums by encoding the base values into an array.  Composite values will be serialized into an array of their respective components.
 
 ```c#
 [Flags]
@@ -118,7 +118,8 @@ var obj = new Dictionary<string, JsonElement>{
 
 ## Making methods that require `JsonElement` easier to call {#more-proxy}
 
-***NOTE** If you're using `JsonNode`, you shouldn't need this as it already defines implicit casts from the appropriate types.*
+> If you're using `JsonNode`, you shouldn't need this as it already defines implicit casts from the appropriate types.
+{: .prompt-info}
 
 The `JsonElementProxy` class allows the client to define methods that expect a `JsonElement` to be called with native types by defining implicit casts from those types into the `JsonElementProxy` and then also an implicit cast from the proxy into `JsonElement`.
 

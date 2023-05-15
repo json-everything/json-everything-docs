@@ -8,7 +8,8 @@ order: "1.4.4"
 ---
 These examples will show how to extend JSON Schema validation by creating a new keyword and incorporating it into a new vocabulary.
 
-***NOTE** These examples are actually defined in one of the library's unit tests.*
+> These examples are actually defined in one of the library's unit tests.
+{: .prompt-info }
 
 For a more detailed explanation about the concepts behind vocabularies, please see the Vocabularies page.
 
@@ -110,7 +111,8 @@ Now that we have the keyword, we need to tell the system about it.
 SchemaKeywordRegistry.Register<MaxDateKeyword>();
 ```
 
-***NOTE** If you're building a dynamic system where you don't always want the keyword supported, it can be removed using the `SchemaKeywordRegistry.Unregister<T>()` static method.*
+> If you're building a dynamic system where you don't always want the keyword supported, it can be removed using the `SchemaKeywordRegistry.Unregister<T>()` static method.
+{: .prompt-info }
 
 That's technically all you need to do to support a custom keyword.  However, going forward for JSON Schema, custom keywords should be defined in a custom vocabulary.
 

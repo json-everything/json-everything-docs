@@ -8,7 +8,7 @@ order: "1.7.2"
 ---
 ## 1. Purpose {#schema-uniquekeys-purpose}
 
-This document describes a vocabulary defining keywords that can be used to validate that arrary instances contain unique values as determined by one or more given paths within each item.
+This document describes a vocabulary defining keywords that can be used to validate that array instances contain unique values as determined by one or more given paths within each item.
 
 The intent for these keywords is to cover the use cases discussed in the JSON Schema vocabularies GitHub issue [#22](https://github.com/json-schema-org/json-schema-vocabularies/issues/22).
 
