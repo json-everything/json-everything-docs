@@ -802,7 +802,6 @@ $sidebar-display: 'sidebar-display';
     border-radius: 0;
     font-size: 0.95rem;
     font-weight: 600;
-    letter-spacing: 1px;
     display: table-cell;
     vertical-align: middle;
   }
@@ -1694,10 +1693,6 @@ $sidebar-display: 'sidebar-display';
         text-align: left;
 
         .nav-link {
-          > span {
-            letter-spacing: 2px;
-          }
-
           > i {
             &.unloaded {
               display: inline-block !important;

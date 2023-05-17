@@ -37,7 +37,15 @@
           <label for="{{ doc.order }}" class="nav-item">
             <a class="nav-link">
               <i class="fa-solid fa-folder-open"></i>
-              <span>{{ doc.bookmark | default: doc.title }}</span>
+              <span>
+                {{ doc.bookmark | default: doc.title }}
+              </span>
+              {% if doc.version %}
+              <br>
+              <span class="ml-4">
+                <em>v{{ doc.version }}</em>
+              </span>
+              {% endif %}
             </a>
           </label>
           <ul class="w-100">
