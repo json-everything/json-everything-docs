@@ -17,7 +17,7 @@ order: "9.05.26"
 - IAttributeHandler\<JsonNumberHandlingAttribute\>
 - IAttributeHandler
 
-Handler for the **System.Text.Json.Serialization.JsonNumberHandlingAttribute**.
+Handler for the **Json.Schema.Generation.JsonNumberHandlingAttribute**.
 
 ## Methods
 
