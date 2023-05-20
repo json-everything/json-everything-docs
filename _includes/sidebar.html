@@ -33,10 +33,10 @@
       {% endif %}
       {% if doc.folder %}
         <li class="nav-item">
-          <input type="checkbox" id="{{ doc.order }}" class="doc-folder" onclick="saveDocumentListExpansion()">
+          <input type="checkbox" id="{{ doc.order }}" class="doc-folder" onclick="saveDocumentListExpansion(this)">
           <label for="{{ doc.order }}" class="nav-item">
             <a class="nav-link">
-              <i class="fa-solid fa-folder-open"></i>
+              <i class="fa-solid fa-folder"></i>
               <span>
                 {{ doc.bookmark | default: doc.title }}
               </span>
@@ -80,24 +80,37 @@
 
 <script>
 
-function saveDocumentListExpansion() {
+function saveDocumentListExpansion(checkbox) {
   const checkboxes = $('.doc-folder');
   const data = checkboxes.toArray().reduce((obj, cur) => (obj[cur.id] = cur.checked, obj), {});
   const content = JSON.stringify(data);
   setCookie('expansion', content, 1);
+
+  setIcon(checkbox, checkbox.checked);
 }
 
 function loadDocumentListExpansion() {
   const checkboxes = $('.doc-folder');
   const byId = checkboxes.toArray().reduce((obj, cur) => (obj[cur.id] = cur, obj), {});
   const cookie = getCookie('expansion');
-  if (!cookie) return;
 
   const data = JSON.parse(cookie);
   for (var key of Object.keys(data)) {
     var checkbox = byId[key];
     var newState = data[key];
+    setIcon(checkbox, newState);
     checkbox.checked = newState;
+  }
+}
+
+function setIcon(checkbox, newState) {
+  var icon = $(checkbox).parent().find('i').first();
+  if (newState) {
+    icon.removeClass('fa-folder');
+    icon.addClass('fa-folder-open')
+  } else {
+    icon.removeClass('fa-folder-open');
+    icon.addClass('fa-folder');
   }
 }
 
