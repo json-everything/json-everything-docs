@@ -173,8 +173,14 @@ Note that the `[JsonPropertyName]` attribute takes precedence, so you can still 
 
 There are a couple advanced features that bear mentioning.
 
-1. The system does have some loop detection logic in order to support self-referencing or loop-referencing types.
-1. The system will collect common subschemas into a `$defs` keyword at the root.  Identification of a subschema is by its type and the collection of attributes it is processed with.  The locations with these common subschemas will be replaced by a `$ref` that points to the appropriate entry in `$defs`.
+First, the system does have some loop detection logic in order to support self-referencing or loop-referencing types.
+
+Secondly, the system will collect common subschemas into a `$defs` keyword at the root.  Identification of a subschema is by its type and the collection of attributes it is processed with.  The locations with these common subschemas will be replaced by a `$ref` that points to the appropriate entry in `$defs`.
+
+Generating a properly descriptive-while-terse name is hard.  This library makes a fair attempt at it, generating names like `myType` for `MyType` and `arrayOfInteger` for `int[]` or `List<int>`.  If this proves insufficient for your needs, implement your own naming as an `ITypeNameGenerator` and assign it to `SchemaGenerationContextOptimizer.TypeNameGenerator`.
+
+> If you only want to handle specific types in your generator and are happy with the library's generation for others, simply return null from your generator and the library's generation will be used.
+{: .prompt-tip }
 
 ## Extending support {#schema-schemagen-extension}
 
