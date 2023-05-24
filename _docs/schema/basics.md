@@ -568,11 +568,11 @@ generates the following bundled schema:
 > This process requires that all external documents are registered or automatic resolution be enabled.
 {: .prompt-info }
 
-# Customizing error messages {#schema-errors}
+## Customizing error messages {#schema-errors}
 
 The library exposes the `ErrorMessages` static type which includes read/write properties for all of the error messages.  Customization of error messages can be achieved by setting these properties.
 
-## Templates {#schema-error-templates}
+### Templates {#schema-error-templates}
 
 Most of the error messages support token replacement.  Tokens will use the format `[[foo]]` and will be replaced by the JSON serialization of the associated value.
 
@@ -591,7 +591,7 @@ In this case, `[[received]]` will be replaced by the value in the JSON instance,
 > Since this example uses numbers, they appear without any particular formatting as this is how numbers serialize into JSON.  Similarly, strings will render surrounded by double quotes, `true`, `false`, and `null` will appear using those literals, and more complex values like object and arrays will be rendered in their JSON representation.
 {: .prompt-info }
 
-## Localization {#schema-error-localization}
+### Localization {#schema-error-localization}
 
 In addition to customization, using resource files enables support for localization.  The default locale is determined by `CultureInfo.CurrentCulture` and can be overridden by setting the `ErrorMessages.Culture` static property.
 
