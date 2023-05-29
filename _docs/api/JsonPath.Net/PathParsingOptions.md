@@ -22,5 +22,5 @@ Defines a set of configuration options to control parsing behavior.
 | **AllowJsonConstructs** | bool | Gets or sets whether JSON objects and arrays (double-quotes only)<br>are permitted in expression syntax. |
 | **AllowMathOperations** | bool | Gets or sets whether mathematical operators are allowed. |
 | **AllowRelativePathStart** | bool | Gets or sets whether a JSON Path can start with the `@` symbol<br>instead of `$`. |
-| **TolerateSurroundingWhitespace** | bool | Gets or sets whether the JSON Path can contain leading and<br>trailing whitespace. |
+| **TolerateExtraWhitespace** | bool | Gets or sets whether the JSON Path can contain whitespace in places<br>the spec says it shouldn't, e.g. between a function name and the<br>opening parenthesis. |
 
