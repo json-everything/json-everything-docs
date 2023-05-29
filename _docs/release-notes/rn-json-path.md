@@ -4,6 +4,12 @@ title: JsonPath.Net
 icon: fas fa-tag
 order: "8.07"
 ---
+# [0.6.0](https://github.com/gregsdennis/json-everything/pull/459) {#release-path-0.6.0}
+
+Updated support for whitespace in all the right places.
+
+Changed `PathParsingOptions.TolerateSurroundingWhitespace` to `TolerateExtraWhitespace` which now enables support for whitespace pretty much everywhere.
+
 # [0.5.2](https://github.com/gregsdennis/json-everything/pull/431) {#release-path-0.5.2}
 
 Improved support for regular expressions matching unicode text.
