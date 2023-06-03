@@ -10,7 +10,7 @@ Draft 7 of JSON Schema introduced a nice way to include some conditional constra
 
 The idea is that if `myObj.X == "foo"` then apply some constraints to `myObj.Y`, such as `minLength` or make it required.
 
-In JSON Schema, the recommended pattern looks something like this:
+In JSON Schema, the recommended pattern for this kind of conditional looks something like this:
 
 ```json
 {
@@ -50,12 +50,12 @@ Here we can see that depending on the value of `type`, we either want `intProp` 
 
 As of v3.3.0, _JsonSchema.Net.Generation_ includes the ability to define conditional constraints like these.
 
-> Currently this system only supports matching discrete values, not ranges.  This is a feature that may be added at a later date.
+> Currently this system only supports matching discrete values, not ranges, which is a feature that may be added at a later date.
 {: .prompt-info }
 
 ## Condition groups {#conditional-groups}
 
-The first step to defining condition constraints is to set up some constraint groups.  Condition groups allow you to define multiple constraints that must all be met before the constraints that apply to those groups.  (See [below](#conditional-constraints) to learn how to apply constraints conditionally.)
+The first step to defining conditional constraints is to set up some condition groups.  Condition groups allow you to define one or more conditions into groups, and for each group, every condition must be met before the constraints for that group can apply.  (See [below](#conditional-constraints) to learn how to apply constraints conditionally.)
 
 This can be done with either the `[If]` or the `[IfEnum]` attributes.  These are special attributes that are applied to the type itself.
 
@@ -63,11 +63,9 @@ This can be done with either the `[If]` or the `[IfEnum]` attributes.  These are
 
 The `[If]` attribute takes three parameters:
 
-|Parameter|Details|
-|:--|:--|
-|`propertyName`|This is the name of the property on the object.  Ideally, you'll want to use the `nameof()` C# keyword for this to support compiler checking.|
-|`value`|This is the expected value for the property you named above.  The condition will apply when the property is this value.  The value can be any compiler-constant value, but really should be JSON-compatible.  So strings, numbers, and booleans are generally best.  Enum values will work, too, but `[IfEnum]` may be a better option if you're using an enum property.|
-|`group`|This is a key that identifies a group for this condition.|
+- `propertyName` - This is the name of the property on the object.  Ideally, you'll want to use the `nameof()` C# keyword for this to support compiler checking even if you're using a different naming method.
+- `value` - This is the expected value for the property you named above.  The condition will apply when the property is this value.  The value can be any compiler-constant value, but really should be JSON-compatible.  So strings, numbers, and booleans are generally best.  Enum values will work, too, but `[IfEnum]` may be a better option if you're using an enum property.
+- `group` - This is a key that identifies a group for this condition.  It can be any compiler-constant value.
 
 ### `[IfEnum]` {#ifenum-attribute}
 
@@ -101,7 +99,7 @@ Here, we've defined
 - the group `"isSenior"` for when `AgeCategory == "senior"`
 
 > These groups are identified by strings, but they don't have to be.  We could just as well have used integers or any compile-time constant we wanted.
-{: .prompt-hint}
+{: .prompt-tip}
 
 In JSON Schema, these translate to the `if` keywords that you can see in the example at the top of the page.
 
@@ -171,14 +169,18 @@ public class SplitAgeRanges
 }
 ```
 
-> The above shows the first case, where we've used a string for `AgeCategory`.  If we wanted to use the enum approach, the `ConditionGroup` would need to be the associated enum value: `[Minimum(0, ConditionGroup = AgeCategory.Child)]`.
-{: .prompt-hint }
+> The above shows the first case, where we've used a string for `AgeCategory`.  If we wanted to use the enum approach, the `ConditionGroup` would need to be the associated enum value:
+> 
+> ```c#
+> [Minimum(0, ConditionGroup = AgeCategory.Child)]
+> ```
+{: .prompt-tip }
 
 The above sets multiple minimums and maximums that each apply for different groups.
 
 In JSON Schema, these translate to the `then` keywords that you can see in the example at the top of the page.  The JSON Schema that is generated from this example is below:
 
-<details>
+<details markdown="1">
   <summary>Expand for example</summary>
 
 ```json
