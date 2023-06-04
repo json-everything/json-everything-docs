@@ -1,16 +1,23 @@
 ---
 layout: "page"
-title: "ISelector Interface"
-bookmark: "ISelector"
+title: "WildcardSelector Class"
+bookmark: "WildcardSelector"
 permalink: "/api/JsonPath.Net/:title/"
-order: "9.07.07"
+order: "9.07.29"
 ---
 **Namespace:** Json.Path
 
 **Inheritance:**
-`ISelector`
+`WildcardSelector`
+ 🡒 
+`object`
 
-Defines a path segment selector.
+**Implemented interfaces:**
+
+- ISelector
+- IHaveShorthand
+
+Represents a wildcard selector, `[*]` or `.*`.
 
 ## Methods
 
@@ -21,7 +28,7 @@ Builds a string using a string builder.
 #### Declaration
 
 ```c#
-public abstract void BuildString(StringBuilder builder)
+public void BuildString(StringBuilder builder)
 ```
 
 | Parameter | Type | Description |
@@ -36,7 +43,7 @@ Evaluates the selector.
 #### Declaration
 
 ```c#
-public abstract IEnumerable<Node> Evaluate(Node match, JsonNode rootNode)
+public IEnumerable<Node> Evaluate(Node match, JsonNode rootNode)
 ```
 
 | Parameter | Type | Description |
@@ -50,4 +57,19 @@ public abstract IEnumerable<Node> Evaluate(Node match, JsonNode rootNode)
 A collection of nodes.
             
 Semantically, this is a nodelist, but leaving as IEnumerable&lt;Node&gt; allows for deferred execution.
+
+### ToString()
+
+Returns a string that represents the current object.
+
+#### Declaration
+
+```c#
+public override string ToString()
+```
+
+
+#### Returns
+
+A string that represents the current object.
 

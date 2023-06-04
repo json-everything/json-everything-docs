@@ -3,7 +3,7 @@ layout: "page"
 title: "PathParseException Class"
 bookmark: "PathParseException"
 permalink: "/api/JsonPath.Net/:title/"
-order: "9.07.17"
+order: "9.07.20"
 ---
 **Namespace:** Json.Path
 

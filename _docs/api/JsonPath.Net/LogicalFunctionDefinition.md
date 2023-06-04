@@ -3,7 +3,7 @@ layout: "page"
 title: "LogicalFunctionDefinition Class"
 bookmark: "LogicalFunctionDefinition"
 permalink: "/api/JsonPath.Net/:title/"
-order: "9.07.11"
+order: "9.07.13"
 ---
 **Namespace:** Json.Path
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonPath Class"
 bookmark: "JsonPath"
 permalink: "/api/JsonPath.Net/:title/"
-order: "9.07.07"
+order: "9.07.09"
 ---
 **Namespace:** Json.Path
 
@@ -21,6 +21,7 @@ Represents a JSON Path.
 | **IsSingular** | bool | Gets whether the path is a singular path.  That is, it can only return a nodelist<br>containing at most a single value. |
 | **Root** | JsonPath | Gets a JSON Path with only a global root and no selectors, namely `$`. |
 | **Scope** | PathScope | Gets the scope of the path. |
+| **Segments** | PathSegment[] | Gets the segments of the path. |
 
 ## Methods
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "ValueFunction Class"
 bookmark: "ValueFunction"
 permalink: "/api/JsonPath.Net/:title/"
-order: "9.07.23"
+order: "9.07.27"
 ---
 **Namespace:** Json.Path
 

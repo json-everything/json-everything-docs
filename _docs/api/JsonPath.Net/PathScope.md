@@ -3,7 +3,7 @@ layout: "page"
 title: "PathScope Enum"
 bookmark: "PathScope"
 permalink: "/api/JsonPath.Net/:title/"
-order: "9.07.20"
+order: "9.07.23"
 ---
 # PathScope Enum
 

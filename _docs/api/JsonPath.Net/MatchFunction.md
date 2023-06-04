@@ -3,7 +3,7 @@ layout: "page"
 title: "MatchFunction Class"
 bookmark: "MatchFunction"
 permalink: "/api/JsonPath.Net/:title/"
-order: "9.07.12"
+order: "9.07.14"
 ---
 **Namespace:** Json.Path
 
