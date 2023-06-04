@@ -21,7 +21,7 @@ In JSON Schema, the recommended pattern for this kind of conditional looks somet
     "stringProp": { "type": "string" }
   },
   "required": [ "type" ],
-  "anyOf": [
+  "allOf": [
     {
       "if": {
         "properties": {
@@ -188,8 +188,10 @@ In this case, we only want `Required` to be required if `Value` is 10 up to (but
 }
 ```
 
-> Also notice how specifying multiple conditions with the same group ID combines them into a single `if` keyword.
-{: .prompt-tip }
+There are two other things to take note of in this example:
+
+1. Specifying multiple conditions with the same group ID combines them into a single `if` keyword.
+2. If there's only one condition group, the condition and constraints are expressed without using an `allOf`.
 
 Now let's see what happens when we change `Value` to a string.
 
@@ -293,7 +295,7 @@ In JSON Schema, these translate to the `then` keywords that you can see in the e
     "CanVote": { "type": "boolean" }
   },
   "required": [ "Name", "AgeCategory", "Age", "CanVote" ],
-  "anyOf": [
+  "allOf": [
     {
       "if": {
         "properties": {
