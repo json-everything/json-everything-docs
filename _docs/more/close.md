@@ -1,6 +1,6 @@
 ---
 title: __close
 permalink: /more/:title/
-close_folder: true
+close: true
 order: "6.9"
 ---

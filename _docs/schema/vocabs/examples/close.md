@@ -1,6 +1,6 @@
 ---
 title: __close
 permalink: /schema/vocabs/examples/:title/
-close_folder: true
+close: true
 order: "1.7.4.9"
 ---

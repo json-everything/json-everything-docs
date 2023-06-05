@@ -1,6 +1,6 @@
 ---
 title: __close
 permalink: /schema/schemagen/:title/
-close_folder: true
+close: true
 order: "1.5.9"
 ---

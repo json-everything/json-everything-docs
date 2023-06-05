@@ -1,6 +1,6 @@
 ---
 title: __close
 permalink: /release-notes/:title/
-close_folder: true
+close: true
 order: "8.9"
 ---

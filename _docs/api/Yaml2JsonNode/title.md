@@ -2,7 +2,7 @@
 title: __title
 bookmark: Yaml2JsonNode
 permalink: /api/Yaml2JsonNode/:title/
-open_folder: true
+folder: true
 order: "9.12"
 version: "1.1.1"
 ---

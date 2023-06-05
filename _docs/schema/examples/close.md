@@ -1,6 +1,6 @@
 ---
 title: __close
-close_folder: true
+close: true
 permalink: /schema/examples/:title/
 order: "1.4.9"
 ---

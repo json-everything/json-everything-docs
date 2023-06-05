@@ -1,5 +1,5 @@
 ---
 permalink: /api/:title/
-close_folder: true
+close: true
 order: "9.999"
 ---
