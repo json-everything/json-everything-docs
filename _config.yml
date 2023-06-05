@@ -169,11 +169,11 @@ sass:
 compress_html:
   clippings: all
   comments: all
-  endings: all
+  # endings: all
   profile: false
   blanklines: false
-  ignore:
-    envs: [development]
+  # ignore:
+  #   envs: [development]
 
 exclude:
   - "*.gem"
