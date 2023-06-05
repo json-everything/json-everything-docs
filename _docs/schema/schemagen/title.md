@@ -1,4 +1,5 @@
 ---
+title: __title
 bookmark: Schema Generation
 folder: true
 order: "1.5"

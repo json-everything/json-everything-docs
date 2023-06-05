@@ -1,4 +1,5 @@
 ---
+title: __title
 bookmark: Prebuilt Vocabularies
 permalink: /schema/vocabs/:title/
 folder: true

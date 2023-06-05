@@ -28,10 +28,10 @@
 
   <ul class="w-100 extra-lpad">
     {% for doc in site.docs %}
+      {% if doc.separator %}
+        <hr>
+      {% endif %}
       {% if doc.folder %}
-        {% if doc.separator %}
-          <hr>
-        {% endif %}
         <li class="nav-item">
           <input type="checkbox" id="{{ doc.order }}" class="doc-folder" onclick="saveDocumentListExpansion(this)">
           <label for="{{ doc.order }}" class="nav-item">

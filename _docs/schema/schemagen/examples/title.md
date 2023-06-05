@@ -1,4 +1,5 @@
 ---
+title: __title
 bookmark: Examples
 permalink: /schema/schemagen/examples/:title/
 folder: true
