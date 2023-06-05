@@ -31,7 +31,7 @@
       {% if doc.separator %}
         <hr>
       {% endif %}
-      {% if doc.folder %}
+      {% if doc.open_folder %}
         <li class="nav-item">
           <input type="checkbox" id="{{ doc.order }}" class="doc-folder" onclick="saveDocumentListExpansion(this)">
           <label for="{{ doc.order }}" class="nav-item">
@@ -49,7 +49,7 @@
             </a>
           </label>
           <ul class="w-100">
-      {% elsif doc.close %}
+      {% elsif doc.close_folder %}
           </ul>
         </li>
       {% else %}

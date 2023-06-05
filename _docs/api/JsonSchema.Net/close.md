@@ -1,6 +1,6 @@
 ---
 title: __close
 permalink: /api/JsonSchema.Net/:title/
-close: true
+close_folder: true
 order: "9.01.99"
 ---

@@ -1,6 +1,6 @@
 ---
 title: __close
 permalink: /api/JsonLogic/:title/
-close: true
+close_folder: true
 order: "9.10.99"
 ---

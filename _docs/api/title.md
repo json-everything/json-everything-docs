@@ -1,7 +1,7 @@
 ---
 bookmark: API Reference
 permalink: /api/:title/
-folder: true
+open_folder: true
 order: "9"
 separator: true
 ---

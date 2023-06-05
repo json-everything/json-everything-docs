@@ -1,7 +1,7 @@
 ---
 title: __title
 bookmark: Schema Generation
-folder: true
+open_folder: true
 order: "1.5"
 permalink: /schema/schemagen/:title/
 ---

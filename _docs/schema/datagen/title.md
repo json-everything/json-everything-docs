@@ -2,6 +2,6 @@
 title: __title
 bookmark: Data Generation
 permalink: /schema/datagen/:title/
-folder: true
+open_folder: true
 order: "1.6"
 ---
