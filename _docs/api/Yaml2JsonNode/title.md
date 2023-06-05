@@ -1,4 +1,5 @@
 ---
+title: __title
 bookmark: Yaml2JsonNode
 permalink: /api/Yaml2JsonNode/:title/
 folder: true

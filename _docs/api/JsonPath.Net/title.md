@@ -1,4 +1,5 @@
 ---
+title: __title
 bookmark: JsonPath.Net
 permalink: /api/JsonPath.Net/:title/
 folder: true

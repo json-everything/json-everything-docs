@@ -1,4 +1,5 @@
 ---
+title: __title
 bookmark: JsonLogic
 permalink: /api/JsonLogic/:title/
 folder: true

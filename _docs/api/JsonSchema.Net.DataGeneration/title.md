@@ -1,4 +1,5 @@
 ---
+title: __title
 bookmark: JsonSchema.Net.DataGeneration
 permalink: /api/JsonSchema.Net.DataGeneration/:title/
 folder: true
