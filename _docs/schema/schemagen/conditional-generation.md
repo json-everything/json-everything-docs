@@ -241,7 +241,7 @@ Now that we have some groups defined, we can use them to define constraints that
 
 Most of the constraint attributes now expose a `ConditionGroup` property that can be used to set the group for that constraint.  If the constraint group is not specified (or is explicitly set to null), the attribute will apply globally instead of inside a conditional constraint set.
 
-Taking the `[If]` example, we wanted to limit the value range for the `Age` property.  To do that, we'll use `[Minimum]` and `[Maximum]`.
+Going back to the `Person` example, we wanted to limit the value range for the `Age` property.  To do that, we'll use `[Minimum]` and `[Maximum]`.
 
 ```c#
 [If(nameof(AgeCategory), "child", "isChild")]
@@ -349,3 +349,114 @@ In JSON Schema, these translate to the `then` keywords that you can see in the e
 ```
 
 </details>
+
+## Strict generation {#strict-generation}
+
+Sometimes it's not enough to say that you want to have certain constraints on a property under some circumstances.  Sometimes you want to _forbid_ that property from existing at all unless your condition is true.
+
+For these cases, the `SchemaGeneratorConfiguration.StrictConditionals` option has been added.  Let's continue with the `Person` example and replace `CanVote` with a new string property called `DriversLicenseNumber`.
+
+```c#
+[If(nameof(AgeCategory), "child", "isChild")]
+[If(nameof(AgeCategory), "adult", "isAdult")]
+[If(nameof(AgeCategory), "senior", "isSenior")]
+public class SplitAgeRanges
+{
+    [Required]
+    public string Name { get; set; }
+
+    [Required]
+    public string AgeCategory { get; set; }
+
+    [Required]
+    [Minimum(0, ConditionGroup = "isChild")]
+    [Maximum(17, ConditionGroup = "isChild")]
+    [Minimum(18, ConditionGroup = "isAdult")]
+    [Maximum(64, ConditionGroup = "isAdult")]
+    [Minimum(65, ConditionGroup = "isSenior")]
+    public int Age { get; set; }
+
+    [Required(ConditionGroup = "isChild")]
+    [Required(ConditionGroup = "isAdult")]
+    [Required(ConditionGroup = "isSenior")]
+    public bool CanVote { get; set; }
+}
+```
+
+This generates the following schema
+
+<details markdown="1">
+  <summary>Expand for example</summary>
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "Name": { "type": "string" },
+    "AgeCategory": { "type": "string" }
+  },
+  "required": [ "Name", "AgeCategory", "Age" ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "AgeCategory": { "const": "child" }
+        },
+        "required": [ "AgeCategory" ]
+      },
+      "then": {
+        "properties": {
+          "Age": {
+            "minimum": 0,
+            "maximum": 17
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "AgeCategory": { "const": "adult" }
+        },
+        "required": [ "AgeCategory" ]
+      },
+      "then": {
+        "properties": {
+          "Age": {
+            "minimum": 18,
+            "maximum": 64
+          },
+          "DriversLicenseNumber": { "type": "string" }
+        },
+        "required": [ "DriversLicenseNumber" ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "AgeCategory": { "const": "senior" }
+        },
+        "required": [ "AgeCategory" ]
+      },
+      "then": {
+        "properties": {
+          "Age": { "minimum": 65 },
+          "DriversLicenseNumber": { "type": "string" }
+        },
+        "required": [ "DriversLicenseNumber" ]
+      }
+    }
+  ],
+  "unevaluatedProperties": false
+}
+```
+
+</details>
+
+Notable differences:
+
+- `Age` is no longer listed in the top-level `properties`, but it's still listed in `required`.
+- `DriversLicenseNumber` also is not listed in the top-level `properties`.
+- `unevalutedProperties : false` has been added at the top level.
+
+The effect of these changes means that `DriversLicenseNumber` is only a valid property if `AgeCategory` is `adult` or `senior`.  If `AgeCategory` is `child`, then the mere presence of `DriversLicenseNumber` is invalid.

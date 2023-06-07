@@ -36,7 +36,7 @@
           <input type="checkbox" id="{{ doc.order }}" class="doc-folder" onclick="saveDocumentListExpansion(this)">
           <label for="{{ doc.order }}" class="nav-item">
             <a class="nav-link">
-              <i class="fa-solid fa-folder"></i>
+              <i class="fa-solid fa-folder fa-center-icon"></i>
               <span>
                 {{ doc.bookmark | default: doc.title }}
               </span>
@@ -55,7 +55,7 @@
       {% else %}
         <li class="nav-item{% if doc.url == page.url %}{{ " active" }}{% endif %}">
           <a href="{{ doc.url | relative_url }}" class="nav-link">
-            <i class="fa-solid fa-file fa-margin-adjust"></i>
+            <i class="fa-solid fa-file fa-center-icon"></i>
             <span>{{ doc.bookmark | default: doc.title }}</span>
           </a>
         </li>
