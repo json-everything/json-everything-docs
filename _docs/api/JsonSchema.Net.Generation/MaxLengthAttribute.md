@@ -3,12 +3,14 @@ layout: "page"
 title: "MaxLengthAttribute Class"
 bookmark: "MaxLengthAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.33"
+order: "9.05.43"
 ---
 **Namespace:** Json.Schema.Generation
 
 **Inheritance:**
 `MaxLengthAttribute`
+ 🡒 
+`ConditionalAttribute`
  🡒 
 `Attribute`
  🡒 
@@ -24,6 +26,7 @@ Applies a `maxLength` keyword.
 
 | Name | Type | Summary |
 |---|---|---|
+| **ConditionGroup** | object | Identifies the condition group under which this attribute applies. |
 | **Length** | uint | The maximum length. |
 | **TypeId** | object |  |
 

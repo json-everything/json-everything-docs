@@ -3,12 +3,14 @@ layout: "page"
 title: "ExclusiveMinimumAttribute Class"
 bookmark: "ExclusiveMinimumAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.14"
+order: "9.05.19"
 ---
 **Namespace:** Json.Schema.Generation
 
 **Inheritance:**
 `ExclusiveMinimumAttribute`
+ 🡒 
+`ConditionalAttribute`
  🡒 
 `Attribute`
  🡒 
@@ -24,6 +26,7 @@ Applies an `exclusiveMinimum` keyword.
 
 | Name | Type | Summary |
 |---|---|---|
+| **ConditionGroup** | object | Identifies the condition group under which this attribute applies. |
 | **TypeId** | object |  |
 | **Value** | decimal | The exclusive minimum. |
 

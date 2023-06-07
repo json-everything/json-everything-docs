@@ -3,12 +3,14 @@ layout: "page"
 title: "WriteOnlyAttribute Class"
 bookmark: "WriteOnlyAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.69"
+order: "9.05.83"
 ---
 **Namespace:** Json.Schema.Generation
 
 **Inheritance:**
 `WriteOnlyAttribute`
+ 🡒 
+`ConditionalAttribute`
  🡒 
 `Attribute`
  🡒 
@@ -24,6 +26,7 @@ Applies a `writeOnly` keyword.
 
 | Name | Type | Summary |
 |---|---|---|
+| **ConditionGroup** | object | Identifies the condition group under which this attribute applies. |
 | **TypeId** | object |  |
 | **Value** | bool | Whether the property should be write-only. |
 

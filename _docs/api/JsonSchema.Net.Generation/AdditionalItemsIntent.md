@@ -59,21 +59,6 @@ public void Apply(JsonSchemaBuilder builder)
 | builder | JsonSchemaBuilder | The builder. |
 
 
-### GetContexts()
-
-Gets the contexts.
-
-#### Declaration
-
-```c#
-public IEnumerable<SchemaGenerationContextBase> GetContexts()
-```
-
-
-#### Returns
-
-The **Json.Schema.Generation.SchemaGenerationContextBase**s contained by this object.
-
 ### Replace(int hashCode, SchemaGenerationContextBase newContext)
 
 Replaces one context with another.

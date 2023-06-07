@@ -3,7 +3,7 @@ layout: "page"
 title: "ISchemaRefiner Interface"
 bookmark: "ISchemaRefiner"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.23"
+order: "9.05.33"
 ---
 **Namespace:** Json.Schema.Generation
 

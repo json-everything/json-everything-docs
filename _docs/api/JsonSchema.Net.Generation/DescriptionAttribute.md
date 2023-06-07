@@ -3,12 +3,14 @@ layout: "page"
 title: "DescriptionAttribute Class"
 bookmark: "DescriptionAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.09"
+order: "9.05.13"
 ---
 **Namespace:** Json.Schema.Generation
 
 **Inheritance:**
 `DescriptionAttribute`
+ 🡒 
+`ConditionalAttribute`
  🡒 
 `Attribute`
  🡒 
@@ -24,6 +26,7 @@ Applies a `description` keyword.
 
 | Name | Type | Summary |
 |---|---|---|
+| **ConditionGroup** | object | Identifies the condition group under which this attribute applies. |
 | **Description** | string | The description. |
 | **TypeId** | object |  |
 

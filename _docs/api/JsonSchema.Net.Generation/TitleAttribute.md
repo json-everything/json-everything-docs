@@ -3,12 +3,14 @@ layout: "page"
 title: "TitleAttribute Class"
 bookmark: "TitleAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.62"
+order: "9.05.75"
 ---
 **Namespace:** Json.Schema.Generation
 
 **Inheritance:**
 `TitleAttribute`
+ 🡒 
+`ConditionalAttribute`
  🡒 
 `Attribute`
  🡒 
@@ -24,6 +26,7 @@ Applies a `title` keyword.
 
 | Name | Type | Summary |
 |---|---|---|
+| **ConditionGroup** | object | Identifies the condition group under which this attribute applies. |
 | **Title** | string | The title. |
 | **TypeId** | object |  |
 

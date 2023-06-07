@@ -3,12 +3,14 @@ layout: "page"
 title: "PatternAttribute Class"
 bookmark: "PatternAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.46"
+order: "9.05.58"
 ---
 **Namespace:** Json.Schema.Generation
 
 **Inheritance:**
 `PatternAttribute`
+ 🡒 
+`ConditionalAttribute`
  🡒 
 `Attribute`
  🡒 
@@ -24,6 +26,7 @@ Applies a `pattern` keyword.
 
 | Name | Type | Summary |
 |---|---|---|
+| **ConditionGroup** | object | Identifies the condition group under which this attribute applies. |
 | **TypeId** | object |  |
 | **Value** | string | The regular expression pattern. |
 

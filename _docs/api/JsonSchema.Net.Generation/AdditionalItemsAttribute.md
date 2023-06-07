@@ -10,6 +10,8 @@ order: "9.05.00"
 **Inheritance:**
 `AdditionalItemsAttribute`
  🡒 
+`ConditionalAttribute`
+ 🡒 
 `Attribute`
  🡒 
 `object`
@@ -25,6 +27,7 @@ Applies an `additionalProperties` keyword.
 | Name | Type | Summary |
 |---|---|---|
 | **BoolValue** | bool? | If the attribute value represents a boolean schema, gets the boolean value. |
+| **ConditionGroup** | object | Identifies the condition group under which this attribute applies. |
 | **TypeId** | object |  |
 | **TypeValue** | Type | If the attribute value represents a type schema, gets the type. |
 

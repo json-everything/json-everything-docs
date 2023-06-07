@@ -3,12 +3,14 @@ layout: "page"
 title: "MinItemsAttribute Class"
 bookmark: "MinItemsAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.38"
+order: "9.05.49"
 ---
 **Namespace:** Json.Schema.Generation
 
 **Inheritance:**
 `MinItemsAttribute`
+ 🡒 
+`ConditionalAttribute`
  🡒 
 `Attribute`
  🡒 
@@ -24,6 +26,7 @@ Applies a `minItems` keyword.
 
 | Name | Type | Summary |
 |---|---|---|
+| **ConditionGroup** | object | Identifies the condition group under which this attribute applies. |
 | **TypeId** | object |  |
 | **Value** | uint | The minimum number of items. |
 

@@ -3,12 +3,14 @@ layout: "page"
 title: "NullableAttribute Class"
 bookmark: "NullableAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.45"
+order: "9.05.57"
 ---
 **Namespace:** Json.Schema.Generation
 
 **Inheritance:**
 `NullableAttribute`
+ 🡒 
+`ConditionalAttribute`
  🡒 
 `Attribute`
  🡒 
@@ -25,6 +27,7 @@ adds or removes `null` in the `type` keyword.
 
 | Name | Type | Summary |
 |---|---|---|
+| **ConditionGroup** | object | Identifies the condition group under which this attribute applies. |
 | **IsNullable** | bool | Gets whether `null` should be included in the `type` keyword. |
 | **TypeId** | object |  |
 

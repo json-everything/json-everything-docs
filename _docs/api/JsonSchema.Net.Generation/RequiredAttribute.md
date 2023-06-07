@@ -3,12 +3,14 @@ layout: "page"
 title: "RequiredAttribute Class"
 bookmark: "RequiredAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.56"
+order: "9.05.68"
 ---
 **Namespace:** Json.Schema.Generation
 
 **Inheritance:**
 `RequiredAttribute`
+ 🡒 
+`ConditionalAttribute`
  🡒 
 `Attribute`
  🡒 
@@ -21,5 +23,6 @@ Indicates a property is required and should be listed in the
 
 | Name | Type | Summary |
 |---|---|---|
+| **ConditionGroup** | object | Identifies the condition group under which this attribute applies. |
 | **TypeId** | object |  |
 

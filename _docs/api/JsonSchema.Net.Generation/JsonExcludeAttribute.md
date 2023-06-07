@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonExcludeAttribute Class"
 bookmark: "JsonExcludeAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.26"
+order: "9.05.36"
 ---
 **Namespace:** Json.Schema.Generation
 

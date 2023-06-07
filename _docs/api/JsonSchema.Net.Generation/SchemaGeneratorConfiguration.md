@@ -3,7 +3,7 @@ layout: "page"
 title: "SchemaGeneratorConfiguration Class"
 bookmark: "SchemaGeneratorConfiguration"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.61"
+order: "9.05.73"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -25,4 +25,5 @@ Provides additional configuration for the generator.
 | **PropertyNamingMethod** | PropertyNamingMethod | Gets or sets the property naming method.  Default is **PropertyNamingMethod.AsDeclared**. |
 | **PropertyOrder** | PropertyOrder | Gets or sets the order in which properties will be listed in the schema. |
 | **Refiners** | List\<ISchemaRefiner\> | A collection of refiners. |
+| **StrictConditionals** | bool | Gets or sets whether properties that are affected by conditionals are defined<br>globally or only within their respective `then` subschemas.  True restricts<br>those property definitions to `then` subschemas and adds a top-level<br>`unevaluatedProperties: false`; false (default) defines them globally. |
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "AttributeHandler Class"
 bookmark: "AttributeHandler"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.05"
+order: "9.05.06"
 ---
 **Namespace:** Json.Schema.Generation
 

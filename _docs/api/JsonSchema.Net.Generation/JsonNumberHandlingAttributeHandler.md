@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonNumberHandlingAttributeHandler Class"
 bookmark: "JsonNumberHandlingAttributeHandler"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.27"
+order: "9.05.37"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -17,7 +17,7 @@ order: "9.05.27"
 - IAttributeHandler\<JsonNumberHandlingAttribute\>
 - IAttributeHandler
 
-Handler for the **Json.Schema.Generation.JsonNumberHandlingAttribute**.
+Handler for the **System.Text.Json.Serialization.JsonNumberHandlingAttribute**.
 
 ## Methods
 

@@ -3,12 +3,14 @@ layout: "page"
 title: "MultipleOfAttribute Class"
 bookmark: "MultipleOfAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.42"
+order: "9.05.54"
 ---
 **Namespace:** Json.Schema.Generation
 
 **Inheritance:**
 `MultipleOfAttribute`
+ 🡒 
+`ConditionalAttribute`
  🡒 
 `Attribute`
  🡒 
@@ -24,6 +26,7 @@ Applies a `multipleOf` keyword.
 
 | Name | Type | Summary |
 |---|---|---|
+| **ConditionGroup** | object | Identifies the condition group under which this attribute applies. |
 | **TypeId** | object |  |
 | **Value** | decimal | The divisor. |
 

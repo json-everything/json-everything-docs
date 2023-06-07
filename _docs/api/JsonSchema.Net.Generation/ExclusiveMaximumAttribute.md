@@ -3,12 +3,14 @@ layout: "page"
 title: "ExclusiveMaximumAttribute Class"
 bookmark: "ExclusiveMaximumAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.12"
+order: "9.05.17"
 ---
 **Namespace:** Json.Schema.Generation
 
 **Inheritance:**
 `ExclusiveMaximumAttribute`
+ 🡒 
+`ConditionalAttribute`
  🡒 
 `Attribute`
  🡒 
@@ -24,6 +26,7 @@ Applies an `exclusiveMaximum` keyword.
 
 | Name | Type | Summary |
 |---|---|---|
+| **ConditionGroup** | object | Identifies the condition group under which this attribute applies. |
 | **TypeId** | object |  |
 | **Value** | decimal | The exclusive maximum. |
 

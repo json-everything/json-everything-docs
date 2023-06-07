@@ -3,12 +3,14 @@ layout: "page"
 title: "ReadOnlyAttribute Class"
 bookmark: "ReadOnlyAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.53"
+order: "9.05.65"
 ---
 **Namespace:** Json.Schema.Generation
 
 **Inheritance:**
 `ReadOnlyAttribute`
+ 🡒 
+`ConditionalAttribute`
  🡒 
 `Attribute`
  🡒 
@@ -24,6 +26,7 @@ Applies a `readOnly` keyword.
 
 | Name | Type | Summary |
 |---|---|---|
+| **ConditionGroup** | object | Identifies the condition group under which this attribute applies. |
 | **TypeId** | object |  |
 | **Value** | bool | Whether the property should be read-only. |
 

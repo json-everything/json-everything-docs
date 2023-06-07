@@ -3,12 +3,14 @@ layout: "page"
 title: "MinLengthAttribute Class"
 bookmark: "MinLengthAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.40"
+order: "9.05.51"
 ---
 **Namespace:** Json.Schema.Generation
 
 **Inheritance:**
 `MinLengthAttribute`
+ 🡒 
+`ConditionalAttribute`
  🡒 
 `Attribute`
  🡒 
@@ -24,6 +26,7 @@ Applies a `minimum` keyword.
 
 | Name | Type | Summary |
 |---|---|---|
+| **ConditionGroup** | object | Identifies the condition group under which this attribute applies. |
 | **Length** | uint | The minimum length. |
 | **TypeId** | object |  |
 

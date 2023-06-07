@@ -3,12 +3,14 @@ layout: "page"
 title: "MinimumAttribute Class"
 bookmark: "MinimumAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.36"
+order: "9.05.47"
 ---
 **Namespace:** Json.Schema.Generation
 
 **Inheritance:**
 `MinimumAttribute`
+ 🡒 
+`ConditionalAttribute`
  🡒 
 `Attribute`
  🡒 
@@ -24,6 +26,7 @@ Applies a `minimum` keyword.
 
 | Name | Type | Summary |
 |---|---|---|
+| **ConditionGroup** | object | Identifies the condition group under which this attribute applies. |
 | **TypeId** | object |  |
 | **Value** | decimal | The minimum. |
 
