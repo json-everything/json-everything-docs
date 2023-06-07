@@ -252,7 +252,7 @@ The default output format is Flag, but this can be configured via the `Evaluatio
 
 ### Examples of output {#schema-output}
 
-<details>
+<details markdown="1">
   <summary>Hierarchical</summary>
 
 ```json
@@ -347,7 +347,7 @@ The default output format is Flag, but this can be configured via the `Evaluatio
 
 </details>
 
-<details>
+<details markdown="1">
   <summary>List</summary>
 
 ```json
