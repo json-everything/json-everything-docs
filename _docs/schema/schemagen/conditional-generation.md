@@ -283,7 +283,7 @@ The above sets multiple minimums and maximums that each apply for different grou
 In JSON Schema, these translate to the `then` keywords that you can see in the example at the top of the page.  The JSON Schema that is generated from this example is below:
 
 <details markdown="1">
-  <summary>Expand for example</summary>
+  <summary><em>Expand for example</em></summary>
 
 ```json
 {
@@ -385,7 +385,7 @@ public class SplitAgeRanges
 This generates the following schema
 
 <details markdown="1">
-  <summary>Expand for example</summary>
+  <summary><em>Expand for example</em></summary>
 
 ```json
 {
