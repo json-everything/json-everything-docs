@@ -376,10 +376,9 @@ public class SplitAgeRanges
     [Minimum(65, ConditionGroup = "isSenior")]
     public int Age { get; set; }
 
-    [Required(ConditionGroup = "isChild")]
     [Required(ConditionGroup = "isAdult")]
     [Required(ConditionGroup = "isSenior")]
-    public bool CanVote { get; set; }
+    public bool DriversLicenseNumber { get; set; }
 }
 ```
 
@@ -455,8 +454,8 @@ This generates the following schema
 
 Notable differences:
 
-- `Age` is no longer listed in the top-level `properties`, but it's still listed in `required`.
-- `DriversLicenseNumber` also is not listed in the top-level `properties`.
-- `unevalutedProperties : false` has been added at the top level.
+- `Age` is no longer listed in the top-level `properties`, but it's still listed in `required`.  Instead it is listed in each of the `then` subschemas.
+- `DriversLicenseNumber` also is not listed in the top-level `properties`.  It, too, is listed in each of the `then` subschemas.
+- `unevaluatedProperties : false` has been added at the top level.
 
 The effect of these changes means that `DriversLicenseNumber` is only a valid property if `AgeCategory` is `adult` or `senior`.  If `AgeCategory` is `child`, then the mere presence of `DriversLicenseNumber` is invalid.
