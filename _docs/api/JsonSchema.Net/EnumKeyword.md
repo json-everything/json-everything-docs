@@ -29,6 +29,7 @@ Handles `enum`.
 
 | Name | Type | Summary |
 |---|---|---|
+| **RequireUniqueValues** | bool | Gets or sets whether the keyword will check for unique values when deserializing. |
 | **Values** | IReadOnlyCollection\<JsonNode\> | The collection of enum values. |
 
 ## Constructors
