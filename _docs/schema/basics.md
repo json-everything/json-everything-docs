@@ -433,9 +433,9 @@ By default, *JsonSchema.Net* handles all references as defined in the draft 2020
 
 ## Schema resolution {#schema-ref-resolution}
 
-In order to resolve references more quickly, *JsonSchema.Net* maintains two registries for all schemas and identifiable subschemas that it has encountered.  The first is a global registry, and the second is a local registry that is passed around on the evaluation context.  If a schema is not found in the local registry, it will automatically fall back to the global registry.
+In order to resolve references more quickly, *JsonSchema.Net* maintains two registries for all schemas and identifiable subschemas that it has encountered.  The first is a global registry, and the second is a local registry that is contained in the options and is passed around on the evaluation context.  If a schema is not found in the local registry, it will automatically search the global registry.
 
-A `JsonSchema` instance will automatically register itself upon calling `Evaluate()`.  However, there are some cases where this may be insufficient.  For example, in cases where schemas are separated across multiple files, it is necessary to register the schema instances prior to evaluation.
+A `JsonSchema` instance will automatically register itself with the local registry upon calling `Evaluate()`.  However, there are some cases where this may be insufficient.  For example, in cases where schemas are separated across multiple files, it is necessary to register the schema instances prior to evaluation.
 
 For example, given these two schemas
 
@@ -468,10 +468,17 @@ You must register `random-string` before you attempt to evaluate with `my-schema
 
 ```c#
 var randomString = JsonSchema.FromFile("random-string.json");
-SchemaRegistry.Global.Register("http://localhost/random-string", randomString);
+SchemaRegistry.Global.Register(new Uri("http://localhost/random-string"), randomString);
 ```
 
 Now *JsonSchema.Net* will be able to resolve the reference.
+
+> `JsonSchema.FromFile()` automatically sets the schema's base URI to the file path.  If you intend to use file paths in your references (e.g. `file:///C:\random-string.json`), then just register the schema without passing a URI:
+>
+> ```c#
+> SchemaRegistry.Global.Register(randomString);
+> ```
+{: .prompt-warning}
 
 ## Resolving embedded schemas {#schema-embedded-schemas}
 
