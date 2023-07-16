@@ -3,7 +3,7 @@ layout: "page"
 title: "OperationType Enum"
 bookmark: "OperationType"
 permalink: "/api/JsonPatch.Net/:title/"
-order: "9.08.01"
+order: "9.08.001"
 ---
 # OperationType Enum
 

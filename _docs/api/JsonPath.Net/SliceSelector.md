@@ -3,7 +3,7 @@ layout: "page"
 title: "SliceSelector Class"
 bookmark: "SliceSelector"
 permalink: "/api/JsonPath.Net/:title/"
-order: "9.07.26"
+order: "9.07.026"
 ---
 **Namespace:** Json.Path
 

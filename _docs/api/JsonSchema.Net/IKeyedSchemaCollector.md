@@ -3,7 +3,7 @@ layout: "page"
 title: "IKeyedSchemaCollector Interface"
 bookmark: "IKeyedSchemaCollector"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.43"
+order: "9.01.043"
 ---
 **Namespace:** Json.Schema
 

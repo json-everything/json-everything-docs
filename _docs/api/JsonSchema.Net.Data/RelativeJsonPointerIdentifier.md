@@ -3,7 +3,7 @@ layout: "page"
 title: "RelativeJsonPointerIdentifier Class"
 bookmark: "RelativeJsonPointerIdentifier"
 permalink: "/api/JsonSchema.Net.Data/:title/"
-order: "9.02.07"
+order: "9.02.007"
 ---
 **Namespace:** Json.Schema.Data
 

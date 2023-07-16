@@ -3,7 +3,7 @@ layout: "page"
 title: "MultiplyRule Class"
 bookmark: "MultiplyRule"
 permalink: "/api/JsonLogic/:title/"
-order: "9.10.29"
+order: "9.10.029"
 ---
 **Namespace:** Json.Logic.Rules
 

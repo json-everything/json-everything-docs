@@ -3,7 +3,7 @@ layout: "page"
 title: "MetaSchemas Class"
 bookmark: "MetaSchemas"
 permalink: "/api/JsonSchema.Net.Data/:title/"
-order: "9.02.05"
+order: "9.02.005"
 ---
 **Namespace:** Json.Schema.Data
 

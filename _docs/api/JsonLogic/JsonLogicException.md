@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonLogicException Class"
 bookmark: "JsonLogicException"
 permalink: "/api/JsonLogic/:title/"
-order: "9.10.10"
+order: "9.10.010"
 ---
 **Namespace:** Json.Logic
 
