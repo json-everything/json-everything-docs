@@ -3,7 +3,7 @@ layout: "page"
 title: "DeprecatedIntent Class"
 bookmark: "DeprecatedIntent"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.12"
+order: "9.05.012"
 ---
 **Namespace:** Json.Schema.Generation.Intents
 

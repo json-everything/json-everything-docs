@@ -3,7 +3,7 @@ layout: "page"
 title: "UriIdentifier Class"
 bookmark: "UriIdentifier"
 permalink: "/api/JsonSchema.Net.Data/:title/"
-order: "9.02.08"
+order: "9.02.008"
 ---
 **Namespace:** Json.Schema.Data
 

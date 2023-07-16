@@ -3,7 +3,7 @@ layout: "page"
 title: "PropertyNamingMethods Class"
 bookmark: "PropertyNamingMethods"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.63"
+order: "9.05.063"
 ---
 **Namespace:** Json.Schema.Generation
 

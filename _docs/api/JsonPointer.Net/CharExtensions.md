@@ -3,7 +3,7 @@ layout: "page"
 title: "CharExtensions Class"
 bookmark: "CharExtensions"
 permalink: "/api/JsonPointer.Net/:title/"
-order: "9.09.00"
+order: "9.09.000"
 ---
 **Namespace:** Json.Pointer
 

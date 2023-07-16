@@ -3,7 +3,7 @@ layout: "page"
 title: "WildcardSelector Class"
 bookmark: "WildcardSelector"
 permalink: "/api/JsonPath.Net/:title/"
-order: "9.07.29"
+order: "9.07.029"
 ---
 **Namespace:** Json.Path
 
