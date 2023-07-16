@@ -24,9 +24,10 @@ There are currently six drafts of the JSON Schema specification that have known 
 - Draft 2019-09
 - Draft 2020-12
 
-*JsonSchema.Net* supports draft 6 and later.
+The JSON Schema team recommends using draft 7 or later.  *JsonSchema.Net* supports draft 6 and later.
 
-The next version, which will be supported by v4.0.0 and later of this library, is currently in development and will start a new era for the project which includes various backward- and forward-compatibility guarantees.  Have a read of the various discussions happening in the [JSON Schema GitHub org](https://github.com/json-schema-org) for more information.
+> The next version of JSON Schema, which is supported by v4.0.0 and later of this library, is currently in development and will start a new era for the project which includes various backward- and forward-compatibility guarantees.  Have a read of the various discussions happening in the [JSON Schema GitHub org](https://github.com/json-schema-org) for more information.
+{: .prompt-tip }
 
 ### Meta-schemas {#schema-metaschemas}
 

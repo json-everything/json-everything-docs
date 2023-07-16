@@ -12,4 +12,4 @@ In the sidebar to the left, you'll find
 - Release notes
 - API reference
 
-If you have question about this site or an idea for improving it, please [open an issue](https://github.com/gregsdennis/json-everything/issues/new?assignees=&labels=documentation&projects=&template=Documentation.md) in the main repository.
+If you have question about this site or an idea for improving it, please [open an issue](https://github.com/gregsdennis/json-everything/issues/new?assignees=&labels=documentation&projects=&template=Documentation.yml) in the main repository.

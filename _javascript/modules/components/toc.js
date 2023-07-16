@@ -1,4 +1,5 @@
 export function toc() {
+  console.log("initializing toc");
   if (document.querySelector('#core-wrapper h2,#core-wrapper h3')) {
     // see: https://github.com/tscanlin/tocbot#usage
     tocbot.init({
