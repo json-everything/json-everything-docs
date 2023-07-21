@@ -22,6 +22,12 @@ order: "9.05.019"
 
 Applies an `exclusiveMinimum` keyword.
 
+## Remarks
+
+The `value` parameter is provided in the constructor as a `double` but stored as a `decimal`
+because `decimal` is not a valid attribute parameter type.
+As such, to prevent overflows, the value is clamped to the `decimal` range prior to being converted.
+
 ## Properties
 
 | Name | Type | Summary |
@@ -46,4 +52,10 @@ public ExclusiveMinimumAttribute(double value)
 |---|---|---|
 | value | double | The value. |
 
+
+#### Remarks
+
+The <paramref name="value" /> parameter is provided as a `double` but stored as a `decimal`
+because `decimal` is not a valid attribute parameter type.
+As such, to prevent overflows, the value is clamped to the `decimal` range prior to being converted.
 
