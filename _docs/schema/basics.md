@@ -455,7 +455,7 @@ For example, given these two schemas
 }
 ```
 
-Here's the schema build inline:
+Here's the schema with an inline declaration:
 
 ```c#
 var schema = new JsonSchemaBuilder()
