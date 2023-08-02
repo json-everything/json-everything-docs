@@ -134,7 +134,7 @@ Implementing your keyword will require some initial thought and design around wh
 
 ### `maximum`
 
-The `maximum` keyword is basically all instance.  It asks, "Is the instance a number, and, if so, does it exceed some maximum value?"  As such, there's not really much in the way of pre-processing that can be accomplished here.  Therefore, all of the work is done by an `Evaluator()` method.
+The `maximum` keyword is basically all instance.  It asks, "Is the instance a number, and, if so, does it exceed some maximum value?"  As such, there's not really much in the way of pre-processing that can be accomplished here that isn't handled in the background.  Therefore, all of the work is done by an `Evaluator()` method.
 
 ```c#
 public KeywordConstraint GetConstraint(SchemaConstraint schemaConstraint,
@@ -173,7 +173,7 @@ For `maximum`, evaluation means we check if the value is a number.  If not, we i
 
 ### `properties`
 
-The `properties` keyword allows us to calculate some things before we have the instance.  For example, with this schema
+The `properties` keyword presents an opportunity to calculate some things before we have the instance.  For example, with this schema
 
 ```json
 {
@@ -227,22 +227,22 @@ Here you can see there's a lot more going on in the `.GetConstraint()` method th
 
 When we move into the evaluation phase, all of the child constraints that align with locations actually present in the instance will have `SchemaEvaluation`s generated for them, which are accessible on the `KeywordEvaluation.ChildEvaluations` property.  Because we did a lot of the work up front, to evaluate `properties`, we only need to verify that all of our child evaluations passed.  We set an annotation, and then verify.
 
-> The specification requires that annotations are dropped when validation fails, however this is performed at the (sub)schema level, not at the keyword level.  Annotations are still generally required for sibling keywords (i.e. within the same subschema) to interoperate correctly.
+> The specification requires that annotations are not reported when validation fails, however this requirement is enforced at the (sub)schema level, not at the keyword level.  Annotations are still generally required for sibling keywords (i.e. within the same subschema) to interoperate correctly.
 {: .prompt-warning }
 
 ### Other variations
 
 There are a few other variations of keyword interactions, and it may be worth inspecting the code for some of these examples.
 
-- **Pure annotation keywords** - These keywords perform no validation, but instead only apply an annotation
+- **Pure annotation keywords** - These keywords perform no validation, but instead only apply an annotation.
   - `title` & `description`
-- **Keyword dependencies** - These communicate mainly through annotations set by the dependent keywords
+- **Keyword dependencies** - These communicate mainly through annotations set by the dependent keywords.
   - `additionalProperties` depends on `properties` and `patternProperties`
   - `then` and `else` depend on `if`
-- **Constraint templating** - These keywords have one or more subschemas that each potentially apply to multiple locations.
+- **Constraint templating** - These keywords have one or more subschemas that each potentially apply to multiple locations which cannot be known without an instance.
   - `patternProperties` applies subschemas to all instance locations that match each regular expression
-  - `additionalItems` applies its subschema to all remaining instance locations
-- **No-op keywords** - Keywords that play no validation or annotation role and can be skipped during validation
+  - `additionalItems` applies its subschema to instance properties not addressed by `properties` or `patternProperties`
+- **No-op keywords** - Keywords that play no validation or annotation role can be skipped during evaluation.
   - `$defs` & `$comment`
   - `then` or `else` when `if` isn't present
 
