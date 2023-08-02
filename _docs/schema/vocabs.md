@@ -100,9 +100,9 @@ To tell *JsonSchema.Net* about a vocabulary, you need to create a `Vocabulary` i
 
 The `Vocabulary` class is quite simple.  It defines the vocabulary's ID and lists the keywords which it supports.
 
-The keywords must be registered separately (see "Defining Custom Keywords" below).
+The keywords must still be registered separately (see "Defining Custom Keywords" below).
 
-It's not always necessary to have a meta-schema for your vocabulary.  However, if you want to enable `ValidationOptions.ValidateMetaschema`, you will need to register it.
+It's not always necessary to have a meta-schema for your vocabulary.  However, if you want to enable `EvaluationOptions.ValidateMetaschema`, you will need to register it.
 
 # Defining Custom Keywords {#schema-vocabs-custom-keywords}
 
@@ -122,52 +122,147 @@ And your new keyword is ready to use.
 
 Lastly, remember that the best resource building keywords is [the code](https://github.com/gregsdennis/json-everything/tree/master/JsonSchema) where all of the built-in keywords are defined.
 
+## Evaluation philosophy
+
+Starting with version 5 of _JsonSchema.Net_, schema evaluation occurs in two stages: gathering constraints and processing evaluations.  Constraints represent all of the work that can be performed by the keyword without an instance, while evaluations complete the work.  By separating these stages, _JsonSchema.Net_ can reuse the constraints for subsequent runs, allowing faster run times and fewer memory allocations.
+
+Both stages are defined by implementing the single method on `IJsonSchemaKeyword`.
+
 ## 1. Implement `IJsonSchemaKeyword` {#schema-vocabs-custom-keywords-1}
 
-This defines the `Evaluate()` method.  Implement your validation logic.
+Implementing your keyword will require some initial thought and design around what work the keyword can perform without the instance and what work requires the instance.  To illustrate this, let's look at a couple of the existing keyword implementations.
 
-### The `EvaluationContext` {#schema-vocabs-custom-keywords-context}
+### `maximum`
 
-The evaluation context contains all of the data that you need to perform the evaluation:
+The `maximum` keyword is basically all instance.  It asks, "Is the instance a number, and, if so, does it exceed some maximum value?"  As such, there's not really much in the way of pre-processing that can be accomplished here that isn't handled in the background.  Therefore, all of the work is done by an `Evaluator()` method.
 
-- evaluation options (defined by caller)
-- root schema
-- current keyword's location relative to the schema root
-- local schema
-- instance root
-- current instance location relative to the instance root
-- local instance
-- current schema's URI
-- current schema's anchor label (e.g. `#label`)
-- local result object
+```c#
+public KeywordConstraint GetConstraint(SchemaConstraint schemaConstraint,
+                                       IReadOnlyList<KeywordConstraint> localConstraints,
+                                       EvaluationContext context)
+{
+    return new KeywordConstraint(Name, Evaluator);
+}
+
+private void Evaluator(KeywordEvaluation evaluation, EvaluationContext context)
+{
+    var schemaValueType = evaluation.LocalInstance.GetSchemaValueType();
+    if (schemaValueType is not (SchemaValueType.Number or SchemaValueType.Integer))
+    {
+        evaluation.MarkAsSkipped();
+        return;
+    }
+
+    var number = evaluation.LocalInstance!.AsValue().GetNumber();
+    if (Value < number)
+        evaluation.Results.Fail(Name, ErrorMessages.Maximum, ("received", number), ("limit", Value));
+}
+```
+
+> Although the `.Evaluator()` method contains an `EvaluationContext` parameter, it's very important that you don't pass the context from the `.GetConstraint()` method.  Each evaluation creates a new context object which could carry different options (and schema registries), which could create some unpredictable behaviors.
+{: .prompt-warning }
+
+Here, getting the constraint means just pointing to the evaluation function, which will be called once we have the instance.  Behind the scenes, the constraint manages evaluation path, instance location, and some other details.  But this is all that's needed for this keyword.
+
+Once the constraints have all been collected, _JsonSchema.Net_ will move on to the evaluation phase, which creates an "evaluation" object for each constraint, which contains things that are specific to the current evaluation, including the local instance being evaluated, any options (which include the schema and vocabulary registries), and the local results object.
+
+For `maximum`, evaluation means we check if the value is a number.  If not, we indicate that the keyword doesn't apply by calling `.MarkAsSkipped()`.  (This tells _JsonSchema.Net_ that that any nested results don't need to be added.)  If the instance is a number, and it doesn't meet the requirement, then we fail the keyword with an error.
+
+> `maximum` doesn't have any nested results, but it's still good form to explicitly indicate this.
+{: .prompt-info }
+
+### `properties`
+
+The `properties` keyword presents an opportunity to calculate some things before we have the instance.  For example, with this schema
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "foo": { "type": "string" },
+    "bar": { "type": "number" }
+  }
+}
+```
+
+we _know_:
+
+1. that the instance **must** be an object
+2. if that object has a `foo` property, its value **must** be a string
+3. if that object has a `bar` property, its value **must** be a number
+
+More specifically to our task here, `properties` gives us a list of subschemas that must validate values at specific instance locations.  So for each property listed in the keyword, we need to generate a constraint for the associated subschema.  To support this, the `JsonSchema` object exposes a `.GetConstraint()` method of its own that returns a `SchemaConstraint`.
+
+```c#
+public KeywordConstraint GetConstraint(SchemaConstraint schemaConstraint,
+                                       IReadOnlyList<KeywordConstraint> localConstraints,
+                                       EvaluationContext context)
+{
+    var subschemaConstraints = Properties
+        .Select(x => x.Value.GetConstraint(relativeEvaluationPath: JsonPointer.Create(Name, x.Key),
+                                           baseInstanceLocation: schemaConstraint.BaseInstanceLocation,
+                                           relativeInstanceLocation: JsonPointer.Create(x.Key),
+                                           context: context))
+        .ToArray();
+
+    return new KeywordConstraint(Name, Evaluator)
+    {
+        ChildDependencies = subschemaConstraints
+    };
+}
+
+private static void Evaluator(KeywordEvaluation evaluation, EvaluationContext context)
+{
+    var annotation = evaluation.ChildEvaluations
+        .Select(x => (JsonNode)x.RelativeInstanceLocation.Segments[0].Value!)
+        .ToJsonArray();
+    evaluation.Results.SetAnnotation(Name, annotation);
+
+    if (!evaluation.ChildEvaluations.All(x => x.Results.IsValid))
+		    evaluation.Results.Fail();
+}
+```
+
+Here you can see there's a lot more going on in the `.GetConstraint()` method than with `maximum`.  Because we know the instance locations, although we don't have the instance itself, we can go ahead and set up the constraints for those locations.  Once we have an array of subschema constraints, they are added to the keyword constraint's `.ChildDependencies` property.  _JsonSchema.Net_ will ensure that those evaluations are processed prior to running the one for this keyword.
+
+When we move into the evaluation phase, all of the child constraints that align with locations actually present in the instance will have `SchemaEvaluation`s generated for them, which are accessible on the `KeywordEvaluation.ChildEvaluations` property.  Because we did a lot of the work up front, to evaluate `properties`, we only need to verify that all of our child evaluations passed.  We set an annotation, and then verify.
+
+> The specification requires that annotations are not reported when validation fails, however this requirement is enforced at the (sub)schema level, not at the keyword level.  Annotations are still generally required for sibling keywords (i.e. within the same subschema) to interoperate correctly.
+{: .prompt-warning }
+
+### Other variations
+
+There are a few other variations of keyword interactions, and it may be worth inspecting the code for some of these examples.
+
+- **Pure annotation keywords** - These keywords perform no validation, but instead only apply an annotation.
+  - `title` & `description`
+- **Keyword dependencies** - These communicate mainly through annotations set by the dependent keywords.
+  - `additionalProperties` depends on `properties` and `patternProperties`
+  - `then` and `else` depend on `if`
+- **Constraint templating** - These keywords have one or more subschemas that each potentially apply to multiple locations which cannot be known without an instance.
+  - `patternProperties` applies subschemas to all instance locations that match each regular expression
+  - `additionalItems` applies its subschema to instance properties not addressed by `properties` or `patternProperties`
+- **No-op keywords** - Keywords that play no validation or annotation role can be skipped during evaluation.
+  - `$defs` & `$comment`
+  - `then` or `else` when `if` isn't present
+
+> In order to prevent unnecessary allocations, there is a static `KeywordConstraint.Skip` that can be re-used as needed to represent a constraint that doesn't need to do anything.
+{: .prompt-tip }
+
+Understanding the patterns that already exist will help you build your own keyword implementations.
+
+### Saving evaluation results
 
 Once you have validated the instance, you'll need to record the results.  These methods are available on the local result object.
 
-- `Fail(string? message)` - Sets a failed validation along with an optional error message.
-- `Ignore()` - Marks the results from this keyword to be excluded from the output.  This used for keywords such as `$defs`.  You probably won't need to set this.
+- `Fail()` - Fails the validation without a message
+- `Fail(string keyword, string? message)` - Sets a failed validation along with a predefined error message.
+- `Fail(string keyword, string message, params (string token, object? value)[] parameters)` - Sets a failed validation along with a templated error message (see [Custom Error Messages](/schema/basics/#schema-errors))
 
 > Validation assumes to have passed unless one of these methods is called.
 {: .prompt-info }
 
-If your keyword contains one or more subschemas, you may need to push a new context onto the stack.  This takes the data from the current context and applies changes based on the optional inputs.  To do this, use the `.Push()` method, which will allow you to update some of the properties.
-
-- instance location
-- instance\*
-- subschema location
-- subschema
-- new base URI
-
-Not all of these need to be updated, however.  Most keywords focus on the instance that is passed to them, however some keywords, like `properties`, need to provide updates for each subschema.  To do this, it [updates several of these properties](https://github.com/gregsdennis/json-everything/blob/d33514fd38b7a98cab586514a794c08bc1aa749e/JsonSchema/PropertiesKeyword.cs#L77).
-
-There are two overloads to the `Push()` method.  While both will update the schema location, one will also allow updates to the instance location.  You'll need to decide which is appropriate for your keyword.
-
-\* _If the instance is changing to a JSON null value, it's important to pass `JsonNull.SignalNode` here instead of merely a null value.  This way the system knows explicitly that a JSON null is being passed rather than merely not being provided.  The context will still save a null value, however.  `JsonNull.SignalNode` is merely a signal._
-
-If the instance passes validation, set any annotations by using `.SetAnnotation()` on the local result object.  This is stored as a key-value pair.  The convention is to use the keyword name as the key.  The value can be anything, but it _should_ be JSON-serializable in order to be rendered properly in the output.
-
-### Annotation consolidation {#schema-vocabs-custom-keywords-annotations}
-
-Versions 3.x and earlier of this library required manual annotation collection.  As of v4, this is handled internally, so no additional steps are required when defining a new keyword.
+Set any annotations by using `.SetAnnotation()` on the local result object.  Generally this needs to be done whether the keyword passes or fails validation.  Annotations are stored as a key-value pair, using the keyword name as the key.  The value can be anything, but it _should_ be JSON-serializable in order to be rendered properly in the output.
 
 ## 2. Implement one of the schema-container interfaces {#schema-vocabs-custom-keywords-2}
 
