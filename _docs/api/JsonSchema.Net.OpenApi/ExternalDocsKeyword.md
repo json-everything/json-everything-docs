@@ -15,7 +15,6 @@ order: "9.04.002"
 **Implemented interfaces:**
 
 - IJsonSchemaKeyword
-- IEquatable\<ExternalDocsKeyword\>
 
 Handles `example`.
 
@@ -48,71 +47,24 @@ public ExternalDocsKeyword(Uri url, string description, IReadOnlyDictionary<stri
 
 ## Methods
 
-### Equals(ExternalDocsKeyword other)
+### GetConstraint(SchemaConstraint schemaConstraint, IReadOnlyList\<KeywordConstraint\> localConstraints, EvaluationContext context)
 
-Indicates whether the current object is equal to another object of the same type.
+Builds a constraint object for a keyword.
 
 #### Declaration
 
 ```c#
-public bool Equals(ExternalDocsKeyword other)
+public KeywordConstraint GetConstraint(SchemaConstraint schemaConstraint, IReadOnlyList<KeywordConstraint> localConstraints, EvaluationContext context)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
-| other | ExternalDocsKeyword | An object to compare with this object. |
+| schemaConstraint | SchemaConstraint | The **Json.Schema.SchemaConstraint** for the schema object that houses this keyword. |
+| localConstraints | IReadOnlyList\<KeywordConstraint\> | The set of other **Json.Schema.KeywordConstraint**s that have been processed prior to this one.<br>Will contain the constraints for keyword dependencies. |
+| context | EvaluationContext | The **Json.Schema.EvaluationContext**. |
 
 
 #### Returns
 
-true if the current object is equal to the <paramref name="other">other</paramref> parameter; otherwise, false.
-
-### Equals(object obj)
-
-Determines whether the specified object is equal to the current object.
-
-#### Declaration
-
-```c#
-public override bool Equals(object obj)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| obj | object | The object to compare with the current object. |
-
-
-#### Returns
-
-true if the specified object  is equal to the current object; otherwise, false.
-
-### Evaluate(EvaluationContext context)
-
-Performs evaluation for the keyword.
-
-#### Declaration
-
-```c#
-public void Evaluate(EvaluationContext context)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| context | EvaluationContext | Contextual details for the evaluation process. |
-
-
-### GetHashCode()
-
-Serves as the default hash function.
-
-#### Declaration
-
-```c#
-public override int GetHashCode()
-```
-
-
-#### Returns
-
-A hash code for the current object.
+A constraint object.
 

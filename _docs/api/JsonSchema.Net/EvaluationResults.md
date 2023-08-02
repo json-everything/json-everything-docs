@@ -3,7 +3,7 @@ layout: "page"
 title: "EvaluationResults Class"
 bookmark: "EvaluationResults"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.030"
+order: "9.01.031"
 ---
 **Namespace:** Json.Schema
 
@@ -60,7 +60,7 @@ public void Fail(string keyword, string message)
 | Parameter | Type | Description |
 |---|---|---|
 | keyword | string | The keyword that failed validation. |
-| message | string | (optional) An error message. |
+| message | string | An error message. |
 
 
 #### Remarks
@@ -102,22 +102,6 @@ public IEnumerable<JsonNode> GetAllAnnotations(string keyword)
 #### Returns
 
 The set of all annotations for the current evaluation level.
-
-### Ignore()
-
-Marks the result of this keyword to be excluded from output.
-
-#### Declaration
-
-```c#
-public void Ignore()
-```
-
-
-#### Remarks
-
-This is used for keywords like `$defs` which don't actually have any
-annotation or assertion behavior and exist solely to house data.
 
 ### SetAnnotation(string keyword, JsonNode value)
 

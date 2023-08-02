@@ -3,7 +3,7 @@ layout: "page"
 title: "ValidatingJsonConverter Class"
 bookmark: "ValidatingJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.107"
+order: "9.01.110"
 ---
 **Namespace:** Json.Schema.Serialization
 
@@ -22,7 +22,6 @@ Adds schema validation for types decorated with the **Json.Schema.Serialization.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Log** | ILog | Gets or sets a log which will output processing information. |
 | **OutputFormat** | OutputFormat? | Specifies the output format. |
 | **RequireFormatValidation** | bool? | Specifies whether the `format` keyword should be required to provide<br>validation results.  Default is false, which just produces annotations<br>for drafts 2019-09 and prior or follows the behavior set forth by the<br>format-annotation vocabulary requirement in the `$vocabulary` keyword in<br>a meta-schema declaring draft 2020-12. |
 

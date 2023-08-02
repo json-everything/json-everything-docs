@@ -3,7 +3,7 @@ layout: "page"
 title: "UnknownFormat Class"
 bookmark: "UnknownFormat"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.104"
+order: "9.01.107"
 ---
 **Namespace:** Json.Schema
 

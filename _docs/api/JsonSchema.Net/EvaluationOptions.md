@@ -3,7 +3,7 @@ layout: "page"
 title: "EvaluationOptions Class"
 bookmark: "EvaluationOptions"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.029"
+order: "9.01.030"
 ---
 **Namespace:** Json.Schema
 
@@ -21,8 +21,6 @@ Allows configuration of the evaluation process.
 | **Default** | EvaluationOptions | The default settings. |
 | **EvaluateAs** | SpecVersion | Indicates which specification version to process as.  This will filter the keywords<br>of a schema based on their support. |
 | **IgnoredAnnotations** | IEnumerable\<Type\> | Gets the set of keyword types from which annotations will be ignored. |
-| **Log** | ILog | Gets or sets a log which will output processing information. |
-| **LogIndentLevel** | int | Gets or sets the indent level for the log. |
 | **OnlyKnownFormats** | bool | Specifies whether the `format` keyword should fail validations for<br>unknown formats.  Default is false. |
 | **OutputFormat** | OutputFormat | Specifies the output format. |
 | **PreserveDroppedAnnotations** | bool | If enabled, annotations that are dropped as a result of a failing<br>subschema will be reported in a `droppedAnnotations` property in<br>the output. |

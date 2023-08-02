@@ -14,23 +14,24 @@ Provides an abstraction for different resource identifier types.
 
 ## Methods
 
-### TryResolve(EvaluationContext context, out JsonNode value)
+### TryResolve(KeywordEvaluation evaluation, SchemaRegistry registry, out JsonNode value)
 
-Attempts to resolve the reference.
+Resolves a resource.
 
 #### Declaration
 
 ```c#
-public abstract bool TryResolve(EvaluationContext context, out JsonNode value)
+public abstract bool TryResolve(KeywordEvaluation evaluation, SchemaRegistry registry, out JsonNode value)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
-| context | EvaluationContext | The schema evaluation context. |
-| value | out JsonNode | If return is true, the value at the indicated location. |
+| evaluation | KeywordEvaluation | The evaluation being process.  This will help identify. |
+| registry | SchemaRegistry | The schema registry. |
+| value | out JsonNode | The value, if **evaluation** was resolvable. |
 
 
 #### Returns
 
-true if resolution is successful; false otherwise.
+True if resolution was successful; false otherwise.
 

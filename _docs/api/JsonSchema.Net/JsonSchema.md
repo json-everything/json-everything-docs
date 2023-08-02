@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonSchema Class"
 bookmark: "JsonSchema"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.050"
+order: "9.01.051"
 ---
 **Namespace:** Json.Schema
 
@@ -14,7 +14,6 @@ order: "9.01.050"
 
 **Implemented interfaces:**
 
-- IEquatable\<JsonSchema\>
 - IBaseDocument
 
 Represents a JSON Schema.
@@ -39,44 +38,6 @@ Represents a JSON Schema.
 | **Keywords** | IReadOnlyCollection\<IJsonSchemaKeyword\> | Gets the keywords contained in the schema.  Only populated for non-boolean schemas. |
 
 ## Methods
-
-### Equals(JsonSchema other)
-
-Indicates whether the current object is equal to another object of the same type.
-
-#### Declaration
-
-```c#
-public bool Equals(JsonSchema other)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| other | JsonSchema | An object to compare with this object. |
-
-
-#### Returns
-
-true if the current object is equal to the <paramref name="other">other</paramref> parameter; otherwise, false.
-
-### Equals(object obj)
-
-Determines whether the specified object is equal to the current object.
-
-#### Declaration
-
-```c#
-public override bool Equals(object obj)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| obj | object | The object to compare with the current object. |
-
-
-#### Returns
-
-true if the specified object  is equal to the current object; otherwise, false.
 
 ### Evaluate(JsonNode root, EvaluationOptions options)
 
@@ -162,20 +123,33 @@ public static JsonSchema FromText(string jsonText, JsonSerializerOptions options
 
 A new **Json.Schema.JsonSchema**.
 
-### GetHashCode()
+### GetConstraint(JsonPointer relativeEvaluationPath, JsonPointer baseInstanceLocation, JsonPointer relativeInstanceLocation, EvaluationContext context)
 
-Serves as the default hash function.
+Builds a constraint for the schema.
 
 #### Declaration
 
 ```c#
-public override int GetHashCode()
+public SchemaConstraint GetConstraint(JsonPointer relativeEvaluationPath, JsonPointer baseInstanceLocation, JsonPointer relativeInstanceLocation, EvaluationContext context)
 ```
+
+| Parameter | Type | Description |
+|---|---|---|
+| relativeEvaluationPath | JsonPointer | The relative evaluation path in JSON Pointer form.  Generally this will be a keyword name,<br>but may have other segments, such as in the case of `properties` which also has the property name. |
+| baseInstanceLocation | JsonPointer | The base location within the instance that is being evaluated. |
+| relativeInstanceLocation | JsonPointer | The location relative to **baseInstanceLocation** within the instance that<br>is being evaluated. |
+| context | EvaluationContext | The evaluation context. |
 
 
 #### Returns
 
-A hash code for the current object.
+A schema constraint.
+
+#### Remarks
+
+The constraint returned by this method is cached by the **Json.Schema.JsonSchema** object.
+Different evaluation paths to this schema object may result in different constraints, so
+a new constraint is saved for each dynamic scope.
 
 ### GetKeyword()
 

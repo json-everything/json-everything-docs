@@ -3,7 +3,7 @@ layout: "page"
 title: "PredicateFormat Class"
 bookmark: "PredicateFormat"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.076"
+order: "9.01.078"
 ---
 **Namespace:** Json.Schema
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "IJsonSchemaKeyword Interface"
 bookmark: "IJsonSchemaKeyword"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.042"
+order: "9.01.043"
 ---
 **Namespace:** Json.Schema
 
@@ -14,18 +14,24 @@ Defines basic functionality for schema keywords.
 
 ## Methods
 
-### Evaluate(EvaluationContext context)
+### GetConstraint(SchemaConstraint schemaConstraint, IReadOnlyList\<KeywordConstraint\> localConstraints, EvaluationContext context)
 
-Performs evaluation for the keyword.
+Builds a constraint object for a keyword.
 
 #### Declaration
 
 ```c#
-public abstract void Evaluate(EvaluationContext context)
+public abstract KeywordConstraint GetConstraint(SchemaConstraint schemaConstraint, IReadOnlyList<KeywordConstraint> localConstraints, EvaluationContext context)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
-| context | EvaluationContext | Contextual details for the evaluation process. |
+| schemaConstraint | SchemaConstraint | The **Json.Schema.SchemaConstraint** for the schema object that houses this keyword. |
+| localConstraints | IReadOnlyList\<KeywordConstraint\> | The set of other **Json.Schema.KeywordConstraint**s that have been processed prior to this one.<br>Will contain the constraints for keyword dependencies. |
+| context | EvaluationContext | The **Json.Schema.EvaluationContext**. |
 
+
+#### Returns
+
+A constraint object.
 
