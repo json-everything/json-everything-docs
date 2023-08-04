@@ -604,7 +604,16 @@ In this case, `[[received]]` will be replaced by the value in the JSON instance,
 In addition to customization, using resource files enables support for localization.  The default locale is determined by `CultureInfo.CurrentCulture` and can be overridden by setting the `ErrorMessages.Culture` static property.
 
 ```c#
-ErrorMessages.Culture = CultureInfo.GetCultureInfo("es-es");
+ErrorMessages.Culture = CultureInfo.GetCultureInfo("es");
+```
+
+If you need to change the culture setting for an individual evaluation, you can do that by setting the `Culture` evaluation option, which will override the static setting.
+
+```c#
+var options = new EvaluationOptions
+{
+    Culture = CultureInfo.GetCultureInfo("es")
+}
 ```
 
 Currently supported translations are:
