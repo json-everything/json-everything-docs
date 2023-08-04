@@ -4,5 +4,5 @@ bookmark: JsonSchema.Net.UniqueKeys
 permalink: /api/JsonSchema.Net.UniqueKeys/:title/
 folder: true
 order: "9.03"
-version: "3.0.0"
+version: "3.0.1"
 ---
