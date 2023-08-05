@@ -52,3 +52,26 @@ public SchemaEvaluation BuildEvaluation(JsonNode localInstance, JsonPointer inst
 
 A schema evaluation object.
 
+### GetLocalSchema(EvaluationOptions options)
+
+Gets the local schema object.
+
+#### Declaration
+
+```c#
+public JsonSchema GetLocalSchema(EvaluationOptions options)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| options | EvaluationOptions | Evaluation options. |
+
+
+#### Returns
+
+The local **Json.Schema.JsonSchema** object represented by this constraint.
+
+#### Remarks
+
+This method can lead to inefficiencies.  It is provided as a last resort to access the schema directly.
+
