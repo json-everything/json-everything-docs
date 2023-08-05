@@ -25,6 +25,7 @@ This represents any work that can be performed as part of static analysis of the
 | **BaseInstanceLocation** | JsonPointer | Gets the base location within the instance that is being evaluated. |
 | **Constraints** | KeywordConstraint[] | Gets the set of keyword constraints. |
 | **InstanceLocator** | Func\<KeywordEvaluation, IEnumerable\<JsonPointer\>\> | Defines a method to identify relative instance locations at evaluation time. |
+| **LocalSchema** | JsonSchema | Gets the local **Json.Schema.JsonSchema**. |
 | **RelativeInstanceLocation** | JsonPointer | Gets the location relative to **Json.Schema.SchemaConstraint.BaseInstanceLocation** within the instance that<br>is being evaluated. |
 | **SchemaBaseUri** | Uri | Gets the schema's base URI. |
 
@@ -51,27 +52,4 @@ public SchemaEvaluation BuildEvaluation(JsonNode localInstance, JsonPointer inst
 #### Returns
 
 A schema evaluation object.
-
-### GetLocalSchema(EvaluationOptions options)
-
-Gets the local schema object.
-
-#### Declaration
-
-```c#
-public JsonSchema GetLocalSchema(EvaluationOptions options)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| options | EvaluationOptions | Evaluation options. |
-
-
-#### Returns
-
-The local **Json.Schema.JsonSchema** object represented by this constraint.
-
-#### Remarks
-
-This method can lead to inefficiencies.  It is provided as a last resort to access the schema directly.
 
