@@ -155,7 +155,10 @@ private void Evaluator(KeywordEvaluation evaluation, EvaluationContext context)
 
     var number = evaluation.LocalInstance!.AsValue().GetNumber();
     if (Value < number)
-        evaluation.Results.Fail(Name, ErrorMessages.Maximum, ("received", number), ("limit", Value));
+        evaluation.Results.Fail(Name,
+                                ErrorMessages.GetMaximum(context.Options.Culture),
+                                ("received", number),
+                                ("limit", Value));
 }
 ```
 
