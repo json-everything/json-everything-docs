@@ -4,6 +4,28 @@ title: JsonSchema.Net
 icon: fas fa-tag
 order: "8.01"
 ---
+# [5.1.3](https://github.com/gregsdennis/json-everything/commit/fe728123a712a43bad6f8a51a625e41f9d459925) {#release-schema-5.1.3}
+
+Just expose the local schema that you're already storing, you doof.
+
+Adds `SchemaConstraint.LocalSchema`.  Removed method since it didn't actually work.  Bad idea.
+
+# [5.1.2](https://github.com/gregsdennis/json-everything/commit/d3a3838882747bb1130860df43cf8ce1fbc48e24) (unlisted) {#release-schema-5.1.2}
+
+This one, too.
+
+Fixing 👇.  Test your code, folks!
+
+# [5.1.1](https://github.com/gregsdennis/json-everything/commit/db49b4c2c062c0ab6f258f5fe6e355d947157e83) (unlisted) {#release-schema-5.1.1}
+
+Just ignore this.
+
+Added `SchemaConstraint.GetLocalSchema()` for accessing the local schema.  (To be used as a last resort, but may be necessary.)
+
+# [5.1.0](https://github.com/gregsdennis/json-everything/pull/499) {#release-schema-5.1.0}
+
+[#493](https://github.com/gregsdennis/json-everything/issues/493) - Add support for reporting error messages in multiple cultures in parallel.  Thanks to [@m-adamkiewicz](https://github.com/m-adamkiewicz) for the suggestion.
+
 # [5.0.0](https://github.com/gregsdennis/json-everything/pull/494) {#release-schema-5.0.0}
 
 New architecture for keyword evaluation that uses static analysis to save some evaluation work, thus reducing execution times and memory allocations significantly.
