@@ -44,7 +44,6 @@ The validation can be configured using properties on the converter.
 
 - `OutputFormat` configures the JSON Schema output format to be used.  By default, this value is `Flag` (the same as on `EvaluationOptions`).
 - `RequireFormatValidation` will validate the `format` keyword when set to true.  By default `format` is an annotation.
-- `Log` will set an `ILog` implementation to report schema debugging information.  By default, no log is set.
 
 ## Declaring a JSON Schema for a type {#schema-deserialization-attribute-usage}
 
