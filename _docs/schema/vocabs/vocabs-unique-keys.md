@@ -4,7 +4,7 @@ title: A Vocabulary for Identifying Uniqueness of Array Items
 bookmark: uniqueKeys
 permalink: /schema/vocabs/uniquekeys/
 icon: fas fa-tag
-order: "1.7.2"
+order: "1.8.2"
 ---
 ## 1. Purpose {#schema-uniquekeys-purpose}
 
