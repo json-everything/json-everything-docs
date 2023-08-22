@@ -33,7 +33,15 @@ public class MyObject
 
 The code generation is currently quite basic.  It will generate types for simple custom objects and any named array or dictionary type.
 
-`$ref` is generally supported, even for recursive models like linked lists and binary trees.
+`$ref` is generally supported, even for recursive models like linked lists and binary trees, however there is no loop detection, so if you do something like this:
+
+```json
+{
+  "$ref": "#"
+}
+```
+
+you'll just get a stack overflow exception.  That's on you.  Don't do that.
 
 ### Built-in types
 
@@ -45,11 +53,13 @@ There is an exception to this behavior for arrays and dictionaries, which is exp
 
 There is currently limited support for translating JSON Schema into code.  However there is ongoing discussion for an official [JSON Schema code generation vocabulary](https://github.com/json-schema-org/vocab-idl).  Please feel free to read up and join in on the effort there.
 
+Currently, the class name is derived from the `title` keyword.  There is an open issue in the repository above to discuss using this keyword.  It's currently leaning toward the vocabulary defining a custom keyword, but as nothing has been decided yet, `title` is used here for now.
+
 ### Custom objects
 
 Generating for custom objects is the real power behind code generation.  Being able to read a schema produced by some other developer (e.g. from an OpenAPI document) and automatically create types can save developers a lot of time.
 
-This library generates custom types for schemas that declare an `object` type and include `title` (for a type name) and `properties` without `additionalProperties`.  It will also automatically generate types found nested in the schema.  For example
+This library generates custom types for schemas that declare an `object` type and include `title` and `properties` without `additionalProperties`.  It will also automatically generate types found nested in the schema.  For example
 
 ```json
 {
@@ -85,10 +95,10 @@ public class Bar
 
 There is some basic duplicate definition detection that serves two purposes:
 
-1. It avoids creating multiple declarations for the same type.  For example, if `Foo` had `Bar1` and `Bar2` properties, only one `Bar` declaration would be generated.  (Again, `$ref` isn't supported yet, so the subschema would need to be repeated for `Bar1` and `Bar2`.)
+1. It avoids creating multiple declarations for the same type.  For example, if `Foo` had `Bar1` and `Bar2` properties, only one `Bar` declaration would be generated.  Ideally this kind of duplication should be defined in the schema using a `$ref`.
 2. It prevents creating multiple types with the same name.  For example, if there are two subschemas with the same name that define two different types, an exception would be thrown indicating the name re-use.
 
-Some basic string transformation occurs:
+For type and property naming, some basic string transformation occurs:
 
 | Original | Transformed |
 |:-|:-|
@@ -113,7 +123,7 @@ When a schema declares an `array` type and includes an `items` keyword (in the s
 }
 ```
 
-produces no declaration, but using this schema appears as
+produces no declaration, but using this schema (e.g. to define object properties) appears as
 
 ```c#
 int[]
@@ -141,7 +151,7 @@ Dictionary<string, int>
 
 ### Including a name on basic types {#including-a-name}
 
-When an array or dictionary schema has a `title` keyword, which supplies the name,
+When you have an array or dictionary schema with a `title` keyword
 
 ```json
 {
@@ -165,13 +175,13 @@ or
 }
 ```
 
-you now get a type declaration inheriting from `List<T>`:
+you now get a type declaration inheriting from `List<T>`
 
 ```c#
 public class MyIntArray : List<int> {}
 ```
 
-and
+and `Dictionary<TKey, TValue>`
 
 ```c#
 public class MyIntDictionary : Dictionary<string, int> {}
