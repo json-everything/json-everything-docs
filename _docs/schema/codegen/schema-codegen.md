@@ -33,8 +33,7 @@ public class MyObject
 
 The code generation is currently quite basic.  It will generate types for simple custom objects and any named array or dictionary type.
 
-> Currently `$ref` is unsupported.
-{: .prompt-warning }
+`$ref` is generally supported, even for recursive models like linked lists and binary trees.
 
 ### Built-in types
 
@@ -89,8 +88,17 @@ There is some basic duplicate definition detection that serves two purposes:
 1. It avoids creating multiple declarations for the same type.  For example, if `Foo` had `Bar1` and `Bar2` properties, only one `Bar` declaration would be generated.  (Again, `$ref` isn't supported yet, so the subschema would need to be repeated for `Bar1` and `Bar2`.)
 2. It prevents creating multiple types with the same name.  For example, if there are two subschemas with the same name that define two different types, an exception would be thrown indicating the name re-use.
 
-> There is currently no string transformation logic for type or property names.
-{: .prompt-warning }
+Some basic string transformation occurs:
+
+| Original | Transformed |
+|:-|:-|
+| `kebab-case` | `KebabCase` |
+| `snake_case` | `SnakeCase` |
+| `spaced words` |`SpacedWords` |
+| `words-with-2-numbers` | `WordsWith2Numbers` |
+| `just-a-letter` | `JustALetter` |
+
+Anything other conventions will likely result in undesirable code output or an exception.
 
 ### Arrays
 
