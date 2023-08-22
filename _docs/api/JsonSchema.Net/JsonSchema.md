@@ -123,6 +123,25 @@ public static JsonSchema FromText(string jsonText, JsonSerializerOptions options
 
 A new **Json.Schema.JsonSchema**.
 
+### GetAnchor(string anchorName)
+
+Gets a defined anchor.
+
+#### Declaration
+
+```c#
+public JsonSchema GetAnchor(string anchorName)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| anchorName | string | The name of the anchor (excluding the `#`) |
+
+
+#### Returns
+
+The associated subschema, if the anchor exists, or null.
+
 ### GetConstraint(JsonPointer relativeEvaluationPath, JsonPointer baseInstanceLocation, JsonPointer relativeInstanceLocation, EvaluationContext context)
 
 Builds a constraint for the schema.
