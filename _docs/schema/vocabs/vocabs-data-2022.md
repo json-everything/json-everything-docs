@@ -4,7 +4,7 @@ title: A Vocabulary for Accessing Data Stored in JSON
 bookmark: data
 permalink: /schema/vocabs/data-2022/
 icon: fas fa-tag
-order: "1.7.1"
+order: "1.8.1"
 ---
 ## 1. Purpose {#schema-data-2022-purpose}
 

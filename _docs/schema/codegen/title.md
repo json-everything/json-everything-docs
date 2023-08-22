@@ -1,7 +1,7 @@
 ---
 title: __title
-bookmark: Data Generation
+bookmark: Code Generation
 permalink: /schema/datagen/:title/
 folder: true
-order: "1.7"
+order: "1.6"
 ---
