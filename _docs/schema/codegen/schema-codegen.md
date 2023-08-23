@@ -29,6 +29,19 @@ public class MyObject
 }
 ```
 
+## Usage
+
+Code generation operates via a single extension method on `JsonSchema`, `.GenerateCode()`.  It takes two parameters, a code writer and an optional`EvaluationOptions` object.  The method returns a string containing the type definitions.
+
+Currently, the only code writer is for C#, but others are planned.  Furthermore, the writer only needs to implement an interface, `ICodeWriter`.  The defined code writers are available via the `CodeWriters` static class.
+
+```c#
+var schema = JsonSchema.FromFile("schema.json");
+var generatedCode = schema.GenerateCode(CodeWriters.CSharp);
+```
+
+The options are only supplied in order to provide a schema registry. (The full options object is required for `$ref` resolution.  In the future some of the options may be considered as part of the generation process.)  For example, if your schema contains `$ref`s to other schemas, you'll need to preload those, just like you would for [validation](/schema/basics/#schema-ref-resolution).
+
 ## Capabilities {#schema-codegen-capabilities}
 
 The code generation is currently quite basic.  It will generate types for simple custom objects and any named array or dictionary type.
@@ -43,17 +56,15 @@ The code generation is currently quite basic.  It will generate types for simple
 
 you'll just get a stack overflow exception.  That's on you.  Don't do that.
 
+There is also ongoing discussion for an official [JSON Schema code generation vocabulary](https://github.com/json-schema-org/vocab-idl).  Please feel free to read up and join in on the effort there.
+
+Currently, the class name is derived from the `title` keyword.  There is an open issue in the repository above to discuss using this keyword.  It's currently leaning toward the vocabulary defining a custom keyword, but as nothing has been decided yet, `title` is used here for now.
+
 ### Built-in types
 
 Built-in types, like strings and arrays, are supported by reference only.  These generally will not have type declarations generated for them, however they can appear as types used within other declarations.  For example, `string` in the example above is used for the `Foo` property, but there isn't a `string` type declaration included in the output because the type is built-in.
 
 There is an exception to this behavior for arrays and dictionaries, which is explained [below](#including-a-name).
-
-## Usage
-
-There is currently limited support for translating JSON Schema into code.  However there is ongoing discussion for an official [JSON Schema code generation vocabulary](https://github.com/json-schema-org/vocab-idl).  Please feel free to read up and join in on the effort there.
-
-Currently, the class name is derived from the `title` keyword.  There is an open issue in the repository above to discuss using this keyword.  It's currently leaning toward the vocabulary defining a custom keyword, but as nothing has been decided yet, `title` is used here for now.
 
 ### Custom objects
 
