@@ -121,6 +121,32 @@ For type and property naming, some basic string transformation occurs:
 
 Anything other conventions will likely result in undesirable code output or an exception.
 
+### Enumerations
+
+Enumerations are supported via the `enum` keywords and only accept string values.  `title` is required.
+
+> With JSON Schema in general, when `enum` is present, `type` is unnecessary as `enum` requires exact JSON value matches.
+{: .prompt-tip }
+
+```json
+{
+  "title": "MyEnum",
+  "enum": [ "One", "Two", "Three" ]
+}
+```
+produces
+
+```c#
+public enum MyEnum
+{
+    One,
+    Two,
+    Three
+}
+```
+
+As with custom object property names, enum values are transformed to follow C# naming conventions.
+
 ### Arrays
 
 When a schema declares an `array` type and includes an `items` keyword (in the single schema form, not an array of schemas), an array is used.
