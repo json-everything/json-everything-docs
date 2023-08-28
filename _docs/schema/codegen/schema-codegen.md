@@ -15,7 +15,7 @@ For example, given the schema:
   "title": "MyObject",
   "type": "object",
   "properties": {
-    "Foo": { "type": "string" }
+    "foo": { "type": "string" }
   }
 }
 ```
@@ -25,6 +25,7 @@ it can generate a C# class like
 ```c#
 public class MyObject
 {
+    [JsonPropertyName("foo")]
     public string Foo { get; set; }
 }
 ```
@@ -121,6 +122,8 @@ For type and property naming, some basic string transformation occurs:
 
 Anything other conventions will likely result in undesirable code output or an exception.
 
+When the C# property name doesn't exactly match the JSON key, the System.Text.Json `[JsonPropertyName]` attribute is automatically added.
+
 ### Enumerations
 
 Enumerations are supported via the `enum` keywords and only accept string values.  `title` is required.
@@ -146,6 +149,8 @@ public enum MyEnum
 ```
 
 As with custom object property names, enum values are transformed to follow C# naming conventions.
+
+
 
 ### Arrays
 
