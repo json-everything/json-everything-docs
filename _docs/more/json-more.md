@@ -60,11 +60,15 @@ It also supports `[Flags]` enums by encoding the base values into an array.  Com
 [Flags]
 public enum MyFlagsEnum
 {
+    Default,
     Foo = 1,
     Bar = 2,
     Composite = 3           // serializes as ["Foo", "Bar"]
 }
 ```
+
+> If your flags enum defines a name for the default (0) value, the converter will exclude it when there are other names present.  For example, `Default` in the example above is omitted from the serialization of `Composite`.
+{: .prompt-tip }
 
 To use this converter, apply the `[JsonConverter(typeof(EnumStringConverter<T>))]` to either the enum or an enum-valued property.
 
@@ -166,3 +170,63 @@ To achieve this without `JsonElementProxy`, you could also create overloads for 
 The .Net team did a great job of supporting fast serialization, but for whatever reason they didn't implement serializing their data model.  The `Utf8JsonWriterExtensions` class fills that gap.
 
 This provides an extension method that writes a `JsonElement` to the stream.
+
+# Building better converters
+
+Unfortunately, the most obvious way to deserialize nested properties inside a custom converter isn't the recommended approach.
+
+```c#
+class MyJsonConverter : JsonConverter<MyClass>
+{
+    public override MyClass Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    {
+        var result = new MyClass();
+        // ...
+        result.Foo = JsonSerializer.Deserialize<Foo>(ref reader, options);
+        // ...
+        return result;
+    } 
+}
+```
+
+Calling `JsonSerializer.Deserialize<T>(ref reader, options)` has a side effect of ruining the line number and position information that would be included in a `JsonException` if something went wrong.
+
+Instead, we're [supposed to](https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/converters-how-to?pivots=dotnet-7-0) get the appropriate converter through the `options` parameter and invoke that directly.
+
+```c#
+class MyJsonConverter : JsonConverter<MyClass>
+{
+    public override MyClass Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    {
+        var result = new MyClass();
+        // ...
+        var fooConverter = (JsonConverter<Foo>)options.GetConverter(typeof(Foo));
+        result.Foo = fooConverter.Read(ref reader, typeof(Foo), options);
+        // ...
+        return result;
+    } 
+}
+```
+
+But that's not so nice to read, and you don't want to have to remember to do that in every converter.
+
+To make our converters prettier, this library defines a couple extension methods on `JsonSerialierOptions` to help:
+
+- `.GetConverter<T>()` - returns the converter, already typed and ready to use.
+- `.Read<T>()` - gets the converter and performs the read.
+
+```c#
+class MyJsonConverter : JsonConverter<MyClass>
+{
+    public override MyClass Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    {
+        var result = new MyClass();
+        // ...
+        result.Foo = options.Read(ref reader, typeof(Foo));
+        // ...
+        return result;
+    } 
+}
+```
+
+Much nicer!
