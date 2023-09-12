@@ -30,18 +30,21 @@ public class MyObject
 }
 ```
 
+> Most of this library is a test bed for the ideas presented in the JSON Schema IDL Vocabulary proposal repository.  There are a number of discussions which seek to define patterns between schemas and code as well as potentially defining new keywords specifically for this purpose.
+{: .prompt-info }
+
 ## Usage
 
-Code generation operates via a single extension method on `JsonSchema`, `.GenerateCode()`.  It takes two parameters, a code writer and an optional`EvaluationOptions` object.  The method returns a string containing the type definitions.
+Code generation operates via a single extension method on `JsonSchema`, `.GenerateCode()`.  It takes two parameters, a code writer and an optional `EvaluationOptions` object.  The method returns a string containing the type definitions.
 
-Currently, the only code writer is for C#, but others are planned.  Furthermore, the writer only needs to implement an interface, `ICodeWriter`.  The defined code writers are available via the `CodeWriters` static class.
+Currently, the only code writer is for C#, but others are planned, and you can create your own by implementing the `ICodeWriter` interface.  The code writers available in this library are provided via the `CodeWriters` static class.
 
 ```c#
 var schema = JsonSchema.FromFile("schema.json");
 var generatedCode = schema.GenerateCode(CodeWriters.CSharp);
 ```
 
-The options are only supplied in order to provide a schema registry. (The full options object is required for `$ref` resolution.  In the future some of the options may be considered as part of the generation process.)  For example, if your schema contains `$ref`s to other schemas, you'll need to preload those, just like you would for [validation](/schema/basics/#schema-ref-resolution).
+There is also an `EvaluationOptions` parameter.  The options are only supplied in order to provide a schema registry, and the default is just `EvaluationOptions.Default`. (The full options object is required for `$ref` resolution.  In the future some of the options may be considered as part of the generation process.)  For example, if your schema contains `$ref`s to other schemas, you'll need to preload those, just like you would for [validation](/schema/basics/#schema-ref-resolution).
 
 ## Capabilities {#schema-codegen-capabilities}
 
