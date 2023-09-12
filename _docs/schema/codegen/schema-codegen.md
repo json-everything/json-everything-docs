@@ -2,7 +2,7 @@
 layout: page
 title: Generating Code from JSON Schema
 bookmark: Basics
-permalink: /schema/:title/
+permalink: /schema/codegen/:title/
 icon: fas fa-tag
 order: "1.6.1"
 ---

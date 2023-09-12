@@ -2,7 +2,7 @@
 layout: page
 title: Generating JSON Schema from .Net Types
 bookmark: Basics
-permalink: /schema/:title/
+permalink: /schema/schemagen/:title/
 icon: fas fa-tag
 order: "1.5.1"
 ---

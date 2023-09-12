@@ -2,7 +2,7 @@
 layout: page
 title: Generating Sample JSON Data from a Schema
 bookmark: Basics
-permalink: /schema/:title/
+permalink: /schema/datagen/:title/
 icon: fas fa-tag
 order: "1.7.1"
 ---

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Supported Patterns
-permalink: /schema/:title/
+permalink: /schema/codegen/:title/
 icon: fas fa-tag
 order: "1.6.2"
 ---

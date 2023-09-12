@@ -2,7 +2,7 @@
 layout: page
 title: Conditional JSON Schema Generation
 bookmark: Conditionals
-permalink: /schema/:title/
+permalink: /schema/schemagen/:title/
 icon: fas fa-tag
 order: "1.5.2"
 ---
