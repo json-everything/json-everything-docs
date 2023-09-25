@@ -22,7 +22,9 @@ In order to generate a POCO, there are a number of keywords that you need to pro
 - `title` - Becomes the name of the type
 - `properties` - Lists any properties
 
-Also, for each of the properties, `readOnly` and `writeOnly` are individually supported to generate that property as read-only (no setter) or write-only (no getter), but both can't be `true`.
+For each of the properties, `readOnly` and `writeOnly` are individually supported to generate that property as read-only (no setter) or write-only (no getter), but both can't be `true`.
+
+Including `additionalProperties` with a value of `false` will generate a sealed class.  Omit `additionalProperties` to generate an open class that can be inherited.
 
 Further discussion on how custom objects can be supported in JSON Schema code generation can be found [here](https://github.com/json-schema-org/vocab-idl/issues/46).
 
