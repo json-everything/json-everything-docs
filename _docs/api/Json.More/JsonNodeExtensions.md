@@ -38,7 +38,7 @@ JSON string representation.
 
 ### Copy(this JsonNode source)
 
-Creates a copy of a node by passing it through the serializer.
+Creates a deep copy of a node.
 
 #### Declaration
 
