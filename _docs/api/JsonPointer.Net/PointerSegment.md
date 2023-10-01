@@ -3,7 +3,7 @@ layout: "page"
 title: "PointerSegment Class"
 bookmark: "PointerSegment"
 permalink: "/api/JsonPointer.Net/:title/"
-order: "9.09.005"
+order: "9.10.005"
 ---
 **Namespace:** Json.Pointer
 

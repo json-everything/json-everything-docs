@@ -3,7 +3,7 @@ layout: "page"
 title: "OperatorAttribute Class"
 bookmark: "OperatorAttribute"
 permalink: "/api/JsonLogic/:title/"
-order: "9.10.032"
+order: "9.11.032"
 ---
 **Namespace:** Json.Logic
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "PointerParseException Class"
 bookmark: "PointerParseException"
 permalink: "/api/JsonPointer.Net/:title/"
-order: "9.09.004"
+order: "9.10.004"
 ---
 **Namespace:** Json.Pointer
 

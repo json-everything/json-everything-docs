@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonDocumentExtensions Class"
 bookmark: "JsonDocumentExtensions"
 permalink: "/api/Json.More/:title/"
-order: "9.11.002"
+order: "9.12.002"
 ---
 **Namespace:** Json.More
 

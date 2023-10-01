@@ -3,7 +3,7 @@ layout: "page"
 title: "ReduceRule Class"
 bookmark: "ReduceRule"
 permalink: "/api/JsonLogic/:title/"
-order: "9.10.034"
+order: "9.11.034"
 ---
 **Namespace:** Json.Logic.Rules
 

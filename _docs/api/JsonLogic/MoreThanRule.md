@@ -3,7 +3,7 @@ layout: "page"
 title: "MoreThanRule Class"
 bookmark: "MoreThanRule"
 permalink: "/api/JsonLogic/:title/"
-order: "9.10.028"
+order: "9.11.028"
 ---
 **Namespace:** Json.Logic.Rules
 

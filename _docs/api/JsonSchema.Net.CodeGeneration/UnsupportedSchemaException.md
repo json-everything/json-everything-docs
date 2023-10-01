@@ -1,14 +1,14 @@
 ---
 layout: "page"
-title: "JsonLogicException Class"
-bookmark: "JsonLogicException"
-permalink: "/api/JsonLogic/:title/"
-order: "9.11.010"
+title: "UnsupportedSchemaException Class"
+bookmark: "UnsupportedSchemaException"
+permalink: "/api/JsonSchema.Net.CodeGeneration/:title/"
+order: "9.07.004"
 ---
-**Namespace:** Json.Logic
+**Namespace:** Json.Schema.CodeGeneration
 
 **Inheritance:**
-`JsonLogicException`
+`UnsupportedSchemaException`
  🡒 
 `Exception`
  🡒 
@@ -18,7 +18,7 @@ order: "9.11.010"
 
 - ISerializable
 
-Thrown when a rule cannot be processed or deserialized.
+Thrown when the generator encounters an unsupported scenario.
 
 ## Properties
 
@@ -35,14 +35,14 @@ Thrown when a rule cannot be processed or deserialized.
 
 ## Constructors
 
-### JsonLogicException(string message)
+### UnsupportedSchemaException(string message)
 
-Creates a new instance of the **Json.Logic.JsonLogicException** class.
+Creates a new instance of the exception.
 
 #### Declaration
 
 ```c#
-public JsonLogicException(string message)
+public UnsupportedSchemaException(string message)
 ```
 
 | Parameter | Type | Description |
