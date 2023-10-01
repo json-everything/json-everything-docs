@@ -4,7 +4,7 @@ title: Referencing Instance Data
 bookmark: Instance Data
 permalink: /schema/examples/:title/
 icon: fas fa-tag
-order: "1.7.4.1"
+order: "1.8.4.1"
 ---
 Most of the questions that center around referencing data involve comparing the values of properties.  This typically comes in a few flavors:
 
