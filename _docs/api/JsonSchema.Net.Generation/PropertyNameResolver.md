@@ -1,16 +1,16 @@
 ---
 layout: "page"
-title: "PropertyNamingMethod Delegate"
-bookmark: "PropertyNamingMethod"
+title: "PropertyNameResolver Delegate"
+bookmark: "PropertyNameResolver"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.064"
+order: "9.05.061"
 ---
-# PropertyNamingMethod Delegate
+# PropertyNameResolver Delegate
 
 **Namespace:** Json.Schema.Generation
 
 **Inheritance:**
-`PropertyNamingMethod`
+`PropertyNameResolver`
  🡒 
 `MulticastDelegate`
  🡒 
@@ -23,20 +23,20 @@ order: "9.05.064"
 - ICloneable
 - ISerializable
 
-Declares a property naming method which is used to alter property names.
+Declares a property name resolution which is used to provide a property name.
 
 #### Declaration
 
 ```c#
-public delegate string PropertyNamingMethod(string input)
+public delegate string PropertyNameResolver(MemberInfo input)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
-| input | string | The property name. |
+| input | MemberInfo | The property. |
 
 
 #### Returns
 
-The altered property name.
+The property name
 
