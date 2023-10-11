@@ -1,0 +1,179 @@
+---
+layout: page
+title: A Vocabulary for Accessing Data Stored in JSON (2023)
+bookmark: data (2023)
+permalink: /schema/vocabs/data-2023/
+icon: fas fa-tag
+order: "1.8.4"
+---
+## 1. Purpose {#purpose}
+
+This document describes a vocabulary defining keywords that can be used to reference values stored in
+
+- the instance data
+- the schema data
+- external JSON data
+
+where the dereferenced values serve as input for keywords in a derived subschema.
+
+The intent for this keyword is to cover the use cases discussed across [several issues](https://github.com/json-schema-org/json-schema-spec/issues?q=is%3Aissue+label%3A%24data) in the JSON Schema specification GitHub repositories regarding data access feature requests, including a proposal for a `$data` keyword.
+
+## 2. Declarations {#declarations}
+
+The ID for this vocabulary is `https://json-everything.net/vocabs-data-2023`.
+
+A draft 2020-12 meta-schema which includes this vocabulary has been defined for convenience.  The ID (`$id`) for the meta-schema is `https://json-everything.net/meta/data-2023`, and it can also be found at this address.
+
+## 3. Definitions {#definitions}
+
+### 3.1 Formed Schema {#formed-schema}
+
+The schema object created as a result of dereferencing all of the values in either the `data` or `optionalData` keywords as described in section 4.1.  That is, each keyword produces an independent formed schema.
+
+### 3.2 Host Schema {#host-schema}
+
+The schema object which contains either the `data` or `optionalData` keyword.  The processing rules that govern this schema also govern the formed schema, as specified by section 4.2.
+
+## 4. The `data` and `optionalData` Keywords {#data-keyword}
+
+### 4.1 Syntax and Semantics {#semantics}
+
+The values of `data` and `optionalData` must be objects.  The keys of these objects are interpreted as JSON Schema keywords, and the values MUST be one of
+
+- JSON Pointers per [RFC 6901](https://www.rfc-editor.org/rfc/rfc6901) 
+- [Relative JSON Pointers](https://json-schema.org/draft/2019-09/relative-json-pointer.html)
+- fragment-only IRI using IRI-encoded JSON Pointer identifier per [RFC 6901, §6](https://www.rfc-editor.org/rfc/rfc6901#section-6)
+- Absolute IRIs per [RFC 3987](https://datatracker.ietf.org/doc/html/rfc3987), optionally including an additional IRI-encoded JSON Pointer fragment identifier
+
+`data` and `optionalData` MUST NOT contain any keys which are defined by the JSON Schema Core Vocabulary.
+
+`data` and `optionalData` each operate in two phases:
+
+1. All of the values are dereferenced per sections 4.2 and 4.3.
+2. The resolved object is then interpreted as a schema which is applied to the instance at the current location.
+
+The validation and annotation results of `data` and `optionalData` are those of the formed schemas.  More detail regarding output can be found in section 4.4.
+
+### 4.2 Contextual Behavior {#behavior}
+
+`data` and `optionalData` MUST be processed contextually in the same manner as the host schema.  Specifically,
+
+- IRI resolution MUST be performed in the same manner as `$ref` (per section 3.2).
+- Keys that are ignored by the host schema MUST also be ignored by the formed schema.
+
+Implementations SHOULD validate that the resolved data forms a valid schema against the host schema's meta-schema (as specified by `$schema`).
+
+> It is not necessary for an implementation to validate the formed schema using the meta-schema.  Other mechanisms internal to the implementation (such as deserialization) may suffice to perform this task.
+{: .prompt-info }
+
+### 4.3 IRI Resolution {#resolution}
+
+The string values within `data` and `optionalData` are dereferenced in different ways depending on the format of the value.
+
+If the value is a JSON Pointer, it is resolved against the instance root.
+
+If the value is a Relative JSON Pointer, it is resolved against the instance at the location currently being evaluated.
+
+Otherwise, it must be resolved in accordance with the rules of `$ref` resolution for the relevant JSON Schema specification (e.g. [draft 2020-12, §8.2](https://json-schema.org/draft/2020-12/json-schema-core.html#name-base-uri-anchors-and-derefe)).  However, unlike `$ref` which requires that the indicated data must represent a valid schema object, `data` and `optionalData` references can identify any value which is valid for the associated keyword.
+
+Because JSON Pointers and Relative JSON Pointers are syntactically valid IRIs, the value MUST be checked in the sequence indicated above in order to properly identify the pointer types from other IRIs.
+
+For each successfully resolved reference, the full value at the specified location MUST be returned.
+
+#### 4.3.1 Reference Resolution Failure {#resolution-failure}
+
+The `data` and `optionalData` keywords differ only in their behavior when resolving a reference fails.
+
+For `data`, if a reference cannot be resolved, or if a resolved value is not valid for the associated keyword, evaluation MUST halt.  Implementations SHOULD use native features of their language to report the failure as appropriate.  Implementations MAY continue to attempt to resolve other references so that multiple resolution failures can be reported together, however further schema evaluation MUST NOT continue.
+
+For `optionalData`, if a reference cannot be resolved, or if a resolved value is not valid for the associated keyword, that keyword MUST be ignored and excluded from the resulting formed schema.  As a consequence, evaluation MUST proceed as if that keyword is absent.
+
+#### 4.3.2 External Data Access {#external}
+
+Implementations SHOULD provide a means to pre-load and cache any external references prior to evaluation but MAY be configured to fetch external documents at evaluation time.  Documents fetched from IRIs which contain a JSON Pointer fragment MUST be interpreted using a media type, such as `application/schema-instance+json`, that allows resolution of such fragments.
+
+Users should be aware that fetching data from external locations may carry certain security risks not covered by this document.
+
+### 4.4 Output {#output}
+
+The evaluation output of the formed schema is reported into the overall schema output incorporating "data" or "optionalData" into the evaluation path as appropriate and following on with additional pointer segments as navigable within the formed schema.
+
+Annotation results of the formed schema are retained as per the host schema so that they can be processed by other keywords such as `unevaluatedItems` and `unevaluatedProperties`.
+
+## 5. Examples {#examples}
+
+### 5.1 `data` Example {#data-example}
+
+The following defines a schema to validate an object instance with a `bar` property that must contain an numeric value less than or equal to the value in the instance's `foo` property.
+
+```json
+{
+  "$schema": "https://json-everything.net/meta/data-2023",
+  "type": "object",
+  "properties": {
+    "foo": { "type": "number" },
+    "bar": {
+      "type": "number",
+      "data": { "maximum": "/foo" }
+    }
+  }
+}
+```
+
+The `data` property declares that its parent subschema should validate a `minimum` keyword whose value is the value in the `minValue` property of the instance.
+
+The following shows how a change in the `foo` property, or its absence, can affect the validation result of the `bar` property and thus the entire instance.
+
+```jsonc
+// passing
+{ "bar": 5, "foo": 10 }
+
+{ "foo": 10 }
+
+{}
+
+// failing
+{ "bar": 5, "foo": 0 }
+
+// resolution failure
+{ "bar": 20 }
+```
+
+### 5.2 `optionalData` Example {#optionalData-example}
+
+In the following schema, `bar` is required to be less than `foo`, however `foo` itself is not required.
+
+```json
+{
+  "$schema": "https://json-everything.net/meta/data-2023",
+  "type": "object",
+  "properties": {
+    "foo": { "type": "number" },
+    "bar": {
+      "type": "number",
+      "data": { "maximum": "/foo" }
+    }
+  }
+}
+```
+
+The intent behind such a schema is two-fold:
+
+1. If `bar` is present without `foo`, `bar` may be of any numeric value.
+2. If both `foo` and `bar` are present, `bar`'s value must be less than or equal to `foo`'s value.
+
+The fact that `foo` is optional presents a case where `/foo` may fail to resolve, yielding an indeterminant validation result.  `optionalData` addresses this problem by ignoring resolution failures and allowing evaluation to proceed.
+
+```jsonc
+// passing
+{ "bar": 5, "foo": 10 }
+
+{ "bar": 10 }
+
+{ "foo": 10 }
+
+{}
+
+// failing
+{ "bar": 5, "foo": 0 }
+```
