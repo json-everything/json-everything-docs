@@ -4,5 +4,5 @@ bookmark: JsonPointer.Net
 permalink: /api/JsonPointer.Net/:title/
 folder: true
 order: "9.10"
-version: "3.0.3"
+version: "3.1.0"
 ---

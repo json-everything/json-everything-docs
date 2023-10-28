@@ -112,19 +112,20 @@ public static JsonPointer Create(IEnumerable<PointerSegment> segments)
 
 The JSON Pointer.
 
-### Create(Expression\<Func\<T, object\>\> expression)
+### Create(Expression\<Func\<T, object\>\> expression, PointerCreationOptions options)
 
 Generates a JSON Pointer from a lambda expression.
 
 #### Declaration
 
 ```c#
-public static JsonPointer Create(Expression<Func<T, object>> expression)
+public static JsonPointer Create(Expression<Func<T, object>> expression, PointerCreationOptions options)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | expression | Expression\<Func\<T, object\>\> | The lambda expression which gives the pointer path. |
+| options | PointerCreationOptions | (optional) Options for creating the pointer. |
 
 
 #### Returns
