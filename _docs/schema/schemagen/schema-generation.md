@@ -59,6 +59,10 @@ All of these and more are supplied via a set of attributes that can be applied t
     - `Default` \*\*\*
     - `ReadOnly`
     - `WriteOnly`
+- Conditional (see [Conditionals](./conditional-generation))
+    - `If`
+    - `Then`
+    - `Else`
 
 \* The `[Obsolete]` attribute is `System.Obsolete`.  All of the others have been defined within this library.  `System.ComponentModel.DataAnnotations` support is currently [in discussion](https://github.com/gregsdennis/json-everything/issues/143).
 
