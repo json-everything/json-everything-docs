@@ -3,7 +3,7 @@ layout: "page"
 title: "IfIntent Class"
 bookmark: "IfIntent"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.028"
+order: "9.05.030"
 ---
 **Namespace:** Json.Schema.Generation.Intents
 
@@ -28,7 +28,7 @@ Provides intent to create an `if` keyword.
 
 ### IfIntent(IEnumerable\<ISchemaKeywordIntent\> subschema)
 
-Creates a new **Json.Schema.Generation.Intents.AdditionalItemsIntent** instance.
+Creates a new **Json.Schema.Generation.Intents.IfIntent** instance.
 
 #### Declaration
 

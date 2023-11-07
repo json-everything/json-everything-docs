@@ -3,7 +3,7 @@ layout: "page"
 title: "ElseIntent Class"
 bookmark: "ElseIntent"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.015"
+order: "9.05.017"
 ---
 **Namespace:** Json.Schema.Generation.Intents
 
@@ -28,7 +28,7 @@ Provides intent to create an `else` keyword.
 
 ### ElseIntent(IEnumerable\<ISchemaKeywordIntent\> subschema)
 
-Creates a new **Json.Schema.Generation.Intents.AdditionalItemsIntent** instance.
+Creates a new **Json.Schema.Generation.Intents.ElseIntent** instance.
 
 #### Declaration
 

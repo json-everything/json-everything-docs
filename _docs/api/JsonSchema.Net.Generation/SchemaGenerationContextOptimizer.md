@@ -3,7 +3,7 @@ layout: "page"
 title: "SchemaGenerationContextOptimizer Class"
 bookmark: "SchemaGenerationContextOptimizer"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.074"
+order: "9.05.076"
 ---
 **Namespace:** Json.Schema.Generation
 

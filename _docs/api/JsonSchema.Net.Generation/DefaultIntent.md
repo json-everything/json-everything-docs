@@ -1,14 +1,14 @@
 ---
 layout: "page"
-title: "MaxLengthIntent Class"
-bookmark: "MaxLengthIntent"
+title: "DefaultIntent Class"
+bookmark: "DefaultIntent"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.046"
+order: "9.05.012"
 ---
 **Namespace:** Json.Schema.Generation.Intents
 
 **Inheritance:**
-`MaxLengthIntent`
+`DefaultIntent`
  🡒 
 `object`
 
@@ -16,29 +16,29 @@ order: "9.05.046"
 
 - ISchemaKeywordIntent
 
-Provides intent to create a `maxLength` keyword.
+Provides intent to create a `default` keyword.
 
 ## Properties
 
 | Name | Type | Summary |
 |---|---|---|
-| **Value** | uint | The value. |
+| **Value** | object | The expected value. |
 
 ## Constructors
 
-### MaxLengthIntent(uint value)
+### DefaultIntent(object value)
 
-Creates a new **Json.Schema.Generation.Intents.MaxLengthIntent** instance.
+Creates a new **Json.Schema.Generation.Intents.DefaultIntent** instance.
 
 #### Declaration
 
 ```c#
-public MaxLengthIntent(uint value)
+public DefaultIntent(object value)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
-| value | uint | The value. |
+| value | object | The value. |
 
 
 ## Methods

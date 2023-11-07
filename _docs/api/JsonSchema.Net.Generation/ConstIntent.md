@@ -28,7 +28,7 @@ Provides intent to create a `const` keyword.
 
 ### ConstIntent(object value)
 
-Creates a new **Json.Schema.Generation.Intents.AdditionalItemsIntent** instance.
+Creates a new **Json.Schema.Generation.Intents.ConstIntent** instance.
 
 #### Declaration
 

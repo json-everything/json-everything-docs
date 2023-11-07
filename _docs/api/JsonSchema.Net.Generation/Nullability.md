@@ -3,7 +3,7 @@ layout: "page"
 title: "Nullability Enum"
 bookmark: "Nullability"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.056"
+order: "9.05.058"
 ---
 # Nullability Enum
 

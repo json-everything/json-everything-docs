@@ -1,14 +1,14 @@
 ---
 layout: "page"
-title: "TitleAttribute Class"
-bookmark: "TitleAttribute"
+title: "DefaultAttribute Class"
+bookmark: "DefaultAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.079"
+order: "9.05.011"
 ---
 **Namespace:** Json.Schema.Generation
 
 **Inheritance:**
-`TitleAttribute`
+`DefaultAttribute`
  🡒 
 `ConditionalAttribute`
  🡒 
@@ -20,30 +20,30 @@ order: "9.05.079"
 
 - IAttributeHandler
 
-Applies a `title` keyword.
+Applies a `default` keyword.
 
 ## Properties
 
 | Name | Type | Summary |
 |---|---|---|
 | **ConditionGroup** | object | Identifies the condition group under which this attribute applies. |
-| **Title** | string | The title. |
 | **TypeId** | object |  |
+| **Value** | object | The value. |
 
 ## Constructors
 
-### TitleAttribute(string title)
+### DefaultAttribute(object value)
 
-Creates a new **Json.Schema.Generation.TitleAttribute** instance.
+Creates a new **Json.Schema.Generation.DefaultAttribute** instance.
 
 #### Declaration
 
 ```c#
-public TitleAttribute(string title)
+public DefaultAttribute(object value)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
-| title | string | The value. |
+| value | object | The value. |
 
 

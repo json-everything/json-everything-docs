@@ -3,7 +3,7 @@ layout: "page"
 title: "RefIntent Class"
 bookmark: "RefIntent"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.069"
+order: "9.05.071"
 ---
 **Namespace:** Json.Schema.Generation.Intents
 
