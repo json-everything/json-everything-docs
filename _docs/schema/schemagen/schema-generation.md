@@ -55,12 +55,20 @@ All of these and more are supplied via a set of attributes that can be applied t
     - `JsonExclude`\*\*
     - `Title`
     - `Description`
+    - `Const` \*\*\*
+    - `Default` \*\*\*
     - `ReadOnly`
     - `WriteOnly`
+- Conditional (see [Conditionals](./conditional-generation))
+    - `If`
+    - `Then`
+    - `Else`
 
 \* The `[Obsolete]` attribute is `System.Obsolete`.  All of the others have been defined within this library.  `System.ComponentModel.DataAnnotations` support is currently [in discussion](https://github.com/gregsdennis/json-everything/issues/143).
 
 \*\* The `[JsonExclude]` attribute functions equivalently to `[JsonIgnore]` (see below).  It is included to allow generation to skip a property while allowing serialization to consider it.
+
+ \*\*\* Even though the `const` and `default` keywords in JSON Schema can accept any JSON value, because they are attributes, `[Const]` and `[Default]` can only accept values which are compile-time constants.
 
 > The `System.ComponentModel.DataAnnotations` annotations are not (and likely will not be) supported by this library.  Defining the above attributes separately allows alignment with JSON Schema and separation of concerns between serialization and validation.
 {: .prompt-info }
