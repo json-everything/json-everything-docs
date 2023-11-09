@@ -4,7 +4,7 @@ title: Setting Up Vocabs
 bookmark: Vocab Setup
 permalink: /schema/examples/:title/
 icon: fas fa-tag
-order: "01.8.4.1"
+order: "01.8.5.1"
 ---
 
 In order to use the vocabulary extension libraries, there is some initial setup that will need to be performed.

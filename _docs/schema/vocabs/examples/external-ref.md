@@ -4,7 +4,7 @@ title: Referencing External Data
 bookmark: External Data
 permalink: /schema/examples/:title/
 icon: fas fa-tag
-order: "01.8.4.3"
+order: "01.8.5.3"
 ---
 Sometimes the values you want to use for schemas are stored in external files.  To reference these, you'll need to use a URI.  This URI may be combined with a pointer to indicate a location within the file.
 
