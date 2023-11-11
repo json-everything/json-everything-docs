@@ -1,6 +1,6 @@
 ---
 layout: page
-title: JSON Schema Specification Version Selection
+title: Example - JSON Schema Specification Version Selection
 bookmark: Schema Version
 permalink: /schema/examples/:title/
 icon: fas fa-tag

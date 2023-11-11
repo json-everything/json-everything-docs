@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Configuring Schema Evaluation
+title: Example - Configuring Schema Evaluation
 bookmark: Configuration
 permalink: /schema/examples/:title/
 icon: fas fa-tag

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Handling References to External Schemas
+title: Example - Handling References to External Schemas
 bookmark: External References
 permalink: /schema/examples/:title/
 icon: fas fa-tag

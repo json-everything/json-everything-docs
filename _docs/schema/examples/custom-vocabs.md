@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Extending JSON Schema Validation With Your Own Vocabularies
+title: Example - Extending JSON Schema Validation With Your Own Vocabularies
 bookmark: Custom Vocabs
 permalink: /schema/examples/:title/
 icon: fas fa-tag
@@ -27,10 +27,10 @@ We want to define a new `maxDate` keyword that allows a schema to enforce a maxi
 [Vocabulary("http://mydates.com/vocabulary")]
 // Specify which versions the keyword is compatible with.
 [SchemaSpecVersion(SpecVersion.Draft201909 | SpecVersion.Draft202012)]
-class MaxDateKeyword : IJsonSchemaKeyword, IEquatable<MaxDateKeyword>
+public class MaxDateKeyword : IJsonSchemaKeyword
 {
     // Define the keyword in one place.
-    internal const string Name = "maxDate";
+    public const string Name = "maxDate";
 
     // Define whatever data the keyword needs.
     public DateTime Date { get; }
@@ -41,33 +41,11 @@ class MaxDateKeyword : IJsonSchemaKeyword, IEquatable<MaxDateKeyword>
     }
 
     // Implements IJsonSchemaKeyword
-    public void Evaluate(EvaluationContext context)
+    public KeywordConstraint GetConstraint(SchemaConstraint schemaConstraint,
+        IReadOnlyList<KeywordConstraint> localConstraints,
+        EvaluationContext context)
     {
-        var dateString = context.LocalInstance!.GetValue<string>();
-        var date = DateTime.Parse(dateString);
-
-        if (date > Date)
-            context.LocalResult.Fail(Name, "[[provided:O]] must be on or before [[value:O]]",
-                ("provided", date),
-                ("value", Date));
-    }
-
-    // Equality stuff
-    public bool Equals(MaxDateKeyword other)
-    {
-        if (ReferenceEquals(null, other)) return false;
-        if (ReferenceEquals(this, other)) return true;
-        return Date.Equals(other.Date);
-    }
-
-    public override bool Equals(object obj)
-    {
-        return Equals(obj as MaxDateKeyword);
-    }
-
-    public override int GetHashCode()
-    {
-        return Date.GetHashCode();
+        throw new NotImplementedException();
     }
 }
 ```
@@ -105,6 +83,8 @@ class MaxDateJsonConverter : JsonConverter<MaxDateKeyword>
 
 ## Registering the Keyword {#example-schema-vocabs-register-keyword}
 
+If you're keen on creating a vocabulary, go on to the next section.  Otherwise, keep reading.
+
 Now that we have the keyword, we need to tell the system about it.
 
 ```c#
@@ -113,6 +93,8 @@ SchemaKeywordRegistry.Register<MaxDateKeyword>();
 
 > If you're building a dynamic system where you don't always want the keyword supported, it can be removed using the `SchemaKeywordRegistry.Unregister<T>()` static method.
 {: .prompt-info }
+
+You'll also want to set the `EvaluationOptions.ProcessCustomKeywords` option to true so that non-dialect keywords are processed.
 
 That's technically all you need to do to support a custom keyword.  However, going forward for JSON Schema, custom keywords should be defined in a custom vocabulary.
 
@@ -131,21 +113,45 @@ static class MyCustomVocabularies
     public static readonly Vocabulary DatesVocabulary =
         new Vocabulary("http://mydates.com/vocabulary", typeof(MaxDateKeyword));
 
-    // Although not required a vocabulary may also define a meta-schema.
+    // Although not required a vocabulary may also define a vocab meta-schema.
     // It's a good idea to implement that as well.
+    // This meta-schema only needs to validate that keyword syntax is correct.
     public static readonly JsonSchema DatesMetaSchema =
         new JsonSchemaBuilder()
-            .Id("http://mydates.com/schema")
+            .Id("http://mydates.com/vocab/schema")
             .Schema(MetaSchemas.Draft202012Id)
-            .Vocabulary(
-                (Vocabularies.Core202012Id, true),
-                ("http://mydates.com/vocabulary", true)
-            )
             .Properties(
                 (MaxDateKeyword.Name, new JsonSchemaBuilder()
                     .Type(SchemaValueType.String)
                     .Format(Formats.DateTime)
                 )
+            );
+
+    // You'll also want to define a new dialect, usually based on an existing
+    // dialect.  This one is based on the 2020-12 dialect.
+    // Splitting the vocab and dialect meta-schemas this way makes it easier to
+    // re-use the vocabulary across multiple dialects.
+    public static readonly JsonSchema DatesDialectMetaSchema =
+        new JsonSchemaBuilder()
+            .Id("http://mydates.com/dialect/schema")
+            .Schema(MetaSchemas.Draft202012Id)
+            .Vocabulary(
+                // You have to list all of the vocabularies you plan on using.
+                (Vocabularies.Core202012Id, true),
+                (Vocabularies.Applicator202012Id, true),
+                (Vocabularies.Unevaluated202012Id, true),
+                (Vocabularies.Validation202012Id, true),
+                (Vocabularies.Metadata202012Id, true),
+                (Vocabularies.FormatAnnotation202012Id, true),
+                (Vocabularies.Content202012Id, true),
+                // Don't forget to list your vocab.
+                ("http://mydates.com/vocabulary", true)
+            )
+            // Now we need to reference the 2020-12 meta-schema and our
+            // vocab meta-schema so that all the keywords are validated.
+            .AllOf(
+                new JsonSchemaBuilder().Ref(Vocabularies.Core202012Id),
+                new JsonSchemaBuilder().Ref("http://mydates.com/vocab/schema")
             );
 }
 ```
@@ -153,7 +159,12 @@ static class MyCustomVocabularies
 Then they need to be registered.  This is done on the schema validation options.
 
 ```c#
-options.SchemaRegistry.Register(new Uri("http://mydates.com/schema"), DatesMetaSchema);
+// Register both meta-schemas.
+options.SchemaRegistry.Register(new Uri("http://mydates.com/vocab/schema"), DatesMetaSchema);
+options.SchemaRegistry.Register(new Uri("http://mydates.com/dialect/schema"), DatesDialectMetaSchema);
+
+// Register the vocabulary.  This automatically registers the keywords
+// defined by the vocabulary.
 options.VocabularyRegistry.Register(DatesVocabulary);
 ```
 
