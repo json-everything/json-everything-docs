@@ -616,10 +616,11 @@ var options = new EvaluationOptions
 }
 ```
 
-Currently supported translations are:
+Currently available translations are:
 
-- Spanish
 - Norwegian
+- Spanish
 - Swedish
+- Turkish
 
 PRs are welcome to help create additional translations.
