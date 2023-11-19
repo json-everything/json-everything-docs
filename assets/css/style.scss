@@ -96,3 +96,7 @@ input[type="checkbox"]:checked ~ ul{
 a i {
   margin-right: 3px;
 }
+
+.table-wrapper>table tbody tr td, .table-wrapper>table thead th {
+  white-space: normal;
+}
