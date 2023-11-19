@@ -154,9 +154,9 @@ public SchemaConstraint GetConstraint(JsonPointer relativeEvaluationPath, JsonPo
 
 | Parameter | Type | Description |
 |---|---|---|
-| relativeEvaluationPath | JsonPointer | The relative evaluation path in JSON Pointer form.  Generally this will be a keyword name,<br>but may have other segments, such as in the case of `properties` which also has the property name. |
+| relativeEvaluationPath | JsonPointer | The relative evaluation path in JSON Pointer form.  Generally this will be a keyword name, but may have other segments, such as in the case of `properties` which also has the property name. |
 | baseInstanceLocation | JsonPointer | The base location within the instance that is being evaluated. |
-| relativeInstanceLocation | JsonPointer | The location relative to **baseInstanceLocation** within the instance that<br>is being evaluated. |
+| relativeInstanceLocation | JsonPointer | The location relative to **baseInstanceLocation** within the instance that is being evaluated. |
 | context | EvaluationContext | The evaluation context. |
 
 

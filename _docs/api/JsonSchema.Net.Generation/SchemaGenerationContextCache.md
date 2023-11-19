@@ -30,7 +30,7 @@ public static SchemaGenerationContextBase Get(Type type, List<Attribute> memberA
 | Parameter | Type | Description |
 |---|---|---|
 | type | Type | The type to generate. |
-| memberAttributes | List\<Attribute\> | A collection of extra attributes.  Only use if requesting a context to represent<br>a member. |
+| memberAttributes | List\<Attribute\> | A collection of extra attributes.  Only use if requesting a context to represent a member. |
 
 
 #### Returns

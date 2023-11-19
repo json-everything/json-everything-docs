@@ -18,19 +18,19 @@ Allows configuration of the evaluation process.
 
 | Name | Type | Summary |
 |---|---|---|
-| **AddAnnotationForUnknownKeywords** | bool | Outputs an annotation that lists any unknown keywords.  Can be<br>useful for catching typos. |
+| **AddAnnotationForUnknownKeywords** | bool | Outputs an annotation that lists any unknown keywords.  Can be useful for catching typos. |
 | **Culture** | CultureInfo | Gets or sets the culture for error messages.  Overrides **Json.Schema.ErrorMessages.Culture**. |
 | **Default** | EvaluationOptions | The default settings. |
-| **EvaluateAs** | SpecVersion | Indicates which specification version to process as.  This will filter the keywords<br>of a schema based on their support. |
+| **EvaluateAs** | SpecVersion | Indicates which specification version to process as.  This will filter the keywords of a schema based on their support. |
 | **IgnoredAnnotations** | IEnumerable\<Type\> | Gets the set of keyword types from which annotations will be ignored. |
-| **OnlyKnownFormats** | bool | Specifies whether the `format` keyword should fail validations for<br>unknown formats.  Default is false. |
+| **OnlyKnownFormats** | bool | Specifies whether the `format` keyword should fail validations for unknown formats.  Default is false. |
 | **OutputFormat** | OutputFormat | Specifies the output format. |
-| **PreserveDroppedAnnotations** | bool | If enabled, annotations that are dropped as a result of a failing<br>subschema will be reported in a `droppedAnnotations` property in<br>the output. |
-| **ProcessCustomKeywords** | bool | Specifies whether custom keywords that aren't defined in vocabularies<br>should be processed.  Default is false. |
-| **RequireFormatValidation** | bool | Specifies whether the `format` keyword should be required to provide<br>validation results.  Default is false, which just produces annotations<br>for drafts 2019-09 and prior or follows the behavior set forth by the<br>format-annotation vocabulary requirement in the `$vocabulary` keyword in<br>a meta-schema declaring draft 2020-12. |
-| **SchemaRegistry** | SchemaRegistry | The local schema registry.  If a schema is not found here, it will<br>automatically check the global registry as well. |
-| **ValidateAgainstMetaSchema** | bool | Indicates whether the schema should be validated against its `$schema` value.<br>this is not typically necessary. |
-| **VocabularyRegistry** | VocabularyRegistry | The local vocabulary registry.  If a schema is not found here, it will<br>automatically check the global registry as well. |
+| **PreserveDroppedAnnotations** | bool | If enabled, annotations that are dropped as a result of a failing subschema will be reported in a `droppedAnnotations` property in the output. |
+| **ProcessCustomKeywords** | bool | Specifies whether custom keywords that aren't defined in vocabularies should be processed.  Default is false. |
+| **RequireFormatValidation** | bool | Specifies whether the `format` keyword should be required to provide validation results.  Default is false, which just produces annotations for drafts 2019-09 and prior or follows the behavior set forth by the format-annotation vocabulary requirement in the `$vocabulary` keyword in a meta-schema declaring draft 2020-12. |
+| **SchemaRegistry** | SchemaRegistry | The local schema registry.  If a schema is not found here, it will automatically check the global registry as well. |
+| **ValidateAgainstMetaSchema** | bool | Indicates whether the schema should be validated against its `$schema` value. this is not typically necessary. |
+| **VocabularyRegistry** | VocabularyRegistry | The local vocabulary registry.  If a schema is not found here, it will automatically check the global registry as well. |
 
 ## Constructors
 

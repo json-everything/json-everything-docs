@@ -16,7 +16,7 @@ Indicates the return type of a filter expression function.
 | Name | Summary |
 |---|---|
 | **Unspecified** | Holder for a default value.  Not an actual valid function type. |
-| **Value** | Indicates the function returns a JSON-like value that can be<br>compared with equality and inequality operators. |
-| **Logical** | Indicates the function returns a non-JSON boolean value that can be<br>compared with logical operators. |
+| **Value** | Indicates the function returns a JSON-like value that can be compared with equality and inequality operators. |
+| **Logical** | Indicates the function returns a non-JSON boolean value that can be compared with logical operators. |
 | **Nodelist** | Indicates the function returns a nodelist. |
 

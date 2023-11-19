@@ -18,7 +18,7 @@ Represents a JSON Path.
 
 | Name | Type | Summary |
 |---|---|---|
-| **IsSingular** | bool | Gets whether the path is a singular path.  That is, it can only return a nodelist<br>containing at most a single value. |
+| **IsSingular** | bool | Gets whether the path is a singular path.  That is, it can only return a nodelist containing at most a single value. |
 | **Root** | JsonPath | Gets a JSON Path with only a global root and no selectors, namely `$`. |
 | **Scope** | PathScope | Gets the scope of the path. |
 | **Segments** | PathSegment[] | Gets the segments of the path. |

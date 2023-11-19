@@ -22,7 +22,7 @@ Provides serialization for all **Json.Logic.Rule** derivatives.
 
 | Name | Type | Summary |
 |---|---|---|
-| **HandleNull** | bool | Indicates whether \<see langword="null" /\> should be passed to the converter<br>on serialization, and whether **System.Text.Json.JsonTokenType.Null**<br>should be passed on deserialization. |
+| **HandleNull** | bool | Indicates whether \<see langword="null" /\> should be passed to the converter on serialization, and whether **System.Text.Json.JsonTokenType.Null** should be passed on deserialization. |
 | **SaveSource** | bool | Gets or sets whether to save the source data for re-serialization; default is true. |
 
 ## Methods

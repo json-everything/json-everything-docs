@@ -23,7 +23,7 @@ Adds schema validation for types decorated with the **Json.Schema.Serialization.
 | Name | Type | Summary |
 |---|---|---|
 | **OutputFormat** | OutputFormat? | Specifies the output format. |
-| **RequireFormatValidation** | bool? | Specifies whether the `format` keyword should be required to provide<br>validation results.  Default is false, which just produces annotations<br>for drafts 2019-09 and prior or follows the behavior set forth by the<br>format-annotation vocabulary requirement in the `$vocabulary` keyword in<br>a meta-schema declaring draft 2020-12. |
+| **RequireFormatValidation** | bool? | Specifies whether the `format` keyword should be required to provide validation results.  Default is false, which just produces annotations for drafts 2019-09 and prior or follows the behavior set forth by the format-annotation vocabulary requirement in the `$vocabulary` keyword in a meta-schema declaring draft 2020-12. |
 
 ## Methods
 

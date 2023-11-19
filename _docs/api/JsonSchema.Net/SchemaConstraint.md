@@ -26,7 +26,7 @@ This represents any work that can be performed as part of static analysis of the
 | **Constraints** | KeywordConstraint[] | Gets the set of keyword constraints. |
 | **InstanceLocator** | Func\<KeywordEvaluation, IEnumerable\<JsonPointer\>\> | Defines a method to identify relative instance locations at evaluation time. |
 | **LocalSchema** | JsonSchema | Gets the local **Json.Schema.JsonSchema**. |
-| **RelativeInstanceLocation** | JsonPointer | Gets the location relative to **Json.Schema.SchemaConstraint.BaseInstanceLocation** within the instance that<br>is being evaluated. |
+| **RelativeInstanceLocation** | JsonPointer | Gets the location relative to **Json.Schema.SchemaConstraint.BaseInstanceLocation** within the instance that is being evaluated. |
 | **SchemaBaseUri** | Uri | Gets the schema's base URI. |
 
 ## Methods

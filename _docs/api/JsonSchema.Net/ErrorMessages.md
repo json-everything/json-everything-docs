@@ -37,14 +37,14 @@ Each message will specify the tokens it supports.
 | **ExclusiveMinimum** | string | Gets or sets the error message for **Json.Schema.ExclusiveMinimumKeyword**. |
 | **FalseSchema** | string | Gets or sets the error message for the "false" schema. |
 | **Format** | string | Gets or sets the error message for the **Json.Schema.FormatKeyword**. |
-| **FormatWithDetail** | string | Gets or sets the error message for the **Json.Schema.FormatKeyword** with<br>additional information from the format validation. |
-| **InvalidItemsForm** | string | Gets or sets the error message for when **Json.Schema.ItemsKeyword** is specified<br>with an array of schemas in a draft 2020-12 or later schema. |
-| **InvalidPattern** | string | Gets or sets the error message for when the **Json.Schema.PatternKeyword** contains<br>an invalid or unsupported regular expression. |
+| **FormatWithDetail** | string | Gets or sets the error message for the **Json.Schema.FormatKeyword** with additional information from the format validation. |
+| **InvalidItemsForm** | string | Gets or sets the error message for when **Json.Schema.ItemsKeyword** is specified with an array of schemas in a draft 2020-12 or later schema. |
+| **InvalidPattern** | string | Gets or sets the error message for when the **Json.Schema.PatternKeyword** contains an invalid or unsupported regular expression. |
 | **Maximum** | string | Gets or sets the error message for **Json.Schema.MinimumKeyword**. |
 | **MaxItems** | string | Gets or sets the error message for **Json.Schema.MaxItemsKeyword**. |
 | **MaxLength** | string | Gets or sets the error message for **Json.Schema.MaxLengthKeyword**. |
 | **MaxProperties** | string | Gets or sets the error message for **Json.Schema.MaxPropertiesKeyword**. |
-| **MetaSchemaValidation** | string | Gets or sets the error message for when the schema cannot be validated<br>against the meta-schema. |
+| **MetaSchemaValidation** | string | Gets or sets the error message for when the schema cannot be validated against the meta-schema. |
 | **Minimum** | string | Gets or sets the error message for **Json.Schema.MinimumKeyword**. |
 | **MinItems** | string | Gets or sets the error message for **Json.Schema.MinItemsKeyword**. |
 | **MinLength** | string | Gets or sets the error message for **Json.Schema.MinLengthKeyword**. |

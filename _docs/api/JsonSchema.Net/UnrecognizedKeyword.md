@@ -58,7 +58,7 @@ public KeywordConstraint GetConstraint(SchemaConstraint schemaConstraint, IReadO
 | Parameter | Type | Description |
 |---|---|---|
 | schemaConstraint | SchemaConstraint | The **Json.Schema.SchemaConstraint** for the schema object that houses this keyword. |
-| localConstraints | IReadOnlyList\<KeywordConstraint\> | The set of other **Json.Schema.KeywordConstraint**s that have been processed prior to this one.<br>Will contain the constraints for keyword dependencies. |
+| localConstraints | IReadOnlyList\<KeywordConstraint\> | The set of other **Json.Schema.KeywordConstraint**s that have been processed prior to this one. Will contain the constraints for keyword dependencies. |
 | context | EvaluationContext | The **Json.Schema.EvaluationContext**. |
 
 
