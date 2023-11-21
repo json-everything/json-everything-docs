@@ -3,7 +3,7 @@ layout: "page"
 title: "SchemaSpecVersionAttribute Class"
 bookmark: "SchemaSpecVersionAttribute"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.098"
+order: "9.01.156"
 ---
 **Namespace:** Json.Schema
 
