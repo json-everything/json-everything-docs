@@ -3,7 +3,7 @@ layout: "page"
 title: "DivideRule Class"
 bookmark: "DivideRule"
 permalink: "/api/JsonLogic/:title/"
-order: "9.11.005"
+0.11.005"
 ---
 **Namespace:** Json.Logic.Rules
 

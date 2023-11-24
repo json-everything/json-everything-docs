@@ -3,7 +3,7 @@ layout: "page"
 title: "GenerationResult Class"
 bookmark: "GenerationResult"
 permalink: "/api/JsonSchema.Net.DataGeneration/:title/"
-order: "9.06.002"
+0.06.002"
 ---
 **Namespace:** Json.Schema.DataGeneration
 

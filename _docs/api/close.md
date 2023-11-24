@@ -1,5 +1,5 @@
 ---
 permalink: /api/:title/
 close: true
-order: "9.999"
+0.999"
 ---

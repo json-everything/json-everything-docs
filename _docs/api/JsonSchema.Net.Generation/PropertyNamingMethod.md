@@ -3,7 +3,7 @@ layout: "page"
 title: "PropertyNamingMethod Delegate"
 bookmark: "PropertyNamingMethod"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.066"
+0.05.066"
 ---
 # PropertyNamingMethod Delegate
 

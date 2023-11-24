@@ -3,7 +3,7 @@ layout: "page"
 title: "DiscriminatorKeyword Class"
 bookmark: "DiscriminatorKeyword"
 permalink: "/api/JsonSchema.Net.OpenApi/:title/"
-order: "9.04.000"
+0.04.000"
 ---
 **Namespace:** Json.Schema.OpenApi
 

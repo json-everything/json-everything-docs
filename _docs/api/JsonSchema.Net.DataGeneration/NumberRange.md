@@ -3,7 +3,7 @@ layout: "page"
 title: "NumberRange Struct"
 bookmark: "NumberRange"
 permalink: "/api/JsonSchema.Net.DataGeneration/:title/"
-order: "9.06.004"
+0.06.004"
 ---
 **Namespace:** Json.Schema.DataGeneration
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "PredicateWithErrorMessage Delegate"
 bookmark: "PredicateWithErrorMessage"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.124"
+0.01.124"
 ---
 # PredicateWithErrorMessage Delegate
 

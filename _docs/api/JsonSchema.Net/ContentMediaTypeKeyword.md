@@ -3,7 +3,7 @@ layout: "page"
 title: "ContentMediaTypeKeyword Class"
 bookmark: "ContentMediaTypeKeyword"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.019"
+0.01.019"
 ---
 **Namespace:** Json.Schema
 

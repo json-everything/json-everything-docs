@@ -3,7 +3,7 @@ layout: "page"
 title: "RequiredAttribute Class"
 bookmark: "RequiredAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.072"
+0.05.072"
 ---
 **Namespace:** Json.Schema.Generation
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "YamlConverter Class"
 bookmark: "YamlConverter"
 permalink: "/api/Yaml2JsonNode/:title/"
-order: "9.13.000"
+0.13.000"
 ---
 **Namespace:** Yaml2JsonNode
 

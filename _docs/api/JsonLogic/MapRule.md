@@ -3,7 +3,7 @@ layout: "page"
 title: "MapRule Class"
 bookmark: "MapRule"
 permalink: "/api/JsonLogic/:title/"
-order: "9.11.020"
+0.11.020"
 ---
 **Namespace:** Json.Logic.Rules
 

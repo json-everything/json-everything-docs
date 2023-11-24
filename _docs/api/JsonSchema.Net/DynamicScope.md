@@ -3,7 +3,7 @@ layout: "page"
 title: "DynamicScope Class"
 bookmark: "DynamicScope"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.045"
+0.01.045"
 ---
 **Namespace:** Json.Schema
 

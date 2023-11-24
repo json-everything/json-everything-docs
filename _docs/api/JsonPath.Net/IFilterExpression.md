@@ -3,7 +3,7 @@ layout: "page"
 title: "IFilterExpression Interface"
 bookmark: "IFilterExpression"
 permalink: "/api/JsonPath.Net/:title/"
-order: "9.08.004"
+0.08.004"
 ---
 **Namespace:** Json.Path
 

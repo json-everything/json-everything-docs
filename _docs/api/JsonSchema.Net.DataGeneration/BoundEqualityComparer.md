@@ -3,7 +3,7 @@ layout: "page"
 title: "BoundEqualityComparer Class"
 bookmark: "BoundEqualityComparer"
 permalink: "/api/JsonSchema.Net.DataGeneration/:title/"
-order: "9.06.001"
+0.06.001"
 ---
 **Namespace:** Json.Schema.DataGeneration
 

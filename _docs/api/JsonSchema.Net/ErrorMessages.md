@@ -3,7 +3,7 @@ layout: "page"
 title: "ErrorMessages Class"
 bookmark: "ErrorMessages"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.051"
+0.01.051"
 ---
 **Namespace:** Json.Schema
 

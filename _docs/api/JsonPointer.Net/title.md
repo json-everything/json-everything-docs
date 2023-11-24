@@ -3,6 +3,6 @@ title: __title
 bookmark: JsonPointer.Net
 permalink: /api/JsonPointer.Net/:title/
 folder: true
-order: "9.10"
+0.10"
 version: "3.2.0"
 ---

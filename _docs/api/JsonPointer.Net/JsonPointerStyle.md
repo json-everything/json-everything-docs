@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonPointerStyle Enum"
 bookmark: "JsonPointerStyle"
 permalink: "/api/JsonPointer.Net/:title/"
-order: "9.10.004"
+0.10.004"
 ---
 # JsonPointerStyle Enum
 

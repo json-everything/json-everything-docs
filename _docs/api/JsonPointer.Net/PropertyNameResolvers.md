@@ -3,7 +3,7 @@ layout: "page"
 title: "PropertyNameResolvers Class"
 bookmark: "PropertyNameResolvers"
 permalink: "/api/JsonPointer.Net/:title/"
-order: "9.10.009"
+0.10.009"
 ---
 **Namespace:** Json.Pointer
 

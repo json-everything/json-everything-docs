@@ -3,7 +3,7 @@ layout: "page"
 title: "EnumKeywordJsonConverter Class"
 bookmark: "EnumKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.050"
+0.01.050"
 ---
 **Namespace:** Json.Schema
 

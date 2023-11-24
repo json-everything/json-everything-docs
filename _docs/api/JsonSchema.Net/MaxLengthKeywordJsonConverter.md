@@ -3,7 +3,7 @@ layout: "page"
 title: "MaxLengthKeywordJsonConverter Class"
 bookmark: "MaxLengthKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.097"
+0.01.097"
 ---
 **Namespace:** Json.Schema
 

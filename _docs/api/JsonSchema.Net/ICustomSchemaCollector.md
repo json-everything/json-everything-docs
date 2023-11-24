@@ -3,7 +3,7 @@ layout: "page"
 title: "ICustomSchemaCollector Interface"
 bookmark: "ICustomSchemaCollector"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.066"
+0.01.066"
 ---
 **Namespace:** Json.Schema
 

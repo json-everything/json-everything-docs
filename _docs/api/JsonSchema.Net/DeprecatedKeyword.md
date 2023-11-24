@@ -3,7 +3,7 @@ layout: "page"
 title: "DeprecatedKeyword Class"
 bookmark: "DeprecatedKeyword"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.036"
+0.01.036"
 ---
 **Namespace:** Json.Schema
 

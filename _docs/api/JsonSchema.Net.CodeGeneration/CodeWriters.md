@@ -3,7 +3,7 @@ layout: "page"
 title: "CodeWriters Class"
 bookmark: "CodeWriters"
 permalink: "/api/JsonSchema.Net.CodeGeneration/:title/"
-order: "9.07.001"
+0.07.001"
 ---
 **Namespace:** Json.Schema.CodeGeneration.Language
 

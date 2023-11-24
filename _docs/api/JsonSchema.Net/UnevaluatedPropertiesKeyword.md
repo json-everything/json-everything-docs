@@ -3,7 +3,7 @@ layout: "page"
 title: "UnevaluatedPropertiesKeyword Class"
 bookmark: "UnevaluatedPropertiesKeyword"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.167"
+0.01.167"
 ---
 **Namespace:** Json.Schema
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "PatchOperation Class"
 bookmark: "PatchOperation"
 permalink: "/api/JsonPatch.Net/:title/"
-order: "9.09.004"
+0.09.004"
 ---
 **Namespace:** Json.Patch
 

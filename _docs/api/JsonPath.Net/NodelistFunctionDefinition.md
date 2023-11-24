@@ -3,7 +3,7 @@ layout: "page"
 title: "NodelistFunctionDefinition Class"
 bookmark: "NodelistFunctionDefinition"
 permalink: "/api/JsonPath.Net/:title/"
-order: "9.08.018"
+0.08.018"
 ---
 **Namespace:** Json.Path
 

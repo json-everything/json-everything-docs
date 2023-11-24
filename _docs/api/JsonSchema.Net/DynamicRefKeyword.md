@@ -3,7 +3,7 @@ layout: "page"
 title: "DynamicRefKeyword Class"
 bookmark: "DynamicRefKeyword"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.043"
+0.01.043"
 ---
 **Namespace:** Json.Schema
 

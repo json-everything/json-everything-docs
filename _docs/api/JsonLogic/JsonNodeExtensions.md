@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonNodeExtensions Class"
 bookmark: "JsonNodeExtensions"
 permalink: "/api/JsonLogic/:title/"
-order: "9.11.011"
+0.11.011"
 ---
 **Namespace:** Json.Logic
 

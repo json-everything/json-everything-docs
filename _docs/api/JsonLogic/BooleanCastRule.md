@@ -3,7 +3,7 @@ layout: "page"
 title: "BooleanCastRule Class"
 bookmark: "BooleanCastRule"
 permalink: "/api/JsonLogic/:title/"
-order: "9.11.003"
+0.11.003"
 ---
 **Namespace:** Json.Logic.Rules
 
