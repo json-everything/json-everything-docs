@@ -4,7 +4,7 @@ title: Example - Handling References to External Schemas
 bookmark: External References
 permalink: /schema/examples/:title/
 icon: fas fa-tag
-order: "1.4.2"
+order: "01.4.2"
 ---
 JSON Schema has multiple ways to reference other schemas.  This is done to both reduce the size of the schemas that we humans have to deal with as well as to promote code reuse.  Defining a schema once to be used in multiple places is often a better approach than rewriting it in all of those places.  It also allows us to define recursive schemas.
 

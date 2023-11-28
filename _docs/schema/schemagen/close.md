@@ -2,5 +2,5 @@
 title: __close
 permalink: /schema/schemagen/:title/
 close: true
-order: "1.5.9"
+order: "01.5.9"
 ---

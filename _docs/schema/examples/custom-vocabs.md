@@ -4,7 +4,7 @@ title: Example - Extending JSON Schema Validation With Your Own Vocabularies
 bookmark: Custom Vocabs
 permalink: /schema/examples/:title/
 icon: fas fa-tag
-order: "1.4.4"
+order: "01.4.4"
 ---
 These examples will show how to extend JSON Schema validation by creating a new keyword and incorporating it into a new vocabulary.
 

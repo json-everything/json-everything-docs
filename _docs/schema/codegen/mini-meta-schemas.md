@@ -3,7 +3,7 @@ layout: page
 title: Mini-Meta-Schema Reference
 permalink: /schema/codegen/:title/
 icon: fas fa-tag
-order: "1.6.3"
+order: "01.6.3"
 ---
 
 This page serves as a reference to the mini-meta-schemas that are used to identify the supported patterns.

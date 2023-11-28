@@ -2,5 +2,5 @@
 title: __close
 close: true
 permalink: /schema/codegen/:title/
-order: "1.6.9"
+order: "01.6.9"
 ---

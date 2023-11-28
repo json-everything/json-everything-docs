@@ -4,7 +4,7 @@ title: Performing Custom Generation
 bookmark: Refiners
 permalink: /schema/examples/:title/
 icon: fas fa-tag
-order: "1.5.2.4"
+order: "01.5.2.4"
 ---
 # Performing Custom Generation {#example-schemagen-refiner}
 

@@ -3,5 +3,5 @@ title: __title
 bookmark: Examples
 permalink: /schema/schemagen/examples/:title/
 folder: true
-order: "1.5.2"
+order: "01.5.2"
 ---

@@ -5,7 +5,7 @@ md_title: _JsonPath.Net_ Basics
 bookmark: JSON Path
 permalink: /path/:title/
 icon: fas fa-tag
-order: "2.1"
+order: "02.1"
 ---
 JSON Path is a query language for JSON documents inspired by what XPath provides for XML documents.  It was [originally proposed](https://goessner.net/articles/JsonPath/) by Matt Goëssner, and now a [specification](https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base) is in progress.
 

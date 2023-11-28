@@ -3,7 +3,7 @@ layout: page
 title: Supported Patterns
 permalink: /schema/codegen/:title/
 icon: fas fa-tag
-order: "1.6.2"
+order: "01.6.2"
 ---
 
 This page gives more technical information on the various schema patterns that are supported by the code generation functionality.

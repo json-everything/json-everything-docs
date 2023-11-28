@@ -4,7 +4,7 @@ title: Extending JSON Schema Using Vocabularies
 bookmark: Vocabularies
 permalink: /schema/:title/
 icon: fas fa-tag
-order: "1.3"
+order: "01.3"
 ---
 JSON Schema draft 2019-09 introduced the idea of vocabularies to enable some spec support for custom keywords.
 

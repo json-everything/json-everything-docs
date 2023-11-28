@@ -4,7 +4,7 @@ title: Generating Code from JSON Schema
 bookmark: Basics
 permalink: /schema/codegen/:title/
 icon: fas fa-tag
-order: "1.6.1"
+order: "01.6.1"
 ---
 *JsonSchema.Net.CodeGeneration* is a tool that can create C# code from JSON Schemas.
 

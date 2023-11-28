@@ -4,7 +4,7 @@ title: Conditional JSON Schema Generation
 bookmark: Conditionals
 permalink: /schema/schemagen/:title/
 icon: fas fa-tag
-order: "1.5.2"
+order: "01.5.2"
 ---
 Draft 7 of JSON Schema introduced a nice way to include some conditional constraints into your schemas.  The most common way that people use these is to apply different constraints to various properties based on the value of another property.  This is similar to the `discriminator` keyword offered by Open API.
 

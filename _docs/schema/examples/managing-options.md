@@ -4,7 +4,7 @@ title: Example - Configuring Schema Evaluation
 bookmark: Configuration
 permalink: /schema/examples/:title/
 icon: fas fa-tag
-order: "1.4.1"
+order: "01.4.1"
 ---
 There are a few objects which declare static default values:
 

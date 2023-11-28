@@ -5,7 +5,7 @@ md_title: _JsonLogic_ Basics
 bookmark: JSON Logic
 permalink: /logic/:title/
 icon: fas fa-tag
-order: "5.1"
+order: "05.1"
 ---
 [JSON Logic](https://jsonlogic.com) is a mechanism that can be used to apply logical transformations to JSON values and that is also itself expressed in JSON.
 

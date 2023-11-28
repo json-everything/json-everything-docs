@@ -5,7 +5,7 @@ md_title: _JsonPatch.Net_ Basics
 bookmark: JSON Patch
 permalink: /patch/:title/
 icon: fas fa-tag
-order: "3.1"
+order: "03.1"
 ---
 [JSON Patch](https://tools.ietf.org/html/rfc6902) is a language for modifying JSON documents.  Like JSON Schema, it is also expressed in JSON.
 

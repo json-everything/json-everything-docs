@@ -4,7 +4,7 @@ title: Generating a Schema for a Simple Type
 bookmark: Generators
 permalink: /schema/examples/:title/
 icon: fas fa-tag
-order: "1.5.2.1"
+order: "01.5.2.1"
 ---
 This example shows how to extend schema generation to cover a specific type that isn't defined by the type's properties.  This is useful for many of the scalar-like value types, such as `bool`, `int`, `DateTime`, or `TimeSpan`.
 

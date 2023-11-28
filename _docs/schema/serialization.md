@@ -4,7 +4,7 @@ title: Enhancing Deserialization with JSON Schema
 bookmark: Serialization
 permalink: /schema/:title/
 icon: fas fa-tag
-order: "1.2"
+order: "01.2"
 ---
 *JsonSchema.Net* includes a JSON converter implementation that provides JSON validation support _during_ deserialization.
 

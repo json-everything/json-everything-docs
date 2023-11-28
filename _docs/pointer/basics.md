@@ -5,7 +5,7 @@ md_title: _JsonPointer.Net_ Basics
 bookmark: JSON Pointer
 permalink: /pointer/:title/
 icon: fas fa-tag
-order: "4.1"
+order: "04.1"
 ---
 [JSON Pointer](https://tools.ietf.org/html/rfc6901) is a syntax that allows you to isolate a single element within a JSON document by navigating down a series of object properties and array indices.
 

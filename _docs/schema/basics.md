@@ -5,7 +5,7 @@ md_title: _JsonSchema.Net_ Basics
 bookmark: Basics
 permalink: /schema/:title/
 icon: fas fa-tag
-order: "1.1"
+order: "01.1"
 ---
 The occasion may arise when you wish to validate that a JSON object is in the correct form (has the appropriate keys and the right types of values), or perhaps you wish to annotate that data.  Enter JSON Schema.  Much like XML Schema with XML, JSON Schema defines a pattern for JSON data.  A JSON Schema validator can verify that a given JSON object meets the requirements as defined by the JSON Schema as well as provide additional information to the application about the data.  This evaluation can come in handy as a precursor step before deserializing.
 

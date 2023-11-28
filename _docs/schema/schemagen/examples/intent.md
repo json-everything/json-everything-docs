@@ -4,7 +4,7 @@ title: Supporting a New Keyword During Generation
 bookmark: Intents
 permalink: /schema/examples/:title/
 icon: fas fa-tag
-order: "1.5.2.2"
+order: "01.5.2.2"
 ---
 This example shows how to extend schema generation to output a new keyword.
 
