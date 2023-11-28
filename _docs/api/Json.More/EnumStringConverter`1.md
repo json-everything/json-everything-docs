@@ -3,7 +3,7 @@ layout: "page"
 title: "EnumStringConverter<T> Class"
 bookmark: "EnumStringConverter`1"
 permalink: "/api/Json.More/:title/"
-order: "10.12.000"
+order: "10.13.000"
 ---
 **Namespace:** Json.More
 
