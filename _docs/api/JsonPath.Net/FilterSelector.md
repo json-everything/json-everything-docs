@@ -3,7 +3,7 @@ layout: "page"
 title: "FilterSelector Class"
 bookmark: "FilterSelector"
 permalink: "/api/JsonPath.Net/:title/"
-order: "9.08.001"
+order: "10.08.001"
 ---
 **Namespace:** Json.Path
 

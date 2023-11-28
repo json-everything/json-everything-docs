@@ -3,7 +3,7 @@ layout: "page"
 title: "EnumKeyword Class"
 bookmark: "EnumKeyword"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.049"
+order: "10.01.049"
 ---
 **Namespace:** Json.Schema
 

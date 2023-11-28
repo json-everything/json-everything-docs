@@ -3,7 +3,7 @@ layout: "page"
 title: "CodeGenExtensions Class"
 bookmark: "CodeGenExtensions"
 permalink: "/api/JsonSchema.Net.CodeGeneration/:title/"
-order: "9.07.000"
+order: "10.07.000"
 ---
 **Namespace:** Json.Schema.CodeGeneration
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "IDataResourceIdentifier Interface"
 bookmark: "IDataResourceIdentifier"
 permalink: "/api/JsonSchema.Net.Data/:title/"
-order: "9.02.002"
+order: "10.02.002"
 ---
 **Namespace:** Json.Schema.Data
 

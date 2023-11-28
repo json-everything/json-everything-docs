@@ -3,7 +3,7 @@ layout: "page"
 title: "YamlSerializer Class"
 bookmark: "YamlSerializer"
 permalink: "/api/Yaml2JsonNode/:title/"
-order: "9.13.001"
+order: "10.13.001"
 ---
 **Namespace:** Yaml2JsonNode
 

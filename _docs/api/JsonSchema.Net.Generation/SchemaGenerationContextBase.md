@@ -3,7 +3,7 @@ layout: "page"
 title: "SchemaGenerationContextBase Class"
 bookmark: "SchemaGenerationContextBase"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.074"
+order: "10.05.074"
 ---
 **Namespace:** Json.Schema.Generation
 

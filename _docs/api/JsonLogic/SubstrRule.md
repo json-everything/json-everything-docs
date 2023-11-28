@@ -3,7 +3,7 @@ layout: "page"
 title: "SubstrRule Class"
 bookmark: "SubstrRule"
 permalink: "/api/JsonLogic/:title/"
-order: "9.11.042"
+order: "10.11.042"
 ---
 **Namespace:** Json.Logic.Rules
 

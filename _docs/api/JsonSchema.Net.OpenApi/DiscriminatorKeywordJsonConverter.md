@@ -3,7 +3,7 @@ layout: "page"
 title: "DiscriminatorKeywordJsonConverter Class"
 bookmark: "DiscriminatorKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net.OpenApi/:title/"
-order: "9.04.001"
+order: "10.04.001"
 ---
 **Namespace:** Json.Schema.OpenApi
 

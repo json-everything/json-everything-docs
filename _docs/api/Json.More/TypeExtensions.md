@@ -3,7 +3,7 @@ layout: "page"
 title: "TypeExtensions Class"
 bookmark: "TypeExtensions"
 permalink: "/api/Json.More/:title/"
-order: "9.12.010"
+order: "10.12.010"
 ---
 **Namespace:** Json.More
 

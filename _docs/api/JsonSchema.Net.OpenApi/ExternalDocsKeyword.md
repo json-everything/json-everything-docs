@@ -3,7 +3,7 @@ layout: "page"
 title: "ExternalDocsKeyword Class"
 bookmark: "ExternalDocsKeyword"
 permalink: "/api/JsonSchema.Net.OpenApi/:title/"
-order: "9.04.004"
+order: "10.04.004"
 ---
 **Namespace:** Json.Schema.OpenApi
 

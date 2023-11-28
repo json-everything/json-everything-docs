@@ -3,7 +3,7 @@ layout: "page"
 title: "MultipleOfAttribute Class"
 bookmark: "MultipleOfAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.056"
+order: "10.05.056"
 ---
 **Namespace:** Json.Schema.Generation
 

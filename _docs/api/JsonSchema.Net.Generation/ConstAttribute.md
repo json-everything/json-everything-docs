@@ -3,7 +3,7 @@ layout: "page"
 title: "ConstAttribute Class"
 bookmark: "ConstAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "9.05.008"
+order: "10.05.008"
 ---
 **Namespace:** Json.Schema.Generation
 

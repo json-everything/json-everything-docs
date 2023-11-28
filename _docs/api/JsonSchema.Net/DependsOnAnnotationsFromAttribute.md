@@ -3,7 +3,7 @@ layout: "page"
 title: "DependsOnAnnotationsFromAttribute Class"
 bookmark: "DependsOnAnnotationsFromAttribute"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "9.01.035"
+order: "10.01.035"
 ---
 **Namespace:** Json.Schema
 
