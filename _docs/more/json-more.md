@@ -5,7 +5,7 @@ md_title: _Json.More.Net_ Basics
 bookmark: Basics
 permalink: /more/:title/
 icon: fas fa-tag
-order: "06.1"
+order: "07.1"
 ---
 *Json.More.Net* aims to fill gaps left by `System.Text.Json`.  To this end, it supplies four additional functions.
 
