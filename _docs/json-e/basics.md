@@ -157,5 +157,6 @@ There are several exception types, but they all derive from `JsonEException` to 
 
 - `BuiltInException` - Thrown when something is wrong with an expression function.
 - `InterpreterException` - Thrown when something can't be evaluated.
+- `SyntaxException` - Thrown when an expression can't be parsed.
 - `TemplateException` - Thrown generally when something is wrong with an operator.
 - `TypeException` - (This is defined, but nothing throws it.  This may change in the future, but I can't remember where I saw it.)
