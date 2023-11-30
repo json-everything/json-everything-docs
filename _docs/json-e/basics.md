@@ -124,6 +124,12 @@ var result = JsonE.Evaluate(template, context);
 // result: 2
 ```
 
+> The functions you provide should handle errors better than shown above.  Take a look at the source for examples on how to handle errors in an expected way.
+{: .prompt-warning }
+
+> The `JsonFunction` type defines an explicit cast that automatically wraps the function in a `JsonValue`.  This is how the function can be included within the _System.Text.Json.Nodes_ data structure.
+{: .prompt-info }
+
 A `JsonFunction` takes two parameters.  In the above example,
 
 - `parameters` is `JsonNode?[]`
