@@ -146,7 +146,7 @@ The evaluation context is how the context object is accessed, but you're not lik
 |void Push(JsonObject newContext)|Adds data to the context|
 |JsonNode? Pop()|Removes added data from the context|
 
-> _`Push()` and `Pop()` change the context.  If you find that you need to add data to the context, it's your responsibility to remove it.  Failing to do so will result in undesired behavior.
+> `Push()` and `Pop()` change the context.  If you find that you need to add data to the context, it's your responsibility to remove it.  Failing to do so will result in undesired behavior.
 {: .prompt-warning }
 
 ## Errors
