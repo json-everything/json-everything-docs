@@ -1,14 +1,14 @@
 ---
 layout: "page"
-title: "TemplateException Class"
-bookmark: "TemplateException"
+title: "SyntaxException Class"
+bookmark: "SyntaxException"
 permalink: "/api/JsonE.Net/:title/"
-order: "10.12.010"
+order: "10.12.009"
 ---
 **Namespace:** Json.JsonE
 
 **Inheritance:**
-`TemplateException`
+`SyntaxException`
  🡒 
 `JsonEException`
  🡒 
@@ -20,7 +20,7 @@ order: "10.12.010"
 
 - ISerializable
 
-Thrown from **Json.JsonE.JsonE.Evaluate(System.Text.Json.Nodes.JsonNode,System.Text.Json.Nodes.JsonNode)** when a template is invalid.
+Thrown from **Json.JsonE.JsonE.Evaluate(System.Text.Json.Nodes.JsonNode,System.Text.Json.Nodes.JsonNode)** when an expression contains invalid syntax.
 
 ## Properties
 
@@ -37,14 +37,14 @@ Thrown from **Json.JsonE.JsonE.Evaluate(System.Text.Json.Nodes.JsonNode,System.T
 
 ## Constructors
 
-### TemplateException(string message)
+### SyntaxException(string message)
 
-Creates a new instance of **Json.JsonE.TemplateException**.
+Creates a new instance of **Json.JsonE.SyntaxException**.
 
 #### Declaration
 
 ```c#
-public TemplateException(string message)
+public SyntaxException(string message)
 ```
 
 | Parameter | Type | Description |

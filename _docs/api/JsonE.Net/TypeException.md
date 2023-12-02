@@ -3,7 +3,7 @@ layout: "page"
 title: "TypeException Class"
 bookmark: "TypeException"
 permalink: "/api/JsonE.Net/:title/"
-order: "10.12.010"
+order: "10.12.011"
 ---
 **Namespace:** Json.JsonE
 
