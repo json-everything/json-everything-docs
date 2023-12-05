@@ -4,10 +4,10 @@ title: A Vocabulary of Array Extensions (WIP)
 bookmark: Array Extensions
 permalink: /schema/vocabs/array-ext/
 icon: fas fa-tag
-order: "1.8.3"
+order: "01.8.3"
 ---
 
-> This vocabulary is a work in progress.  It is intended to deprecate the existing [`uniqueKeys` vocabulary](/schema/vocabs/uniquekeys) and add some more array-centric functionality.  Comments, questions, and ideas are welcome as issues in the [repository for this site](https://github.com/gregsdennis/json-everything-docs).
+> This vocabulary is a work in progress.  It is intended to deprecate and replace the existing [`uniqueKeys` vocabulary](/schema/vocabs/uniquekeys) and add some more array-centric functionality.  Comments, questions, and ideas are welcome as issues in the [repository for this site](https://github.com/gregsdennis/json-everything-docs).
 {: .prompt-warning }
 
 ## 1. Purpose {#purpose}
@@ -27,11 +27,13 @@ The meta-schema which validates keyword usage for this vocabulary can be found a
 
 ### 3.1. `uniqueKeys` {#uniquekeys}
 
+This keyword is ignored if the instance is not an array.
+
 The value of `uniqueKeys` MUST be a non-empty array of JSON Pointers as defined by [RFC 6901](https://tools.ietf.org/html/rfc6901).
 
 These JSON Pointers, when resolved against each item, define a set of values for that item.  If an item does not contain the location specified by a JSON Pointer, the implementation MUST keep an internal placeholder to indicate a missing value.  (The placeholder cannot be a JSON `null` as there needs to be a distinction between the location existing and holding a `null` value and the location not existing at all.)
 
-Validation for this keyword passes if the value sets for all of the items are distinct, that is, no two sets contain the same ordered collection.
+Validation for this keyword passes the value sets for all of the items are distinct, that is, no two sets contain the same ordered collection.
 
 ## 3.1.1. Example: Single Key {#uniquekeys-single}
 
@@ -136,28 +138,33 @@ This value fails validation because the first two items have the same combinatio
 
 ### 3.2. `orderedBy`, `orderDirection`, `orderCulture`, and `orderIgnoreCase` {#ordering}
 
+These keywords are ignored if the instance is not an array.
+
 The value of `orderedBy` MUST be a string containing a JSON Pointer.  The pointer is relative to each item and identifies a value by which the items are expected to be ordered.  The behavior of `orderedBy` is determined by
 
 - the values indicated by the pointer, and
 - the values of `orderDirection`, `orderCulture`, and `orderIgnoreCase`
 
-Ordering is defined for numbers (including integers) and strings.  All values to be sorted MUST be of the same type.
+Ordering is defined for numbers (including integers) and strings.  All values to be evaluated by the ordering algorithm MUST be of the same type.
 
-The order direction is determined by `orderDirection`, which MUST be either `asc` for ascending ordering or `desc` for descending ordering.  `orderDirection` applies to both numbers and strings.
+The order direction is determined by `orderDirection`, which MUST be either `asc` for ascending ordering or `desc` for descending ordering.  `orderDirection` applies to both numbers and strings.  Omitting this keyword has the same behavior as including it with `asc`.
 
 For numbers, standard mathematical ordering applies.  `orderCulture` and `orderIgnoreCase` do not apply to numeric values and MUST be ignored.
 
 For strings, ordering is determined by the values of `orderCulture` and `orderIgnoreCase`.
 
-The value of `orderCulture` MUST be the string `none`, which indicates the values should be ordered by Unicode code point, or a valid language code as defined by [ISO 639-1](https://www.loc.gov/standards/iso639-2/php/code_list.php) to indicate a locale.  If the value is a language code which is not recognized or supported by an implementation, it MUST refuse to process the schema.
+The value of `orderCulture` MUST be the string `none`, which indicates the values should be ordered by Unicode code point, or a valid language code as defined by [ISO 639-1](https://www.loc.gov/standards/iso639-2/php/code_list.php) to indicate a locale.  If the value is a language code which is not recognized or supported by an implementation, it MUST refuse to process the schema.  Omitting this keyword has the same behavior as including it with `none`.
 
-The value of `orderIgnoreCase` MUST be a boolean.  Its value indicates whether the sorting should consider character casing.  The value of this property may not apply to some locales.
+The value of `orderIgnoreCase` MUST be a boolean.  Its value indicates whether the sorting should consider character casing.  The value of this property may not apply to some locales.  Omitting this keyword has the same behavior as including it with `false`.
 
 Validation of `orderedBy` passes if:
 
--  all of the items in the array have a value at the location indicated by the pointer,
+-  all of the items in the instance have a value at the location indicated by the pointer,
 -  all the indicated values have the same type, either numbers or strings, and
--  all of the items in the in the array are ordered by their respective values as specified by the other keywords defined in this section.
+-  all of the items in the in the instance are ordered by their respective values as specified by the other keywords defined in this section.
 
 If any of the above conditions are not met, validation MUST fail.
+
+> If an item does not have a value at the indicated location, the result is a validation failure with an appropriate error message.  This is not considered a resolution failure; the implementation does not halt execution.
+{: .prompt-info }
 
