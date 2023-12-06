@@ -1,13 +1,13 @@
 ---
 layout: page
-title: A Vocabulary of Array Extensions (WIP)
+title: A Vocabulary for Extended Validation of Arrays (WIP)
 bookmark: Array Extensions
 permalink: /schema/vocabs/array-ext/
 icon: fas fa-tag
 order: "01.8.3"
 ---
 
-> This vocabulary is a work in progress.  It is intended to deprecate and replace the existing [`uniqueKeys` vocabulary](/schema/vocabs/uniquekeys) and add some more array-centric functionality.  Comments, questions, and ideas are welcome as issues in the [repository for this site](https://github.com/gregsdennis/json-everything-docs).
+> This vocabulary is a work in progress.  It is intended to deprecate and replace the existing [`uniqueKeys` vocabulary](/schema/vocabs/uniquekeys) and add some more array-centric functionality.  Comments, questions, and ideas are welcome as issues in the [main `json-everything` repository](https://github.com/gregsdennis/json-everything).
 {: .prompt-warning }
 
 ## 1. Purpose {#purpose}
@@ -139,43 +139,45 @@ The `ordering` keyword provides a mechanism to validate that items in an array a
 
 This keyword is ignored if the instance is not an array.
 
-The value of `ordering` MUST be a non-empty array containing sorting specifier objects.  The sorting specifier object has four defined properties:
+The value of `ordering` MUST be a non-empty array containing specifier objects.  The specifier object has four defined properties:
 
 | Property | Description | Example |
 |:--|:--|:--|
 | `by` | A JSON Pointer that indicates a value within the item | `"/foo"` |
 | `direction` | Whether the ordering should be ascending or descending | `"asc"` or `"desc"` |
-| `culture` | An ISO 639-1 culture code (for string comparisons) | `en-US` |
+| `culture` | An RFC 4646 culture code | `en-US` |
 | `ignoreCase` | A boolean to indicate case-sensitivity | `true` or `false` |
-
-For strings, ordering is determined by the values of `orderCulture` and `orderIgnoreCase`.
 
 The `by` pointer is relative to each item and identifies a value by which the items are expected to be ordered.  This property is required.
 
 The order direction is determined by `direction`, which MUST be either `asc` for ascending ordering or `desc` for descending ordering.  `direction` applies to both numbers and strings.  Omitting this property has the same behavior as including it with `asc`.
 
-The value of `culture` MUST be the string `none`, which indicates the values should be ordered by Unicode code point, or a valid language code as defined by [ISO 639-1](https://www.loc.gov/standards/iso639-2/php/code_list.php) to indicate a locale.  If the value is a language code which is not recognized or supported by an implementation, it MUST refuse to process the schema.  Omitting this keyword has the same behavior as including it with `none`.
+The value of `culture` MUST be the string `none`, which indicates the values should be ordered by Unicode code point, or a valid language code as defined by [RFC 4646](https://datatracker.ietf.org/doc/html/rfc4646) (e.g. `en-US`) to indicate a locale.  If the value is a language code which is not recognized or supported by an implementation, it MUST refuse to process the schema.  Omitting this keyword has the same behavior as including it with `none`.
 
 The value of `ignoreCase` MUST be a boolean.  Its value indicates whether the sorting should consider character casing.  The value of this property may not apply to some locales.  Omitting this keyword has the same behavior as including it with `false`.
 
-Ordering is defined for numbers (including integers) and strings.  All values indicated by sorting specifier MUST be of the same type.  Implementations MUST NOT convert between types.  For example, comparing `"5"` (string) and `5` (number) is disallowed and MUST result in a failed validation.
+Specifier objects are listed in priority order.  That is, for validation to succeed, the items MUST be ordered first by the first specifier, then by the second, and so on.
+
+Ordering is defined for numbers (including integers) and strings.  All values indicated by a single specifier MUST be of the same type.  Implementations MUST NOT convert between types.  For example, comparing `"5"` (string) and `5` (number) is disallowed and MUST result in a failed validation.
 
 For numbers, standard mathematical ordering applies.  `culture` and `ignoreCase` do not apply to numeric values and MUST be ignored.
 
-Validation of `orderedBy` passes if:
+For strings, ordering is determined by the values of `culture` and `ignoreCase`.
 
--  all of the items in the instance have values at the locations indicated by the pointer,
--  for each pointer, all the indicated values, have the same type, either numbers or strings, and
--  all of the items in the in the instance are ordered by their respective values as specified by the other keywords defined in this section.
+Validation of `ordering` passes if:
+
+-  all of the items in the instance have values at the locations indicated by the pointers,
+-  for each specifier, all the indicated values have the same type, either numbers or strings, and
+-  all of the items in the instance are ordered by their respective values as indicated by the specifiers.
 
 If any of the above conditions are not met, validation MUST fail.
 
-> If an item does not have a value at the indicated location, the result is a validation failure with an appropriate error message.  This is not considered a resolution failure; the implementation does not halt execution.
+> An item missing a value at the indicated location does not constitute a resolution failure; the result is a validation failure with an appropriate error message.  Implementations do not halt execution for this case.
 {: .prompt-info }
 
-#### 3.2.1. Example: Single `orderedBy` Pointer
+#### 3.2.1. Example: `ordering` with Single Specifier
 
-This example show show `orderedBy` behaves when included without the other keywords in section [3.2](#ordering).
+This example show how `ordering` behaves with only a single, simple specifier object.
 
 ```json
 {
@@ -194,7 +196,7 @@ This example show show `orderedBy` behaves when included without the other keywo
 }
 ```
 
-This schema indicates that all of the items should be ordered by their `foo` value.  Because `orderDirection` is not specified, the direction is assumed to be ascending.
+This schema indicates that all of the items should be ordered by their `foo` value.  Because `direction` is not specified, the direction is assumed to be ascending.
 
 This instance passes because the `foo` values are in an ascending order.
 
@@ -225,7 +227,7 @@ This instance fails validation because the `foo` values are out of sequence.
 ]
 ```
 
-#### 3.2.2. Example: Multiple `orderedBy` Pointers
+#### 3.2.2. Example: `ordering` with Multiple Specifiers
 
 Building on the previous example, we introduce `/bar` to the ordering requirements.
 
@@ -270,5 +272,17 @@ But switching the first two lines results in an a failed validation:
   { "foo": 2, "bar": "dolor" },
   { "foo": 3, "bar": "sit" },
   { "foo": 5, "bar": "amet" }
+]
+```
+
+Additionally, ordering first by `bar` is invalid.
+
+```json
+[
+  { "foo": 1, "bar": "Lorem" },
+  { "foo": 5, "bar": "amet" },
+  { "foo": 2, "bar": "dolor" },
+  { "foo": 1, "bar": "ipsum" },
+  { "foo": 3, "bar": "sit" }
 ]
 ```
