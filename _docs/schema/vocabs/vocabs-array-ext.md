@@ -7,7 +7,7 @@ icon: fas fa-tag
 order: "01.8.3"
 ---
 
-> This vocabulary is a work in progress.  It is intended to deprecate and replace the existing [`uniqueKeys` vocabulary](/schema/vocabs/uniquekeys) and add some more array-centric functionality.  Comments, questions, and ideas are welcome as issues in the [main `json-everything` repository](https://github.com/gregsdennis/json-everything).
+> This vocabulary is a work in progress.  It is intended to deprecate and replace the existing [`uniqueKeys` vocabulary](/schema/vocabs/uniquekeys) by adding some more array-centric functionality.  Comments, questions, and ideas are welcome as issues in the [main `json-everything` repository](https://github.com/gregsdennis/json-everything).
 {: .prompt-warning }
 
 ## 1. Purpose {#purpose}
