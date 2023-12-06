@@ -6,6 +6,10 @@ permalink: /schema/vocabs/uniquekeys/
 icon: fas fa-tag
 order: "01.8.2"
 ---
+
+> This vocabulary will soon be deprecated and replaced by the more general [Array Extensions vocabulary](/schema/vocabs/array-ext).
+{: .prompt-warning }
+
 ## 1. Purpose {#schema-uniquekeys-purpose}
 
 This document describes a vocabulary defining keywords that can be used to validate that array instances contain unique values as determined by one or more given paths within each item.
