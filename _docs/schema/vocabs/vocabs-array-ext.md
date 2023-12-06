@@ -145,14 +145,14 @@ The value of `ordering` MUST be a non-empty array containing specifier objects. 
 |:--|:--|:--|
 | `by` | A JSON Pointer that indicates a value within the item | `"/foo"` |
 | `direction` | Whether the ordering should be ascending or descending | `"asc"` or `"desc"` |
-| `culture` | An RFC 4646 culture code | `en-US` |
+| `culture` | An RFC 4646 culture code | `"en-US"` |
 | `ignoreCase` | A boolean to indicate case-sensitivity | `true` or `false` |
 
 The `by` pointer is relative to each item and identifies a value by which the items are expected to be ordered.  This property is required.
 
 The order direction is determined by `direction`, which MUST be either `asc` for ascending ordering or `desc` for descending ordering.  `direction` applies to both numbers and strings.  Omitting this property has the same behavior as including it with `asc`.
 
-The value of `culture` MUST be the string `none`, which indicates the values should be ordered by Unicode code point, or a valid language code as defined by [RFC 4646](https://datatracker.ietf.org/doc/html/rfc4646) (e.g. `en-US`) to indicate a locale.  If the value is a language code which is not recognized or supported by an implementation, it MUST refuse to process the schema.  Omitting this keyword has the same behavior as including it with `none`.
+The value of `culture` MUST be the string `none`, which indicates the values should be ordered by Unicode code point, or a valid language code as defined by [RFC 4646](https://datatracker.ietf.org/doc/html/rfc4646) to indicate a locale.  If the value is a language code which is not recognized or supported by an implementation, it MUST refuse to process the schema.  Omitting this keyword has the same behavior as including it with `none`.
 
 The value of `ignoreCase` MUST be a boolean.  Its value indicates whether the sorting should consider character casing.  The value of this property may not apply to some locales.  Omitting this keyword has the same behavior as including it with `false`.
 
