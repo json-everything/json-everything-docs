@@ -249,7 +249,7 @@ Building on the previous example, we introduce `/bar` to the ordering requiremen
 }
 ```
 
-Here, the values should be ordered first by `foo`, then by `bar`.  Note that because no culture is specified, the string order is assumed to be by Unicode code points.
+Here, the values should be ordered first by `foo` ascending, then by `bar` descending.  Note that because no culture is specified, the string order is assumed to be by Unicode code points.
 
 This instance is valid:
 
