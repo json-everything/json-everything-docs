@@ -37,7 +37,7 @@ The root schema used for validation is basically just a switch that allows for o
 }
 ```
 
-Each of the items in the `oneOf` describe a single supported pattern.  Exactly one of these must match.  This meta-schema allows nested objects (e.g. arrays, dictionaries, and POCOs) to contain any supported type by declaring a reference to this abstraction.
+Each of the items in the `oneOf` describes a single supported pattern.  Exactly one of these must match.  This meta-schema allows nested objects (e.g. arrays, dictionaries, and POCOs) to contain any supported type by declaring a reference to this abstraction.
 
 In addition to the abstraction meta-schema above, there is also a base meta-schema that can be used by patterns which need to include a type name.  It also contains a definition for a "convertible string," which defines a regular expression for strings which can be converted into a programming-language-compatible name.
 
@@ -48,7 +48,7 @@ In addition to the abstraction meta-schema above, there is also a base meta-sche
   "$defs": {
     "convertible-string": {
       "type": "string",
-      "pattern": "^[a-zA-Z_-][a-zA-Z0-9 _-]*$"
+      "pattern": "^[a-zA-Z_][a-zA-Z0-9 _-]*$"
     }
   },
   "properties": {
@@ -61,8 +61,6 @@ In addition to the abstraction meta-schema above, there is also a base meta-sche
 ```
 
 In many cases, the schemas are open, so additional keywords can be added (such as `format` for a string schema).  Just make sure that you don't end up matching more than one pattern.
-
-Whenever a 
 
 ## Simple types
 
@@ -80,7 +78,7 @@ The simple types are generally pretty easy: they really only need a `type` keywo
 }
 ```
 
-> `format` is planned for the future to generate types like `DateTime`.  For now, they're just strings.
+> Support for `format` is planned for the future to generate types like `DateTime`.  For now, they're just strings.
 {: .prompt-tip }
 
 ```json

@@ -1,7 +1,7 @@
 ---
 layout: page
-title: A Vocabulary for Accessing Data Stored in JSON
-bookmark: data
+title: A Vocabulary for Accessing Data Stored in JSON (2022)
+bookmark: data (2022)
 permalink: /schema/vocabs/data-2022/
 icon: fas fa-tag
 order: "01.8.1"
@@ -125,7 +125,7 @@ Note also the use of `dependentRequired` to ensure that when `foo` is present in
 
 The following shows how a change in the `minValue` property can affect the validation result of the `foo` property and thus the entire instance.
 
-```json
+```jsonc
 // passing
 {
   "minValue": 5,
