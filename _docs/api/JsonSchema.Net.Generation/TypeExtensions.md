@@ -35,3 +35,22 @@ public static bool IsArray(this Type type)
 
 true if the type represents an array; false otherwise.
 
+### IsNullableValueType(this Type type)
+
+Determines if the type is a nullable value type, i.e. **System.Nullable`1**.
+
+#### Declaration
+
+```c#
+public static bool IsNullableValueType(this Type type)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| type | Type | The type |
+
+
+#### Returns
+
+True if the type is **System.Nullable`1**; false otherwise.
+
