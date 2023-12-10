@@ -35,7 +35,7 @@ This library is quite powerful.  It supports most JSON Schema keywords, includin
 
 It currently does not support:
 
-- anything involving RegEx\*
+- anything complex involving RegEx (see below)
 - reference keywords (e.g. `$ref`, `$dynamicRef`, etc)
 - annotation / metadata keywords (e.g. `title`, `description`)
 - `content*` keywords
@@ -45,13 +45,26 @@ It currently does not support:
 
 Everything else _should_ be mostly supported.  Feel free to [open an issue](https://github.com/gregsdennis/json-everything/issues/new/choose) if you find something isn't working as you expect.
 
-### Strings & `format` {#schema-datagen-strings}
+### Strings {#schema-datagen-strings}
 
-All of the formats listed in the draft 2020-12 specification are supported, at least to the extent that they can be validated by JsonSchema.Net.
+Without any additional parameters, string generation uses Bogus's Lorem Ipsum generator to create some nice (but oddly readable) garbage text.
+
+#### `format` {#schema-datagen-format}
+
+All of the formats listed in the draft 2020-12 specification are supported, at least to the extent that they can be validated by _JsonSchema.Net_.
 
 If a format is specified, it will be used.
 
-If a format is not specified, Bogus's Lorem Ipsum generator is used to create some nice (but oddly readable) garbage text.
+#### `pattern` {#schema-datagen-pattern}
+
+Regular expressions specified via `pattern` are supported in a very limited capacity.  Only simple subschemas with a single `pattern` is supported.
+
+- Combining multiple regular expressions using `allOf`, `anyOf`, or `oneOf` is not supported.
+- Inverting regular expressions using `not` is not supported.
+- Any regular expression not supported by the [FARE library](https://github.com/moodmosaic/Fare) is not supported.
+- Combining `pattern` with `minLength`/`maxLength` is not supported.  RegEx supports length requirements, so they should be specified within the expression.
+
+If the above scenarios are detected, a `NotSupportedException` will be thrown.
 
 ### Numerics {#schema-datagen-numbers}
 
