@@ -20,7 +20,7 @@ The ID for this vocabulary is `https://docs.json-everything.net/schema/vocabs/ar
 
 The meta-schema which validates keyword usage for this vocabulary can be found at `https://json-everything.net/meta/vocab/array-ext`, which also serves as its `$id` value.
 
-> For convenience, a 2020-12 dialect extension meta-schema is also available at `https://json-everything.net/meta/array-ext`, which also serves as its `$id` value.  This dialect meta-schema extends the standard 2020-12 dialect to include only the keywords defined in this vocabulary.  To support multiple vocabulary extensions, you'll need to [make your own dialect meta-schema]() which incorporates all of the vocabularies you want to use.
+> For convenience, a 2020-12 dialect extension meta-schema is also available at `https://json-everything.net/meta/array-ext`, which also serves as its `$id` value.  This dialect meta-schema extends the standard 2020-12 dialect to include only the keywords defined in this vocabulary.  To support multiple vocabulary extensions, you'll need to [make your own dialect meta-schema](https://blog.json-everything.net/posts/updating-vocabs/#meta-schema-rework) which incorporates all of the vocabularies you want to use.
 {: .prompt-info }
 
 ## 3. Keywords {#keywords}

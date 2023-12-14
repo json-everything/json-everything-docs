@@ -144,6 +144,27 @@ This will return a results object that contains the resulting nodelist or an err
 
 A node contains both the value that was found and the location in the instance _where_ it was found.  The location is always represented using the "canonical," bracketed format.
 
+### Deferred Execution
+
+The nodelist is an `IEnumerable<Node>` and works like any other Linq query.  That is, it is a [deferred execution](https://learn.microsoft.com/en-us/dotnet/standard/linq/deferred-execution-lazy-evaluation#deferred-execution) query, meaning that it is not actually evaluated until you request results.  Additionally, if the dataset changes, and you request results again _without changing the query_, you'll get different results based on the new dataset.
+
+This is evidenced in this test:
+
+```c#
+var data = new JsonArray { "bob", "sam", "alice" };
+var path = JsonPath.Parse("$[? length(@) > 3 ]");
+
+var result = path.Evaluate(data);
+
+Assert.AreEqual(1, result.Matches!.Count);
+
+data[0] = "sally";
+
+Assert.AreEqual(2, result.Matches!.Count);
+```
+
+Here, the query is looking for values longer than three chars.  In the first data set, there is only one, but when the data set is changed, without having to re-evaluate the path, there are two results.
+
 ## Adherence to the Proposed Specification {#path-spec}
 
 As the specification is still under authorship, there are features present in traditional JSON Path that haven't been properly described yet.  For these features, this library has been configured to mimic the consensus behaviors of other libraries as determined by the [JSON Path Comparison](https://cburgmer.github.io/json-path-comparison/) project.
