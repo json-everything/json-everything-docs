@@ -1,14 +1,14 @@
 ---
 layout: "page"
-title: "UriIdentifier Class"
-bookmark: "UriIdentifier"
+title: "JsonPathIdentifier Class"
+bookmark: "JsonPathIdentifier"
 permalink: "/api/JsonSchema.Net.Data/:title/"
-order: "10.02.010"
+order: "10.02.003"
 ---
 **Namespace:** Json.Schema.Data
 
 **Inheritance:**
-`UriIdentifier`
+`JsonPathIdentifier`
  🡒 
 `object`
 
@@ -16,47 +16,32 @@ order: "10.02.010"
 
 - IDataResourceIdentifier
 
-Handles data references that are URIs.
+Handles data references that are JSON Paths.
 
 ## Properties
 
 | Name | Type | Summary |
 |---|---|---|
-| **Target** | Uri | The URI target. |
+| **Query** | JsonPath | Gets the JSON Path query. |
 
 ## Constructors
 
-### UriIdentifier(Uri target)
+### JsonPathIdentifier(JsonPath query)
 
-Creates a new instance of **Json.Schema.Data.UriIdentifier**.
+Creates a new **Json.Schema.Data.JsonPathIdentifier**.
 
 #### Declaration
 
 ```c#
-public UriIdentifier(Uri target)
+public JsonPathIdentifier(JsonPath query)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
-| target | Uri | The target. |
+| query | JsonPath |  |
 
 
 ## Methods
-
-### ToString()
-
-Returns a string that represents the current object.
-
-#### Declaration
-
-```c#
-public override string ToString()
-```
-
-
-#### Returns
-
-A string that represents the current object.
 
 ### TryResolve(KeywordEvaluation evaluation, SchemaRegistry registry, out JsonNode value)
 

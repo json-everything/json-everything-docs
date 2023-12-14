@@ -2,10 +2,10 @@
 layout: "page"
 title: "Vocabularies Class"
 bookmark: "Vocabularies"
-permalink: "/api/JsonSchema.Net.UniqueKeys/:title/"
-order: "10.03.005"
+permalink: "/api/JsonSchema.Net.ArrayExt/:title/"
+order: "10.03.009"
 ---
-**Namespace:** Json.Schema.UniqueKeys
+**Namespace:** Json.Schema.ArrayExt
 
 **Inheritance:**
 `Vocabularies`
@@ -18,14 +18,14 @@ Declares the vocabularies of the supported drafts.
 
 | Name | Type | Summary |
 |---|---|---|
-| **UniqueKeys** | Vocabulary | The data vocabulary. |
-| **UniqueKeysId** | string | The data vocabulary ID. |
+| **ArrayExt** | Vocabulary | The array extensions vocabulary. |
+| **ArrayExtId** | string | The array extensions vocabulary ID. |
 
 ## Methods
 
 ### Register(VocabularyRegistry vocabRegistry, SchemaRegistry schemaRegistry)
 
-Registers the all components required to use the data vocabulary.
+Registers the all components required to use the array extensions vocabulary.
 
 #### Declaration
 

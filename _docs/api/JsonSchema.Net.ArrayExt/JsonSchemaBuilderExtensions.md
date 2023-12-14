@@ -2,10 +2,10 @@
 layout: "page"
 title: "JsonSchemaBuilderExtensions Class"
 bookmark: "JsonSchemaBuilderExtensions"
-permalink: "/api/JsonSchema.Net.UniqueKeys/:title/"
-order: "10.03.000"
+permalink: "/api/JsonSchema.Net.ArrayExt/:title/"
+order: "10.03.001"
 ---
-**Namespace:** Json.Schema.UniqueKeys
+**Namespace:** Json.Schema.ArrayExt
 
 **Inheritance:**
 `JsonSchemaBuilderExtensions`
@@ -15,6 +15,26 @@ order: "10.03.000"
 Provides a fluent interface for **Json.Schema.JsonSchemaBuilder**.
 
 ## Methods
+
+### Ordering(this JsonSchemaBuilder builder, params OrderingSpecifier[] specifiers)
+
+Adds an `ordering` keyword.
+
+#### Declaration
+
+```c#
+public static JsonSchemaBuilder Ordering(this JsonSchemaBuilder builder, params OrderingSpecifier[] specifiers)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| builder | JsonSchemaBuilder | The builder. |
+| specifiers | params OrderingSpecifier[] | The collection of ordering specifiers. |
+
+
+#### Returns
+
+The builder.
 
 ### UniqueKeys(this JsonSchemaBuilder builder, IEnumerable\<JsonPointer\> keys)
 

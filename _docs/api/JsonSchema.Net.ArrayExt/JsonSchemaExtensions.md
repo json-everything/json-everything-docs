@@ -2,10 +2,10 @@
 layout: "page"
 title: "JsonSchemaExtensions Class"
 bookmark: "JsonSchemaExtensions"
-permalink: "/api/JsonSchema.Net.UniqueKeys/:title/"
-order: "10.03.001"
+permalink: "/api/JsonSchema.Net.ArrayExt/:title/"
+order: "10.03.002"
 ---
-**Namespace:** Json.Schema.UniqueKeys
+**Namespace:** Json.Schema.ArrayExt
 
 **Inheritance:**
 `JsonSchemaExtensions`

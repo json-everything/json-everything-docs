@@ -2,10 +2,10 @@
 layout: "page"
 title: "UniqueKeysKeywordJsonConverter Class"
 bookmark: "UniqueKeysKeywordJsonConverter"
-permalink: "/api/JsonSchema.Net.UniqueKeys/:title/"
-order: "10.03.004"
+permalink: "/api/JsonSchema.Net.ArrayExt/:title/"
+order: "10.03.008"
 ---
-**Namespace:** Json.Schema.UniqueKeys
+**Namespace:** Json.Schema.ArrayExt
 
 **Inheritance:**
 `UniqueKeysKeywordJsonConverter`
@@ -16,7 +16,7 @@ order: "10.03.004"
  🡒 
 `object`
 
-JSON converter for **Json.Schema.UniqueKeys.UniqueKeysKeyword**.
+JSON converter for **Json.Schema.ArrayExt.UniqueKeysKeyword**.
 
 ## Properties
 
@@ -28,7 +28,7 @@ JSON converter for **Json.Schema.UniqueKeys.UniqueKeysKeyword**.
 
 ### Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
 
-Reads and converts the JSON to type **Json.Schema.UniqueKeys.UniqueKeysKeyword**.
+Reads and converts the JSON to type **Json.Schema.ArrayExt.UniqueKeysKeyword**.
 
 #### Declaration
 

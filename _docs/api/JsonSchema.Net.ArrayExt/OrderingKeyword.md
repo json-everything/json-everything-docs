@@ -1,14 +1,14 @@
 ---
 layout: "page"
-title: "UniqueKeysKeyword Class"
-bookmark: "UniqueKeysKeyword"
-permalink: "/api/JsonSchema.Net.UniqueKeys/:title/"
-order: "10.03.003"
+title: "OrderingKeyword Class"
+bookmark: "OrderingKeyword"
+permalink: "/api/JsonSchema.Net.ArrayExt/:title/"
+order: "10.03.004"
 ---
-**Namespace:** Json.Schema.UniqueKeys
+**Namespace:** Json.Schema.ArrayExt
 
 **Inheritance:**
-`UniqueKeysKeyword`
+`OrderingKeyword`
  🡒 
 `object`
 
@@ -16,7 +16,7 @@ order: "10.03.003"
 
 - IJsonSchemaKeyword
 
-Represents the `data` keyword.
+Represents the `ordering` keyword.
 
 ## Fields
 
@@ -28,23 +28,23 @@ Represents the `data` keyword.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Keys** | IEnumerable\<JsonPointer\> | The collection of keywords and references. |
+| **Specifiers** | IEnumerable\<OrderingSpecifier\> | The collection of keywords and references. |
 
 ## Constructors
 
-### UniqueKeysKeyword(IEnumerable\<JsonPointer\> references)
+### OrderingKeyword(IEnumerable\<OrderingSpecifier\> specifiers)
 
-Creates an instance of the **Json.Schema.UniqueKeys.UniqueKeysKeyword** class.
+Creates an instance of the **Json.Schema.ArrayExt.OrderingKeyword** class.
 
 #### Declaration
 
 ```c#
-public UniqueKeysKeyword(IEnumerable<JsonPointer> references)
+public OrderingKeyword(IEnumerable<OrderingSpecifier> specifiers)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
-| references | IEnumerable\<JsonPointer\> | The collection of keywords and references. |
+| specifiers | IEnumerable\<OrderingSpecifier\> | The collection of keywords and references. |
 
 
 ## Methods
