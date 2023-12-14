@@ -4,6 +4,14 @@ title: JsonPath.Net
 icon: fas fa-tag
 order: "09.08"
 ---
+# [0.7.0](https://github.com/gregsdennis/json-everything/pull/590) {#release-path-0.7.0}
+
+[#583](https://github.com/gregsdennis/json-everything/issues/583) - Updated `NodeList` to implement `IEnumerable<T>` instead of `IReadOnlyList<T>`, which enables follow-on Linq queries, making the entire JSON Path evaluation a deferred execution query.  Thanks to [@qt-kaneko](https://github.com/qt-kaneko) for explaining a use case that led to this change.
+
+Technically this is a breaking change.  The `.Count` property and indexer defined by `IReadOnlyList<T>` were left implemented on `NodeList`, so this _shouldn't_ impact consuming code, but there is a possibility.
+
+It's also important to note that `.Count` is now backed by Linq's `.Count()` method, and the indexer is backed by Linq's `.ElementAt()` method, so calling these isn't zero-cost, like they once were.  They will now invoke an evaluation of the path.
+
 # [0.6.7](https://github.com/gregsdennis/json-everything/pull/526) {#release-path-0.6.7}
 
 Whitespace between multiple selectors inside brackets was supported for `.Parse()` but not `.TryParse()`.  Thanks to [@Andrej-Peplinski](https://github.com/Andrej-Peplinski) for reporting this.

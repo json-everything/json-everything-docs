@@ -14,8 +14,6 @@ order: "10.08.017"
 
 **Implemented interfaces:**
 
-- IReadOnlyList\<Node\>
-- IReadOnlyCollection\<Node\>
 - IEnumerable\<Node\>
 - IEnumerable
 
