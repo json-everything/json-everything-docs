@@ -67,3 +67,13 @@ public override JsonConverter CreateConverter(Type typeToConvert, JsonSerializer
 An instance of a **System.Text.Json.Serialization.JsonConverter`1** where `T` is compatible with <paramref name="typeToConvert" />.
 If <see langword="null" /> is returned, a **System.NotSupportedException** will be thrown.
 
+### MapType(JsonSchema schema)
+
+
+#### Declaration
+
+```c#
+public static void MapType(JsonSchema schema)
+```
+
+

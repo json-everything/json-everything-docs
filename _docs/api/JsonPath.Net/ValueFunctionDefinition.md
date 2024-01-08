@@ -24,4 +24,5 @@ Base class for defining an expression function which returns `ValueType`.
 | Name | Type | Summary |
 |---|---|---|
 | **Name** | string | Gets the function name. |
+| **Nothing** | JsonValue | Represents the absence of a JSON value and is distinct from any JSON value, including null. |
 
