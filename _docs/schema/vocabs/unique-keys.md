@@ -1,13 +1,13 @@
 ---
 layout: page
 title: A Vocabulary for Identifying Uniqueness of Array Items
-bookmark: uniqueKeys
+bookmark: "[deprecated] uniqueKeys"
 permalink: /schema/vocabs/uniquekeys/
 icon: fas fa-tag
-order: "01.8.3"
+order: "01.8.5"
 ---
 
-> This vocabulary will soon be deprecated and replaced by the more general [Array Extensions vocabulary](/schema/vocabs/array-ext).
+> This vocabulary has been deprecated and replaced by the more general [Array Extensions vocabulary](/schema/vocabs/array-ext).
 {: .prompt-warning }
 
 ## 1. Purpose {#schema-uniquekeys-purpose}

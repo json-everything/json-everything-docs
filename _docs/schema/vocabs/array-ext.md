@@ -1,14 +1,11 @@
 ---
 layout: page
-title: A Vocabulary for Extended Validation of Arrays (WIP)
+title: A Vocabulary for Extended Validation of Arrays
 bookmark: Array Extensions
 permalink: /schema/vocabs/array-ext/
 icon: fas fa-tag
-order: "01.8.4"
+order: "01.8.2"
 ---
-
-> This vocabulary is a work in progress.  It is intended to deprecate and replace the existing [`uniqueKeys` vocabulary](/schema/vocabs/uniquekeys) by adding some more array-centric functionality.  Comments, questions, and ideas are welcome as issues in the [main `json-everything` repository](https://github.com/gregsdennis/json-everything).
-{: .prompt-warning }
 
 ## 1. Purpose {#purpose}
 
