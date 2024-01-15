@@ -69,11 +69,16 @@ If <see langword="null" /> is returned, a **System.NotSupportedException** will 
 
 ### MapType(JsonSchema schema)
 
+Adds an explicit type/schema mapping for types external types which cannot be decorated with **Json.Schema.Serialization.JsonSchemaAttribute**.
 
 #### Declaration
 
 ```c#
 public static void MapType(JsonSchema schema)
 ```
+
+| Parameter | Type | Description |
+|---|---|---|
+| schema | JsonSchema |  |
 
 
