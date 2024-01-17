@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonElementProxy Struct"
 bookmark: "JsonElementProxy"
 permalink: "/api/Json.More/:title/"
-order: "10.13.005"
+order: "10.13.006"
 ---
 **Namespace:** Json.More
 
