@@ -90,6 +90,8 @@ var json = JsonSerializer.Serialize((1, "string"), options); // [1,"string"]
 var tuple = JsonSerializer.Deserialize<(int, string)>(json, options);
 ```
 
+When deserializing, if the value isn't an array or if array isn't the right length for the requested tuple type, a `JsonException` will be thrown.
+
 # Data conversions {#more-conversion}
 
 ## `.AsNode()` extension {#more-asnode}
