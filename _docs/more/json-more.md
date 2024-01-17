@@ -72,6 +72,24 @@ public enum MyFlagsEnum
 
 To use this converter, apply the `[JsonConverter(typeof(EnumStringConverter<T>))]` to either the enum or an enum-valued property.
 
+# Value tuple serialization
+
+The `JsonArrayTupleConverter` will handle any size `ValueTuple<T>`/`ValueType<T1, T2>`/etc. by serializing the values to and from an array.
+
+> Even though the `ValueTuple<T1, T2, ...>` classes only have up to eight generic parameters, the C# syntax `(v1, v2, ...)` does support tuples of any size.  This is accomplished by stuffing values past the first seven into another `ValueTuple<...>` as the eighth value.  Just like the compiler, the converter will automatically handle this for you.
+{: .prompt-tip }
+
+Using the converter is simple:
+
+```c#
+var options = new JsonSerializerOptions
+{
+    Converters = { JsonArrayTupleConverter.Instance }
+};
+var json = JsonSerializer.Serialize((1, "string"), options); // [1,"string"]
+var tuple = JsonSerializer.Deserialize<(int, string)>(json, options);
+```
+
 # Data conversions {#more-conversion}
 
 ## `.AsNode()` extension {#more-asnode}
