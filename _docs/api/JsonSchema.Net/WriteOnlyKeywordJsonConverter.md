@@ -3,18 +3,24 @@ layout: "page"
 title: "WriteOnlyKeywordJsonConverter Class"
 bookmark: "WriteOnlyKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.183"
+order: "10.01.186"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `WriteOnlyKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<WriteOnlyKeyword>`
+ 🡒 
 `JsonConverter<WriteOnlyKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.WriteOnlyKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.WriteOnlyKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

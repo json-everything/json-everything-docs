@@ -22,23 +22,23 @@ Provides intent to create a `default` keyword.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Value** | object | The expected value. |
+| **Value** | JsonNode | The expected value. |
 
 ## Constructors
 
-### DefaultIntent(object value)
+### DefaultIntent(JsonNode value)
 
 Creates a new **Json.Schema.Generation.Intents.DefaultIntent** instance.
 
 #### Declaration
 
 ```c#
-public DefaultIntent(object value)
+public DefaultIntent(JsonNode value)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
-| value | object | The value. |
+| value | JsonNode | The value. |
 
 
 ## Methods

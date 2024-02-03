@@ -3,18 +3,24 @@ layout: "page"
 title: "IfKeywordJsonConverter Class"
 bookmark: "IfKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.070"
+order: "10.01.072"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `IfKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<IfKeyword>`
+ 🡒 
 `JsonConverter<IfKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.IfKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.IfKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

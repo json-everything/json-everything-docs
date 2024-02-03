@@ -3,7 +3,7 @@ layout: "page"
 title: "RegexFormat Class"
 bookmark: "RegexFormat"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.143"
+order: "10.01.146"
 ---
 **Namespace:** Json.Schema
 

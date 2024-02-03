@@ -3,18 +3,24 @@ layout: "page"
 title: "ExamplesKeywordJsonConverter Class"
 bookmark: "ExamplesKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.056"
+order: "10.01.058"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `ExamplesKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<ExamplesKeyword>`
+ 🡒 
 `JsonConverter<ExamplesKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.ExamplesKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.ExamplesKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

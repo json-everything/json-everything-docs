@@ -3,18 +3,24 @@ layout: "page"
 title: "OneOfKeywordJsonConverter Class"
 bookmark: "OneOfKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.116"
+order: "10.01.119"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `OneOfKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<OneOfKeyword>`
+ 🡒 
 `JsonConverter<OneOfKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.OneOfKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.OneOfKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

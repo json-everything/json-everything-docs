@@ -3,7 +3,7 @@ layout: "page"
 title: "SpecVersion Enum"
 bookmark: "SpecVersion"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.158"
+order: "10.01.161"
 ---
 # SpecVersion Enum
 

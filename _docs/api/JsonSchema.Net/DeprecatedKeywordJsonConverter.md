@@ -3,18 +3,24 @@ layout: "page"
 title: "DeprecatedKeywordJsonConverter Class"
 bookmark: "DeprecatedKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.037"
+order: "10.01.038"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `DeprecatedKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<DeprecatedKeyword>`
+ 🡒 
 `JsonConverter<DeprecatedKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.DeprecatedKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.DeprecatedKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

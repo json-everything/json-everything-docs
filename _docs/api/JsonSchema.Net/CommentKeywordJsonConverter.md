@@ -10,11 +10,17 @@ order: "10.01.011"
 **Inheritance:**
 `CommentKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<CommentKeyword>`
+ 🡒 
 `JsonConverter<CommentKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.CommentKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.CommentKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

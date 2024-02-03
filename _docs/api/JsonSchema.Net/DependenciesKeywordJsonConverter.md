@@ -10,11 +10,17 @@ order: "10.01.030"
 **Inheritance:**
 `DependenciesKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<DependenciesKeyword>`
+ 🡒 
 `JsonConverter<DependenciesKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.DependenciesKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.DependenciesKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

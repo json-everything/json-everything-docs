@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonSchemaExtensions Class"
 bookmark: "JsonSchemaExtensions"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.086"
+order: "10.01.088"
 ---
 **Namespace:** Json.Schema
 
@@ -1038,67 +1038,4 @@ public static bool? GetWriteOnly(this JsonSchema schema)
 #### Returns
 
 
-
-### Validate(this JsonSchema jsonSchema, JsonNode jsonNode, EvaluationOptions options)
-
-Extends **Json.Schema.JsonSchema.Evaluate(System.Text.Json.Nodes.JsonNode,Json.Schema.EvaluationOptions)** to take **System.Text.Json.JsonDocument**.
-
-#### Declaration
-
-```c#
-public static EvaluationResults Validate(this JsonSchema jsonSchema, JsonNode jsonNode, EvaluationOptions options)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| jsonSchema | JsonSchema | The schema. |
-| jsonNode | JsonNode | Instance to be evaluated. |
-| options | EvaluationOptions | The options to use for this evaluation. |
-
-
-#### Returns
-
-A **Json.Schema.EvaluationResults** that provides the outcome of the evaluation.
-
-### Validate(this JsonSchema jsonSchema, JsonDocument jsonDocument, EvaluationOptions options)
-
-Extends **Json.Schema.JsonSchema.Evaluate(System.Text.Json.Nodes.JsonNode,Json.Schema.EvaluationOptions)** to take **System.Text.Json.JsonDocument**.
-
-#### Declaration
-
-```c#
-public static EvaluationResults Validate(this JsonSchema jsonSchema, JsonDocument jsonDocument, EvaluationOptions options)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| jsonSchema | JsonSchema | The schema. |
-| jsonDocument | JsonDocument | Instance to be evaluated. |
-| options | EvaluationOptions | The options to use for this evaluation. |
-
-
-#### Returns
-
-A **Json.Schema.EvaluationResults** that provides the outcome of the evaluation.
-
-### Validate(this JsonSchema jsonSchema, JsonElement jsonElement, EvaluationOptions options)
-
-Extends **Json.Schema.JsonSchema.Evaluate(System.Text.Json.Nodes.JsonNode,Json.Schema.EvaluationOptions)** to take **System.Text.Json.JsonElement**.
-
-#### Declaration
-
-```c#
-public static EvaluationResults Validate(this JsonSchema jsonSchema, JsonElement jsonElement, EvaluationOptions options)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| jsonSchema | JsonSchema | The schema. |
-| jsonElement | JsonElement | Instance to be evaluated. |
-| options | EvaluationOptions | The options to use for this evaluation. |
-
-
-#### Returns
-
-A **Json.Schema.EvaluationResults** that provides the outcome of the evaluation.
 

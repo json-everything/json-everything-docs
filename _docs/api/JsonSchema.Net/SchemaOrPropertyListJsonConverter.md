@@ -3,18 +3,24 @@ layout: "page"
 title: "SchemaOrPropertyListJsonConverter Class"
 bookmark: "SchemaOrPropertyListJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.154"
+order: "10.01.157"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `SchemaOrPropertyListJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<SchemaOrPropertyList>`
+ 🡒 
 `JsonConverter<SchemaOrPropertyList>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.SchemaOrPropertyList**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.SchemaOrPropertyList**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

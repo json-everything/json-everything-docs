@@ -10,11 +10,17 @@ order: "10.13.000"
 **Inheritance:**
 `EnumStringConverter<T>`
  🡒 
+`WeaklyTypedJsonConverter<T>`
+ 🡒 
 `JsonConverter<T>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 
 ## Properties
@@ -22,6 +28,7 @@ order: "10.13.000"
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

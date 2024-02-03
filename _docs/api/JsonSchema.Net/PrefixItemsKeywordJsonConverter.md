@@ -3,18 +3,24 @@ layout: "page"
 title: "PrefixItemsKeywordJsonConverter Class"
 bookmark: "PrefixItemsKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.126"
+order: "10.01.129"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `PrefixItemsKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<PrefixItemsKeyword>`
+ 🡒 
 `JsonConverter<PrefixItemsKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.PrefixItemsKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.PrefixItemsKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

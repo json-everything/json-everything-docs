@@ -3,18 +3,24 @@ layout: "page"
 title: "RequiredKeywordJsonConverter Class"
 bookmark: "RequiredKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.145"
+order: "10.01.148"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `RequiredKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<RequiredKeyword>`
+ 🡒 
 `JsonConverter<RequiredKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.RequiredKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.RequiredKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

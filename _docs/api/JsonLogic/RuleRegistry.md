@@ -3,7 +3,7 @@ layout: "page"
 title: "RuleRegistry Class"
 bookmark: "RuleRegistry"
 permalink: "/api/JsonLogic/:title/"
-order: "10.11.038"
+order: "10.11.037"
 ---
 **Namespace:** Json.Logic
 
@@ -24,6 +24,27 @@ Registers a new rule type.
 
 ```c#
 public static void AddRule()
+```
+
+
+#### Remarks
+
+Rules must contain a parameterless constructor.
+            
+Decorate your rule type with one or more **Json.Logic.OperatorAttribute**s to
+define its identifier.
+            
+Registering a rule with an identifier that already exists will overwrite the
+existing registration.
+
+### AddRule(JsonSerializerContext typeContext)
+
+Registers a new rule type.
+
+#### Declaration
+
+```c#
+public static void AddRule(JsonSerializerContext typeContext)
 ```
 
 

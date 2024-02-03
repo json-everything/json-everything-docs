@@ -3,18 +3,24 @@ layout: "page"
 title: "UniqueItemsKeywordJsonConverter Class"
 bookmark: "UniqueItemsKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.170"
+order: "10.01.173"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `UniqueItemsKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<UniqueItemsKeyword>`
+ 🡒 
 `JsonConverter<UniqueItemsKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.UniqueItemsKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.UniqueItemsKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

@@ -3,18 +3,24 @@ layout: "page"
 title: "UnevaluatedItemsKeywordJsonConverter Class"
 bookmark: "UnevaluatedItemsKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.166"
+order: "10.01.169"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `UnevaluatedItemsKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<UnevaluatedItemsKeyword>`
+ 🡒 
 `JsonConverter<UnevaluatedItemsKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.UnevaluatedItemsKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.UnevaluatedItemsKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

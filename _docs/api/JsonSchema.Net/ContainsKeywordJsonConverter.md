@@ -10,11 +10,17 @@ order: "10.01.016"
 **Inheritance:**
 `ContainsKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<ContainsKeyword>`
+ 🡒 
 `JsonConverter<ContainsKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.ContainsKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.ContainsKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

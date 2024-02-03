@@ -3,7 +3,7 @@ layout: "page"
 title: "RequiredKeyword Class"
 bookmark: "RequiredKeyword"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.144"
+order: "10.01.147"
 ---
 **Namespace:** Json.Schema
 

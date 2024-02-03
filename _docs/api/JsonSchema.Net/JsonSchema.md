@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonSchema Class"
 bookmark: "JsonSchema"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.081"
+order: "10.01.083"
 ---
 **Namespace:** Json.Schema
 
@@ -59,6 +59,29 @@ public EvaluationResults Evaluate(JsonNode root, EvaluationOptions options)
 
 A **Json.Schema.EvaluationResults** that provides the outcome of the evaluation.
 
+### FromFile(string fileName)
+
+Loads text from a file and deserializes a **Json.Schema.JsonSchema**.
+
+#### Declaration
+
+```c#
+public static JsonSchema FromFile(string fileName)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| fileName | string | The filename to load, URL-decoded. |
+
+
+#### Returns
+
+A new **Json.Schema.JsonSchema**.
+
+#### Remarks
+
+The filename needs to not be URL-encoded as **System.Uri** attempts to encode it.
+
 ### FromFile(string fileName, JsonSerializerOptions options)
 
 Loads text from a file and deserializes a **Json.Schema.JsonSchema**.
@@ -83,6 +106,25 @@ A new **Json.Schema.JsonSchema**.
 
 The filename needs to not be URL-encoded as **System.Uri** attempts to encode it.
 
+### FromStream(Stream source)
+
+Deserializes a **Json.Schema.JsonSchema** from a stream.
+
+#### Declaration
+
+```c#
+public static ValueTask<JsonSchema> FromStream(Stream source)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| source | Stream | A stream. |
+
+
+#### Returns
+
+A new **Json.Schema.JsonSchema**.
+
 ### FromStream(Stream source, JsonSerializerOptions options)
 
 Deserializes a **Json.Schema.JsonSchema** from a stream.
@@ -97,6 +139,25 @@ public static ValueTask<JsonSchema> FromStream(Stream source, JsonSerializerOpti
 |---|---|---|
 | source | Stream | A stream. |
 | options | JsonSerializerOptions | Serializer options. |
+
+
+#### Returns
+
+A new **Json.Schema.JsonSchema**.
+
+### FromText(string jsonText)
+
+Deserializes a **Json.Schema.JsonSchema** from text.
+
+#### Declaration
+
+```c#
+public static JsonSchema FromText(string jsonText)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| jsonText | string | The text to parse. |
 
 
 #### Returns

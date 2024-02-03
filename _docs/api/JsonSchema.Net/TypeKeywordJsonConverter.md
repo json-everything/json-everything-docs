@@ -3,18 +3,24 @@ layout: "page"
 title: "TypeKeywordJsonConverter Class"
 bookmark: "TypeKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.164"
+order: "10.01.167"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `TypeKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<TypeKeyword>`
+ 🡒 
 `JsonConverter<TypeKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.TypeKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.TypeKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

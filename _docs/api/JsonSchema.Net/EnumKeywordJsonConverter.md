@@ -3,18 +3,24 @@ layout: "page"
 title: "EnumKeywordJsonConverter Class"
 bookmark: "EnumKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.050"
+order: "10.01.051"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `EnumKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<EnumKeyword>`
+ 🡒 
 `JsonConverter<EnumKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.EnumKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.EnumKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

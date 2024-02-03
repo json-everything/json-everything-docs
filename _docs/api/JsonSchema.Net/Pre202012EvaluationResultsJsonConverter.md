@@ -3,18 +3,24 @@ layout: "page"
 title: "Pre202012EvaluationResultsJsonConverter Class"
 bookmark: "Pre202012EvaluationResultsJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.122"
+order: "10.01.125"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `Pre202012EvaluationResultsJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<EvaluationResults>`
+ 🡒 
 `JsonConverter<EvaluationResults>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 Produces output formats specified by 2019-09 and 2020-12.
 
@@ -23,6 +29,7 @@ Produces output formats specified by 2019-09 and 2020-12.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

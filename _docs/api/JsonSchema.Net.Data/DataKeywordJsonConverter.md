@@ -10,11 +10,17 @@ order: "10.02.001"
 **Inheritance:**
 `DataKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<DataKeyword>`
+ 🡒 
 `JsonConverter<DataKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.Data.DataKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.Data.DataKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

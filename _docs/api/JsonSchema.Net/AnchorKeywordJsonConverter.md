@@ -10,11 +10,17 @@ order: "10.01.007"
 **Inheritance:**
 `AnchorKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<AnchorKeyword>`
+ 🡒 
 `JsonConverter<AnchorKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.AnchorKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.AnchorKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

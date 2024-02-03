@@ -10,11 +10,17 @@ order: "10.09.003"
 **Inheritance:**
 `PatchJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<JsonPatch>`
+ 🡒 
 `JsonConverter<JsonPatch>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 Provides JSON conversion logic for **Json.Patch.JsonPatch**.
 
@@ -23,6 +29,7 @@ Provides JSON conversion logic for **Json.Patch.JsonPatch**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

@@ -3,18 +3,24 @@ layout: "page"
 title: "DescriptionKeywordJsonConverter Class"
 bookmark: "DescriptionKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.039"
+order: "10.01.040"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `DescriptionKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<DescriptionKeyword>`
+ 🡒 
 `JsonConverter<DescriptionKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.DescriptionKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.DescriptionKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

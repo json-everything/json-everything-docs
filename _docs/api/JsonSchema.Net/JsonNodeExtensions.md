@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonNodeExtensions Class"
 bookmark: "JsonNodeExtensions"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.079"
+order: "10.01.081"
 ---
 **Namespace:** Json.Schema
 
@@ -34,28 +34,4 @@ public static SchemaValueType GetSchemaValueType(this JsonNode node)
 #### Returns
 
 The **Json.Schema.SchemaValueType** of the node.
-
-### VerifyJsonObject(this JsonObject obj)
-
-Verifies that a **System.Text.Json.Nodes.JsonObject** doesn't have any duplicate keys and can
-therefore be processed.
-
-#### Declaration
-
-```c#
-public static bool VerifyJsonObject(this JsonObject obj)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| obj | JsonObject | The object. |
-
-
-#### Returns
-
-true if the the object can be processed; false otherwise.
-
-#### Remarks
-
-See https://github.com/dotnet/runtime/issues/70604 for more information.
 

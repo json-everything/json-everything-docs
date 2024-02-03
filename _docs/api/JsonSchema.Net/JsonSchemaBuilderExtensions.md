@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonSchemaBuilderExtensions Class"
 bookmark: "JsonSchemaBuilderExtensions"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.084"
+order: "10.01.086"
 ---
 **Namespace:** Json.Schema
 
@@ -1785,27 +1785,6 @@ public static JsonSchemaBuilder Unrecognized(this JsonSchemaBuilder builder, str
 #### Returns
 
 The builder.
-
-### Validate(this JsonSchemaBuilder builder, JsonNode root, EvaluationOptions options)
-
-Convenience method that builds and evaluates with a single call.
-
-#### Declaration
-
-```c#
-public static EvaluationResults Validate(this JsonSchemaBuilder builder, JsonNode root, EvaluationOptions options)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| builder | JsonSchemaBuilder | The builder. |
-| root | JsonNode | The root instance. |
-| options | EvaluationOptions | The options to use for this evaluation. |
-
-
-#### Returns
-
-A **Json.Schema.EvaluationResults** that provides the outcome of the evaluation.
 
 ### Vocabulary(this JsonSchemaBuilder builder, params (Uri id, bool required)[] vocabs)
 

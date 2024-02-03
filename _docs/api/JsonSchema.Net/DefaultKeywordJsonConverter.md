@@ -10,11 +10,17 @@ order: "10.01.024"
 **Inheritance:**
 `DefaultKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<DefaultKeyword>`
+ 🡒 
 `JsonConverter<DefaultKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.DefaultKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.DefaultKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

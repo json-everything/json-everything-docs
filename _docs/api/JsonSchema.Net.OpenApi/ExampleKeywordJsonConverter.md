@@ -10,11 +10,17 @@ order: "10.04.003"
 **Inheritance:**
 `ExampleKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<ExampleKeyword>`
+ 🡒 
 `JsonConverter<ExampleKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.OpenApi.ExampleKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.OpenApi.ExampleKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

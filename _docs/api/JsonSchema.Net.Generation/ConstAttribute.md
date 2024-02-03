@@ -28,22 +28,127 @@ Applies a `const` keyword.
 |---|---|---|
 | **ConditionGroup** | object | Identifies the condition group under which this attribute applies. |
 | **TypeId** | object |  |
-| **Value** | object | The value. |
+| **Value** | JsonNode | The value. |
 
 ## Constructors
 
-### ConstAttribute(object value)
+### ConstAttribute(int value)
 
 Creates a new **Json.Schema.Generation.ConstAttribute** instance.
 
 #### Declaration
 
 ```c#
-public ConstAttribute(object value)
+public ConstAttribute(int value)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
-| value | object | The value. |
+| value | int | The value. |
+
+
+### ConstAttribute(uint value)
+
+Creates a new **Json.Schema.Generation.ConstAttribute** instance.
+
+#### Declaration
+
+```c#
+public ConstAttribute(uint value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| value | uint | The value. |
+
+
+### ConstAttribute(long value)
+
+Creates a new **Json.Schema.Generation.ConstAttribute** instance.
+
+#### Declaration
+
+```c#
+public ConstAttribute(long value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| value | long | The value. |
+
+
+### ConstAttribute(ulong value)
+
+Creates a new **Json.Schema.Generation.ConstAttribute** instance.
+
+#### Declaration
+
+```c#
+public ConstAttribute(ulong value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| value | ulong | The value. |
+
+
+### ConstAttribute(float value)
+
+Creates a new **Json.Schema.Generation.ConstAttribute** instance.
+
+#### Declaration
+
+```c#
+public ConstAttribute(float value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| value | float | The value. |
+
+
+### ConstAttribute(double value)
+
+Creates a new **Json.Schema.Generation.ConstAttribute** instance.
+
+#### Declaration
+
+```c#
+public ConstAttribute(double value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| value | double | The value. |
+
+
+### ConstAttribute(string value)
+
+Creates a new **Json.Schema.Generation.ConstAttribute** instance.
+
+#### Declaration
+
+```c#
+public ConstAttribute(string value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| value | string | The value. |
+
+
+### ConstAttribute(bool value)
+
+Creates a new **Json.Schema.Generation.ConstAttribute** instance.
+
+#### Declaration
+
+```c#
+public ConstAttribute(bool value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| value | bool | The value. |
 
 

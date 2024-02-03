@@ -10,11 +10,17 @@ order: "10.01.020"
 **Inheritance:**
 `ContentMediaTypeKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<ContentMediaTypeKeyword>`
+ 🡒 
 `JsonConverter<ContentMediaTypeKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.ContentMediaTypeKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.ContentMediaTypeKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 
