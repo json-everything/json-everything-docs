@@ -127,8 +127,9 @@ var result = JsonE.Evaluate(template, context);
 > The functions you provide should handle errors better than shown above.  Take a look at the source for examples on how to handle errors in an expected way.
 {: .prompt-warning }
 
-> The `JsonFunction` type defines an explicit cast that automatically wraps the function in a `JsonValue`.  This is how the function can be included within the _System.Text.Json.Nodes_ data structure.
-{: .prompt-info }
+The `JsonFunction` type defines an explicit cast that automatically wraps the function in a `JsonValue`.  This is how the function can be included within the _System.Text.Json.Nodes_ data structure.
+
+> Do not return a `JsonNode` that already has a parent.  Instead make a copy using the `.Copy()` extension method and return that.  DO NOT use the built-in `JsonNode.DeepClone()` method as it cannot properly handle nodes that contain functions.
 
 A `JsonFunction` takes two parameters.  In the above example,
 
