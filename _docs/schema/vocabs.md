@@ -104,7 +104,7 @@ The keywords must still be registered separately (see "Defining Custom Keywords"
 
 It's not always necessary to have a meta-schema for your vocabulary.  However, if you want to enable `EvaluationOptions.ValidateMetaschema`, you will need to register it.
 
-# Defining Custom Keywords {#schema-vocabs-custom-keywords}
+## Defining Custom Keywords {#schema-vocabs-custom-keywords}
 
 `JsonSchema` has been designed to allow you to create your own keywords.  There are several steps that need to be performed to do this.
 
@@ -122,17 +122,31 @@ And your new keyword is ready to use.
 
 Lastly, remember that the best resource building keywords is [the code](https://github.com/gregsdennis/json-everything/tree/master/JsonSchema) where all of the built-in keywords are defined.
 
-## Evaluation philosophy
+### Evaluation philosophy
 
 Starting with version 5 of _JsonSchema.Net_, schema evaluation occurs in two stages: gathering constraints and processing evaluations.  Constraints represent all of the work that can be performed by the keyword without an instance, while evaluations complete the work.  By separating these stages, _JsonSchema.Net_ can reuse the constraints for subsequent runs, allowing faster run times and fewer memory allocations.
 
 Both stages are defined by implementing the single method on `IJsonSchemaKeyword`.
 
-## 1. Implement `IJsonSchemaKeyword` {#schema-vocabs-custom-keywords-1}
+### Ahead of Time (AOT) compatibility {#aot}
+
+_JsonSchema.Net_ v6 includes updates to support [Native AOT applications](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/).  Please be sure to read the main AOT section on the [overview page](/schema/basics#aot).
+
+Frist, you'll need to add `[JsonSerializable]` attributes for any custom keywords.
+
+```c#
+[JsonSerializable(typeof(MyKeyword))]
+```
+
+Second, you'll need to register your keywords using the `SchemaKeywordRegistry.Register<T>(JsonSerializerContext)` method overload, passing in your serializer context, to provide the library access to the `JsonTypeInfo` for your keyword type.
+
+Lastly, due to the dynamic nature of how rules are serialized, your JSON converter MUST implement `IWeaklyTypedJsonConverter` which is defined by _Json.More.Net_.  The library also defines a `WeaklyTypeJsonConverter<T>` abstract class that you can use as a base.  It's also highly recommended that you take advantage of the `JsonSerializerOptions` [read/write extensions](/more/json-more/#ahead-of-time-aot-compilation-support) provided by _Json.More.Net_.
+
+### 1. Implement `IJsonSchemaKeyword` {#schema-vocabs-custom-keywords-1}
 
 Implementing your keyword will require some initial thought and design around what work the keyword can perform without the instance and what work requires the instance.  To illustrate this, let's look at a couple of the existing keyword implementations.
 
-### `maximum`
+#### `maximum`
 
 The `maximum` keyword is basically all instance.  It asks, "Is the instance a number, and, if so, does it exceed some maximum value?"  As such, there's not really much in the way of pre-processing that can be accomplished here that isn't handled in the background.  Therefore, all of the work is done by an `Evaluator()` method.
 
@@ -174,7 +188,7 @@ For `maximum`, evaluation means we check if the value is a number.  If not, we i
 > `maximum` doesn't have any nested results, but it's still good form to explicitly indicate this.
 {: .prompt-info }
 
-### `properties`
+#### `properties`
 
 The `properties` keyword presents an opportunity to calculate some things before we have the instance.  For example, with this schema
 
@@ -233,7 +247,7 @@ When we move into the evaluation phase, all of the child constraints that align 
 > The specification requires that annotations are not reported when validation fails, however this requirement is enforced at the (sub)schema level, not at the keyword level.  Annotations are still generally required for sibling keywords (i.e. within the same subschema) to interoperate correctly.
 {: .prompt-warning }
 
-### Other variations
+#### Other variations
 
 There are a few other variations of keyword interactions, and it may be worth inspecting the code for some of these examples.
 
@@ -254,7 +268,7 @@ There are a few other variations of keyword interactions, and it may be worth in
 
 Understanding the patterns that already exist will help you build your own keyword implementations.
 
-### Saving evaluation results
+#### Saving evaluation results
 
 Once you have validated the instance, you'll need to record the results.  These methods are available on the local result object.
 
@@ -267,7 +281,7 @@ Once you have validated the instance, you'll need to record the results.  These 
 
 Set any annotations by using `.SetAnnotation()` on the local result object.  Generally this needs to be done whether the keyword passes or fails validation.  Annotations are stored as a key-value pair, using the keyword name as the key.  The value can be anything, but it _should_ be JSON-serializable in order to be rendered properly in the output.
 
-## 2. Implement one of the schema-container interfaces {#schema-vocabs-custom-keywords-2}
+### 2. Implement one of the schema-container interfaces {#schema-vocabs-custom-keywords-2}
 
 If your keyword contains one or more subschemas, you'll need to implement one of these:
 
@@ -278,7 +292,7 @@ If your keyword contains one or more subschemas, you'll need to implement one of
 
 These will be used at the beginning of the first evaluation and during schema registration to traverse all of the subschemas a provide IDs where none is explicitly declared.  This goes on to help `$ref` and friends to their job while also making that job faster.
 
-## 3. Apply some attributes {#schema-vocabs-custom-keyword-3}
+### 3. Apply some attributes {#schema-vocabs-custom-keyword-3}
 
 *JsonSchema.Net* contains several attributes that you should use to specify some metadata about your keyword.
 
@@ -287,11 +301,11 @@ These will be used at the beginning of the first evaluation and during schema re
 - `SchemaVersion` - Declares a version that supports the keyword.  This can be used multiple times to declare additional drafts.
 - `Vocabulary` - Declares the ID of the vocabulary which defines the the keyword.
 
-## 4. Register your keyword {#schema-vocabs-custom-keywords-4}
+### 4. Register your keyword {#schema-vocabs-custom-keywords-4}
 
 To make *JsonSchema.Net* aware of your keyword, you must register it with `SchemaKeywordRegistry.Register<T>()`.  This will enable deserialization.
 
-### Now make it nice to use {#schema-vocabs-custom-extensions}
+#### Now make it nice to use {#schema-vocabs-custom-extensions}
 
 To enable the fluent construction interface for your keyword, simply create an extension method on `JsonSchemaBuilder` that adds the keyword and returns the builder.  For example, adding a `description` keyword is implemented by this method:
 
@@ -303,7 +317,7 @@ public static JsonSchemaBuilder Description(this JsonSchemaBuilder builder, stri
 }
 ```
 
-## 5. Create a JSON converter {#schema-vocabs-custom-converter}
+### 5. Create a JSON converter {#schema-vocabs-custom-converter}
 
 To enable serialization and deserialization, you'll need to provide the converter for it.
 

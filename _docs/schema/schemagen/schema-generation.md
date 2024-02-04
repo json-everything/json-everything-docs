@@ -16,6 +16,9 @@ var schema = schemaBuilder.FromType<MyType>().Build();
 
 Done.
 
+> The validating converter described in this document requires AOT-incompatible reflection to operate, so it will not be usable in a Native AOT context.
+{: .prompt-warning}
+
 ## IMPORTANT {#schema-schemagen-disclaimer}
 
 Ideally, this functionality should be used to create a starting point in authoring a schema.  The schemas output by this library should be reviewed by actual people prior to being put into a production system.

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Enhancing Deserialization with JSON Schema
-bookmark: Serialization
+bookmark: Serialization with Validation
 permalink: /schema/:title/
 icon: fas fa-tag
 order: "01.2"
@@ -14,6 +14,9 @@ Let's walk through it.
 
 > More on JSON Schema support during deserialization can be found on the `json-everything` [blog](https://blog.json-everything.net/posts/deserialization-with-schemas/).
 {: .prompt-tip }
+
+> The validating converter described in this document requires AOT-incompatible reflection to operate, so it will not be usable in a Native AOT context.
+{: .prompt-warning}
 
 ## Setting up the converter {#schema-deserialization-setup}
 

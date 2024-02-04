@@ -158,7 +158,7 @@ var serializerOptions = new()
 };
 ```
 
-If you don't have any custom rules.  You're done.  Congratulations.
+If you don't have any custom rules, you're done.  Congratulations.
 
 If you do have custom rules, you'll want to add `[JsonSerializable]` attributes for those as well.
 
