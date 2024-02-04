@@ -137,7 +137,7 @@ Much nicer!
 
 ## Ahead of Time (AOT) compilation support
 
-Building on the above `JsonSerializerOptions` extensions, there are a number of serialization extensions that were added to support AOT compilation.
+Building on the above `JsonSerializerOptions` extensions, there are a number of serialization extensions that were added to support [Native AOT applications](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/).
 
 When serializing under AOT, the recommended approach is to have source generation create a `JsonTypeInfo<T>` object that you pass to the serializer.  The `JsonTypeInfo<T>` object has all of the information that would normally be discover at runtime through reflection, except that all of the introspection is done at compile time.  That recommended serializer call looks like this:
 

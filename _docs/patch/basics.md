@@ -100,3 +100,25 @@ Other related features:
 
 - Generate reverse patches: `target.CreatePatch(start)`
 - Generate patches between .Net objects: `myObject1.CreatePatch(myObject2)`
+
+## Ahead of Time (AOT) compatibility {#aot}
+
+_JsonPatch.Net_ v3 includes updates to support [Native AOT applications](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/).  In order to take advantage of this, there are a few things you'll need to do.
+
+First, on your `JsonSerializerContext`, add the following attributes:
+
+```c#
+[JsonSerializable(typeof(JsonPatch))]
+[JsonSerializable(typeof(PatchResult))]
+```
+
+It's recommended that you create a single `JsonSerializerOptions` object (or a few if you need different configurations) and reuse it rather than creating them ad-hoc.  When you create one, you'll need to configure its `TypeResolverChain` with your serializer context:
+
+```c#
+var serializerOptions = new()
+{
+    TypeInfoResolverChain = { MySerializerContext.Default }
+};
+```
+
+You're done.  Congratulations.

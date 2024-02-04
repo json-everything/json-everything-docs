@@ -141,12 +141,21 @@ The rules in this library implement the Json Logic Specification.  If you overri
 
 ## Ahead of Time (AOT) compatibility {#aot}
 
-_JsonLogic_ v6 includes updates to support AOT.  In order to take advantage of this, there are a few things you'll need to do.
+_JsonLogic_ v5 includes updates to support [Native AOT applications](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/).  In order to take advantage of this, there are a few things you'll need to do.
 
 First, on your `JsonSerializerContext`, add the following attributes:
 
 ```c#
 [JsonSerializable(typeof(Rule))]
+```
+
+It's recommended that you create a single `JsonSerializerOptions` object (or a few if you need different configurations) and reuse it rather than creating them ad-hoc.  When you create one, you'll need to configure its `TypeResolverChain` with your serializer context:
+
+```c#
+var serializerOptions = new()
+{
+    TypeInfoResolverChain = { MySerializerContext.Default }
+};
 ```
 
 If you don't have any custom rules.  You're done.  Congratulations.
