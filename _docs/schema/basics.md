@@ -72,7 +72,7 @@ First, on your `JsonSerializerContext`, add the following attributes:
 [JsonSerializable(typeof(EvaluationResults))]
 ```
 
-It's recommended that you create a single `JsonSerializerOptions` object (or a few if you need different configurations) and reuse it rather than creating them ad-hoc.  When you create one, you'll need to configure its `TypeResolverChain` with your serializer context:
+It's recommended that you create a single `JsonSerializerOptions` object (or a few if you need different configurations) and reuse it rather than creating them ad-hoc.  When you create one, you'll need to configure its `TypeInfoResolverChain` with your serializer context:
 
 ```c#
 var serializerOptions = new()
