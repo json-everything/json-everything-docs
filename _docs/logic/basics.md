@@ -9,7 +9,7 @@ order: "05.1"
 ---
 [JSON Logic](https://jsonlogic.com) is a mechanism that can be used to apply logical transformations to JSON values and that is also itself expressed in JSON.
 
-# The syntax {#logic-syntax}
+## The syntax {#logic-syntax}
 
 JSON Logic is expressed using single-keyed objects called _rules_.  The key is the operator and the value is (usually) an array containing the parameters for the operation.  Here are a few examples:
 
@@ -27,7 +27,7 @@ So if we want to ensure a value in the input data is less than 2, we could use `
 
 There are many operators that work on different data types, ranging from string and array manipulation to arithmetic to boolean logic.  The full list is [on their website](https://jsonlogic.com/operations.html), and their docs are pretty good, so I won't repeat the list here.
 
-# In code {#logic-in-code}
+## In code {#logic-in-code}
 
 The library defines an object model for rules, starting with the `Rule` base class.  This type is fully serializeable, so if you have rules in a text format, just deserialize them to get a `Rule` instance.
 
@@ -60,11 +60,11 @@ or via `JsonNode.Parse()`.
 
 \* _JSON null literals need to either be cast to `string`, use `JsonNull.Node` from Json.More.Net, or use the provided `LiteralRule.Null`.  All of these result in the same semantic value._
 
-# Gotchas for .Net developers {#logic-gotchas}
+## Gotchas for .Net developers {#logic-gotchas}
 
 In developing this library, I found that many of the operations don't align with similar operations in .Net.  Instead they tend to mimic the behavior of Javascript.  In this section, I'll try to list some of the more significant ones.
 
-## `==` vs `===` {#logic-equality}
+### `==` vs `===` {#logic-equality}
 
 `===` defines a "strict" equality.  This is the equality we're all familiar with in .Net.
 
@@ -89,7 +89,7 @@ That _should_ cover everything, but in case something's missed, it'll just retur
 
 \*\* _These cases effectively mean that the array must have a single element that is loosely equal to the number, though perhaps something like `[1,234]` might pass.  Again, the equality is **very** loose._
 
-## Type conversion {#logic-conversions}
+### Type conversion {#logic-conversions}
 
 Some operations operate on specific types: sometimes strings, sometimes numbers.  To ensure maximum support, an attempt will be made to convert values to the type that the operation prefers.  If the value cannot be converted, a `JsonLogicException` will be thrown.
 
@@ -101,13 +101,13 @@ Because `+` supports both numbers (addition) and strings (concatenation); it wil
 
 Objects are never converted.
 
-## Automatic array flattening {#logic-array-flattening}
+### Automatic array flattening {#logic-array-flattening}
 
 Nested arrays are flattened before being operated upon.  As an example of this, `[["a"]]` is flattened to `["a"]` and `["a",["b"]]` is flattened to `["a","b"]`. 
 
 That's it.  Not much to it; just be aware that it happens.
 
-# Creating new operators {#logic-new-operators}
+## Creating new operators {#logic-new-operators}
 
 JSON Logic also supports [adding custom operations](https://jsonlogic.com/add_operation.html).
 
@@ -128,8 +128,29 @@ It's definitely recommended to go through the [code for the built-in ruleset](ht
 
 Once your rule is defined, it needs to be registered using the `RuleRegistry.Register<T>()` method.  This will allow the rule to be automatically deserialized.
 
-# Overriding existing operators {#logic-overriding}
+Lastly, you'll need to create a JSON converter for your rule.  Due to the dynamic nature of how rules are serialized, your converter MUST implement `IWeaklyTypedJsonConverter` which is defined by _Json.More.Net_.  The library also defines a `WeaklyTypeJsonConverter<T>` abstract class that you can use as a base.
+
+> Also see the [AOT section](#aot) below for AOT-compatibility requirements.
+{: info-warning}
+
+## Overriding existing operators {#logic-overriding}
 
 While this library allows you to inherit from, and therefore override, the default behavior of a `Rule`, you need to be aware of the implications.
 
 The rules in this library implement the Json Logic Specification.  If you override this behavior, then you are no longer implementing that specification, and you lose interoperability with other implementations.  If you want custom behavior _and_ have this custom behavior common across implementations, you'll need to also override the behavior in _every_ implementation and application you use.
+
+## Ahead of Time (AOT) compatibility {#aot}
+
+_JsonLogic_ v6 includes updates to support AOT.  In order to take advantage of this, there are a few things you'll need to do.
+
+First, on your `JsonSerializerContext`, add the following attributes:
+
+```c#
+[JsonSerializable(typeof(Rule))]
+```
+
+If you don't have any custom rules.  You're done.  Congratulations.
+
+If you do have custom rules, you'll want to add `[JsonSerializable]` attributes for those as well.
+
+For AOT-compatibility, you'll need to register your rules using the `RuleRegistry.AddRule<T>(JsonSerializerContext)` method overload, passing in your serializer context, to provide the library access to the `JsonTypeInfo` for your rule type.
