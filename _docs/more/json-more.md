@@ -28,7 +28,7 @@ Additionally, an `IEqualityComparer<JsonNode>` is supplied (`JsonNodeEqualityCom
 > Comparers are also supplied for `JsonDocument` and `JsonElement`.
 {: .prompt-info }
 
-# Explicitly specifying JSON null with `JsonNull` {#more-null}
+## Explicitly specifying JSON null with `JsonNull` {#more-null}
 
 > As of _Json.More.Net_ v6, the `JsonNull` type has been removed.  I still believe there needs to be a distinction between .Net null and JSON `null`, but trying to inject that distinction into a system that doesn't use it creates confusion.  I recommend using a `Try...(..., out JsonNode? value)` pattern instead.
 {: .prompt-warning}
@@ -42,7 +42,7 @@ Under the covers, it's just a singleton `JsonValue<JsonNull>`.  Use `ReferenceEq
 > This is provided exclusively as a signal.  It is not intended to be saved.  Best practice is to continue to save null.  [See the code](https://github.com/gregsdennis/json-everything/blob/595045ec8258f4073ee5666c721609a9c0886490/JsonSchema/ValidationContext.cs#L146-L149) for an example of proper usage.
 {: .prompt-warning }
 
-# Enum serialization {#more-enums}
+## Enum serialization {#more-enums}
 
 The `EnumStringConverter<T>` class enables string encoding of enum values.  `T` is the enum type.
 
@@ -75,7 +75,7 @@ public enum MyFlagsEnum
 
 To use this converter, apply the `[JsonConverter(typeof(EnumStringConverter<T>))]` to either the enum or an enum-valued property.
 
-# Building better converters
+## Building better converters
 
 Unfortunately, the most obvious way to deserialize nested properties inside a custom converter isn't the recommended approach.
 
@@ -135,7 +135,7 @@ class MyJsonConverter : JsonConverter<MyClass>
 
 Much nicer!
 
-# Ahead of Time (AOT) compilation support
+## Ahead of Time (AOT) compilation support
 
 Building on the above `JsonSerializerOptions` extensions, there are a number of serialization extensions that were added to support AOT compilation.
 
@@ -157,7 +157,7 @@ So the above code can be rewritten as:
 options.Write(writer, value, MySerializerContext.Default.MyValue);
 ```
 
-## Working around a known _System.Text.Json_ bug
+### Working around a known _System.Text.Json_ bug
 
 There is a [known issue](https://github.com/dotnet/runtime/issues/50205) in _System.Text.Json_.  `JsonTypeInfo` is strongly linked to the `JsonSerializerOptions` that it's generated with.  The issue reports that attempting to use the type info with a different options object throws an exception.
 
@@ -184,7 +184,7 @@ internal partial class MySerializerContext : JsonSerializerContext;
 options.WriteArray(writer, value, MySerializerContext.Default.MyType);
 ```
 
-## Weakly-typed serialization
+### Weakly-typed serialization
 
 The occasion may arise where you need to deserialize a value, but you don't know what type the value is at compile time.  Out of the box, this isn't supported when requiring AOT-compatible serialization.  The primary impediment to this is that `JsonConverter`, the non-generic base for all JSON converters, doesn't itself define a `.Read()` or `.Write()` method.
 
@@ -193,11 +193,11 @@ To address this, _Json.More.Net_ provides the `WeaklyTypedJsonConverter<T>` whic
 > You'll likely only need to use this if you're extending `json-everything` functionality, like making custom JSON Schema keywords or custom JSON Logic rules.
 {: .prompt-info}
 
-## AOT-incompatibility
+### AOT-incompatibility
 
 There is some functionality that could not be made AOT-compatible.  All of this functionality has been appropriately marked with attributes that will generate compiler warnings in an AOT-required context.
 
-# Value tuple serialization
+## Value tuple serialization
 
 The `JsonArrayTupleConverter` will handle any size `ValueTuple<T>`/`ValueType<T1, T2>`/etc. by serializing the values to and from an array.
 
@@ -217,9 +217,9 @@ var tuple = JsonSerializer.Deserialize<(int, string)>(json, options);
 
 When deserializing, if the value isn't an array or if array isn't the right length for the requested tuple type, a `JsonException` will be thrown.
 
-# Data conversions {#more-conversion}
+## Data conversions {#more-conversion}
 
-## `.AsNode()` extension {#more-asnode}
+### `.AsNode()` extension {#more-asnode}
 
 Previous versions of the libraries in the `json-everything` suite were built on `JsonElement`.  They have since been migrated to support `JsonNode` directly.
 
@@ -231,7 +231,7 @@ JsonNode? node = element.AsNode();
 
 Note that this does potentially return null to handle the JSON null case.
 
-## `.ToJsonArray()` extension {#more-toarray}
+### `.ToJsonArray()` extension {#more-toarray}
 
 .Net provided `JsonArray` with a constructor that takes an array of `JsonNode?`, however they don't support converting _any_ enumerable of nodes into an array.  This extension will handle that for you.
 
@@ -239,7 +239,7 @@ Note that this does potentially return null to handle the JSON null case.
 JsonArray array = new List<JsonNode?>{ 1, null, false }.ToJsonArray();
 ```
 
-## `.AsJsonElement()` extension {#more-aselement}
+### `.AsJsonElement()` extension {#more-aselement}
 
 Sometimes you just want a `JsonElement` that represents a simple value, like a string, boolean, or number.  This library exposes several overloads of the `.AsJsonElement()` extension that can do this for you.
 
@@ -265,7 +265,7 @@ var obj = new Dictionary<string, JsonElement>{
 }
 ```
 
-## Making methods that require `JsonElement` easier to call {#more-proxy}
+### Making methods that require `JsonElement` easier to call {#more-proxy}
 
 > If you're using `JsonNode`, you shouldn't need this as it already defines implicit casts from the appropriate types.
 {: .prompt-info}
@@ -310,13 +310,13 @@ myObject.SomeMethod("string");
 
 To achieve this without `JsonElementProxy`, you could also create overloads for `short`, `int`, `long`, `float`, `double`, `decimal`, `string`, and `bool`.
 
-# JSON model serialization {#more-serialization}
+## JSON model serialization {#more-serialization}
 
 The .Net team did a great job of supporting fast serialization, but for whatever reason they didn't implement serializing their data model.  The `Utf8JsonWriterExtensions` class fills that gap.
 
 This provides an extension method that writes a `JsonElement` to the stream.
 
-# Building better converters
+## Building better converters
 
 Unfortunately, the most obvious way to deserialize nested properties inside a custom converter isn't the recommended approach.
 
