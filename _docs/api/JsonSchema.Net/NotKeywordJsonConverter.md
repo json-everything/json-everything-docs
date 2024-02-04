@@ -3,18 +3,24 @@ layout: "page"
 title: "NotKeywordJsonConverter Class"
 bookmark: "NotKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.114"
+order: "10.01.117"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `NotKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<NotKeyword>`
+ 🡒 
 `JsonConverter<NotKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.NotKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.NotKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

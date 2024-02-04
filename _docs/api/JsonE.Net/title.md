@@ -4,5 +4,5 @@ bookmark: JsonE.Net
 permalink: /api/JsonE.Net/:title/
 folder: true
 order: "10.12"
-version: "1.0.2"
+version: "2.0.0"
 ---

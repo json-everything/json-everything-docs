@@ -10,11 +10,17 @@ order: "10.01.003"
 **Inheritance:**
 `AdditionalPropertiesKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<AdditionalPropertiesKeyword>`
+ 🡒 
 `JsonConverter<AdditionalPropertiesKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.AdditionalPropertiesKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.AdditionalPropertiesKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

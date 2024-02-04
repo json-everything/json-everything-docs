@@ -12,7 +12,7 @@ order: "10.06.005"
  🡒 
 `object`
 
-Managees a collection of number ranges as a single entity.
+Manages a collection of number ranges as a single entity.
 
 ## Properties
 

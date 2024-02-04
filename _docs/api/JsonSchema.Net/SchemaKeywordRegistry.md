@@ -3,7 +3,7 @@ layout: "page"
 title: "SchemaKeywordRegistry Class"
 bookmark: "SchemaKeywordRegistry"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.152"
+order: "10.01.155"
 ---
 **Namespace:** Json.Schema
 
@@ -50,6 +50,21 @@ Registers a new keyword type.
 ```c#
 public static void Register()
 ```
+
+
+### Register(JsonSerializerContext typeContext)
+
+Registers a new keyword type.
+
+#### Declaration
+
+```c#
+public static void Register(JsonSerializerContext typeContext)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| typeContext | JsonSerializerContext | JsonTypeInfo for the keyword type |
 
 
 ### RegisterNullValue(T nullKeyword)

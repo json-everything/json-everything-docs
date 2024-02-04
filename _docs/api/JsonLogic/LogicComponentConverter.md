@@ -3,7 +3,7 @@ layout: "page"
 title: "LogicComponentConverter Class"
 bookmark: "LogicComponentConverter"
 permalink: "/api/JsonLogic/:title/"
-order: "10.11.016"
+order: "10.11.015"
 ---
 **Namespace:** Json.Logic
 
@@ -24,6 +24,7 @@ Provides serialization for all **Json.Logic.Rule** derivatives.
 |---|---|---|
 | **HandleNull** | bool | Indicates whether \<see langword="null" /\> should be passed to the converter on serialization, and whether **System.Text.Json.JsonTokenType.Null** should be passed on deserialization. |
 | **SaveSource** | bool | Gets or sets whether to save the source data for re-serialization; default is true. |
+| **Type** | Type |  |
 
 ## Methods
 

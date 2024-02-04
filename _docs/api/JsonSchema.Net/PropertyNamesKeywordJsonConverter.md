@@ -3,18 +3,24 @@ layout: "page"
 title: "PropertyNamesKeywordJsonConverter Class"
 bookmark: "PropertyNamesKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.134"
+order: "10.01.137"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `PropertyNamesKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<PropertyNamesKeyword>`
+ 🡒 
 `JsonConverter<PropertyNamesKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.PropertyNamesKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.PropertyNamesKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

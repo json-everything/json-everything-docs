@@ -3,18 +3,24 @@ layout: "page"
 title: "DynamicAnchorKeywordJsonConverter Class"
 bookmark: "DynamicAnchorKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.042"
+order: "10.01.043"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `DynamicAnchorKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<DynamicAnchorKeyword>`
+ 🡒 
 `JsonConverter<DynamicAnchorKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.DynamicAnchorKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.DynamicAnchorKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

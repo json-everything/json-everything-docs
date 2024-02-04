@@ -22,23 +22,23 @@ Provides intent to create a `const` keyword.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Value** | object | The expected value. |
+| **Value** | JsonNode | The expected value. |
 
 ## Constructors
 
-### ConstIntent(object value)
+### ConstIntent(JsonNode value)
 
 Creates a new **Json.Schema.Generation.Intents.ConstIntent** instance.
 
 #### Declaration
 
 ```c#
-public ConstIntent(object value)
+public ConstIntent(JsonNode value)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
-| value | object | The value. |
+| value | JsonNode | The value. |
 
 
 ## Methods

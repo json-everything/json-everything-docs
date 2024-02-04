@@ -3,18 +3,24 @@ layout: "page"
 title: "JsonPointerJsonConverter Class"
 bookmark: "JsonPointerJsonConverter"
 permalink: "/api/JsonPointer.Net/:title/"
-order: "10.10.003"
+order: "10.10.002"
 ---
 **Namespace:** Json.Pointer
 
 **Inheritance:**
 `JsonPointerJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<JsonPointer>`
+ 🡒 
 `JsonConverter<JsonPointer>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 Converter for **Json.Pointer.JsonPointer**.
 
@@ -23,6 +29,7 @@ Converter for **Json.Pointer.JsonPointer**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

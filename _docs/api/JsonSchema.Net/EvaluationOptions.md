@@ -3,7 +3,7 @@ layout: "page"
 title: "EvaluationOptions Class"
 bookmark: "EvaluationOptions"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.053"
+order: "10.01.054"
 ---
 **Namespace:** Json.Schema
 
@@ -90,7 +90,7 @@ A new options instance with the same settings.
 
 ### IgnoreAllAnnotations()
 
-
+Ignores annotations from all keywords.
 
 #### Declaration
 

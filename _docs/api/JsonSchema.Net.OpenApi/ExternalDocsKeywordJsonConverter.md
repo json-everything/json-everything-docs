@@ -10,11 +10,17 @@ order: "10.04.005"
 **Inheritance:**
 `ExternalDocsKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<ExternalDocsKeyword>`
+ 🡒 
 `JsonConverter<ExternalDocsKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.OpenApi.ExternalDocsKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.OpenApi.ExternalDocsKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

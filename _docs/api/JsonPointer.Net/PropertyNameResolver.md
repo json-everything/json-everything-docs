@@ -3,7 +3,7 @@ layout: "page"
 title: "PropertyNameResolver Delegate"
 bookmark: "PropertyNameResolver"
 permalink: "/api/JsonPointer.Net/:title/"
-order: "10.10.008"
+order: "10.10.007"
 ---
 # PropertyNameResolver Delegate
 

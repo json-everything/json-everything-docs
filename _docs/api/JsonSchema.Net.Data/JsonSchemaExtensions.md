@@ -31,3 +31,18 @@ public static IReadOnlyDictionary<string, IDataResourceIdentifier> GetData(this 
 
 
 
+### GetOptionalData(this JsonSchema schema)
+
+Gets the references in `optionalData` if the keyword exists.
+
+#### Declaration
+
+```c#
+public static IReadOnlyDictionary<string, IDataResourceIdentifier> GetOptionalData(this JsonSchema schema)
+```
+
+
+#### Returns
+
+
+

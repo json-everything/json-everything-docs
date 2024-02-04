@@ -10,11 +10,17 @@ order: "10.01.009"
 **Inheritance:**
 `AnyOfKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<AnyOfKeyword>`
+ 🡒 
 `JsonConverter<AnyOfKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.AnyOfKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.AnyOfKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

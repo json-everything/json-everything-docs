@@ -10,11 +10,17 @@ order: "10.03.008"
 **Inheritance:**
 `UniqueKeysKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<UniqueKeysKeyword>`
+ 🡒 
 `JsonConverter<UniqueKeysKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.ArrayExt.UniqueKeysKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.ArrayExt.UniqueKeysKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

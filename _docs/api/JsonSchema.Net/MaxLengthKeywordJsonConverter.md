@@ -3,18 +3,24 @@ layout: "page"
 title: "MaxLengthKeywordJsonConverter Class"
 bookmark: "MaxLengthKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.097"
+order: "10.01.100"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `MaxLengthKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<MaxLengthKeyword>`
+ 🡒 
 `JsonConverter<MaxLengthKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.MaxLengthKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.MaxLengthKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

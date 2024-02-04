@@ -3,7 +3,7 @@ layout: "page"
 title: "ISchemaContainer Interface"
 bookmark: "ISchemaContainer"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.075"
+order: "10.01.077"
 ---
 **Namespace:** Json.Schema
 

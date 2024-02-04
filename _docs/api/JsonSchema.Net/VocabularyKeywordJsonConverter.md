@@ -3,18 +3,24 @@ layout: "page"
 title: "VocabularyKeywordJsonConverter Class"
 bookmark: "VocabularyKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.180"
+order: "10.01.183"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `VocabularyKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<VocabularyKeyword>`
+ 🡒 
 `JsonConverter<VocabularyKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.VocabularyKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.VocabularyKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

@@ -3,18 +3,24 @@ layout: "page"
 title: "RefKeywordJsonConverter Class"
 bookmark: "RefKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.142"
+order: "10.01.145"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `RefKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<RefKeyword>`
+ 🡒 
 `JsonConverter<RefKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.RefKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.RefKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

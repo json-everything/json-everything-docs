@@ -3,18 +3,24 @@ layout: "page"
 title: "MultipleOfKeywordJsonConverter Class"
 bookmark: "MultipleOfKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.112"
+order: "10.01.115"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `MultipleOfKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<MultipleOfKeyword>`
+ 🡒 
 `JsonConverter<MultipleOfKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.MultipleOfKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.MultipleOfKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

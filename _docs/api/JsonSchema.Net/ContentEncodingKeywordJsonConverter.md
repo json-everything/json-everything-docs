@@ -10,11 +10,17 @@ order: "10.01.018"
 **Inheritance:**
 `ContentEncodingKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<ContentEncodingKeyword>`
+ 🡒 
 `JsonConverter<ContentEncodingKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.ContentEncodingKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.ContentEncodingKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

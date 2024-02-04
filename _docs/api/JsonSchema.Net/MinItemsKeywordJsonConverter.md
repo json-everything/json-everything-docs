@@ -3,18 +3,24 @@ layout: "page"
 title: "MinItemsKeywordJsonConverter Class"
 bookmark: "MinItemsKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.106"
+order: "10.01.109"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `MinItemsKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<MinItemsKeyword>`
+ 🡒 
 `JsonConverter<MinItemsKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.MinItemsKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.MinItemsKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

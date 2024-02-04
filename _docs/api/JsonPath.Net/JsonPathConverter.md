@@ -23,6 +23,7 @@ JSON converter for **Json.Path.JsonPath**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

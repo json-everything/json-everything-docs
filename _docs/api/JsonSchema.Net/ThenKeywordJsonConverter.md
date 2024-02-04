@@ -3,18 +3,24 @@ layout: "page"
 title: "ThenKeywordJsonConverter Class"
 bookmark: "ThenKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.160"
+order: "10.01.163"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `ThenKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<ThenKeyword>`
+ 🡒 
 `JsonConverter<ThenKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.ThenKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.ThenKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

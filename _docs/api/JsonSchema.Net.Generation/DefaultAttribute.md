@@ -28,22 +28,127 @@ Applies a `default` keyword.
 |---|---|---|
 | **ConditionGroup** | object | Identifies the condition group under which this attribute applies. |
 | **TypeId** | object |  |
-| **Value** | object | The value. |
+| **Value** | JsonNode | The value. |
 
 ## Constructors
 
-### DefaultAttribute(object value)
+### DefaultAttribute(int value)
 
 Creates a new **Json.Schema.Generation.DefaultAttribute** instance.
 
 #### Declaration
 
 ```c#
-public DefaultAttribute(object value)
+public DefaultAttribute(int value)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
-| value | object | The value. |
+| value | int | The value. |
+
+
+### DefaultAttribute(uint value)
+
+Creates a new **Json.Schema.Generation.DefaultAttribute** instance.
+
+#### Declaration
+
+```c#
+public DefaultAttribute(uint value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| value | uint | The value. |
+
+
+### DefaultAttribute(long value)
+
+Creates a new **Json.Schema.Generation.DefaultAttribute** instance.
+
+#### Declaration
+
+```c#
+public DefaultAttribute(long value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| value | long | The value. |
+
+
+### DefaultAttribute(ulong value)
+
+Creates a new **Json.Schema.Generation.DefaultAttribute** instance.
+
+#### Declaration
+
+```c#
+public DefaultAttribute(ulong value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| value | ulong | The value. |
+
+
+### DefaultAttribute(float value)
+
+Creates a new **Json.Schema.Generation.DefaultAttribute** instance.
+
+#### Declaration
+
+```c#
+public DefaultAttribute(float value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| value | float | The value. |
+
+
+### DefaultAttribute(double value)
+
+Creates a new **Json.Schema.Generation.DefaultAttribute** instance.
+
+#### Declaration
+
+```c#
+public DefaultAttribute(double value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| value | double | The value. |
+
+
+### DefaultAttribute(string value)
+
+Creates a new **Json.Schema.Generation.DefaultAttribute** instance.
+
+#### Declaration
+
+```c#
+public DefaultAttribute(string value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| value | string | The value. |
+
+
+### DefaultAttribute(bool value)
+
+Creates a new **Json.Schema.Generation.DefaultAttribute** instance.
+
+#### Declaration
+
+```c#
+public DefaultAttribute(bool value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| value | bool | The value. |
 
 

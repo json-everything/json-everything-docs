@@ -3,18 +3,24 @@ layout: "page"
 title: "RecursiveRefKeywordJsonConverter Class"
 bookmark: "RecursiveRefKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.140"
+order: "10.01.143"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `RecursiveRefKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<RecursiveRefKeyword>`
+ 🡒 
 `JsonConverter<RecursiveRefKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.RecursiveRefKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.RecursiveRefKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

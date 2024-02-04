@@ -3,18 +3,24 @@ layout: "page"
 title: "ExclusiveMinimumKeywordJsonConverter Class"
 bookmark: "ExclusiveMinimumKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.060"
+order: "10.01.062"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `ExclusiveMinimumKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<ExclusiveMinimumKeyword>`
+ 🡒 
 `JsonConverter<ExclusiveMinimumKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.ExclusiveMinimumKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.ExclusiveMinimumKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

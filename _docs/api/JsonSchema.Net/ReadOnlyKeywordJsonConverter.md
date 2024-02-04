@@ -3,18 +3,24 @@ layout: "page"
 title: "ReadOnlyKeywordJsonConverter Class"
 bookmark: "ReadOnlyKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.136"
+order: "10.01.139"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `ReadOnlyKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<ReadOnlyKeyword>`
+ 🡒 
 `JsonConverter<ReadOnlyKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.ReadOnlyKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.ReadOnlyKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

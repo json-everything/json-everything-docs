@@ -3,7 +3,7 @@ layout: "page"
 title: "ReadOnlyAttribute Class"
 bookmark: "ReadOnlyAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.05.069"
+order: "10.05.067"
 ---
 **Namespace:** Json.Schema.Generation
 

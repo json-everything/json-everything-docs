@@ -3,7 +3,7 @@ layout: "page"
 title: "ErrorMessages Class"
 bookmark: "ErrorMessages"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.051"
+order: "10.01.052"
 ---
 **Namespace:** Json.Schema
 
@@ -29,7 +29,6 @@ Each message will specify the tokens it supports.
 | **ContainsTooFew** | string | Gets or sets the error message for **Json.Schema.ContainsKeyword** when there are too few matching items. |
 | **ContainsTooMany** | string | Gets or sets the error message for **Json.Schema.ContainsKeyword** when there are too many matching items. |
 | **Culture** | CultureInfo | Gets or sets a culture to use for error messages.  Default is **System.Globalization.CultureInfo.CurrentCulture**. |
-| **Dependencies** | string | Gets or sets the error message for **Json.Schema.DependenciesKeyword**. |
 | **DependentRequired** | string | Gets or sets the error message for **Json.Schema.DependentRequiredKeyword**. |
 | **DependentSchemas** | string | Gets or sets the error message for **Json.Schema.DependentSchemasKeyword**. |
 | **Enum** | string | Gets or sets the error message for **Json.Schema.EnumKeyword**. |
@@ -38,8 +37,6 @@ Each message will specify the tokens it supports.
 | **FalseSchema** | string | Gets or sets the error message for the "false" schema. |
 | **Format** | string | Gets or sets the error message for the **Json.Schema.FormatKeyword**. |
 | **FormatWithDetail** | string | Gets or sets the error message for the **Json.Schema.FormatKeyword** with additional information from the format validation. |
-| **InvalidItemsForm** | string | Gets or sets the error message for when **Json.Schema.ItemsKeyword** is specified with an array of schemas in a draft 2020-12 or later schema. |
-| **InvalidPattern** | string | Gets or sets the error message for when the **Json.Schema.PatternKeyword** contains an invalid or unsupported regular expression. |
 | **Maximum** | string | Gets or sets the error message for **Json.Schema.MinimumKeyword**. |
 | **MaxItems** | string | Gets or sets the error message for **Json.Schema.MaxItemsKeyword**. |
 | **MaxLength** | string | Gets or sets the error message for **Json.Schema.MaxLengthKeyword**. |
@@ -729,20 +726,190 @@ public static string GetUnknownVocabularies(CultureInfo culture)
 Available tokens are:
   - [[vocabs]] - the URI IDs of the missing vocabularies as a comma-delimited list
 
-### ReplaceTokens(this string message, params (string token, object value)[] parameters)
+### ReplaceToken(this string message, string name, object value)
 
 Replaces tokens in the form of `[[token]]` with a specified value, serialized as JSON.
 
 #### Declaration
 
 ```c#
-public static string ReplaceTokens(this string message, params (string token, object value)[] parameters)
+public static string ReplaceToken(this string message, string name, object value)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | message | string | The message template. |
-| parameters | params (string token, object value)[] | Tuple of the token name (without brackets) and the value which will replace it. |
+| name | string | The token name (without brackets) |
+| value | object | The value. |
+
+
+#### Returns
+
+The detokenized string.
+
+### ReplaceToken(this string message, string name, int value)
+
+Replaces tokens in the form of `[[token]]` with a specified value, serialized as JSON.
+
+#### Declaration
+
+```c#
+public static string ReplaceToken(this string message, string name, int value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| message | string | The message template. |
+| name | string | The token name (without brackets) |
+| value | int | The value. |
+
+
+#### Returns
+
+The detokenized string.
+
+### ReplaceToken(this string message, string name, uint value)
+
+Replaces tokens in the form of `[[token]]` with a specified value, serialized as JSON.
+
+#### Declaration
+
+```c#
+public static string ReplaceToken(this string message, string name, uint value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| message | string | The message template. |
+| name | string | The token name (without brackets) |
+| value | uint | The value. |
+
+
+#### Returns
+
+The detokenized string.
+
+### ReplaceToken(this string message, string name, decimal value)
+
+Replaces tokens in the form of `[[token]]` with a specified value, serialized as JSON.
+
+#### Declaration
+
+```c#
+public static string ReplaceToken(this string message, string name, decimal value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| message | string | The message template. |
+| name | string | The token name (without brackets) |
+| value | decimal | The value. |
+
+
+#### Returns
+
+The detokenized string.
+
+### ReplaceToken(this string message, string name, string value)
+
+Replaces tokens in the form of `[[token]]` with a specified value, serialized as JSON.
+
+#### Declaration
+
+```c#
+public static string ReplaceToken(this string message, string name, string value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| message | string | The message template. |
+| name | string | The token name (without brackets) |
+| value | string | The value. |
+
+
+#### Returns
+
+The detokenized string.
+
+### ReplaceToken(this string message, string name, string[] value)
+
+Replaces tokens in the form of `[[token]]` with a specified value, serialized as JSON.
+
+#### Declaration
+
+```c#
+public static string ReplaceToken(this string message, string name, string[] value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| message | string | The message template. |
+| name | string | The token name (without brackets) |
+| value | string[] | The value. |
+
+
+#### Returns
+
+The detokenized string.
+
+### ReplaceToken(this string message, string name, Dictionary\<string, string[]\> value)
+
+Replaces tokens in the form of `[[token]]` with a specified value, serialized as JSON.
+
+#### Declaration
+
+```c#
+public static string ReplaceToken(this string message, string name, Dictionary<string, string[]> value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| message | string | The message template. |
+| name | string | The token name (without brackets) |
+| value | Dictionary\<string, string[]\> | The value. |
+
+
+#### Returns
+
+The detokenized string.
+
+### ReplaceToken(this string message, string name, JsonNode value)
+
+Replaces tokens in the form of `[[token]]` with a specified value, serialized as JSON.
+
+#### Declaration
+
+```c#
+public static string ReplaceToken(this string message, string name, JsonNode value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| message | string | The message template. |
+| name | string | The token name (without brackets) |
+| value | JsonNode | The value. |
+
+
+#### Returns
+
+The detokenized string.
+
+### ReplaceToken(this string message, string name, T value, JsonTypeInfo\<T\> typeInfo)
+
+Replaces tokens in the form of `[[token]]` with a specified value, serialized as JSON.
+
+#### Declaration
+
+```c#
+public static string ReplaceToken(this string message, string name, T value, JsonTypeInfo<T> typeInfo)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| message | string | The message template. |
+| name | string | The token name (without brackets) |
+| value | T | The value. |
+| typeInfo | JsonTypeInfo\<T\> | A JsonTypeInfo that matches **value**. |
 
 
 #### Returns

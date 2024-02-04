@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonNodeExtensions Class"
 bookmark: "JsonNodeExtensions"
 permalink: "/api/Json.More/:title/"
-order: "10.13.008"
+order: "10.13.009"
 ---
 **Namespace:** Json.More
 
@@ -36,29 +36,29 @@ public static string AsJsonString(this JsonNode node, JsonSerializerOptions opti
 
 JSON string representation.
 
-### Copy(this JsonNode source)
+### GetBool(this JsonValue value)
 
-Creates a deep copy of a node.
+Gets a node's underlying boolean value.
 
 #### Declaration
 
 ```c#
-public static JsonNode Copy(this JsonNode source)
+public static bool? GetBool(this JsonValue value)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
-| source | JsonNode | A node. |
+| value | JsonValue | A JSON value. |
 
 
 #### Returns
 
-A duplicate of the node.
+Gets the underlying boolean value, or null.
 
 #### Remarks
 
-`JsonNode` may only be part of a single JSON tree, i.e. have a single parent.
-Copying a node allows its value to be saved to another JSON tree.
+JsonNode may use a **System.Text.Json.JsonElement** under the hood which subsequently contains a boolean.
+This means that `JsonNode.GetValue&lt;bool&gt;()` will not work as expected.
 
 ### GetEquivalenceHashCode(this JsonNode node, int maxHashDepth)
 
@@ -166,6 +166,30 @@ public static string GetPointerFromRoot(this JsonNode node)
 
 A string containing a JSON Pointer.
 
+### GetString(this JsonValue value)
+
+Gets a node's underlying string value.
+
+#### Declaration
+
+```c#
+public static string GetString(this JsonValue value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| value | JsonValue | A JSON value. |
+
+
+#### Returns
+
+Gets the underlying string value, or null.
+
+#### Remarks
+
+JsonNode may use a **System.Text.Json.JsonElement** under the hood which subsequently contains a string.
+This means that `JsonNode.GetValue&lt;string&gt;()` will not work as expected.
+
 ### IsEquivalentTo(this JsonNode a, JsonNode b)
 
 Determines JSON-compatible equivalence.
@@ -186,9 +210,15 @@ public static bool IsEquivalentTo(this JsonNode a, JsonNode b)
 
 `true` if the element are equivalent; `false` otherwise.
 
+#### Remarks
+
+**System.Text.Json.Nodes.JsonNode.DeepEquals(System.Text.Json.Nodes.JsonNode,System.Text.Json.Nodes.JsonNode)** has trouble testing numeric
+equality when `decimal` is involved.  As such, it is still advised to use this
+method instead.  See https://github.com/dotnet/runtime/issues/97490.
+
 ### ToJsonArray(this IEnumerable\<JsonNode\> nodes)
 
-Creates a new **System.Text.Json.Nodes.JsonArray** from an enumerable of nodes.
+Creates a new **System.Text.Json.Nodes.JsonArray** by copying from an enumerable of nodes.
 
 #### Declaration
 
@@ -204,6 +234,11 @@ public static JsonArray ToJsonArray(this IEnumerable<JsonNode> nodes)
 #### Returns
 
 A JSON array.
+
+#### Remarks
+
+`JsonNode` may only be part of a single JSON tree, i.e. have a single parent.
+Copying a node allows its value to be saved to another JSON tree.
 
 ### TryGetValue(this JsonObject obj, string propertyName, out JsonNode node, out Exception e)
 

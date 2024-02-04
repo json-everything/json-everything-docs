@@ -3,7 +3,7 @@ layout: "page"
 title: "EvaluationResults Class"
 bookmark: "EvaluationResults"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.054"
+order: "10.01.055"
 ---
 **Namespace:** Json.Schema
 
@@ -66,23 +66,6 @@ public void Fail(string keyword, string message)
 #### Remarks
 
 For better support for customization, consider using the overload that takes parameters.
-
-### Fail(string keyword, string message, params (string token, object value)[] parameters)
-
-Marks the result as invalid.
-
-#### Declaration
-
-```c#
-public void Fail(string keyword, string message, params (string token, object value)[] parameters)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| keyword | string | The keyword that failed validation. |
-| message | string | The error message. |
-| parameters | params (string token, object value)[] | Parameters to replace in the message. |
-
 
 ### GetAllAnnotations(string keyword)
 

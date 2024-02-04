@@ -10,11 +10,17 @@ order: "10.04.001"
 **Inheritance:**
 `DiscriminatorKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<DiscriminatorKeyword>`
+ 🡒 
 `JsonConverter<DiscriminatorKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.OpenApi.DiscriminatorKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.OpenApi.DiscriminatorKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

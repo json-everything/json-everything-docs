@@ -16,6 +16,21 @@ order: "10.03.002"
 
 ## Methods
 
+### GetOrdering(this JsonSchema schema)
+
+Gets the values in `uniqueKeys` if the keyword exists.
+
+#### Declaration
+
+```c#
+public static IEnumerable<OrderingSpecifier> GetOrdering(this JsonSchema schema)
+```
+
+
+#### Returns
+
+
+
 ### GetUniqueKeys(this JsonSchema schema)
 
 Gets the values in `uniqueKeys` if the keyword exists.

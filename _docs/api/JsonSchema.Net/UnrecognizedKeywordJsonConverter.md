@@ -3,18 +3,24 @@ layout: "page"
 title: "UnrecognizedKeywordJsonConverter Class"
 bookmark: "UnrecognizedKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.173"
+order: "10.01.176"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `UnrecognizedKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<UnrecognizedKeyword>`
+ 🡒 
 `JsonConverter<UnrecognizedKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.UnrecognizedKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.UnrecognizedKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

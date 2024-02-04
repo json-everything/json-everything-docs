@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonArrayTupleConverter Class"
 bookmark: "JsonArrayTupleConverter"
 permalink: "/api/Json.More/:title/"
-order: "10.13.001"
+order: "10.13.002"
 ---
 **Namespace:** Json.More
 
@@ -17,6 +17,16 @@ order: "10.13.001"
 `object`
 
 Provides JSON serialization for the **System.ValueTuple`1** family of types.
+
+## Remarks
+
+WARNING: This converter is not AOT-friendly.
+
+## Properties
+
+| Name | Type | Summary |
+|---|---|---|
+| **Type** | Type |  |
 
 ## Methods
 

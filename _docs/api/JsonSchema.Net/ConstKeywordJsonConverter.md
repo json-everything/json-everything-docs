@@ -10,11 +10,17 @@ order: "10.01.013"
 **Inheritance:**
 `ConstKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<ConstKeyword>`
+ 🡒 
 `JsonConverter<ConstKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.ConstKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.ConstKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

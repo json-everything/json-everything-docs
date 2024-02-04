@@ -10,11 +10,17 @@ order: "10.04.012"
 **Inheritance:**
 `XmlKeywordJsonConverter`
  🡒 
+`WeaklyTypedJsonConverter<XmlKeyword>`
+ 🡒 
 `JsonConverter<XmlKeyword>`
  🡒 
 `JsonConverter`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IWeaklyTypedJsonConverter
 
 JSON converter for **Json.Schema.OpenApi.XmlKeyword**.
 
@@ -23,6 +29,7 @@ JSON converter for **Json.Schema.OpenApi.XmlKeyword**.
 | Name | Type | Summary |
 |---|---|---|
 | **HandleNull** | bool |  |
+| **Type** | Type |  |
 
 ## Methods
 

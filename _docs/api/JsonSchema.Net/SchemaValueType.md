@@ -3,7 +3,7 @@ layout: "page"
 title: "SchemaValueType Enum"
 bookmark: "SchemaValueType"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.157"
+order: "10.01.160"
 ---
 # SchemaValueType Enum
 

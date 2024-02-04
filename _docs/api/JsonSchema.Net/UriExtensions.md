@@ -3,7 +3,7 @@ layout: "page"
 title: "UriExtensions Class"
 bookmark: "UriExtensions"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.174"
+order: "10.01.177"
 ---
 **Namespace:** Json.Schema
 
