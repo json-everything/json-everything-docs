@@ -49,3 +49,10 @@ If you want to go back to YAML for some reason, `.ToYamlNode()` is your friend.
 
 > This library will get JSON into the `YamlNode` model.  You'll need to understand how to get that back into a string using *YamlDotNet*.  Link to their docs above.
 {: .prompt-info }
+
+
+## Ahead of Time (AOT) compatibility {#aot}
+
+_Yaml2JsonNode_ v2 includes updates to support [Native AOT applications](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/).  However, since YamlDotNet does not provide AOT compatibility, this library also cannot provide compatibility.
+
+The methods in this library have been decorated with the appropriate attributes to generate warnings when compiling in an AOT context.
