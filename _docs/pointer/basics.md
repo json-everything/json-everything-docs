@@ -116,3 +116,9 @@ The second way to customize your pointer is by providing a `PointerCreationOptio
 Relative JSON Pointers are implemented with the `RelativeJsonPointer` struct.  Interactions with this struct are very similar to `JsonPointer`.
 
 Since evaluation of these pointers require parent navigation, a feature which is [unsupported by `JsonElement`s](https://github.com/dotnet/runtime/issues/40452), only the `JsonNode`s can be processed.
+
+## Ahead of Time (AOT) compatibility {#aot}
+
+_JsonPointer.Net_ v4 includes updates to support [Native AOT applications](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/).  However because everything in this library is handled via parsing and direct-to-string output, you don't need to do anything.
+
+You're done.  Congratulations.

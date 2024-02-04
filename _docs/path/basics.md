@@ -170,3 +170,9 @@ Here, the query is looking for values longer than three chars.  In the first dat
 As the specification is still under authorship, there are features present in traditional JSON Path that haven't been properly described yet.  For these features, this library has been configured to mimic the consensus behaviors of other libraries as determined by the [JSON Path Comparison](https://cburgmer.github.io/json-path-comparison/) project.
 
 There are also a few other features of traditional JSON Path that the specification has explicitly elected _not_ to support, such as container expressions (e.g. `$[(@.length-1)]`).  This library will strive to prioritize the specification over the comparison consensus where any conflict exists.
+
+## Ahead of Time (AOT) compatibility {#aot}
+
+_JsonPath.Net_ v0.8.x includes updates to support [Native AOT applications](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/).  However because everything in this library is handled via parsing and direct-to-string output, you don't need to do anything.
+
+You're done.  Congratulations.
