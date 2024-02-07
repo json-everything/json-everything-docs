@@ -18,6 +18,13 @@ order: "10.01.036"
 
 Indicates a keyword from which the decorated keyword requires annotations.
 
+## Remarks
+
+Apply this attribute to your schema keyword to indicate a dependency on another keyword.
+            
+**Warning**: Generic attributes are not supported in .Net Framework.  If your target
+includes .Net Framework, use the non-generic form of this attribute.
+
 ## Properties
 
 | Name | Type | Summary |

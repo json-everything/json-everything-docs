@@ -16,6 +16,10 @@ order: "10.01.035"
 
 Indicates a keyword from which the decorated keyword requires annotations.
 
+## Remarks
+
+Apply this attribute to your schema keyword to indicate a dependency on another keyword.
+
 ## Properties
 
 | Name | Type | Summary |
