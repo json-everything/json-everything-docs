@@ -3,7 +3,7 @@ layout: "page"
 title: "FunctionRepository Class"
 bookmark: "FunctionRepository"
 permalink: "/api/JsonPath.Net/:title/"
-order: "10.08.002"
+order: "10.07.002"
 ---
 **Namespace:** Json.Path
 

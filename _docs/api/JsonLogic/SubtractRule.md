@@ -3,7 +3,7 @@ layout: "page"
 title: "SubtractRule Class"
 bookmark: "SubtractRule"
 permalink: "/api/JsonLogic/:title/"
-order: "10.11.042"
+order: "10.10.042"
 ---
 **Namespace:** Json.Logic.Rules
 

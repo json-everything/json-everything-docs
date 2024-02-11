@@ -3,7 +3,7 @@ layout: "page"
 title: "NodeList Class"
 bookmark: "NodeList"
 permalink: "/api/JsonPath.Net/:title/"
-order: "10.08.017"
+order: "10.07.017"
 ---
 **Namespace:** Json.Path
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "IPathFunctionDefinition Interface"
 bookmark: "IPathFunctionDefinition"
 permalink: "/api/JsonPath.Net/:title/"
-order: "10.08.006"
+order: "10.07.006"
 ---
 **Namespace:** Json.Path
 

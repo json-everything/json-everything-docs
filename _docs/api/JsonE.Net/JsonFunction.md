@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonFunction Class"
 bookmark: "JsonFunction"
 permalink: "/api/JsonE.Net/:title/"
-order: "10.12.007"
+order: "10.11.007"
 ---
 **Namespace:** Json.JsonE
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "TypeModel Class"
 bookmark: "TypeModel"
 permalink: "/api/JsonSchema.Net.CodeGeneration/:title/"
-order: "10.07.003"
+order: "10.14.003"
 ---
 **Namespace:** Json.Schema.CodeGeneration.Model
 

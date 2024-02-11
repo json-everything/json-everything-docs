@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonArrayTupleConverter Class"
 bookmark: "JsonArrayTupleConverter"
 permalink: "/api/Json.More/:title/"
-order: "10.13.002"
+order: "10.12.002"
 ---
 **Namespace:** Json.More
 

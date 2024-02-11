@@ -3,7 +3,7 @@ layout: "page"
 title: "RelativeJsonPointerJsonConverter Class"
 bookmark: "RelativeJsonPointerJsonConverter"
 permalink: "/api/JsonPointer.Net/:title/"
-order: "10.10.010"
+order: "10.09.010"
 ---
 **Namespace:** Json.Pointer
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "LengthFunction Class"
 bookmark: "LengthFunction"
 permalink: "/api/JsonPath.Net/:title/"
-order: "10.08.012"
+order: "10.07.012"
 ---
 **Namespace:** Json.Path
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "PatchJsonConverter Class"
 bookmark: "PatchJsonConverter"
 permalink: "/api/JsonPatch.Net/:title/"
-order: "10.09.003"
+order: "10.08.003"
 ---
 **Namespace:** Json.Patch
 
