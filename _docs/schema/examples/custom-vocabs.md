@@ -75,7 +75,6 @@ class MaxDateJsonConverter : JsonConverter<MaxDateKeyword>
                                MaxDateKeyword value,
                                JsonSerializerOptions options)
     {
-        writer.WritePropertyName(MaxDateKeyword.Name);
         writer.WriteStringValue(value.Date.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ssK"));
     }
 }
@@ -91,8 +90,11 @@ Now that we have the keyword, we need to tell the system about it.
 SchemaKeywordRegistry.Register<MaxDateKeyword>();
 ```
 
-> If you're building a dynamic system where you don't always want the keyword supported, it can be removed using the `SchemaKeywordRegistry.Unregister<T>()` static method.
+> If your app is running in a Native AOT context, you'll need to use the `.Register<MaxDateKeyword>()` overload to properly support serialization.
 {: .prompt-info }
+
+> If you're building a dynamic system where you don't always want the keyword supported, it can be removed using the `SchemaKeywordRegistry.Unregister<T>()` static method.
+{: .prompt-tip }
 
 You'll also want to set the `EvaluationOptions.ProcessCustomKeywords` option to true so that non-dialect keywords are processed.
 

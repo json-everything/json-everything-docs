@@ -132,7 +132,7 @@ Both stages are defined by implementing the single method on `IJsonSchemaKeyword
 
 _JsonSchema.Net_ v6 includes updates to support [Native AOT applications](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/).  Please be sure to read the main AOT section on the [overview page](/schema/basics#aot).
 
-Frist, you'll need to add `[JsonSerializable]` attributes for any custom keywords.
+First, you'll need to add `[JsonSerializable]` attributes for any custom keywords.
 
 ```c#
 [JsonSerializable(typeof(MyKeyword))]

@@ -5,6 +5,12 @@ permalink: /schema/codegen/:title/
 icon: fas fa-tag
 order: "01.6.2"
 ---
+> **DEPRECATION NOTICE**
+>
+> *JsonSchema.Net.CodeGeneration* is no longer being developed.
+> 
+> Please see https://blog.json-everything.net/posts/dropping-codegen/ for more information.
+{: .prompt-danger }
 
 This page gives more technical information on the various schema patterns that are supported by the code generation functionality.
 

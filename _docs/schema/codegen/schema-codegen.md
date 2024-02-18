@@ -6,6 +6,13 @@ permalink: /schema/codegen/:title/
 icon: fas fa-tag
 order: "01.6.1"
 ---
+> **DEPRECATION NOTICE**
+>
+> *JsonSchema.Net.CodeGeneration* is no longer being developed.
+> 
+> Please see https://blog.json-everything.net/posts/dropping-codegen/ for more information.
+{: .prompt-danger }
+
 *JsonSchema.Net.CodeGeneration* is a tool that can create C# code from JSON Schemas.
 
 For example, given the schema:
