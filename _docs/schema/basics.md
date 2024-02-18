@@ -446,14 +446,53 @@ New formats must be registered via the `Formats.Register()` static method.  This
 
 ## Options {#schema-options}
 
+> For the best performance, use a cached evaluation options object.
+>
+> *JsonSchema.Net* optimizes repeated evaluations with the same schema by performing some static analysis during the first evaluation.  However because changes to evaluation options can affect this analysis, the analysis is recalculated if the options change or a new options object is detected.
+{: .prompt-warn }
+
 The `EvaluationOptions` class gives you a few configuration points for customizing how the evaluation process behaves.  It is an instance class and can be passed into the `JsonSchema.Evaluate()` method.  If no options are explicitly passed, a copy of `JsonSchemaOptions.Default` will be used.
 
 - `EvaluateAs` - Indicates which schema version to process as.  This will filter the keywords of a schema based on their support.  This means that if any keyword is not supported by this version, it will be ignored.
 - `EvaluateMetaSchema` - Indicates whether the schema should be evaluated against its `$schema` value (its meta-schema).  This is not typically necessary.  Note that the evaluation process will still attempt to resolve the meta-schema. \*
 - `OutputFormat` - You already read about output formats above.  This is the property that controls it all.  By default, a single "flag" node is returned.  This also yields the fastest evaluation times as it enables certain optimizations.
+- `RequireFormatValidation` - Forces `format` validation.
+- `OnlyKnownFormats` - Limits `format` validation to only those formats which have been registered through `Formats.Register()`.  Unknown formats will fail validation.
 - `ProcessCustomKeywords` - For schema versions which support the vocabulary system (i.g. 2019-09 and after), allows custom keywords to be processed which haven't been included in a vocabulary.  This still requires the keyword type to be registered with `SchemaRegistry`.
+- `PreserveDroppedAnnotations` - Adds a `droppedAnnotations` property to the output nodes for subschemas that fail validation.
+- `IgnoredAnnotations` - Gets the set of annotations that will be excluded from the output.
 
 _\* If you're using a custom meta-schema, you'll need to load it per the [Schema Registration](json-schema#schema-registration) section below.  Custom meta-schemas form a chain of meta-schemas (e.g. your custom meta-schema may reference another which references the draft 2020-12 meta-schema).  Ultimately, the chain MUST end at a JSON-Schema-defined meta-schema as this defines the processing rules for the schema.  An error will be produced if the meta-schema chain ends at a meta-schema that is unrecognized._
+
+### Annotation management {#annotation-mgmt}
+
+Several in the JSON Schema community have raised issues that collecting annotations can be costly in both memory consumption and time.  As such, one proposal has been to allow for filtering which annotation are collected and reported in the output.
+
+> Some annotations, like those for `properties`, are still collected but not reported as they are required for other keywords, like `unevaluatedProperties`, to operate.
+
+By default, all annotations are collected.
+
+The following methods allow you to manage the set of annotations to collect and report.
+
+- `.IgnoreAnnotationsFrom<T>()` - Ignores annotations from the specified keyword.
+- `.IgnoreAllAnnotations()` - Ignores all annotations.
+- `.ClearIgnoredAnnotations()` - Clears the "ignore" set and collects all annotations.
+- `.CollectAnnotationsFrom<T>()` - Collects annotations from the specified keyword.
+
+These methods make it easy to either ignore or collect annotations from a single or a few keywords.
+
+For example, to ignore `title` annotations:
+
+```c#
+options.IgnoreAnnotationsFrom<TitleKeyword>();
+```
+
+Or to only collect `title` annotations:
+
+```c#
+options.IgnoreAllAnnotations();
+options.CollectAnnotationsFrom<TitleKeyword>();
+```
 
 # Managing references (`$ref`) {#schema-ref}
 
@@ -645,9 +684,12 @@ var options = new EvaluationOptions
 
 Currently available translations are:
 
-- Norwegian
-- Spanish
-- Swedish
-- Turkish
+| Language | Culture Code |
+|:-|:-:|
+|Norwegian|`nb-NO`|
+|Russian|`ru`|
+|Spanish|`es`|
+|Swedish|`sv-SE`|
+|Turkish|`tr-TR`|
 
 PRs are welcome to help create additional translations.
