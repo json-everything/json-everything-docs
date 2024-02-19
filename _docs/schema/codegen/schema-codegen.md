@@ -10,7 +10,7 @@ order: "01.6.1"
 >
 > *JsonSchema.Net.CodeGeneration* is no longer being developed.
 > 
-> Please see https://blog.json-everything.net/posts/dropping-codegen/ for more information.
+> Please see [https://blog.json-everything.net/posts/dropping-codegen/](https://blog.json-everything.net/posts/dropping-codegen/) for more information.
 {: .prompt-danger }
 
 *JsonSchema.Net.CodeGeneration* is a tool that can create C# code from JSON Schemas.

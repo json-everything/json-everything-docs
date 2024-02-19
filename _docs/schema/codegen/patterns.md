@@ -9,7 +9,7 @@ order: "01.6.2"
 >
 > *JsonSchema.Net.CodeGeneration* is no longer being developed.
 > 
-> Please see https://blog.json-everything.net/posts/dropping-codegen/ for more information.
+> Please see [https://blog.json-everything.net/posts/dropping-codegen/](https://blog.json-everything.net/posts/dropping-codegen/) for more information.
 {: .prompt-danger }
 
 This page gives more technical information on the various schema patterns that are supported by the code generation functionality.

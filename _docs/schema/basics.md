@@ -449,7 +449,7 @@ New formats must be registered via the `Formats.Register()` static method.  This
 > For the best performance, use a cached evaluation options object.
 >
 > *JsonSchema.Net* optimizes repeated evaluations with the same schema by performing some static analysis during the first evaluation.  However because changes to evaluation options can affect this analysis, the analysis is recalculated if the options change or a new options object is detected.
-{: .prompt-warn }
+{: .prompt-warning }
 
 The `EvaluationOptions` class gives you a few configuration points for customizing how the evaluation process behaves.  It is an instance class and can be passed into the `JsonSchema.Evaluate()` method.  If no options are explicitly passed, a copy of `JsonSchemaOptions.Default` will be used.
 
@@ -469,6 +469,7 @@ _\* If you're using a custom meta-schema, you'll need to load it per the [Schema
 Several in the JSON Schema community have raised issues that collecting annotations can be costly in both memory consumption and time.  As such, one proposal has been to allow for filtering which annotation are collected and reported in the output.
 
 > Some annotations, like those for `properties`, are still collected but not reported as they are required for other keywords, like `unevaluatedProperties`, to operate.
+{: .prompt-info }
 
 By default, all annotations are collected.
 
