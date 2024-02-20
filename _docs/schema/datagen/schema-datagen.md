@@ -35,8 +35,8 @@ This library is quite powerful.  It supports most JSON Schema keywords, includin
 
 It currently does not support:
 
-- anything complex involving RegEx (see below)
-- reference keywords (e.g. `$ref`, `$dynamicRef`, etc)
+- anything complex involving RegEx\*
+- `$dynamicRef`
 - annotation / metadata keywords (e.g. `title`, `description`)
 - `content*` keywords
 - `dependencies` / `dependent*` keywords
@@ -44,6 +44,9 @@ It currently does not support:
 *\* There are some libraries which provide limited RegEx-based string generation, but these do not support look-aheads which are required to combine multiple RegEx's with boolean logic.  This functionality is required to support them alongside the aggregation keywords.  I opted to just not support them at all until I can find a sufficient library.*
 
 Everything else _should_ be mostly supported.  Feel free to [open an issue](https://github.com/gregsdennis/json-everything/issues/new/choose) if you find something isn't working as you expect.
+
+> `$ref` support does not check for infinite loops such as occur with schemas like `{ "$ref": "#" }`.  If your schema includes a reference like this, a stack overflow exception is likely.
+{: .prompt-warning }
 
 ### Strings {#schema-datagen-strings}
 
