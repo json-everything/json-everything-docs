@@ -16,19 +16,20 @@ Provides extension methods for **Json.Schema.JsonSchema** to generate sample dat
 
 ## Methods
 
-### GenerateData(this JsonSchema schema)
+### GenerateData(this JsonSchema schema, EvaluationOptions options)
 
 Attempts to generate sample data that meets the requirements of the schema.
 
 #### Declaration
 
 ```c#
-public static GenerationResult GenerateData(this JsonSchema schema)
+public static GenerationResult GenerateData(this JsonSchema schema, EvaluationOptions options)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | schema | JsonSchema | The schema. |
+| options | EvaluationOptions | A set of evaluation options. |
 
 
 #### Returns

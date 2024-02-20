@@ -64,14 +64,14 @@ public NumberRangeSet(IEnumerable<NumberRange> other)
 
 ## Methods
 
-### Ceiling(decimal ceiling)
+### Ceiling(Bound ceiling)
 
 Applies a ceiling (upper bound).
 
 #### Declaration
 
 ```c#
-public NumberRangeSet Ceiling(decimal ceiling)
+public NumberRangeSet Ceiling(Bound ceiling)
 ```
 
 
@@ -79,19 +79,19 @@ public NumberRangeSet Ceiling(decimal ceiling)
 
 
 
-### Floor(decimal floor)
+### Floor(Bound floor)
 
 Applies a floor (lower bound).
 
 #### Declaration
 
 ```c#
-public NumberRangeSet Floor(decimal floor)
+public NumberRangeSet Floor(Bound floor)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
-| floor | decimal |  |
+| floor | Bound |  |
 
 
 #### Returns
