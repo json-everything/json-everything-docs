@@ -3,7 +3,7 @@ layout: "page"
 title: "ISchemaKeywordIntent Interface"
 bookmark: "ISchemaKeywordIntent"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.05.034"
+order: "10.05.035"
 ---
 **Namespace:** Json.Schema.Generation
 

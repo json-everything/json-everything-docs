@@ -3,7 +3,7 @@ layout: "page"
 title: "ITypeNameGenerator Interface"
 bookmark: "ITypeNameGenerator"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.05.037"
+order: "10.05.038"
 ---
 **Namespace:** Json.Schema.Generation
 

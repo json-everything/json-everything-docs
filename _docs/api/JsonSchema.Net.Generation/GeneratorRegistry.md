@@ -3,7 +3,7 @@ layout: "page"
 title: "GeneratorRegistry Class"
 bookmark: "GeneratorRegistry"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.05.024"
+order: "10.05.025"
 ---
 **Namespace:** Json.Schema.Generation
 

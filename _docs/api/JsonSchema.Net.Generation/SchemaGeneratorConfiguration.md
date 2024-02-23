@@ -3,7 +3,7 @@ layout: "page"
 title: "SchemaGeneratorConfiguration Class"
 bookmark: "SchemaGeneratorConfiguration"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.05.075"
+order: "10.05.076"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -26,4 +26,34 @@ Provides additional configuration for the generator.
 | **PropertyOrder** | PropertyOrder | Gets or sets the order in which properties will be listed in the schema. |
 | **Refiners** | List\<ISchemaRefiner\> | A collection of refiners. |
 | **StrictConditionals** | bool | Gets or sets whether properties that are affected by conditionals are defined globally or only within their respective `then` subschemas.  True restricts those property definitions to `then` subschemas and adds a top-level `unevaluatedProperties: false`; false (default) defines them globally. |
+
+## Constructors
+
+### SchemaGeneratorConfiguration()
+
+Creates a new **Json.Schema.Generation.SchemaGeneratorConfiguration**.
+
+#### Declaration
+
+```c#
+public SchemaGeneratorConfiguration()
+```
+
+
+## Methods
+
+### RegisterXmlCommentFile(string filename)
+
+Registers an assembly's XML comment file.
+
+#### Declaration
+
+```c#
+public void RegisterXmlCommentFile(string filename)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| filename | string | The file name of the XML file. |
+
 
