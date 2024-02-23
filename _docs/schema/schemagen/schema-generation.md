@@ -142,6 +142,22 @@ For POCOs, read-only properties and fields will be marked with a `readOnly` keyw
 
 Lastly, property names will either be listed as declared in code (default) or sorted by name.  This is controlled via the `SchemaGenerationConfiguration.PropertyOrder` property.
 
+### XML comment support
+
+In addition to the explicit attributes above, the XML comment `<Summary>` element can be configured to render to a `description` keyword.  Because .Net saves this information into an external XML file instead of into the reflection data, you'll need to have a configuration object and register the XML filename.
+
+```c#
+var config = new SchemaGenerationConfiguration();
+// MyModel is any type from the assembly.  A single registration will
+// cover the entire assembly.
+config.RegisterXmlCommentsFile<MyModel>("MyAssembly.xml");
+
+var schema = new JsonSchemaBuilder.FromType<MyModel>(config).Build();
+```
+
+> Explicitly using the `[Description]` attribute will override XML comments, and XML comments on members will override XML comments on types.
+{: .prompt-info }
+
 ### Nullability {#schema-schemagen-nullability}
 
 There is a discrepancy between how .Net does validation and how JSON Schema does validation that centers primarily around nullable types and the `[Required]` attribute.

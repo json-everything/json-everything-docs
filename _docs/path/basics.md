@@ -7,9 +7,9 @@ permalink: /path/:title/
 icon: fas fa-tag
 order: "02.1"
 ---
-JSON Path is a query language for JSON documents inspired by what XPath provides for XML documents.  It was [originally proposed](https://goessner.net/articles/JsonPath/) by Matt Goëssner, and now a [specification](https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-base) is in progress.
+JSON Path is a query language for JSON documents inspired by what XPath provides for XML documents.  It was [originally proposed](https://goessner.net/articles/JsonPath/) by Matt Goëssner and is now an IETF specification: [RFC 9535](https://www.rfc-editor.org/rfc/rfc9535.html).
 
-Version 0.5.x is aligned with the specification as of the end of April 2023, plus additional support for the following features, which were not included in the specification:
+The library was promoted to version with the release of the specification, and also includes additional support for the following features, which the specification team passed on:
 
 - arithmetic operations in expressions
 - `in` operator in expressions
