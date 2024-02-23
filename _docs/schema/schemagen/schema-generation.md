@@ -140,23 +140,35 @@ The generator will handle most common types:
 
 For POCOs, read-only properties and fields will be marked with a `readOnly` keyword, and write-only properties (those with only a setter) will be marked with a `writeOnly` keyword.  These behaviors can be overridden by applying the appropriate keyword with a `false` value.
 
-Lastly, property names will either be listed as declared in code (default) or sorted by name.  This is controlled via the `SchemaGenerationConfiguration.PropertyOrder` property.
+Lastly, property names will either be listed as declared in code (default) or sorted by name.  This is controlled via the `SchemaGeneratorConfiguration.PropertyOrder` property.
 
 ### XML comment support
 
 In addition to the explicit attributes above, the XML comment `<Summary>` element can be configured to render to a `description` keyword.  Because .Net saves this information into an external XML file instead of into the reflection data, you'll need to have a configuration object and register the XML filename.
 
 ```c#
-var config = new SchemaGenerationConfiguration();
+var config = new SchemaGeneratorConfiguration();
 // MyModel is any type from the assembly.  A single registration will
 // cover the entire assembly.
-config.RegisterXmlCommentsFile<MyModel>("MyAssembly.xml");
+config.RegisterXmlCommentFile<MyModel>("MyAssembly.xml");
 
 var schema = new JsonSchemaBuilder.FromType<MyModel>(config).Build();
 ```
 
 > Explicitly using the `[Description]` attribute will override XML comments, and XML comments on members will override XML comments on types.
 {: .prompt-info }
+
+> It has been noted by a user that this extension method can be useful if the XML comments file is adjacent to the assembly in the file system.
+>
+> ```c#
+> public static void RegisterXmlCommentFile<T>(this SchemaGeneratorConfiguration configuration)
+> {
+>     configuration.RegisterXmlCommentFile<T>(typeof(T).Assembly.Location.Replace(".dll", ".xml"))
+> }
+> ```
+>
+> This will likely be added in a future version.
+{: .prompt-tip }
 
 ### Nullability {#schema-schemagen-nullability}
 
