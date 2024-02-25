@@ -64,6 +64,8 @@ The `[If]` attribute creates a condition involving a discrete value.  It takes t
 - `value` - This is the expected value for the property you named above.  The condition will apply when the property equals this value.  The value can be any compiler-constant value, but really should be JSON-compatible.  So strings, numbers, and booleans are generally best.  Enum values will work, too, but `[IfEnum]` may be a better option if you're using an enum property.
 - `group` - This is a key that identifies a group for this condition.  It can be any compiler-constant value.
 
+On its own, a single `[If]` attribute will create an `if` keyword containing a `const` keyword and the value you specify.  However, the attribute can also be repeated with different values under the same group in order to create an `enum` keyword containing all of the values in that group.  An example of the `enum` generation can be found [here](/schema/examples/multiple-ifs-one-group).  (Note that this is slightly different from the [`[IfEnum]`](#ifenum-attribute) described below.)
+
 #### Example {#if-example}
 
 The example starts by defining a person which contains a couple properties that we want to constrain conditionally.
