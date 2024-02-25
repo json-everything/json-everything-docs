@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Using Multiple [If] Attributes in a Single Group
-bookmark: Stacking Ifs
+title: Using Multiple `[If]` Attributes in a Single Group
+bookmark: Stacking [If]s
 permalink: /schema/examples/:title/
 icon: fas fa-tag
 order: "01.5.2.5"
@@ -18,7 +18,7 @@ class CarColors
 }
 ```
 
-Now let's say that there is a requirement that if the exterior color is white or black, the interior needs to be gray; otherwise, the interior can be any other color.
+Now let's say that there is a requirement that if the exterior color is white or black, the interior needs to be gray; otherwise, the interior can be any color.
 
 ## The standard way
 
