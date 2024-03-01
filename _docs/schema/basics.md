@@ -688,6 +688,7 @@ Currently available translations are:
 | Language | Culture Code |
 |:-|:-:|
 |Norwegian|`nb-NO`|
+|Polish|`pl-PL`|
 |Russian|`ru`|
 |Spanish|`es`|
 |Swedish|`sv-SE`|
