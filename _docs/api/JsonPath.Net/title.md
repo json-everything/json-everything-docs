@@ -4,5 +4,5 @@ bookmark: JsonPath.Net
 permalink: /api/JsonPath.Net/:title/
 folder: true
 order: "10.07"
-version: "1.0.0"
+version: "1.0.1"
 ---
