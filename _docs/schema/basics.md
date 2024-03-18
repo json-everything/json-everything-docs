@@ -263,7 +263,14 @@ No errors would actually be reported here because the output format defaults to 
 
 ## Evaluation results {#schema-results}
 
-JSON Schema draft 2019-09 began the process to standardize the format for evaluation output in order to support cross-platform and cross-implementation compatibility.  The format has been updated for the upcoming release to be more concise and clear.  This includes support for both errors and annotation collection.
+JSON Schema draft 2019-09 began the process to standardize the format for evaluation output in order to support cross-platform and cross-implementation compatibility.
+
+For the next release of JSON Schema, these formats have been extracted into their own specification.  In addition, the formats themselves have been updated to increase clarity and readability.
+
+> More information on the changes can be found in [this blog post](https://json-schema.org/blog/posts/fixing-json-schema-output).
+{: .prompt-tip}
+
+_JsonSchema.Net_ supports the new, upcoming formats by default, however it can be configured for limited support of the specification requirements.  See [this example](/schema/examples/legacy-output) for more information.
 
 In summary, there are three levels of verbosity for output: Flag, List, and Hierarchy.
 
@@ -272,6 +279,9 @@ The flag format will simply return a boolean value indicating a pass/fail result
 A list format reduces all of the errors to a flat list, housed in a top-level object that summarizes the validation result.
 
 The hierarchical output format follows the structure of the schema.
+
+> The output formats can contain a lot of information you're probably going to end up ignoring (but can nevertheless be useful in some cases).  [This blog post](https://json-schema.org/blog/posts/interpreting-output) gives some examples and explanations of how to read JSON Schema output.
+{: .prompt-tip}
 
 The default output format is Flag, but this can be configured via the `EvaluationOptions.OutputFormat` property.
 
