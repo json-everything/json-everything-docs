@@ -6,9 +6,14 @@ permalink: /schema/examples/:title/
 icon: fas fa-tag
 order: "01.4.5"
 ---
+> **DEPRECATION NOTICE**
+>
+> The `Pre202012EvaluationResultsJsonConverter` class has been marked obsolete and will be removed in the next major version.
+{: .prompt-danger }
+
 The 2019-09 and 2020-12 JSON Schema specifications define output formats that can be difficult to work with.
 
-For future versions of the specification, the output is undergoing some [changes](https://json-schema.org/blog/posts/fixing-json-schema-output).  This new format is the default for _JsonSchema.Net_, however the evaluation results can still be serialized to the 2019-09 / 2020-12 formats by using the `Pre202012EvaluationResultsJsonConverter`.
+For future versions of the specification, the output is undergoing some [changes](https://json-schema.org/blog/posts/fixing-json-schema-output).  This new format is the default for _JsonSchema.Net_, however the evaluation results can still (mostly) be serialized to the 2019-09 / 2020-12 formats by using the `Pre202012EvaluationResultsJsonConverter`.
 
 ```c#
 var schema = JsonSchema.FromText(" ... ");
