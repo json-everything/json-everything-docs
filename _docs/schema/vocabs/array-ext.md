@@ -149,9 +149,9 @@ The `by` pointer is relative to each item and identifies a value by which the it
 
 The order direction is determined by `direction`, which MUST be either `asc` for ascending ordering or `desc` for descending ordering.  `direction` applies to both numbers and strings.  Omitting this property has the same behavior as including it with `asc`.
 
-The value of `culture` MUST be the string `none`, which indicates the values should be ordered by Unicode code point, or a valid language code as defined by [RFC 4646](https://datatracker.ietf.org/doc/html/rfc4646) to indicate a locale.  If the value is a language code which is not recognized or supported by an implementation, it MUST refuse to process the schema.  Omitting this keyword has the same behavior as including it with `none`.
+The value of `culture` MUST be the string `none`, which indicates the values should be ordered by Unicode code point, or a valid language code as defined by [RFC 4646](https://datatracker.ietf.org/doc/html/rfc4646) to indicate a locale.  If the value is a language code which is not recognized or supported, the implementation MUST refuse to process the schema.  Omitting this property has the same behavior as including it with `none`.
 
-The value of `ignoreCase` MUST be a boolean.  Its value indicates whether the sorting should consider character casing.  The value of this property may not apply to some locales.  Omitting this keyword has the same behavior as including it with `false`.
+The value of `ignoreCase` MUST be a boolean.  Its value indicates whether the sorting should consider character casing.  The value of this property may not apply to some locales.  Omitting this property has the same behavior as including it with `false`.
 
 Specifier objects are listed in priority order.  That is, for validation to succeed, the items MUST be ordered first by the first specifier, then by the second, and so on.
 
