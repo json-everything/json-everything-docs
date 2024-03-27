@@ -3,7 +3,7 @@ layout: "page"
 title: "FunctionType Enum"
 bookmark: "FunctionType"
 permalink: "/api/JsonPath.Net/:title/"
-order: "10.07.003"
+order: "10.08.003"
 ---
 # FunctionType Enum
 

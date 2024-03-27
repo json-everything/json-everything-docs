@@ -56,6 +56,36 @@ public EnumIntent(params string[] names)
 | names | params string[] | The names defined by the enumeration. |
 
 
+### EnumIntent(IEnumerable\<JsonNode\> values)
+
+Creates a new **Json.Schema.Generation.Intents.EnumIntent** instance.
+
+#### Declaration
+
+```c#
+public EnumIntent(IEnumerable<JsonNode> values)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| values | IEnumerable\<JsonNode\> | The values defined by the enumeration. |
+
+
+### EnumIntent(params JsonNode[] values)
+
+Creates a new **Json.Schema.Generation.Intents.EnumIntent** instance.
+
+#### Declaration
+
+```c#
+public EnumIntent(params JsonNode[] values)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| values | params JsonNode[] | The values defined by the enumeration. |
+
+
 ## Methods
 
 ### Apply(JsonSchemaBuilder builder)

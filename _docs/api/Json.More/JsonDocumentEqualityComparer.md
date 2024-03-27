@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonDocumentEqualityComparer Class"
 bookmark: "JsonDocumentEqualityComparer"
 permalink: "/api/Json.More/:title/"
-order: "10.12.003"
+order: "10.13.003"
 ---
 **Namespace:** Json.More
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "UnsupportedSchemaException Class"
 bookmark: "UnsupportedSchemaException"
 permalink: "/api/JsonSchema.Net.CodeGeneration/:title/"
-order: "10.14.004"
+order: "10.15.004"
 ---
 **Namespace:** Json.Schema.CodeGeneration
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "MaxRule Class"
 bookmark: "MaxRule"
 permalink: "/api/JsonLogic/:title/"
-order: "10.10.020"
+order: "10.11.020"
 ---
 **Namespace:** Json.Logic.Rules
 

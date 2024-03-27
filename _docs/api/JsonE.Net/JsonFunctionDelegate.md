@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonFunctionDelegate Delegate"
 bookmark: "JsonFunctionDelegate"
 permalink: "/api/JsonE.Net/:title/"
-order: "10.11.008"
+order: "10.12.008"
 ---
 # JsonFunctionDelegate Delegate
 

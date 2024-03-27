@@ -3,7 +3,7 @@ layout: "page"
 title: "EnumerableExtensions Class"
 bookmark: "EnumerableExtensions"
 permalink: "/api/JsonPointer.Net/:title/"
-order: "10.09.000"
+order: "10.10.000"
 ---
 **Namespace:** Json.Pointer
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "Bound Struct"
 bookmark: "Bound"
 permalink: "/api/JsonSchema.Net.DataGeneration/:title/"
-order: "10.06.000"
+order: "10.07.000"
 ---
 **Namespace:** Json.Schema.DataGeneration
 

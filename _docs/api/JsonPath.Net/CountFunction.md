@@ -3,7 +3,7 @@ layout: "page"
 title: "CountFunction Class"
 bookmark: "CountFunction"
 permalink: "/api/JsonPath.Net/:title/"
-order: "10.07.000"
+order: "10.08.000"
 ---
 **Namespace:** Json.Path
 

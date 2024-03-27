@@ -3,7 +3,7 @@ layout: "page"
 title: "IWeaklyTypedJsonConverter Interface"
 bookmark: "IWeaklyTypedJsonConverter"
 permalink: "/api/Json.More/:title/"
-order: "10.12.001"
+order: "10.13.001"
 ---
 **Namespace:** Json.More
 
