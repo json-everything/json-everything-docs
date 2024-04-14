@@ -4,7 +4,7 @@ title: Using Multiple `[If]` Attributes in a Single Group
 bookmark: Stacking [If]s
 permalink: /schema/examples/:title/
 icon: fas fa-tag
-order: "01.5.2.5"
+order: "01.5.4.5"
 ---
 This example shows how multiple `[If]` attributes can be combined to create "OR" logic.
 

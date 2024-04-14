@@ -4,7 +4,7 @@ title: Using Attributes to Add Constraints
 bookmark: Attributes
 permalink: /schema/examples/:title/
 icon: fas fa-tag
-order: "01.5.2.3"
+order: "01.5.4.3"
 ---
 In the [previous example](schema-gen-intent.md) we created a keyword intent to represent a new `maxDate` keyword during generation.
 
