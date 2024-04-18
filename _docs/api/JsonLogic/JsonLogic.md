@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonLogic Class"
 bookmark: "JsonLogic"
 permalink: "/api/JsonLogic/:title/"
-order: "10.11.009"
+order: "10.11.011"
 ---
 **Namespace:** Json.Logic
 
@@ -75,6 +75,47 @@ public static Rule And(Rule a, params Rule[] more)
 #### Returns
 
 An `and` rule.
+
+### Apply(JsonNode rule, JsonNode context)
+
+Applies a rule encoded into a **System.Text.Json.Nodes.JsonNode** to some data.
+
+#### Declaration
+
+```c#
+public static JsonNode Apply(JsonNode rule, JsonNode context)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| rule | JsonNode | The rule to apply. |
+| context | JsonNode | The context data. |
+
+
+#### Returns
+
+The result.
+
+### Apply(JsonNode rule, EvaluationContext context)
+
+Applies a nested rule encoded into a **System.Text.Json.Nodes.JsonNode** to a context.
+This is to be called from within an **Json.Logic.IRule** handler.
+
+#### Declaration
+
+```c#
+public static JsonNode Apply(JsonNode rule, EvaluationContext context)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| rule | JsonNode | The rule to apply. |
+| context | EvaluationContext | The context data. |
+
+
+#### Returns
+
+The result.
 
 ### BetweenExclusive(Rule a, Rule b, Rule c)
 

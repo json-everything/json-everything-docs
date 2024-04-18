@@ -14,6 +14,10 @@ order: "10.11.005"
  🡒 
 `object`
 
+**Implemented interfaces:**
+
+- IRule
+
 Handles the `/` operation.
 
 ## Methods

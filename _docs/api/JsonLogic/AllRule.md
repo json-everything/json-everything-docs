@@ -14,6 +14,10 @@ order: "10.11.001"
  🡒 
 `object`
 
+**Implemented interfaces:**
+
+- IRule
+
 Handles the `all` operation.
 
 ## Methods

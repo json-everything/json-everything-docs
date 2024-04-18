@@ -3,7 +3,7 @@ layout: "page"
 title: "ModRule Class"
 bookmark: "ModRule"
 permalink: "/api/JsonLogic/:title/"
-order: "10.11.025"
+order: "10.11.027"
 ---
 **Namespace:** Json.Logic.Rules
 
@@ -13,6 +13,10 @@ order: "10.11.025"
 `Rule`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IRule
 
 Handles the `%` operation.
 

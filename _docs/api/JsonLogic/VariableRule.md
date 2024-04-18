@@ -3,7 +3,7 @@ layout: "page"
 title: "VariableRule Class"
 bookmark: "VariableRule"
 permalink: "/api/JsonLogic/:title/"
-order: "10.11.043"
+order: "10.11.045"
 ---
 **Namespace:** Json.Logic.Rules
 
@@ -13,6 +13,10 @@ order: "10.11.043"
 `Rule`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IRule
 
 Handles the `var` operation.
 

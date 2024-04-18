@@ -3,7 +3,7 @@ layout: "page"
 title: "InRule Class"
 bookmark: "InRule"
 permalink: "/api/JsonLogic/:title/"
-order: "10.11.008"
+order: "10.11.009"
 ---
 **Namespace:** Json.Logic.Rules
 
@@ -13,6 +13,10 @@ order: "10.11.008"
 `Rule`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IRule
 
 Handles the `in` operation.
 

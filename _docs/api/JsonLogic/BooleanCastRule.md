@@ -14,6 +14,10 @@ order: "10.11.003"
  🡒 
 `object`
 
+**Implemented interfaces:**
+
+- IRule
+
 Handles the `!!` operation.
 
 ## Methods

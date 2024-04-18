@@ -3,7 +3,7 @@ layout: "page"
 title: "MissingSomeRule Class"
 bookmark: "MissingSomeRule"
 permalink: "/api/JsonLogic/:title/"
-order: "10.11.024"
+order: "10.11.026"
 ---
 **Namespace:** Json.Logic.Rules
 
@@ -13,6 +13,10 @@ order: "10.11.024"
 `Rule`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IRule
 
 Handles the `missing_some` operation.
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "MinRule Class"
 bookmark: "MinRule"
 permalink: "/api/JsonLogic/:title/"
-order: "10.11.022"
+order: "10.11.024"
 ---
 **Namespace:** Json.Logic.Rules
 
@@ -13,6 +13,10 @@ order: "10.11.022"
 `Rule`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IRule
 
 Handles the `min` operation.
 

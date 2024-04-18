@@ -3,7 +3,7 @@ layout: "page"
 title: "StrictEqualsRule Class"
 bookmark: "StrictEqualsRule"
 permalink: "/api/JsonLogic/:title/"
-order: "10.11.039"
+order: "10.11.041"
 ---
 **Namespace:** Json.Logic.Rules
 
@@ -13,6 +13,10 @@ order: "10.11.039"
 `Rule`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IRule
 
 Handles the `===` operation.
 

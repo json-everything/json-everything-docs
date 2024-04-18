@@ -14,6 +14,10 @@ order: "10.11.004"
  🡒 
 `object`
 
+**Implemented interfaces:**
+
+- IRule
+
 Handles the `cat` operation.
 
 ## Methods

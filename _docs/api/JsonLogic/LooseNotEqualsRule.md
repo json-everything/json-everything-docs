@@ -3,7 +3,7 @@ layout: "page"
 title: "LooseNotEqualsRule Class"
 bookmark: "LooseNotEqualsRule"
 permalink: "/api/JsonLogic/:title/"
-order: "10.11.018"
+order: "10.11.020"
 ---
 **Namespace:** Json.Logic.Rules
 
@@ -13,6 +13,10 @@ order: "10.11.018"
 `Rule`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IRule
 
 Handles the `!=` operation.
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "SomeRule Class"
 bookmark: "SomeRule"
 permalink: "/api/JsonLogic/:title/"
-order: "10.11.038"
+order: "10.11.040"
 ---
 **Namespace:** Json.Logic.Rules
 
@@ -13,6 +13,10 @@ order: "10.11.038"
 `Rule`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IRule
 
 Handles the `some` operation.
 

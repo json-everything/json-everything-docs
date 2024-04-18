@@ -3,7 +3,7 @@ layout: "page"
 title: "NoneRule Class"
 bookmark: "NoneRule"
 permalink: "/api/JsonLogic/:title/"
-order: "10.11.029"
+order: "10.11.031"
 ---
 **Namespace:** Json.Logic.Rules
 
@@ -13,6 +13,10 @@ order: "10.11.029"
 `Rule`
  🡒 
 `object`
+
+**Implemented interfaces:**
+
+- IRule
 
 Handles the `none` operation.
 
