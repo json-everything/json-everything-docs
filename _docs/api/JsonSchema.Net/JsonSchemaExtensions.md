@@ -116,7 +116,7 @@ Gets the schemas in `allOf` if the keyword exists.
 #### Declaration
 
 ```c#
-public static IReadOnlyCollection<JsonSchema> GetAllOf(this JsonSchema schema)
+public static IReadOnlyList<JsonSchema> GetAllOf(this JsonSchema schema)
 ```
 
 
@@ -146,7 +146,7 @@ Gets the schemas in `anyOf` if the keyword exists.
 #### Declaration
 
 ```c#
-public static IReadOnlyCollection<JsonSchema> GetAnyOf(this JsonSchema schema)
+public static IReadOnlyList<JsonSchema> GetAnyOf(this JsonSchema schema)
 ```
 
 
@@ -431,7 +431,7 @@ Gets the values in `examples` if the keyword exists.
 #### Declaration
 
 ```c#
-public static IReadOnlyCollection<JsonNode> GetExamples(this JsonSchema schema)
+public static IReadOnlyList<JsonNode> GetExamples(this JsonSchema schema)
 ```
 
 
@@ -536,7 +536,7 @@ Gets the schemas in `items` if the keyword exists and is an array of schemas.
 #### Declaration
 
 ```c#
-public static IReadOnlyCollection<JsonSchema> GetItemsArrayForm(this JsonSchema schema)
+public static IReadOnlyList<JsonSchema> GetItemsArrayForm(this JsonSchema schema)
 ```
 
 
@@ -746,7 +746,7 @@ Gets the schemas in `oneOf` if the keyword exists.
 #### Declaration
 
 ```c#
-public static IReadOnlyCollection<JsonSchema> GetOneOf(this JsonSchema schema)
+public static IReadOnlyList<JsonSchema> GetOneOf(this JsonSchema schema)
 ```
 
 
@@ -791,7 +791,7 @@ Gets the schemas in `prefixItems` if the keyword exists.
 #### Declaration
 
 ```c#
-public static IReadOnlyCollection<JsonSchema> GetPrefixItems(this JsonSchema schema)
+public static IReadOnlyList<JsonSchema> GetPrefixItems(this JsonSchema schema)
 ```
 
 
