@@ -12,69 +12,79 @@ A vocabulary is just a collection of keywords.  It will be identified by a URI a
 
 Creating a vocabulary in *JsonSchema.Net* isn't strictly required in order to add custom keywords, but if you're using it to create a meta-schema that will consume and validate other draft 2019-09 or later schemas, it is strongly suggested.
 
-## How vocabularies work {#schema-vocabs-how-it-works}
+## Defining a vocabulary
 
-This is best explained with an example.  Suppose we have a meta-schema **M**, a schema **S** that uses **M** as its `$schema`, and a couple instances **I1** and **I2** to be validated by **S**.
+To make all of this work, we need a few things:
 
-```jsonc
-// meta-schema M
+- A vocab schema that provides the syntax requirements for any new keywords defined by the vocabulary.
+- A vocab URI ID, this is different from the vocab schema's `$id` value.
+- A meta-schema that includes a `$vocabulary` keyword that references the vocab ID (along with any other vocabs you want to include) and a `$ref` keyword that references any vocab schemas (or meta-schemas that already include them).
+
+This is best explained with an example.  Let's suppose we want to define new keywords `minDate` and `maxDate`.
+
+We'll start by defining our vocab schema:
+
+```json
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",               // 1
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://myserver.net/meta/dateMath",
+  "properties": {
+    "minDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "maxDate": {
+      "type": "string",
+      "format": "date"
+    }
+  }
+}
+```
+
+> If you're defining keywords that contain subschemas (e.g. `allOf` or `properties`), you'll want to add a `"$dynamicAnchor": "meta"` to the root schema and then use `{ "$dynamicRef": "#meta" }` where you need schemas.
+{: .prompt-hint }
+
+For the vocab URI ID, we'll use `https://myserver.net/vocab/dateMath`.
+
+And then we need a meta-schema to tie everything together:
+
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://myserver.net/meta-schema",
   "$vocabulary": {
-    "https://json-schema.org/draft/2020-12/vocab/core": true,              // 2
+    "https://json-schema.org/draft/2020-12/vocab/core": true,
     "https://json-schema.org/draft/2020-12/vocab/applicator": true,
     "https://json-schema.org/draft/2020-12/vocab/validation": true,
     "https://json-schema.org/draft/2020-12/vocab/meta-data": true,
     "https://json-schema.org/draft/2020-12/vocab/format-annotation": true,
     "https://json-schema.org/draft/2020-12/vocab/content": true,
     "https://json-schema.org/draft/2020-12/vocab/unevaluated": true,
-    "https://myserver.net/my-vocab": true
+    "https://myserver.net/vocab/dateMath": true
   },
-  "allOf": [                                                                // 3
-    { "$ref": "https://json-schema.org/draft/2020-12/schema" }
-  ],
-  "properties": {
-    "minDate": {                                                            // 4
-      "type": "string",
-      "format": "date"
-    }
-  }
-}
-
-// schema S
-{
-  "$schema": "https://myserver.net/meta-schema",                           // 5
-  "$id": "https://myserver.net/schema",
-  "properties": {
-    "publishedOnDate": {
-      "minDate": "2019-01-01"                                               // 6
-    }
-  }
-}
-
-// instance I1
-{
-  "publishedOnDate": "2019-06-22"                                           // 7
-}
-// instance I2
-{
-  "publishedOnDate": "1998-06-22"                                           // 8
+  "allOf": [
+    { "$ref": "https://json-schema.org/draft/2020-12/schema" },
+    { "$ref": "https://myserver.net/meta/dateMath" }
+  ]
 }
 ```
 
-1. We declare a meta-schema.  In this case, it's the draft 2020-12 meta-schema.  This will validate our schema and declare the set of rules it should be processed with.
-2. We list the vocabularies that the *JsonSchema.Net* should know about in order to process schemas that declare this meta-schema as their `$schema` (see #5).  This includes all of the vocabularies from 2020-12 (because we want all of the 2020-12 capabilities) as well as the vocab for this meta-schema.  We'll explain a bit more about this later.
-3. We also need all of the syntactic validation from 2020-12, so we include it in an `allOf`.
-4. We define a new keyword, `minDate`, that takes a date-formatted string value.
-5. We create a schema that uses our new meta-schema (because we want to use the new keyword).
-6. We use the new keyword to define a property to be found in the instance.
-7. The first instance defines a date after the minimum required date.
-8. The second date defines a date before the minimum required date.
+> It's not always necessary to have a vocab schema.  If you decide to not have one, then any meta-schema evaluations won't be able to validate your keyword's syntax.  Maybe your keyword doesn't require any specific syntax... or validating syntax isn't important to you.
+{: .prompt-info }
 
-The kicker here is that we can read "minDate" and know that its value represents the minimum acceptable date... because we're human, and we understand things like that.  However, a validator isn't going to be able to infer that.  It can only validate that a date-formatted string was given for `minDate` in the schema (**S**).
+## How this works
 
-That's where the vocabulary comes in.  The vocabulary is a human-readable document that gives *semantic* meaning to `minDate`.  It is documentation of business logic that allows a programmer to code an extension that provides additional validation.  For example, this is the documentation for `minLength` in the Schema Validation specification:
+When a schema evaluator loads a schema that uses our meta-schema in its `$schema` keyword, it loads the meta-schema and looks at the `$vocabulary` keyword to determine the set of vocabularies which the meta-schema uses.
+
+That set of vocabularies specifies which keywords to process, defining a "dialect".  Any keywords that are not defined by the dialect have their values collected as annotations (or they're ignored).
+
+The catch is that while we can read "minDate" and know that its value represents the minimum acceptable date... because we're human, and we understand things like that, a validator isn't going to be able to infer what a keyword is supposed to do by its name or the subschema that defines its syntax.  It can only validate that the schema uses a date-formatted string.
+
+That's where the vocabulary specification comes in.
+
+## Defining keyword functionality
+
+The vocabulary specification is a human-readable document that gives *semantic* meaning to the vocab's keywords.  It is documentation of business logic that allows a programmer to code an extension that provides additional validation.  For example, this is the documentation for `minLength` in the Schema Validation specification:
 
 > **6.3.2. minLength**
 >
@@ -88,35 +98,31 @@ That's where the vocabulary comes in.  The vocabulary is a human-readable docume
 
 It gives meaning to the keyword beyond how the meta-schema describes it: a non-negative integer.
 
-Any validator can validate that `minDate` is a date-formatted string, but only a validator that understands `https://myserver.net/my-vocab` as a vocabulary will understand that `minDate` should validate that a date in the instance should be later than that in the schema.
+Any validator can validate that `minDate` is a date-formatted string, but only a validator that understands `https://myserver.net/vocab/dateMath` _as a vocabulary_ will understand that `minDate` should validate that the date in the instance should be later than the date in the schema.
 
-Now, if you look at the `$vocabulary` entry for `https://myserver.net/my-vocab`, the vocabulary has its ID as the key with a boolean value.  In this case, that value is `true`.  That means that if *JsonSchema.Net* *doesn't* know about the vocabulary, it **must** refuse to process any schema that declares **M** as its `$schema` (as **S** does).  If this value were `false`, then *JsonSchema.Net* would be allowed to continue, which means that only syntactic analysis (i.e. "Is `minDate` a date-formatted string?") would be performed.
-
-So, back to the example, because we declare the vocabulary to be required (by giving it a value of `true`) *and* because *JsonSchema.Net* knows about it, **I1** is reported as valid and **I2** is not.  If the vocabulary had not been required and *JsonSchema.Net* didn't know about the vocabulary, both **I1** and **I2** would be reported as valid because the `minDate` keyword would not have been enforced.
+Now, if you look at the `$vocabulary` entry for `https://myserver.net/vocab/dateMath`, the vocabulary has its ID as the key with a boolean value.  In this case, that value is `true`.  That means that if the evaluator *doesn't* know about the vocabulary, it **must** refuse to process any schema that uses our meta-schema.  If this value were `false`, then the validator would be allowed to continue, but it would only be able to collect the keyword's value as an annotation (or ignore it).
 
 ## Registering a vocabulary {#schema-vocabs-registration}
 
-To tell *JsonSchema.Net* about a vocabulary, you need to create a `Vocabulary` instance and register it using `VocabularyRegistry.Add<T>()`.
+To tell *JsonSchema.Net* about a vocabulary, you need to create a `Vocabulary` instance and register it using `VocabularyRegistry.Register<T>()`.
 
 The `Vocabulary` class is quite simple.  It defines the vocabulary's ID and lists the keywords which it supports.
 
-The keywords must still be registered separately (see "Defining Custom Keywords" below).
-
-It's not always necessary to have a meta-schema for your vocabulary.  However, if you want to enable `EvaluationOptions.ValidateMetaschema`, you will need to register it.
+The keywords must still be registered separately (keep reading for instructions on creating and registering keywords).
 
 ## Defining Custom Keywords {#schema-vocabs-custom-keywords}
 
-`JsonSchema` has been designed to allow you to create your own keywords.  There are several steps that need to be performed to do this.
+_JsonSchema.Net_ has been designed with custom keywords in mind.  There are several steps that need to be performed to do this.
 
 1. Implement `IJsonSchemaKeyword`.
-1. Optionally implement one of the schema-container interfaces.
+2. Optionally implement one of the schema-container interfaces.
    1. `ISchemaContainer`
    2. `ISchemaCollector`
    3. `IKeyedSchemaCollector`
    4. `ICustomSchemaCollector`
-2. Apply some attributes.
-3. Register the keyword.
-4. Create a JSON converter.
+3. Apply some attributes.
+4. Register the keyword.
+5. Create a JSON converter.
 
 And your new keyword is ready to use.
 
@@ -132,7 +138,7 @@ Both stages are defined by implementing the single method on `IJsonSchemaKeyword
 
 _JsonSchema.Net_ v6 includes updates to support [Native AOT applications](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/).  Please be sure to read the main AOT section on the [overview page](/schema/basics#aot).
 
-First, you'll need to add `[JsonSerializable]` attributes for any custom keywords.
+First, on your serialization context, you'll need to add `[JsonSerializable]` attributes for any custom keywords.
 
 ```c#
 [JsonSerializable(typeof(MyKeyword))]
@@ -183,7 +189,7 @@ Here, getting the constraint means just pointing to the evaluation function, whi
 
 Once the constraints have all been collected, _JsonSchema.Net_ will move on to the evaluation phase, which creates an "evaluation" object for each constraint, which contains things that are specific to the current evaluation, including the local instance being evaluated, any options (which include the schema and vocabulary registries), and the local results object.
 
-For `maximum`, evaluation means we check if the value is a number.  If not, we indicate that the keyword doesn't apply by calling `.MarkAsSkipped()`.  (This tells _JsonSchema.Net_ that that any nested results don't need to be added.)  If the instance is a number, and it doesn't meet the requirement, then we fail the keyword with an error.
+For `maximum`, evaluation means we check if the value is a number.  If not, we indicate that the keyword doesn't apply by calling `.MarkAsSkipped()`.  (This tells _JsonSchema.Net_ that that any nested results don't need to be added to the output.)  If the instance is a number, and it doesn't meet the requirement, then we fail the keyword with an error.
 
 > `maximum` doesn't have any nested results, but it's still good form to explicitly indicate this.
 {: .prompt-info }
@@ -314,6 +320,17 @@ public static JsonSchemaBuilder Description(this JsonSchemaBuilder builder, stri
 {
     builder.Add(new DescriptionKeyword(description));
     return builder;
+}
+```
+
+You might also want to create a keyword-access extension method on `JsonSchema`.  This provides an easy, safe way to get a keyword's value, if it exists.  Here's the extension method for getting the `description` keyword value:
+
+```c#
+public static string? GetDescription(this JsonSchema schema)
+{
+    return schema.TryGetKeyword<DescriptionKeyword>(DescriptionKeyword.Name, out var k)
+      ? k.Value
+      : null;
 }
 ```
 
