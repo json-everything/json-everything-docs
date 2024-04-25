@@ -50,7 +50,7 @@ It also supports a URL format, which is essentially the same thing, except that 
 
 ## In code {#pointer-in-code}
 
-The `JsonPointer` class is the model for JSON Pointer.
+The `JsonPointer` struct is the model for JSON Pointer.
 
 There are three ways create pointers:
 
