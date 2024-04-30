@@ -50,7 +50,7 @@ It also supports a URL format, which is essentially the same thing, except that 
 
 ## In code {#pointer-in-code}
 
-The `JsonPointer` struct is the model for JSON Pointer.
+The `JsonPointer` class is the model for JSON Pointer.
 
 There are three ways create pointers:
 
@@ -85,6 +85,55 @@ var success = pointer.TryEvaluate(element, out var result);
 ```
 
 > The designers of the `JsonNode` API have elected (for [reasons](https://github.com/dotnet/designs/blob/40794be63ecd8b35e9596412050a84dedd575b99/accepted/2020/serializer/WriteableDomAndDynamic.md#missing-vs-null) I [disagree](https://github.com/dotnet/runtime/issues/66948#issuecomment-1080148457) with) to consider JSON null and .Net null to be equivalent.  This goes against both my personal experience building Manatee.Json and the `JsonElement` API, both of which maintain a separation between these two null concepts.  Because of the unified design, it's impossible to determine whether a returned `JsonNode` value of `null` represents a value that is present but null or it is merely absent from the data.  To accommodate this, the evaluation method can only support the familiar `TryParse()` signature.  A return of `true` indicates the value was found, and `false` indicates it was not.  In the case of a `true` return, `result` may still be null, indicating the value was found and was a JSON null.
+{: .prompt-info }
+
+### Pointer math
+
+You can also combine and augment pointers in different ways.
+
+Joining two pointers together:
+
+```c#
+var pointer1 = JsonPointer.Parse("/objects/and");
+var pointer2 = JsonPointer.Parse("/3/arrays");
+var final = pointer1.Combine(pointer2);
+```
+
+Appending additional segments to an existing pointer:
+
+```c#
+var pointer = JsonPointer.Parse("/objects/and");
+var final = pointer1.Combine(3, "arrays");
+```
+
+### Access pointer parts and create sub-pointers
+
+You can retrieve the individual segments using the indexer:
+
+```c#
+var pointer = JsonPointer.Parse("/objects/and/3/arrays");
+var andSegment = pointer[1];  // "and" (string)
+```
+
+If you're using .Net 8 or higher, the indexer also supports `Range` values, so you can obtain a new pointer containing a portion of the segments.
+
+Get the immediate parent:
+
+```c#
+var pointer = JsonPointer.Parse("/objects/and/3/arrays");
+var parent = pointer[..^1];  // /objects/and/3
+```
+
+Or get the local pointer (imagine you've navigated to `/objects/and/` and you need the pointer relative to where you are):
+
+```c#
+var pointer = JsonPointer.Parse("/objects/and/3/arrays");
+var local = pointer[^2..];  // /3/arrays
+```
+
+There are also method versions of this functionality, which are also available if you're not yet using .Net 8: `.GetAncestor(int)` and `.GetLocal()`.
+
+> Accessing pointers acts like accessing strings: getting segments has no allocations (like getting a `char` via the string's `int` indexer), but creating a sub-pointer _does_ allocate a new `JsonPointer` instance (like creating a substring via the string's `Range` indexer).
 {: .prompt-info }
 
 ### Building pointers using Linq expressions {#linq}
