@@ -3,7 +3,7 @@ layout: "page"
 title: "DefinitionsKeywordJsonConverter Class"
 bookmark: "DefinitionsKeywordJsonConverter"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.026"
+order: "10.01.027"
 ---
 **Namespace:** Json.Schema
 

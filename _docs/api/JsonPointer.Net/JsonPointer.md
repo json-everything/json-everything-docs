@@ -15,6 +15,10 @@ order: "10.10.001"
 **Implemented interfaces:**
 
 - IEquatable\<JsonPointer\>
+- IReadOnlyList\<string\>
+- IReadOnlyCollection\<string\>
+- IEnumerable\<string\>
+- IEnumerable
 
 Represents a JSON Pointer IAW RFC 6901.
 
@@ -28,7 +32,9 @@ Represents a JSON Pointer IAW RFC 6901.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Segments** | PointerSegment[] | Gets the collection of pointer segments. |
+| **Count** | int | Gets the number of segments in the pointer. |
+| **Item** | string | Gets a segment value by index. |
+| **Item** | JsonPointer | Creates a new pointer with the indicated segments. |
 
 ## Methods
 
@@ -92,25 +98,6 @@ The JSON Pointer.
 #### Remarks
 
 This method creates un-encoded pointers only.
-
-### Create(IEnumerable\<PointerSegment\> segments)
-
-Creates a new JSON Pointer from a collection of segments.
-
-#### Declaration
-
-```c#
-public static JsonPointer Create(IEnumerable<PointerSegment> segments)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| segments | IEnumerable\<PointerSegment\> | A collection of segments. |
-
-
-#### Returns
-
-The JSON Pointer.
 
 ### Create(Expression\<Func\<T, object\>\> expression, PointerCreationOptions options)
 
@@ -189,6 +176,40 @@ public JsonElement? Evaluate(JsonElement root)
 
 The sub-element at the pointer's location, or null if the path does not exist.
 
+### GetAncestor(int levels)
+
+Creates a new pointer retaining the starting segments.
+
+#### Declaration
+
+```c#
+public JsonPointer GetAncestor(int levels)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| levels | int | How many levels to remove from the end of the pointer. |
+
+
+#### Returns
+
+A new pointer.
+
+### GetEnumerator()
+
+Returns an enumerator that iterates through the collection.
+
+#### Declaration
+
+```c#
+public IEnumerator<string> GetEnumerator()
+```
+
+
+#### Returns
+
+An enumerator that can be used to iterate through the collection.
+
 ### GetHashCode()
 
 Returns the hash code for this instance.
@@ -203,6 +224,44 @@ public override int GetHashCode()
 #### Returns
 
 A 32-bit signed integer that is the hash code for this instance.
+
+### GetLocal(int levels)
+
+Creates a new pointer retaining the ending segments.
+
+#### Declaration
+
+```c#
+public JsonPointer GetLocal(int levels)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| levels | int | How many levels to keep from the end of the pointer. |
+
+
+#### Returns
+
+A new pointer.
+
+### GetSubPointer(Range range)
+
+Creates a new pointer with the indicated segments.
+
+#### Declaration
+
+```c#
+public JsonPointer GetSubPointer(Range range)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| range | Range | The segment range for the new pointer. |
+
+
+#### Returns
+
+A new pointer.
 
 ### Parse(string source)
 
@@ -232,25 +291,6 @@ Returns the string representation of this instance.
 ```c#
 public override string ToString()
 ```
-
-
-#### Returns
-
-The string representation.
-
-### ToString(JsonPointerStyle pointerStyle)
-
-Returns the string representation of this instance.
-
-#### Declaration
-
-```c#
-public string ToString(JsonPointerStyle pointerStyle)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| pointerStyle | JsonPointerStyle | Indicates whether to URL-encode the pointer. |
 
 
 #### Returns

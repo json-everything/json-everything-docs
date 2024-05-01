@@ -21,4 +21,5 @@ Enumerates the supported JSON Schema specification versions.
 | **Draft201909** | JSON Schema Draft 2019-09. |
 | **Draft202012** | JSON Schema Draft 2020-12. |
 | **DraftNext** | JSON Schema Draft Next. |
+| **All** | All versions. |
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "PropertyDependency Class"
 bookmark: "PropertyDependency"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.134"
+order: "10.01.133"
 ---
 **Namespace:** Json.Schema
 
@@ -14,7 +14,6 @@ order: "10.01.134"
 
 **Implemented interfaces:**
 
-- IKeyedSchemaCollector
 - IEquatable\<PropertyDependency\>
 
 Represents a single entry in the `propertyDependencies` keyword.

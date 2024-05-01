@@ -21,19 +21,6 @@ A registry for schemas.
 | **Fetch** | Func\<Uri, IBaseDocument\> | Gets or sets a method to enable automatic download of schemas by `$id` URI. |
 | **Global** | SchemaRegistry | The global registry. |
 
-## Constructors
-
-### SchemaRegistry()
-
-Creates a new **Json.Schema.SchemaRegistry**.
-
-#### Declaration
-
-```c#
-public SchemaRegistry()
-```
-
-
 ## Methods
 
 ### Get(Uri uri)
@@ -55,6 +42,22 @@ public IBaseDocument Get(Uri uri)
 
 The schema, if registered in either this or the global registry;4
 otherwise null.
+
+### Initialize(Uri baseUri, JsonSchema schema)
+
+Sets base URI and spec version for a schema.  Generally not needed as this happens automatically on registration and evaluation.
+
+#### Declaration
+
+```c#
+public void Initialize(Uri baseUri, JsonSchema schema)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| baseUri | Uri | The base URI for the schema. |
+| schema | JsonSchema | The schema |
+
 
 ### Register(IBaseDocument document)
 

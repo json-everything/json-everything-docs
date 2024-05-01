@@ -3,7 +3,7 @@ layout: "page"
 title: "ConstraintExtensions Class"
 bookmark: "ConstraintExtensions"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.014"
+order: "10.01.015"
 ---
 **Namespace:** Json.Schema
 
@@ -16,19 +16,19 @@ Convenience extensions for building constraints and processing evaluations.
 
 ## Methods
 
-### GetKeywordConstraint(this IEnumerable\<KeywordConstraint\> constraints)
+### GetKeywordConstraint(this ReadOnlySpan\<KeywordConstraint\> constraints)
 
 Gets a constraint from a keyword with the given type.
 
 #### Declaration
 
 ```c#
-public static KeywordConstraint GetKeywordConstraint(this IEnumerable<KeywordConstraint> constraints)
+public static KeywordConstraint GetKeywordConstraint(this ReadOnlySpan<KeywordConstraint> constraints)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
-| constraints | IEnumerable\<KeywordConstraint\> | The set of constraints. |
+| constraints | ReadOnlySpan\<KeywordConstraint\> | The set of constraints. |
 
 
 #### Returns

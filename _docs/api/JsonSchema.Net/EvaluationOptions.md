@@ -3,7 +3,7 @@ layout: "page"
 title: "EvaluationOptions Class"
 bookmark: "EvaluationOptions"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.054"
+order: "10.01.055"
 ---
 **Namespace:** Json.Schema
 
@@ -30,7 +30,6 @@ Allows configuration of the evaluation process.
 | **RequireFormatValidation** | bool | Specifies whether the `format` keyword should be required to provide validation results.  Default is false, which just produces annotations for drafts 2019-09 and prior or follows the behavior set forth by the format-annotation vocabulary requirement in the `$vocabulary` keyword in a meta-schema declaring draft 2020-12. |
 | **SchemaRegistry** | SchemaRegistry | The local schema registry.  If a schema is not found here, it will automatically check the global registry as well. |
 | **ValidateAgainstMetaSchema** | bool | Indicates whether the schema should be validated against its `$schema` value. this is not typically necessary. |
-| **VocabularyRegistry** | VocabularyRegistry | The local vocabulary registry.  If a schema is not found here, it will automatically check the global registry as well. |
 
 ## Constructors
 

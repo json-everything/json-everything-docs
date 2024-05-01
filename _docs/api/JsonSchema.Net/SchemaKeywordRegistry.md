@@ -41,6 +41,63 @@ public static Type GetImplementationType(string keyword)
 
 The keyword type, if registered; otherwise null.
 
+### Keyword(this Type keywordType)
+
+Gets the keyword string.
+
+#### Declaration
+
+```c#
+public static string Keyword(this Type keywordType)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| keywordType | Type | The keyword type. |
+
+
+#### Returns
+
+The keyword string.
+
+### Keyword(this IJsonSchemaKeyword keyword)
+
+Gets the keyword string.
+
+#### Declaration
+
+```c#
+public static string Keyword(this IJsonSchemaKeyword keyword)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| keyword | IJsonSchemaKeyword | The keyword. |
+
+
+#### Returns
+
+The keyword string.
+
+### Priority(this IJsonSchemaKeyword keyword)
+
+Gets the keyword priority.
+
+#### Declaration
+
+```c#
+public static long Priority(this IJsonSchemaKeyword keyword)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| keyword | IJsonSchemaKeyword | The keyword. |
+
+
+#### Returns
+
+The priority.
+
 ### Register()
 
 Registers a new keyword type.
@@ -87,6 +144,26 @@ public static void RegisterNullValue(T nullKeyword)
 This is important for keywords that accept null, like `default` and `const`.  Without
 this step, the serializer will skip keywords that have nulls.
 
+### SupportsVersion(this IJsonSchemaKeyword keyword, SpecVersion version)
+
+Determines if a keyword is declared by a given version of the JSON Schema specification.
+
+#### Declaration
+
+```c#
+public static bool SupportsVersion(this IJsonSchemaKeyword keyword, SpecVersion version)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| keyword | IJsonSchemaKeyword | The keyword. |
+| version | SpecVersion | The queried version. |
+
+
+#### Returns
+
+true if the keyword is supported by the version; false otherwise
+
 ### Unregister()
 
 Unregisters a keyword type.
@@ -97,4 +174,23 @@ Unregisters a keyword type.
 public static void Unregister()
 ```
 
+
+### VersionsSupported(this IJsonSchemaKeyword keyword)
+
+Gets the specification versions supported by a keyword.
+
+#### Declaration
+
+```c#
+public static SpecVersion VersionsSupported(this IJsonSchemaKeyword keyword)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| keyword | IJsonSchemaKeyword | The keyword. |
+
+
+#### Returns
+
+The specification versions as a single flags value.
 

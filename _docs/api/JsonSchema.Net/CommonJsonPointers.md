@@ -1,14 +1,14 @@
 ---
 layout: "page"
-title: "JsonPointers Class"
-bookmark: "JsonPointers"
+title: "CommonJsonPointers Class"
+bookmark: "CommonJsonPointers"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.082"
+order: "10.01.012"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
-`JsonPointers`
+`CommonJsonPointers`
  🡒 
 `object`
 
@@ -23,4 +23,21 @@ These should be used whenever possible instead of allocating new instances.
 | Name | Type | Summary |
 |---|---|---|
 | **SingleEmptyPointerArray** | JsonPointer[] | Defines an array containing only a single empty JSON Pointer. |
+
+## Methods
+
+### GetNumberSegment(int i)
+
+A set of predefined single-segment JSON Pointers that contain numeric indices.
+
+#### Declaration
+
+```c#
+public static JsonPointer GetNumberSegment(int i)
+```
+
+
+#### Returns
+
+
 

@@ -14,12 +14,6 @@ order: "10.01.184"
 
 A registry for vocabularies.
 
-## Properties
-
-| Name | Type | Summary |
-|---|---|---|
-| **Global** | VocabularyRegistry | The global registry. |
-
 ## Methods
 
 ### Get(Uri vocabularyId)
@@ -29,7 +23,7 @@ Retrieves the vocabulary associated with the URI ID, if known.
 #### Declaration
 
 ```c#
-public Vocabulary Get(Uri vocabularyId)
+public static Vocabulary Get(Uri vocabularyId)
 ```
 
 | Parameter | Type | Description |
@@ -48,7 +42,7 @@ Indicates whether a vocabulary is known by URI ID and/or anchor.
 #### Declaration
 
 ```c#
-public bool IsKnown(Uri vocabularyId)
+public static bool IsKnown(Uri vocabularyId)
 ```
 
 | Parameter | Type | Description |
@@ -69,7 +63,22 @@ keywords.  This must be done separately.
 #### Declaration
 
 ```c#
-public void Register(Vocabulary vocabulary)
+public static void Register(Vocabulary vocabulary)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| vocabulary | Vocabulary |  |
+
+
+### Unregister(Vocabulary vocabulary)
+
+Removes a vocabulary from the registry.
+
+#### Declaration
+
+```c#
+public static void Unregister(Vocabulary vocabulary)
 ```
 
 | Parameter | Type | Description |

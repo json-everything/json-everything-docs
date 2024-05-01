@@ -1,14 +1,14 @@
 ---
 layout: "page"
-title: "RefResolutionException Class"
-bookmark: "RefResolutionException"
+title: "DataRefResolutionException Class"
+bookmark: "DataRefResolutionException"
 permalink: "/api/JsonSchema.Net.Data/:title/"
-order: "10.02.010"
+order: "10.02.002"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
-`RefResolutionException`
+`DataRefResolutionException`
  🡒 
 `Exception`
  🡒 
@@ -40,14 +40,14 @@ This class will be moved into a future version of JsonSchema.Net.
 
 ## Constructors
 
-### RefResolutionException(IEnumerable\<string\> references, Exception innerException)
+### DataRefResolutionException(IEnumerable\<string\> references, Exception innerException)
 
 Thrown when a reference cannot be resolved.
 
 #### Declaration
 
 ```c#
-public RefResolutionException(IEnumerable<string> references, Exception innerException)
+public DataRefResolutionException(IEnumerable<string> references, Exception innerException)
 ```
 
 | Parameter | Type | Description |

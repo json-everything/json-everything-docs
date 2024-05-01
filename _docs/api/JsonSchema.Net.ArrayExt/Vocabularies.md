@@ -23,14 +23,14 @@ Declares the vocabularies of the supported drafts.
 
 ## Methods
 
-### Register(VocabularyRegistry vocabRegistry, SchemaRegistry schemaRegistry)
+### Register(SchemaRegistry schemaRegistry)
 
 Registers the all components required to use the array extensions vocabulary.
 
 #### Declaration
 
 ```c#
-public static void Register(VocabularyRegistry vocabRegistry, SchemaRegistry schemaRegistry)
+public static void Register(SchemaRegistry schemaRegistry)
 ```
 
 
