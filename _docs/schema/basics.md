@@ -47,7 +47,7 @@ There are two options when building a schema: defining it inline using the fluen
 
 ## Serialization and Deserialization {#schema-deserialization}
 
-*JsonSchema.Net* schemas are fully serializable.
+_JsonSchema.Net_ schemas are fully serializable.
 
 ```c#
 var mySchema = JsonSchema.FromText(content);
@@ -463,7 +463,8 @@ New formats must be registered via the `Formats.Register()` static method.  This
 
 The `EvaluationOptions` class gives you a few configuration points for customizing how the evaluation process behaves.  It is an instance class and can be passed into the `JsonSchema.Evaluate()` method.  If no options are explicitly passed, a copy of `JsonSchemaOptions.Default` will be used.
 
-- `EvaluateAs` - Indicates which schema version to process as.  This will filter the keywords of a schema based on their support.  This means that if any keyword is not supported by this version, it will be ignored.
+- `EvaluateAs` - Indicates which schema version to process as.  This will filter the keywords of a schema based on their support.  This means that if any keyword is not supported by this version, it will be ignored.  This will need to be set when you create the options.
+- `SchemaRegistry` - Provides a way to register schemas only for the evaluations that use this set of options.
 - `EvaluateMetaSchema` - Indicates whether the schema should be evaluated against its `$schema` value (its meta-schema).  This is not typically necessary.  Note that the evaluation process will still attempt to resolve the meta-schema. \*
 - `OutputFormat` - You already read about output formats above.  This is the property that controls it all.  By default, a single "flag" node is returned.  This also yields the fastest evaluation times as it enables certain optimizations.
 - `RequireFormatValidation` - Forces `format` validation.
@@ -549,7 +550,7 @@ var randomString = JsonSchema.FromFile("random-string.json");
 SchemaRegistry.Global.Register(new Uri("http://localhost/random-string"), randomString);
 ```
 
-Now *JsonSchema.Net* will be able to resolve the reference.
+Now _JsonSchema.Net_ will be able to resolve the reference.
 
 > `JsonSchema.FromFile()` automatically sets the schema's base URI to the file path.  If you intend to use file paths in your references (e.g. `file:///C:\random-string.json`), then just register the schema without passing a URI:
 >
@@ -576,7 +577,7 @@ var referenceableJson = new JsonNodeBaseDocument(json, "http://localhost/jsondat
 SchemaRegistry.Global.Register(referenceableJson);
 
 var schema = new JsonSchemaBuilder()
-    .Ref("http://localhost/jsondata#/schema)
+    .Ref("http://localhost/jsondata#/schema")
     .Build();
 ```
 

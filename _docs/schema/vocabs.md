@@ -158,7 +158,7 @@ The `maximum` keyword is basically all instance.  It asks, "Is the instance a nu
 
 ```c#
 public KeywordConstraint GetConstraint(SchemaConstraint schemaConstraint,
-                                       IReadOnlyList<KeywordConstraint> localConstraints,
+                                       ReadOnlySpan<KeywordConstraint> localConstraints,
                                        EvaluationContext context)
 {
     return new KeywordConstraint(Name, Evaluator);
@@ -218,7 +218,7 @@ More specifically to our task here, `properties` gives us a list of subschemas t
 
 ```c#
 public KeywordConstraint GetConstraint(SchemaConstraint schemaConstraint,
-                                       IReadOnlyList<KeywordConstraint> localConstraints,
+                                       ReadOnlySpan<KeywordConstraint> localConstraints,
                                        EvaluationContext context)
 {
     var subschemaConstraints = Properties
