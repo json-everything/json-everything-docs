@@ -34,7 +34,7 @@ Represents a JSON Pointer IAW RFC 6901.
 |---|---|---|
 | **Count** | int | Gets the number of segments in the pointer. |
 | **Item** | string | Gets a segment value by index. |
-| **Item** | JsonPointer |  |
+| **Item** | JsonPointer | Creates a new pointer with the indicated segments. |
 
 ## Methods
 
@@ -246,6 +246,7 @@ A new pointer.
 
 ### GetSubPointer(Range range)
 
+Creates a new pointer with the indicated segments.
 
 #### Declaration
 
@@ -253,9 +254,14 @@ A new pointer.
 public JsonPointer GetSubPointer(Range range)
 ```
 
+| Parameter | Type | Description |
+|---|---|---|
+| range | Range | The segment range for the new pointer. |
+
 
 #### Returns
 
+A new pointer.
 
 ### Parse(string source)
 
