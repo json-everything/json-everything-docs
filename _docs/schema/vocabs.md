@@ -52,6 +52,7 @@ And then we need a meta-schema to tie everything together:
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://myserver.net/meta-schema",
+  "$dynamicAnchor": "meta",
   "$vocabulary": {
     "https://json-schema.org/draft/2020-12/vocab/core": true,
     "https://json-schema.org/draft/2020-12/vocab/applicator": true,
