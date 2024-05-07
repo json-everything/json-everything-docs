@@ -19,13 +19,13 @@ It first looks at the generated schema to determine whether it can add a `null` 
 ```c#
 internal class NullabilityRefiner : ISchemaRefiner
 {
-    public bool ShouldRun(SchemaGeneratorContext context)
+    public bool ShouldRun(SchemaGeneratorContextBase context)
     {
         // we only want to run this if the generated schema has a `type` keyword
         return context.Intents.OfType<TypeIntent>().Any();
     }
 
-    public void Run(SchemaGeneratorContext context)
+    public void Run(SchemaGeneratorContextBase context)
     {
         // find the type keyword
         var typeIntent = context.Intents.OfType<TypeIntent>().Firs();

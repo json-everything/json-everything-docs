@@ -42,7 +42,7 @@ public class MaxDateKeyword : IJsonSchemaKeyword
 
     // Implements IJsonSchemaKeyword
     public KeywordConstraint GetConstraint(SchemaConstraint schemaConstraint,
-        IReadOnlyList<KeywordConstraint> localConstraints,
+        ReadOnlySpan<KeywordConstraint> localConstraints,
         EvaluationContext context)
     {
         throw new NotImplementedException();
@@ -165,9 +165,9 @@ Then they need to be registered.  This is done on the schema validation options.
 options.SchemaRegistry.Register(new Uri("http://mydates.com/vocab/schema"), DatesMetaSchema);
 options.SchemaRegistry.Register(new Uri("http://mydates.com/dialect/schema"), DatesDialectMetaSchema);
 
-// Register the vocabulary.  This automatically registers the keywords
-// defined by the vocabulary.
-options.VocabularyRegistry.Register(DatesVocabulary);
+// Register the vocabulary.
+// You'll still need to register the keywords as shown in the previous section.
+VocabularyRegistry.Register(DatesVocabulary);
 ```
 
 And that's it.  The vocabulary and keyword are ready for use.

@@ -8,7 +8,7 @@ order: "01.5.4.2"
 ---
 This example shows how to extend schema generation to output a new keyword.
 
-Suppose we've implemented the `maxDate` keyword (see the "Custom Vocabularies" example).  Now we need a way to generate schemas that contain it.
+Suppose we've implemented the `maxDate` keyword from the [Custom Vocabularies example](/schema/examples/custom-vocabs/#example-schema-vocabs-keyword).  Now we need a way to generate schemas that contain it.
 
 For this we need to create a _keyword intent_.
 

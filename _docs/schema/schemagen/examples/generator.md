@@ -21,7 +21,7 @@ class TimeSpanSchemaGenerator : ISchemaGenerator
         return type == typeof(TimeSpan);
     }
 
-    public void AddConstraints(SchemaGeneratorContext context)
+    public void AddConstraints(SchemaGeneratorContextBase context)
     {
         context.Intents.Add(new TypeIntent(SchemaValueType.String));
         context.Intents.Add(new FormatIntent(Formats.Duration));

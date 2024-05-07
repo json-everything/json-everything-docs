@@ -6,7 +6,7 @@ permalink: /schema/examples/:title/
 icon: fas fa-tag
 order: "01.5.4.3"
 ---
-In the [previous example](schema-gen-intent.md) we created a keyword intent to represent a new `maxDate` keyword during generation.
+In the [previous example](schema-gen-intent.md) we created a keyword intent to represent the [`maxDate` keyword](/schema/examples/custom-vocabs/#example-schema-vocabs-keyword) during generation.
 
 Now we need a way to add it into the generation.  This keyword is a validation constraint that you might expect to see as an attribute, so we'll do that.
 
@@ -26,7 +26,7 @@ public class MaxDateAttribute : Attribute, IAttributeHandler
     }
 
     // It's not necessary to implement this explicitly, but I like to.
-    void IAttributeHandler.AddConstraints(SchemaGeneratorContext context)
+    void IAttributeHandler.AddConstraints(SchemaGeneratorContextBase context)
     {
         var attribute = context.Attributes.OfType<MaxDateAttribute>()
                                           .FirstOrDefault();

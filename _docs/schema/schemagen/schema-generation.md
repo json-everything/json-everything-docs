@@ -6,7 +6,7 @@ permalink: /schema/schemagen/:title/
 icon: fas fa-tag
 order: "01.5.1"
 ---
-*JsonSchema.Net.Generation* is an extension package to *JsonSchema.Net* that provides JSON Schema generation from .Net types.
+_JsonSchema.Net.Generation_ is an extension package to _JsonSchema.Net_ that provides JSON Schema generation from .Net types.
 
 Using it is quite simple.  First you need a `JsonSchemaBuilder`.  Then...
 
@@ -368,7 +368,7 @@ public class MaximumAttribute : Attribute, IAttributeHandler<MaximumAttribute>
         Value = value;
     }
 
-    void IAttributeHandler.AddConstraints(SchemaGeneratorContext context)
+    void IAttributeHandler.AddConstraints(SchemaGeneratorContextBase context)
     {
         if (!context.Type.IsNumber()) return;
 
