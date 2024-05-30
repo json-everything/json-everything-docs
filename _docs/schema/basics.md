@@ -61,6 +61,9 @@ var mySchema = JsonSerializer.Deserialize<JsonSchema>(content);
 
 Done.
 
+> Serialization is the mechanic used to obtain a textual representation of a `JsonSchema` object.  This may be necessary if you, for example, [define your schemas in code](#schema-inlining) or [generate them from a type](/schema/schemagen/schema-generation/).  You can either use the JSON serializer as shown above, or the YAML serializer found in [_Yaml2JsonNode_](/yaml/basics/).
+{: .prompt-tip}
+
 ### Ahead of Time (AOT) compatibility {#aot}
 
 _JsonSchema.Net_ v6 includes updates to support [Native AOT applications](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/).  In order to take advantage of this, there are a few things you'll need to do.
