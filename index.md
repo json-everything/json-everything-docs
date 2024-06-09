@@ -16,4 +16,4 @@ If you have question about this site or an idea for improving it, please [open a
 
 ---
 
-You might also find our [interactive learning site](https://learn.json-everything.com/) engaging!
+You might also find our [interactive learning site](https://learn.json-everything.net/) engaging!
