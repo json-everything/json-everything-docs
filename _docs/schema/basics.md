@@ -47,7 +47,9 @@ There are two options when building a schema: defining it inline using the fluen
 
 ## Serialization and Deserialization {#schema-deserialization}
 
-_JsonSchema.Net_ schemas are fully serializable.
+Serialization is how we convert between the textual representation of JSON Schema and a `JsonSchema` .Net object.  In many cases, you'll compose your schemas in separate JSON files and deserialize them into the `JsonSchema` model.  However if you [define your schemas in code](#schema-inlining) or [generate them from a type](/schema/schemagen/schema-generation/) you won't have a textual representation of those schemas on hand.
+
+To facilitate this, _JsonSchema.Net_ schemas are fully serializable.
 
 ```c#
 var mySchema = JsonSchema.FromText(content);
@@ -60,6 +62,9 @@ var mySchema = JsonSerializer.Deserialize<JsonSchema>(content);
 ```
 
 Done.
+
+> You can either use the JSON serializer as shown above, or the YAML serializer found in [_Yaml2JsonNode_](/yaml/basics/).
+{: .prompt-tip}
 
 ### Ahead of Time (AOT) compatibility {#aot}
 
