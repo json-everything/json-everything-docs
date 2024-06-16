@@ -29,6 +29,9 @@ The JSON Schema team recommends using draft 7 or later.  *JsonSchema.Net* suppor
 > The next version of JSON Schema, which is supported by v4.0.0 and later of this library, is currently in development and will start a new era for the project which includes various backward- and forward-compatibility guarantees.  Have a read of the various discussions happening in the [JSON Schema GitHub org](https://github.com/json-schema-org) for more information.
 {: .prompt-tip }
 
+> This library uses [`decimal`](https://learn.microsoft.com/en-us/dotnet/api/system.decimal?view=net-8.0) for floating point number representation.  While `double` (and even `float`) may support a larger range, the higher precision of `decimal` is often more important (for example, in financial applications).  This also aligns with [JSON](https://datatracker.ietf.org/doc/html/rfc8259#section-6) itself, which uses arbitrary-precision numbers.  [This site](https://www.geeksforgeeks.org/difference-between-decimal-float-and-double-in-net/) has a good summary of the differences between the numeric types.
+{: .prompt-warning }
+
 ### Meta-schemas {#schema-metaschemas}
 
 Each version defines a meta-schema.  This is a special JSON Schema that describes all of the keywords available for that version.  They are intended to be used to validate other schemas.  Usually, a schema will declare the version it should adhere to using the `$schema` keyword.
@@ -193,8 +196,7 @@ builder.Properties(
 
 # Evaluation & annotations {#schema-evaluation}
 
-> In recognizing the multitude of uses for JSON Schema, the team has started to use the word "evaluate" instead of "validate" for the general processing of a schema.  What was "validate" in v3.x of this library is now "evaluate" in order to align with this viewpoint.
-{: .prompt-info }
+Among the myriad of uses for JSON Schema, _JsonSchema.Net_ is considered a "validator".  That is, it evaluates schemas against a data instance and produces a validation result and annotations.
 
 ## Evaluating instances {#schema-evaluation-2}
 
