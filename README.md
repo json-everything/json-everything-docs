@@ -12,9 +12,9 @@ The main project's [CODE OF CONDUCT](https://github.com/json-everything/json-eve
 
 ## Running locally
 
-The site is a standard [Jekyll-based GH Pages site](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll) using a modified [Chirpy theme](https://chirpy.cotes.page/).
+The site is a standard [Jekyll-based GitHub Pages site](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll) using a modified [Chirpy theme](https://chirpy.cotes.page/).
 
-You'll need to install the dependencies listed there to run it locally.  Once all of the dependencies are available, you can run the `run.bat` or `run.sh` scripts to more easily start up the site.
+You'll need to install the dependencies listed in the GitHub docs to run it locally.  Once all of the dependencies are available, you can run the `run.bat` or `run.sh` scripts to more easily start up the site.
 
 Because of the API docs, the building the entire site will take a few seconds, so running the site with an incremental build is recommended.
 
