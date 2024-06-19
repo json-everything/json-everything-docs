@@ -294,7 +294,7 @@ The hash code.
 
 See the following for discussion on why the default implementation is insufficient:
             
-- https://github.com/gregsdennis/json-everything/issues/76
+- https://github.com/json-everything/json-everything/issues/76
 - https://github.com/dotnet/runtime/issues/33388
 
 ### IsEquivalentTo(this JsonElement a, JsonElement b)
