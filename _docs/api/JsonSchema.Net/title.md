@@ -4,5 +4,5 @@ bookmark: JsonSchema.Net
 permalink: /api/JsonSchema.Net/:title/
 folder: true
 order: "10.01"
-version: "7.0.4"
+version: "7.1.0"
 ---
