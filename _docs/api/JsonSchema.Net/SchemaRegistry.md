@@ -90,3 +90,24 @@ public void Register(Uri uri, IBaseDocument document)
 | document | IBaseDocument | The schema. |
 
 
+### RegisterNewSpecVersion(Uri metaSchemaUri, SpecVersion specVersion)
+
+Registers a new meta-schema URI and establishes a new recognized value for the
+**Json.Schema.SpecVersion** enumeration.
+
+#### Declaration
+
+```c#
+public static void RegisterNewSpecVersion(Uri metaSchemaUri, SpecVersion specVersion)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| metaSchemaUri | Uri | The meta-schema URI. |
+| specVersion | SpecVersion | The value of the enum to associate with the meta-schema. |
+
+
+#### Remarks
+
+**WARNING** There be dragons here.  Use only if you know what you're doing.
+
