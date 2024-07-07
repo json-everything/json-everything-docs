@@ -472,7 +472,7 @@ The `EvaluationOptions` class gives you a few configuration points for customizi
 
 - `EvaluateAs` - Indicates which schema version to process as.  This will filter the keywords of a schema based on their support.  This means that if any keyword is not supported by this version, it will be ignored.  This will need to be set when you create the options.
 - `SchemaRegistry` - Provides a way to register schemas only for the evaluations that use this set of options.
-- `EvaluateMetaSchema` - Indicates whether the schema should be evaluated against its `$schema` value (its meta-schema).  This is not typically necessary.  Note that the evaluation process will still attempt to resolve the meta-schema. \*
+- `ValidateAgainstMetaSchema` - Indicates whether the schema should be validated against its `$schema` value (its meta-schema).  This is not typically necessary.  Note that the evaluation process will still attempt to resolve the meta-schema. \*
 - `OutputFormat` - You already read about output formats above.  This is the property that controls it all.  By default, a single "flag" node is returned.  This also yields the fastest evaluation times as it enables certain optimizations.
 - `RequireFormatValidation` - Forces `format` validation.
 - `OnlyKnownFormats` - Limits `format` validation to only those formats which have been registered through `Formats.Register()`.  Unknown formats will fail validation.
