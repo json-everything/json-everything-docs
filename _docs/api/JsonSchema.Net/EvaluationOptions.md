@@ -19,6 +19,7 @@ Allows configuration of the evaluation process.
 | Name | Type | Summary |
 |---|---|---|
 | **AddAnnotationForUnknownKeywords** | bool | Outputs an annotation that lists any unknown keywords.  Can be useful for catching typos. |
+| **AllowReferencesIntoUnknownKeywords** | bool | Gets or sets whether `$ref` is permitted to navigate into unknown keywords where subschemas aren't expected.  Default is true. |
 | **Culture** | CultureInfo | Gets or sets the culture for error messages.  Overrides **Json.Schema.ErrorMessages.Culture**. |
 | **Default** | EvaluationOptions | The default settings. |
 | **EvaluateAs** | SpecVersion | Indicates which specification version to process as.  This will filter the keywords of a schema based on their support. |
