@@ -10,6 +10,8 @@ order: "10.12.004"
 **Inheritance:**
 `InterpreterException`
  🡒 
+`JsonEException`
+ 🡒 
 `Exception`
  🡒 
 `object`
