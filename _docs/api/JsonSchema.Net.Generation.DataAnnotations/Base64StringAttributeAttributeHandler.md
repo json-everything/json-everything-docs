@@ -19,24 +19,4 @@ order: "10.06.001"
 - IAttributeHandler\<Base64StringAttribute\>
 - IAttributeHandler
 
-Adds a `format` keyword with `base64`.
-
-## Remarks
-
-By default, `format` is an annotation only.  No validation will occur unless configured to do so.
-
-The `base64` format is defined by the OpenAPI 3.1 specification.
-
-## Constructors
-
-### Base64StringAttributeAttributeHandler()
-
-Creates a new **Json.Schema.Generation.DataAnnotations.Base64StringAttributeAttributeHandler**.
-
-#### Declaration
-
-```c#
-public Base64StringAttributeAttributeHandler()
-```
-
 
