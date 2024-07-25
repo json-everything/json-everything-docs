@@ -36,36 +36,37 @@ The above will give you a basic schema that will include the `type` keyword, and
 - string properties may have length requirements
 - numeric properties may have value range requirements
 
-All of these and more are supplied via a set of attributes that can be applied to properties.  The following attributes are included in this package:
+All of these and more are supplied via a set of attributes that can be applied to properties, and some can be applied to to types.  The following attributes are included in this package:
 
 - Numeric values
-    - `Minimum`
-    - `ExclusiveMinimum`
-    - `Maximum`
-    - `ExclusiveMaximum`
-    - `MultipleOf`
+  - `Minimum`
+  - `ExclusiveMinimum`
+  - `Maximum`
+  - `ExclusiveMaximum`
+  - `MultipleOf`
 - Strings
-    - `MinLength`
-    - `MaxLength`
-    - `Pattern`
+  - `MinLength`
+  - `MaxLength`
+  - `Pattern`
 - Arrays
-    - `MinItems`
-    - `MaxItems`
-    - `UniqueItems`
+  - `MinItems`
+  - `MaxItems`
+  - `UniqueItems`
 - All
-    - `Required` & `Nullable` (see below)
-    - `Obsolete`\* (translates to `deprecated`)
-    - `JsonExclude`\*\*
-    - `Title`
-    - `Description`
-    - `Const` \*\*\*
-    - `Default` \*\*\*
-    - `ReadOnly`
-    - `WriteOnly`
+  - `Id`
+  - `Required` & `Nullable` (see below)
+  - `Obsolete`\* (translates to `deprecated`)
+  - `JsonExclude`\*\*
+  - `Title`
+  - `Description`
+  - `Const` \*\*\*
+  - `Default` \*\*\*
+  - `ReadOnly`
+  - `WriteOnly`
 - Conditional (see [Conditionals](./conditional-generation))
-    - `If`
-    - `Then`
-    - `Else`
+  - `If`
+  - `Then`
+  - `Else`
 
 \* The `[Obsolete]` attribute is `System.Obsolete`.  All of the others have been defined within this library.  `System.ComponentModel.DataAnnotations` support is currently [in discussion](https://github.com/gregsdennis/json-everything/issues/143).
 
@@ -141,6 +142,80 @@ The generator will handle most common types:
 For POCOs, read-only properties and fields will be marked with a `readOnly` keyword, and write-only properties (those with only a setter) will be marked with a `writeOnly` keyword.  These behaviors can be overridden by applying the appropriate keyword with a `false` value.
 
 Lastly, property names will either be listed as declared in code (default) or sorted by name.  This is controlled via the `SchemaGeneratorConfiguration.PropertyOrder` property.
+
+### Setting identifiers and referencing external schemas
+
+In JSON Schema, the `$id` keyword is the primary way to create an identifier for a schema.  To create an identifier for a .Net type, you'll use the `[Id]` attribute along with a URI.  This has two effects:
+
+- If the attribute is found on the root type (the type used in the `.FromType<T>()` call), then the `$id` keyword will be added to the schema.
+- If the attribute is found on a type used for a property, then a reference (`$ref`) will be created.
+
+For example, let's look at these classes:
+
+```c#
+[Id("https://docs.json-everything.net/foo")]
+class Foo
+{
+    public Bar Value { get; set; }
+}
+
+[Id("https://docs.json-everything.net/bar")]
+class Bar
+{
+    public int Number { get; set; }
+}
+```
+
+When we call `.FromType<Foo>()`, the following schema will be generated:
+
+```json
+{
+  "$id": "https://docs.json-everything.net/foo",
+  "type": "object",
+  "properties": {
+    "Value": { "$ref": "https://docs.json-everything.net/bar" }
+  }
+}
+```
+
+Notice that the attribute on `Foo` was converted to an `$id` keyword, but the attribute on `Bar` was used in a reference.
+
+Another way to apply references is through the configuration's `ExternalReferences` property.  This property is a mapping that allows you to provide an `$id` URI for a given type, and can be useful for when you don't have the ability to modify a type, but you want to create a reference to it.
+
+> The `ExternalReferences` configuration will override any `[Id]` attributes.
+{: .prompt-warning }
+
+```c#
+var config = new SchemaGenerationConfiguration
+{
+    ExternalReferences = 
+    {
+        [typeof(DateTime)] = "https://docs.json-everything.net/date-time"
+    }
+}
+```
+
+Now when we generate a schema for
+
+```c#
+class Person
+{
+    // ...
+    public DateTime BirthDate { get; set; }
+}
+```
+
+we'll get a reference for `DateTime` instead of a schema.
+
+```jsonc
+{
+  "type": "object",
+  "properties": {
+    // ...
+    "BirthDate": { "$ref": "https://docs.json-everything.net/date-time" }
+  }
+}
+```
 
 ### XML comment support
 
