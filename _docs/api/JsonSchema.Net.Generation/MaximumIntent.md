@@ -3,7 +3,7 @@ layout: "page"
 title: "MaximumIntent Class"
 bookmark: "MaximumIntent"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.05.043"
+order: "10.05.045"
 ---
 **Namespace:** Json.Schema.Generation.Intents
 
