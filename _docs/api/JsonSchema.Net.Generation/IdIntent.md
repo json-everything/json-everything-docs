@@ -1,14 +1,14 @@
 ---
 layout: "page"
-title: "ThenIntent Class"
-bookmark: "ThenIntent"
+title: "IdIntent Class"
+bookmark: "IdIntent"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.05.080"
+order: "10.05.030"
 ---
 **Namespace:** Json.Schema.Generation.Intents
 
 **Inheritance:**
-`ThenIntent`
+`IdIntent`
  🡒 
 `object`
 
@@ -16,24 +16,24 @@ order: "10.05.080"
 
 - ISchemaKeywordIntent
 
-Provides intent to create a `then` keyword.
+Provides intent to create an `$id` keyword.
 
 ## Properties
 
 | Name | Type | Summary |
 |---|---|---|
-| **Subschema** | IEnumerable\<ISchemaKeywordIntent\> | A set of intents used to define the subschema. |
+| **Id** | Uri | The URI to use as the schema's ID. |
 
 ## Constructors
 
-### ThenIntent(IEnumerable\<ISchemaKeywordIntent\> subschema)
+### IdIntent(Uri uri)
 
-Creates a new **Json.Schema.Generation.Intents.ThenIntent** instance.
+Creates a new **Json.Schema.Generation.Intents.IdIntent** instance.
 
 #### Declaration
 
 ```c#
-public ThenIntent(IEnumerable<ISchemaKeywordIntent> subschema)
+public IdIntent(Uri uri)
 ```
 
 
