@@ -1154,7 +1154,7 @@ public static JsonSchemaBuilder Pattern(this JsonSchemaBuilder builder, Regex pa
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| pattern | Regex | The pattern to match. |
+| pattern | Regex | The Regex instance to match. |
 
 
 #### Returns

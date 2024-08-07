@@ -756,7 +756,7 @@ public static IReadOnlyList<JsonSchema> GetOneOf(this JsonSchema schema)
 
 ### GetPattern(this JsonSchema schema)
 
-Gets the value of `pattern` if the keyword exists.
+Gets the Regex of `pattern` if the keyword exists.
 
 #### Declaration
 
@@ -777,6 +777,36 @@ Gets the schemas in `patternProperties` if the keyword exists.
 
 ```c#
 public static IReadOnlyDictionary<Regex, JsonSchema> GetPatternProperties(this JsonSchema schema)
+```
+
+
+#### Returns
+
+
+
+### GetPatternPropertiesValues(this JsonSchema schema)
+
+Gets the schemas in `patternProperties` if the keyword exists.
+
+#### Declaration
+
+```c#
+public static IReadOnlyDictionary<string, JsonSchema> GetPatternPropertiesValues(this JsonSchema schema)
+```
+
+
+#### Returns
+
+
+
+### GetPatternValue(this JsonSchema schema)
+
+Gets the value of `pattern` if the keyword exists.
+
+#### Declaration
+
+```c#
+public static string GetPatternValue(this JsonSchema schema)
 ```
 
 

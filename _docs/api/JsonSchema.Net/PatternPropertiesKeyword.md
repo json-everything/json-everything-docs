@@ -29,24 +29,40 @@ Handles `patternProperties`.
 
 | Name | Type | Summary |
 |---|---|---|
-| **InvalidPatterns** | IReadOnlyList\<string\> | If any pattern is invalid or unsupported by **System.Text.RegularExpressions.Regex**, it will appear here. |
-| **Patterns** | IReadOnlyDictionary\<Regex, JsonSchema\> | The pattern-keyed schemas. |
+| **InvalidPatterns** | IReadOnlyList\<string\> |  |
+| **Patterns** | IReadOnlyDictionary\<Regex, JsonSchema\> | The regex patterns of this PatternPropertiesKeyword |
+| **PatternValues** | IReadOnlyDictionary\<string, JsonSchema\> | The pattern values of this PatternPropertiesKeyword |
 
 ## Constructors
 
-### PatternPropertiesKeyword(IReadOnlyDictionary\<Regex, JsonSchema\> values)
+### PatternPropertiesKeyword(IEnumerable\<KeyValuePair\<string, JsonSchema\>\> values)
 
 Creates a new **Json.Schema.PatternPropertiesKeyword**.
 
 #### Declaration
 
 ```c#
-public PatternPropertiesKeyword(IReadOnlyDictionary<Regex, JsonSchema> values)
+public PatternPropertiesKeyword(IEnumerable<KeyValuePair<string, JsonSchema>> values)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
-| values | IReadOnlyDictionary\<Regex, JsonSchema\> | The pattern-keyed schemas. |
+| values | IEnumerable\<KeyValuePair\<string, JsonSchema\>\> | The pattern-keyed schemas. |
+
+
+### PatternPropertiesKeyword(IEnumerable\<KeyValuePair\<Regex, JsonSchema\>\> values)
+
+Creates a new **Json.Schema.PatternPropertiesKeyword**.
+
+#### Declaration
+
+```c#
+public PatternPropertiesKeyword(IEnumerable<KeyValuePair<Regex, JsonSchema>> values)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| values | IEnumerable\<KeyValuePair\<Regex, JsonSchema\>\> | The pattern-keyed schemas. |
 
 
 ## Methods

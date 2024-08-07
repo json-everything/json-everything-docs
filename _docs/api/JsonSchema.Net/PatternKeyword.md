@@ -28,14 +28,15 @@ Handles `pattern`.
 
 | Name | Type | Summary |
 |---|---|---|
-| **InvalidPattern** | string | If the pattern is invalid or unsupported by **System.Text.RegularExpressions.Regex**, it will appear here. |
-| **Value** | Regex | The regular expression. |
+| **InvalidPattern** | string |  |
+| **Pattern** | string | The regular expression. |
+| **Value** | Regex | Returns the Regex Value of the keyword. |
 
 ## Constructors
 
 ### PatternKeyword(Regex value)
 
-Creates a new **Json.Schema.PatternKeyword**.
+Creates a new **Json.Schema.PatternKeyword** based on a regular expression instance.
 
 #### Declaration
 
@@ -45,7 +46,22 @@ public PatternKeyword(Regex value)
 
 | Parameter | Type | Description |
 |---|---|---|
-| value | Regex | The regular expression. |
+| value | Regex |  |
+
+
+### PatternKeyword(string pattern)
+
+Creates a new **Json.Schema.PatternKeyword** based on a regular expression pattern.
+
+#### Declaration
+
+```c#
+public PatternKeyword(string pattern)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| pattern | string |  |
 
 
 ## Methods

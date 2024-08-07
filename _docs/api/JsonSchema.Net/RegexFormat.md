@@ -40,6 +40,22 @@ public RegexFormat(string key, string regex)
 | regex | string | The regular expression. |
 
 
+### RegexFormat(string key, Regex regex)
+
+Creates a new **Json.Schema.RegexFormat**.
+
+#### Declaration
+
+```c#
+public RegexFormat(string key, Regex regex)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| key | string | The format key. |
+| regex | Regex | The regular expression. |
+
+
 ## Methods
 
 ### Validate(JsonNode node, out string errorMessage)
