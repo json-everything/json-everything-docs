@@ -48,6 +48,9 @@ The validation can be configured using properties on the converter.
 - `OutputFormat` configures the JSON Schema output format to be used.  By default, this value is `Flag` (the same as on `EvaluationOptions`).
 - `RequireFormatValidation` will validate the `format` keyword when set to true.  By default `format` is an annotation.
 
+> The `ValidatingJsonConverter` is a factory that creates individual typed converters and caches them.  Be aware, however, that when a typed converter is used, its options are overwritten with the options you've set on the factory.  This has a side effect of rendering the typed converter unsafe in multithreaded environments when using varying options.  It'll be fine if you always use the same options, however.
+{: .prompt-warning }
+
 ## Declaring a JSON Schema for a type {#schema-deserialization-attribute-usage}
 
 To declare a JSON Schema for any type, it needs to be decorated with the `[JsonSchema()]` attribute.
