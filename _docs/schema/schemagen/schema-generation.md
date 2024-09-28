@@ -70,7 +70,7 @@ All of these and more are supplied via a set of attributes that can be applied t
 
 \* The `[Obsolete]` attribute is `System.Obsolete`.  All of the others have been defined within this library.  `System.ComponentModel.DataAnnotations` support is currently [in discussion](https://github.com/gregsdennis/json-everything/issues/143).
 
-\*\* The `[JsonExclude]` attribute functions equivalently to `[JsonIgnore]` (see below).  It is included to allow generation to skip a property while allowing serialization to consider it.
+\*\* The `[JsonExclude]` attribute functions equivalently to `[JsonIgnore]` (see below).  It is included to allow generation to skip a property or an enum member while allowing serialization to consider it.
 
  \*\*\* Even though the `const` and `default` keywords in JSON Schema can accept any JSON value, because they are attributes, `[Const]` and `[Default]` can only accept values which are compile-time constants.
 
@@ -119,7 +119,7 @@ The generator also supports these .Net-defined attributes:
 
 - `JsonPropertyName` - supports custom property naming (more on naming below)
 - `JsonNumberHandling`\* - supports allowing numeric values in strings or only as numbers as well as allowing the `NaN`, `Infinity`, and `-Infinity` values.
-- `JsonIgnore`\* - ignores a property
+- `JsonIgnore`\* - ignores a property or an enum member
 
 \* These attributes were introduced with .Net 5.  The .Net Standard 2.0 version of the library also provides a definition for them.
 
