@@ -22,7 +22,7 @@ Indicates that the property should be excluded from generation.
 
 This attribute functions exactly the same as the **System.Text.Json.Serialization.JsonIgnoreAttribute**.  It
 is included separately to support the case where the model should be serialized with
-a property but schema generation should ignore it.
+a property or enum member but schema generation should ignore it.
 
 ## Properties
 
