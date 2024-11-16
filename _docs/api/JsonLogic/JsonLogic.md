@@ -794,6 +794,25 @@ public static Rule Subtract(Rule a, params Rule[] more)
 
 A `-` rule.
 
+### Variable(Rule input)
+
+Creates a `var` rule that accesses data.
+
+#### Declaration
+
+```c#
+public static Rule Variable(Rule input)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| input | Rule | A rule that produces the dot-delimited path. |
+
+
+#### Returns
+
+A variable rule.
+
 ### Variable(string path)
 
 Creates a `var` rule that accesses data.
@@ -806,7 +825,27 @@ public static Rule Variable(string path)
 
 | Parameter | Type | Description |
 |---|---|---|
-| path | string |  |
+| path | string | The dot-delimited path. |
+
+
+#### Returns
+
+A variable rule.
+
+### Variable(Rule input, Rule defaultValue)
+
+Creates a `var` rule that accesses data.
+
+#### Declaration
+
+```c#
+public static Rule Variable(Rule input, Rule defaultValue)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| input | Rule | A rule that produces the dot-delimited path. |
+| defaultValue | Rule | A default value to use if the path is not found. |
 
 
 #### Returns

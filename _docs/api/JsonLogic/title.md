@@ -4,5 +4,5 @@ bookmark: JsonLogic
 permalink: /api/JsonLogic/:title/
 folder: true
 order: "10.11"
-version: "5.2.1"
+version: "5.3.0"
 ---
