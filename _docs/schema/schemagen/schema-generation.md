@@ -291,7 +291,8 @@ For your convenience, the `PropertyNameResolvers` static class defines a few com
 | PropertyNameResolvers.SnakeCase        | `snake_case`        |
 | PropertyNameResolvers.UpperSnakeCase   | `UPPER_SNAKE_CASE`  |
 
-You can use them like this:
+They can be applied directly to the configuration property:
+
 ```c#
 SchemaGeneratorConfiguration config = new()
 {
