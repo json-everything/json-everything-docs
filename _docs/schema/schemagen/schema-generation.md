@@ -270,7 +270,7 @@ There are four options:
 
 ### Property naming {#schema-schemagen-property-names}
 
-In addition to the `[JsonPropertyName]` attribute, the configuration(`SchemaGeneratorConfiguration`) exposes a `PropertyNameResolver` delegate that allows you to define a custom method for altering property names from your code into the schema. The system will adjust property names accordingly.
+In addition to the `[JsonPropertyName]` attribute, `SchemaGeneratorConfiguration.PropertyNameResolver` allows you to define a custom method for altering property names from your code into the schema. The system will adjust property names accordingly.
 
 ```C#
 SchemaGeneratorConfiguration config = new()
