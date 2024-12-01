@@ -280,7 +280,7 @@ SchemaGeneratorConfiguration config = new()
 };
 ```
 
-The `PropertyNameResolvers` static class defines a few commonly-used conventions:
+For your convenience, the `PropertyNameResolvers` static class defines a few commonly-used conventions:
 
 | ResolvedName                           | Example             |
 |----------------------------------------|---------------------|
