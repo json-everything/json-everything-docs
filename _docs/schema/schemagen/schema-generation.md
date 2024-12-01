@@ -270,16 +270,35 @@ There are four options:
 
 ### Property naming {#schema-schemagen-property-names}
 
-In addition to the `[JsonPropertyName]` attribute, the configuration exposes a `PropertyNamingMethod` that allows you to define a custom method for altering property names from your code into the schema.  The `PropertyNamingMethods` static class defines a few commonly-used conventions:
+In addition to the `[JsonPropertyName]` attribute, `SchemaGeneratorConfiguration.PropertyNameResolver` allows you to define a custom method for altering property names from your code into the schema. The system will adjust property names accordingly.
 
-- `camelCase`
-- `PascalCase`
-- `kebab-case`
-- `UPPER-KEBAB-CASE`
-- `snake_case`
-- `UPPER_SNAKE_CASE`
+```C#
+SchemaGeneratorConfiguration config = new()
+{
+  // All property names will be lowercase!
+  PropertyNameResolver = x => x.Name.ToLower()
+};
+```
 
-Just set this property and the system will adjust property names accordingly.
+For your convenience, the `PropertyNameResolvers` static class defines a few commonly-used conventions:
+
+| ResolvedName                           | Example             |
+|----------------------------------------|---------------------|
+| PropertyNameResolvers.CamelCase        | `camelCase`         |
+| PropertyNameResolvers.PascalCase       | `PascalCase`        |
+| PropertyNameResolvers.KebabCase        | `kebab-case`        |
+| PropertyNameResolvers.UpperKebabCase   | `UPPER-KEBAB-CASE`  |
+| PropertyNameResolvers.SnakeCase        | `snake_case`        |
+| PropertyNameResolvers.UpperSnakeCase   | `UPPER_SNAKE_CASE`  |
+
+They can be applied directly to the configuration property:
+
+```c#
+SchemaGeneratorConfiguration config = new()
+{
+  PropertyNameResolver = PropertyNameResolvers.CamelCase
+};
+```
 
 Note that the `[JsonPropertyName]` attribute takes precedence, so you can still use this to get custom naming when you've configured a method.
 
