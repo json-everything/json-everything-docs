@@ -4,5 +4,5 @@ bookmark: JsonSchema.Net.ArrayExt
 permalink: /api/JsonSchema.Net.ArrayExt/:title/
 folder: true
 order: "10.03"
-version: "2.1.0"
+version: "2.2.0"
 ---

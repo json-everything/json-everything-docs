@@ -4,5 +4,5 @@ bookmark: JsonPatch.Net
 permalink: /api/JsonPatch.Net/:title/
 folder: true
 order: "10.09"
-version: "3.1.1"
+version: "3.2.3"
 ---

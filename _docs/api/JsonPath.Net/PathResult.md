@@ -18,6 +18,5 @@ The results of a JSON Path evaluation against a JSON instance.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Error** | string | An error, if any, that occurred during evaluation. |
 | **Matches** | NodeList | The list of matches. |
 
