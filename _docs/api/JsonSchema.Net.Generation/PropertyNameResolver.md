@@ -3,7 +3,7 @@ layout: "page"
 title: "PropertyNameResolver Delegate"
 bookmark: "PropertyNameResolver"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.05.067"
+order: "10.05.066"
 ---
 # PropertyNameResolver Delegate
 

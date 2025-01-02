@@ -3,7 +3,7 @@ layout: "page"
 title: "IfEnumAttribute Class"
 bookmark: "IfEnumAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.05.032"
+order: "10.05.031"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -18,7 +18,8 @@ order: "10.05.032"
 
 **Implemented interfaces:**
 
-- IConditionAttribute
+- INestableAttribute
+- IConditionalAttribute
 
 Creates multiple condition groups based on the value of an enum property, one group for each defined enum value.
 
@@ -31,6 +32,7 @@ The enum type is inferred from the property.
 | Name | Type | Summary |
 |---|---|---|
 | **ConditionGroup** | object | Identifies the condition group under which this attribute applies. |
+| **GenericParameter** | int | The index of the parameter to which the attribute should apply. Default is -1 to indicate the root. |
 | **PropertyName** | string | The property name. |
 | **TypeId** | object |  |
 | **UseNumbers** | bool | Gets or sets whether to use numbers or names in the condition.  Default is to use names. |

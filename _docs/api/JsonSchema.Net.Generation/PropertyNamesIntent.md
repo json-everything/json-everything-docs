@@ -3,7 +3,7 @@ layout: "page"
 title: "PropertyNamesIntent Class"
 bookmark: "PropertyNamesIntent"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.05.069"
+order: "10.05.068"
 ---
 **Namespace:** Json.Schema.Generation.Intents
 
@@ -15,7 +15,6 @@ order: "10.05.069"
 **Implemented interfaces:**
 
 - ISchemaKeywordIntent
-- IContextContainer
 
 Provides intent to create a `propertyNames` keyword.
 
@@ -58,25 +57,4 @@ public void Apply(JsonSchemaBuilder builder)
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 
-
-### Replace(int hashCode, SchemaGenerationContextBase newContext)
-
-Replaces one context with another.
-
-#### Declaration
-
-```c#
-public void Replace(int hashCode, SchemaGenerationContextBase newContext)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| hashCode | int | The hashcode of the context to replace. |
-| newContext | SchemaGenerationContextBase | The new context. |
-
-
-#### Remarks
-
-To implement this, call **System.Object.GetHashCode** on the contained
-contexts.  If any match, replace them with <paramref name="newContext" />.
 

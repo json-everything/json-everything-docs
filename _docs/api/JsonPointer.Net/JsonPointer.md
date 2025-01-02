@@ -76,6 +76,25 @@ public JsonPointer Combine(params PointerSegment[] additionalSegments)
 
 A new pointer.
 
+### Combine(ReadOnlySpan\<PointerSegment\> additionalSegments)
+
+Concatenates additional segments onto the current pointer.
+
+#### Declaration
+
+```c#
+public JsonPointer Combine(ReadOnlySpan<PointerSegment> additionalSegments)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| additionalSegments | ReadOnlySpan\<PointerSegment\> | The additional segments. |
+
+
+#### Returns
+
+A new pointer.
+
 ### Create(params PointerSegment[] segments)
 
 Creates a new JSON Pointer from a collection of segments.
@@ -89,6 +108,29 @@ public static JsonPointer Create(params PointerSegment[] segments)
 | Parameter | Type | Description |
 |---|---|---|
 | segments | params PointerSegment[] | A collection of segments. |
+
+
+#### Returns
+
+The JSON Pointer.
+
+#### Remarks
+
+This method creates un-encoded pointers only.
+
+### Create(ReadOnlySpan\<PointerSegment\> segments)
+
+Creates a new JSON Pointer from a collection of segments.
+
+#### Declaration
+
+```c#
+public static JsonPointer Create(ReadOnlySpan<PointerSegment> segments)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| segments | ReadOnlySpan\<PointerSegment\> | A collection of segments. |
 
 
 #### Returns

@@ -3,7 +3,7 @@ layout: "page"
 title: "SchemaGenerationContextCache Class"
 bookmark: "SchemaGenerationContextCache"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.05.077"
+order: "10.05.076"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -16,30 +16,27 @@ Gets the contexts for the current run.
 
 ## Methods
 
-### Get(Type type, List\<Attribute\> memberAttributes)
+### Get(Type type)
 
-Gets or creates a **Json.Schema.Generation.SchemaGenerationContextBase** based on the given
+Gets or creates a **Json.Schema.Generation.TypeGenerationContext** based on the given
 type and attribute set.
 
 #### Declaration
 
 ```c#
-public static SchemaGenerationContextBase Get(Type type, List<Attribute> memberAttributes)
+public static TypeGenerationContext Get(Type type)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | type | Type | The type to generate. |
-| memberAttributes | List\<Attribute\> | A collection of extra attributes.  Only use if requesting a context to represent a member. |
 
 
 #### Returns
 
 A generation context, from the cache if one exists with the specified
 type and attribute set; otherwise a new one.  New contexts are automatically
-cached.  If <paramref name="memberAttributes" /> is null or empty, a
-**Json.Schema.Generation.TypeGenerationContext** will be returned; otherwise a
-**Json.Schema.Generation.MemberGenerationContext**.
+cached.
 
 #### Remarks
 

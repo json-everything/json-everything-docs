@@ -3,7 +3,7 @@ layout: "page"
 title: "WriteOnlyAttribute Class"
 bookmark: "WriteOnlyAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.05.089"
+order: "10.05.087"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -18,6 +18,7 @@ order: "10.05.089"
 
 **Implemented interfaces:**
 
+- INestableAttribute
 - IAttributeHandler
 
 Applies a `writeOnly` keyword.
@@ -27,6 +28,7 @@ Applies a `writeOnly` keyword.
 | Name | Type | Summary |
 |---|---|---|
 | **ConditionGroup** | object | Identifies the condition group under which this attribute applies. |
+| **GenericParameter** | int | The index of the parameter to which the attribute should apply. Default is -1 to indicate the root. |
 | **TypeId** | object |  |
 | **Value** | bool | Whether the property should be write-only. |
 

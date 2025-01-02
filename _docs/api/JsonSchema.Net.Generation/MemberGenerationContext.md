@@ -21,9 +21,9 @@ Provides context for object members to include those attributes.
 | Name | Type | Summary |
 |---|---|---|
 | **Attributes** | List\<Attribute\> | Gets the set of member attributes. |
-| **BasedOn** | SchemaGenerationContextBase | Gets the context this is based on. |
-| **Hash** | int | A calculated hash value that represents and identifies this context. |
+| **BasedOn** | TypeGenerationContext | Gets the context this is based on. |
 | **Intents** | List\<ISchemaKeywordIntent\> | The keyword intents required for this type. |
-| **ReferenceCount** | int | The number of times this context has been referenced. |
+| **NullableRef** | bool | Indicates whether the member is marked as a nullable reference type. |
+| **Parameter** | int | Gets or sets the generic parameter that this context represents. A null value (default) represents the root type. |
 | **Type** | Type | The type. |
 

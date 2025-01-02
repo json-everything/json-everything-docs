@@ -3,7 +3,7 @@ layout: "page"
 title: "IfAttribute Class"
 bookmark: "IfAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.05.031"
+order: "10.05.030"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -18,7 +18,8 @@ order: "10.05.031"
 
 **Implemented interfaces:**
 
-- IConditionAttribute
+- INestableAttribute
+- IConditionalAttribute
 
 Creates or amends a condition group by expecting a value in a property.
 
@@ -27,6 +28,7 @@ Creates or amends a condition group by expecting a value in a property.
 | Name | Type | Summary |
 |---|---|---|
 | **ConditionGroup** | object | Identifies the condition group under which this attribute applies. |
+| **GenericParameter** | int | The index of the parameter to which the attribute should apply. Default is -1 to indicate the root. |
 | **PropertyName** | string | The property name. |
 | **TypeId** | object |  |
 | **Value** | JsonNode | The expected property value. |

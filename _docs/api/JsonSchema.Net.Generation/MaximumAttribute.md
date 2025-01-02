@@ -18,6 +18,7 @@ order: "10.05.044"
 
 **Implemented interfaces:**
 
+- INestableAttribute
 - IAttributeHandler
 
 Applies a `maximum` keyword.
@@ -33,6 +34,7 @@ As such, to prevent overflows, the value is clamped to the `decimal` range prior
 | Name | Type | Summary |
 |---|---|---|
 | **ConditionGroup** | object | Identifies the condition group under which this attribute applies. |
+| **GenericParameter** | int | The index of the parameter to which the attribute should apply. Default is -1 to indicate the root. |
 | **TypeId** | object |  |
 | **Value** | decimal | The maximum. |
 

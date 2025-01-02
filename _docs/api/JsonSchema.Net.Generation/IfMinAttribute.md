@@ -3,7 +3,7 @@ layout: "page"
 title: "IfMinAttribute Class"
 bookmark: "IfMinAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.05.035"
+order: "10.05.034"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -18,7 +18,8 @@ order: "10.05.035"
 
 **Implemented interfaces:**
 
-- IConditionAttribute
+- INestableAttribute
+- IConditionalAttribute
 
 Creates or amends a condition group by defining an expected minimum value in a property.
 
@@ -31,6 +32,7 @@ The specific keywords which are added depend on the type of the targeted propert
 | Name | Type | Summary |
 |---|---|---|
 | **ConditionGroup** | object | Identifies the condition group under which this attribute applies. |
+| **GenericParameter** | int | The index of the parameter to which the attribute should apply. Default is -1 to indicate the root. |
 | **IsExclusive** | bool | Gets or sets whether the value should be exclusive. |
 | **PropertyName** | string | The property name. |
 | **TypeId** | object |  |

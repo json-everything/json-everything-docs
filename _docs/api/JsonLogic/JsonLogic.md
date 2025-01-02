@@ -36,6 +36,19 @@ public static Rule Add(Rule a, params Rule[] more)
 
 A `+` rule.
 
+### Add(Rule a, ReadOnlySpan\<Rule\> more)
+
+
+#### Declaration
+
+```c#
+public static Rule Add(Rule a, ReadOnlySpan<Rule> more)
+```
+
+
+#### Returns
+
+
 ### All(Rule input, Rule rule)
 
 Creates an `all` rule.
@@ -75,6 +88,19 @@ public static Rule And(Rule a, params Rule[] more)
 #### Returns
 
 An `and` rule.
+
+### And(Rule a, ReadOnlySpan\<Rule\> more)
+
+
+#### Declaration
+
+```c#
+public static Rule And(Rule a, ReadOnlySpan<Rule> more)
+```
+
+
+#### Returns
+
 
 ### Apply(JsonNode rule, JsonNode context)
 
@@ -197,6 +223,19 @@ public static Rule Cat(Rule a, params Rule[] more)
 #### Returns
 
 A `cat` rule.
+
+### Cat(Rule a, ReadOnlySpan\<Rule\> more)
+
+
+#### Declaration
+
+```c#
+public static Rule Cat(Rule a, ReadOnlySpan<Rule> more)
+```
+
+
+#### Returns
+
 
 ### Divide(Rule a, Rule b)
 
@@ -435,6 +474,19 @@ public static Rule Max(Rule a, params Rule[] more)
 
 A `max` rule.
 
+### Max(Rule a, ReadOnlySpan\<Rule\> more)
+
+
+#### Declaration
+
+```c#
+public static Rule Max(Rule a, ReadOnlySpan<Rule> more)
+```
+
+
+#### Returns
+
+
 ### Merge(params Rule[] items)
 
 Creates a `merge` rule.
@@ -473,6 +525,19 @@ public static Rule Min(Rule a, params Rule[] more)
 #### Returns
 
 A `min` rule.
+
+### Min(Rule a, ReadOnlySpan\<Rule\> more)
+
+
+#### Declaration
+
+```c#
+public static Rule Min(Rule a, ReadOnlySpan<Rule> more)
+```
+
+
+#### Returns
+
 
 ### Missing(params Rule[] components)
 
@@ -593,6 +658,19 @@ public static Rule Multiply(Rule a, params Rule[] more)
 
 A `*` rule.
 
+### Multiply(Rule a, ReadOnlySpan\<Rule\> more)
+
+
+#### Declaration
+
+```c#
+public static Rule Multiply(Rule a, ReadOnlySpan<Rule> more)
+```
+
+
+#### Returns
+
+
 ### None(Rule input, Rule rule)
 
 Creates a `none` rule.
@@ -651,6 +729,19 @@ public static Rule Or(Rule a, params Rule[] more)
 #### Returns
 
 An `or` rule.
+
+### Or(Rule a, ReadOnlySpan\<Rule\> more)
+
+
+#### Declaration
+
+```c#
+public static Rule Or(Rule a, ReadOnlySpan<Rule> more)
+```
+
+
+#### Returns
+
 
 ### Reduce(Rule input, Rule rule, Rule initial)
 
@@ -793,6 +884,19 @@ public static Rule Subtract(Rule a, params Rule[] more)
 #### Returns
 
 A `-` rule.
+
+### Subtract(Rule a, ReadOnlySpan\<Rule\> more)
+
+
+#### Declaration
+
+```c#
+public static Rule Subtract(Rule a, ReadOnlySpan<Rule> more)
+```
+
+
+#### Returns
+
 
 ### Variable(Rule input)
 

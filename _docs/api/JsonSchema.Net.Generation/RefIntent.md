@@ -3,7 +3,7 @@ layout: "page"
 title: "RefIntent Class"
 bookmark: "RefIntent"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.05.073"
+order: "10.05.072"
 ---
 **Namespace:** Json.Schema.Generation.Intents
 
@@ -38,6 +38,22 @@ public RefIntent(Uri reference)
 
 | Parameter | Type | Description |
 |---|---|---|
+| reference | Uri | The reference. |
+
+
+### RefIntent(MemberGenerationContext context, Uri reference)
+
+Creates a new **Json.Schema.Generation.Intents.RefIntent** instance.
+
+#### Declaration
+
+```c#
+public RefIntent(MemberGenerationContext context, Uri reference)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| context | MemberGenerationContext | The context that holds this reference. |
 | reference | Uri | The reference. |
 
 

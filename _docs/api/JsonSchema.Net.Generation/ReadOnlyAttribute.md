@@ -3,7 +3,7 @@ layout: "page"
 title: "ReadOnlyAttribute Class"
 bookmark: "ReadOnlyAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.05.071"
+order: "10.05.070"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -18,6 +18,7 @@ order: "10.05.071"
 
 **Implemented interfaces:**
 
+- INestableAttribute
 - IAttributeHandler
 
 Applies a `readOnly` keyword.
@@ -27,6 +28,7 @@ Applies a `readOnly` keyword.
 | Name | Type | Summary |
 |---|---|---|
 | **ConditionGroup** | object | Identifies the condition group under which this attribute applies. |
+| **GenericParameter** | int | The index of the parameter to which the attribute should apply. Default is -1 to indicate the root. |
 | **TypeId** | object |  |
 | **Value** | bool | Whether the property should be read-only. |
 

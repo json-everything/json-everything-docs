@@ -3,7 +3,7 @@ layout: "page"
 title: "SchemaGenerationContextBase Class"
 bookmark: "SchemaGenerationContextBase"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.05.076"
+order: "10.05.075"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -25,9 +25,7 @@ Provides base functionality and data for generation contexts.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Hash** | int | A calculated hash value that represents and identifies this context. |
 | **Intents** | List\<ISchemaKeywordIntent\> | The keyword intents required for this type. |
-| **ReferenceCount** | int | The number of times this context has been referenced. |
 | **Type** | Type | The type. |
 
 ## Methods

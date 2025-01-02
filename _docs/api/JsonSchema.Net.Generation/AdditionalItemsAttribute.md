@@ -18,6 +18,7 @@ order: "10.05.000"
 
 **Implemented interfaces:**
 
+- INestableAttribute
 - IAttributeHandler
 
 Applies an `additionalProperties` keyword.
@@ -28,6 +29,7 @@ Applies an `additionalProperties` keyword.
 |---|---|---|
 | **BoolValue** | bool? | If the attribute value represents a boolean schema, gets the boolean value. |
 | **ConditionGroup** | object | Identifies the condition group under which this attribute applies. |
+| **GenericParameter** | int | The index of the parameter to which the attribute should apply. Default is -1 to indicate the root. |
 | **TypeId** | object |  |
 | **TypeValue** | Type | If the attribute value represents a type schema, gets the type. |
 
@@ -60,6 +62,6 @@ public AdditionalItemsAttribute(Type typeSchema)
 
 | Parameter | Type | Description |
 |---|---|---|
-| typeSchema | Type | A type to generate the a schema for the keyword. |
+| typeSchema | Type | A type to generate a schema for the keyword. |
 
 

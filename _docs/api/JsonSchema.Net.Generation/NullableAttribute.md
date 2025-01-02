@@ -3,7 +3,7 @@ layout: "page"
 title: "NullableAttribute Class"
 bookmark: "NullableAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.05.063"
+order: "10.05.062"
 ---
 **Namespace:** Json.Schema.Generation
 
@@ -18,16 +18,17 @@ order: "10.05.063"
 
 **Implemented interfaces:**
 
+- INestableAttribute
 - IAttributeHandler
 
-Overrides the **Json.Schema.Generation.SchemaGeneratorConfiguration.Nullability** option and either
-adds or removes `null` in the `type` keyword.
+Overrides the nullability declared in code and either adds or removes `null` in the `type` keyword.
 
 ## Properties
 
 | Name | Type | Summary |
 |---|---|---|
 | **ConditionGroup** | object | Identifies the condition group under which this attribute applies. |
+| **GenericParameter** | int | The index of the parameter to which the attribute should apply. Default is -1 to indicate the root. |
 | **IsNullable** | bool | Gets whether `null` should be included in the `type` keyword. |
 | **TypeId** | object |  |
 

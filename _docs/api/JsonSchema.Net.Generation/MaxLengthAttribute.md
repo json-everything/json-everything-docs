@@ -18,6 +18,7 @@ order: "10.05.048"
 
 **Implemented interfaces:**
 
+- INestableAttribute
 - IAttributeHandler
 
 Applies a `maxLength` keyword.
@@ -27,6 +28,7 @@ Applies a `maxLength` keyword.
 | Name | Type | Summary |
 |---|---|---|
 | **ConditionGroup** | object | Identifies the condition group under which this attribute applies. |
+| **GenericParameter** | int | The index of the parameter to which the attribute should apply. Default is -1 to indicate the root. |
 | **Length** | uint | The maximum length. |
 | **TypeId** | object |  |
 

@@ -18,6 +18,7 @@ order: "10.05.015"
 
 **Implemented interfaces:**
 
+- INestableAttribute
 - IAttributeHandler
 
 Applies a `description` keyword.
@@ -28,6 +29,7 @@ Applies a `description` keyword.
 |---|---|---|
 | **ConditionGroup** | object | Identifies the condition group under which this attribute applies. |
 | **Description** | string | The description. |
+| **GenericParameter** | int | The index of the parameter to which the attribute should apply. Default is -1 to indicate the root. |
 | **TypeId** | object |  |
 
 ## Constructors
