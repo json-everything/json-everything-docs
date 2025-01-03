@@ -16,7 +16,7 @@ var schema = schemaBuilder.FromType<MyType>().Build();
 
 Done.
 
-> The validating converter described in this document requires AOT-incompatible reflection to operate, so it will not be usable in a Native AOT context.
+> The validating converter described in this document requires AOT-incompatible reflection to operate, so it may cause errors in a Native AOT context.
 {: .prompt-warning}
 
 ## IMPORTANT {#schema-schemagen-disclaimer}
@@ -79,7 +79,7 @@ All of these and more are supplied via a set of attributes that can be applied t
 
 Simply add the attributes directly to the properties and the corresponding keywords will be added to the schema.
 
-For properties typed with generic collections, like `List<T>`, the schema will automatically generate an `items` keyword and generate a schema for the indicated `T`.  If your `T` is a numeric value or a string, then you can also apply the relevant attributes and they'll be applied in the `items` subschema.
+For properties typed with generic collections, like `List<T>`, the schema will automatically generate an `items` keyword and generate a schema for the indicated `T`.  To specify that attributes should be applied to a generic parameter, use the `GenericParameter` property, and identify which parameter is to be attributed use a zero-based numeric index.
 
 For example, this object:
 
@@ -87,7 +87,7 @@ For example, this object:
 class MyClass
 {
     [UniqueItems(true)]
-    [Minimum(10)]
+    [Minimum(10, GenericParameter = 0)]
     public List<int> MyList{ get; set; }
 }
 ```
@@ -109,11 +109,6 @@ will be translated to this schema:
   }
 }
 ```
-
-The `minimum` is applied to the `items` because that keyword is not relevant for an array.
-
-> This means that the generator will have trouble determining where to apply keywords to properties like `List<List<T>>` because the attributes could be relevant for both the outer and inner lists.
-{: .prompt-info }
 
 The generator also supports these .Net-defined attributes:
 
@@ -253,7 +248,11 @@ Those familiar with .Net validation will recognize that having `[Required]` on y
 
 To this end, the `[Required]` attribute will only be represented in generated schemas in the `required` keyword.
 
-However, for nullable types, it may or may not be appropriate to include `null` in the `type` keyword.  JsonSchema.Net.Generation controls this behavior via the `SchemaGeneratorConfiguration.Nullability` option with individual properties being overrideable via the `[Nullable(bool)]` attribute.
+As of v5 of this library, nullability follows the code as closely as possible, using the `[Nullable]` attribute as an override.  If a property is declared as nullable (either value or reference type), it will be generated as such.  Applying `[Nullable(false)]` to a nullable property will disable this behavior, while applying `[Nullable(true)]` (or just `[Nullable]`) to a non-nullable property will force nullability in the schema. 
+
+#### Prior to v5
+
+For nullable types, it may or may not be appropriate to include `null` in the `type` keyword.  JsonSchema.Net.Generation controls this behavior via the `SchemaGeneratorConfiguration.Nullability` option with individual properties being overrideable via the `[Nullable(bool)]` attribute.
 
 There are four options:
 
@@ -262,7 +261,7 @@ There are four options:
 - `AllowForReferenceTypes` - This will add `null` to the `type` keyword for reference types unless `[Nullable(false)]` is used.
 - `AllowForAllTypes` - This is a combination of the previous two and will add `null` to the type keyword for any type unless `[Nullable(false)]` is used.
 
-> This library [cannot detect](https://stackoverflow.com/a/62186551/878701) whether the consuming code has nullable reference types enabled.  Therefore all reference types are considered nullable.
+> This library was unable to [detect](https://stackoverflow.com/a/62186551/878701) whether the consuming code has nullable reference types enabled.  Therefore all reference types are considered nullable.
 {: .prompt-info }
 
 > The library makes a distinction between nullable value types and reference types because value types must be explicitly nullable.  This differs from reference types which are implicitly nullable, and there's not a way (via the type itself) to make a reference type non-nullable.
@@ -308,9 +307,38 @@ There are a couple advanced features that bear mentioning.
 
 First, the system does have some loop detection logic in order to support self-referencing or loop-referencing types.
 
-Secondly, the system will collect common subschemas into a `$defs` keyword at the root.  Identification of a subschema is by its type and the collection of attributes it is processed with.  The locations with these common subschemas will be replaced by a `$ref` that points to the appropriate entry in `$defs`.
+Secondly, the system will collect type subschemas into a `$defs` keyword at the root.  The locations with these common subschemas will be replaced by a `$ref` that points to the appropriate entry in `$defs`.  When a definition is only referenced in one location, that definition will be re-integrated into the reference location.  For example, instead of
 
-Generating a properly descriptive-while-terse name is hard.  This library makes a fair attempt at it, generating names like `myType` for `MyType` and `arrayOfInteger` for `int[]` or `List<int>`.  If this proves insufficient for your needs, implement your own naming as an `ITypeNameGenerator` and assign it to `SchemaGenerationContextOptimizer.TypeNameGenerator`.
+```json
+{
+  "type": "object",
+  "properties": {
+    "foo": { "$ref": "#/$defs/listOfString" }
+  },
+  "$defs": {
+    "listOfString": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}
+```
+
+you'll get
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "foo": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}
+```
+
+Generating a properly descriptive-while-terse name is generally hard.  This library makes a fair attempt at it, generating names like `myType` for `MyType` and `arrayOfInteger` for `int[]` or `List<int>`.  If this proves insufficient for your needs, implement your own naming as an `ITypeNameGenerator` and assign it to `SchemaGeneratorConfiguration.TypeNameGenerator`.
 
 > If you only want to handle specific types in your generator and are happy with the library's generation for others, simply return null from your generator and the library's generation will be used.
 {: .prompt-tip }
@@ -407,40 +435,6 @@ public class TypeIntent : ISchemaKeywordIntent
 
 See?  The `Apply()` method just takes the builder, and adds a keyword with the data that it already collected.  Pretty easy.
 
-> In v1.x of the library, implementing the equality methods (`Equals()` and `GetHashCode()`) was required.  As of v2.0, this is unnecessary.
-{: .prompt-info }
-
-This will work for most intents, but some keywords contain subschemas.  For these, we don't want to hold a subschema because, as mentioned before, they can't be edited.  Instead, we'll hold a context object that represents the subschema: its type, attribute set, and the intents required to build it.  For these intents, we *also* want to implement `IContextContainer`.  Here's the `ItemsIntent`:
-
-```c#
-public class ItemsIntent : ISchemaKeywordIntent, IContextContainer
-{
-    public SchemaGeneratorContextBase Context { get; private set; }
-
-    public ItemsIntent(SchemaGeneratorContextBase context)
-    {
-        Context = context;
-    }
-
-    public void Replace(int hashCode, SchemaGeneratorContextBase newContext)
-    {
-        if (Context.Hash == hashCode)
-            Context = newContext;
-    }
-
-    public void Apply(JsonSchemaBuilder builder) => builder.Items(Context.Apply());
-}
-```
-
-As of v3, `IContextContainer` requires only a single method: `Replace()`.
-
-> Another method `GetContexts()` was used in v1.x but was no longer used as of v2.0 and was marked obsolete with v2.0.1.
-{: .prompt-info }
-
-`Replace()` replaces a context with a given hash code with a new context.  This is called when the system is creating `$ref` intents that point to the new `$defs` intent it's building and distributing them throughout the context tree.  Once all the `$ref`s are distributed, the system will add the `$defs` intent to the root context to be applied at the last step.
-
-Generally intents for applicator keywords, which are keywords that have subschemas (`anyOf`, `allOf`, etc.), will need to implement this second interface.  In most cases, you can just copy this code.
-
 ### Attributes {#schema-schemagen-attributes}
 
 The other source for intents are attributes.  These are handled once the generator has completed adding the intents it needs to.
@@ -481,6 +475,13 @@ The occasion may arise where you want to handle an attribute that's defined in s
 > Some intents (e.g. `AnyOfIntent`) take `IEnumerable<ISchemaKeywordIntent[]>`.  Note that this is a collection of intent arrays.  In these cases, each array represents a separate subschema.
 > 
 > The confusing bit is that these also have a `params` overload that appears to just take `ISchemaKeywordIntent[]`.  However, it works the same as the non-`params` overload in that each array represents a subschema.
+{: .prompt-warning }
+
+#### Generic parameter support
+
+In order for an attribute to be applicable to a generic parameter (as mentioned [above](#schema-schemagen-best-practices)), your attribute will need to implement the `INestableAttribute` interface, which adds a `GenericParameter` property.
+
+> This property MUST default to -1.  The index is zero-based, so a value of -1 indicates the root type.
 {: .prompt-warning }
 
 ### Refiners {#schema-schemagen-refiners}
