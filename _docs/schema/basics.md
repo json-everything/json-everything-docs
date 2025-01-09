@@ -701,16 +701,20 @@ var options = new EvaluationOptions
 }
 ```
 
+> For languages to become available, you need to add extra dependencies on the specific nuget packages.
+{: .prompt-info }
+
 Currently available translations are:
 
-| Language | Culture Code |
-|:-|:-:|
-|Italian|`it`|
-|Norwegian|`nb-NO`|
-|Polish|`pl-PL`|
-|Russian|`ru`|
-|Spanish|`es`|
-|Swedish|`sv-SE`|
-|Turkish|`tr-TR`|
+| Language | Culture Code | Nuget package |
+|:-|:-:|:-:|
+|Italian|`it`| ![NuGet Version](https://img.shields.io/nuget/v/JsonSchema.Net.it) |
+|Norwegian|`nb-NO`| ![NuGet Version](https://img.shields.io/nuget/v/JsonSchema.Net.nb-NO) |
+|Polish|`pl-PL`| ![NuGet Version](https://img.shields.io/nuget/v/JsonSchema.Net.pl-PL) |
+|Russian|`ru`| ![NuGet Version](https://img.shields.io/nuget/v/JsonSchema.Net.ru) |
+|Spanish|`es`| ![NuGet Version](https://img.shields.io/nuget/v/JsonSchema.Net.es) |
+|German|`de`| ![NuGet Version](https://img.shields.io/nuget/v/JsonSchema.Net.de) |
+|Swedish|`sv-SE`| ![NuGet Version](https://img.shields.io/nuget/v/JsonSchema.Net.sv-SE) |
+|Turkish|`tr-TR`| ![NuGet Version](https://img.shields.io/nuget/v/JsonSchema.Net.tr-TR) |
 
 PRs are welcome to help create additional translations.
