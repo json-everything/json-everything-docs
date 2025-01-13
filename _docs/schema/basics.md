@@ -701,9 +701,6 @@ var options = new EvaluationOptions
 }
 ```
 
-> For languages to become available, you need to add extra dependencies on the specific nuget packages.
-{: .prompt-info }
-
 Currently available translations are:
 
 | Language | Culture Code | Nuget package |
@@ -718,3 +715,6 @@ Currently available translations are:
 |Turkish|`tr-TR`| ![NuGet Version](https://img.shields.io/nuget/v/JsonSchema.Net.tr-TR) |
 
 PRs are welcome to help create additional translations.
+
+> For languages to become available, you need to add extra dependencies on the specific nuget packages.
+{: .prompt-info }
