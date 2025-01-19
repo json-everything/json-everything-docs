@@ -305,6 +305,25 @@ public JsonPointer GetSubPointer(Range range)
 
 A new pointer.
 
+### Parse(ReadOnlySpan\<char\> source)
+
+Parses a JSON Pointer from a string.
+
+#### Declaration
+
+```c#
+public static JsonPointer Parse(ReadOnlySpan<char> source)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| source | ReadOnlySpan\<char\> | The source string. |
+
+
+#### Returns
+
+A JSON Pointer.
+
 ### Parse(string source)
 
 Parses a JSON Pointer from a string.
@@ -358,6 +377,26 @@ public bool TryEvaluate(JsonNode root, out JsonNode result)
 #### Returns
 
 true if a value exists at the indicate path; false otherwise.
+
+### TryParse(ReadOnlySpan\<char\> source, out JsonPointer pointer)
+
+Parses a JSON Pointer from a string.
+
+#### Declaration
+
+```c#
+public static bool TryParse(ReadOnlySpan<char> source, out JsonPointer pointer)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| source | ReadOnlySpan\<char\> | The source string. |
+| pointer | out JsonPointer | The resulting pointer. |
+
+
+#### Returns
+
+`true` if the parse was successful; `false` otherwise.
 
 ### TryParse(string source, out JsonPointer pointer)
 
