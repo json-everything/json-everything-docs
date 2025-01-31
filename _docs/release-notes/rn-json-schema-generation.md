@@ -56,7 +56,7 @@ Add .Net 9.0 support.
 [#768](https://github.com/gregsdennis/json-everything/issues/768) - Added two ways to allow external references.  Thanks to [@luisjones](https://github.com/luisjones) for suggesting the idea.
 
 - Added `[Id]` attribute
-- Added `SchemaGenerationConfiguration.ExternalReferences`
+- Added `SchemaGeneratorConfiguration.ExternalReferences`
 
 # [4.4.0](https://github.com/gregsdennis/json-everything/pull/770) {#release-schemagen-4.4.0}
 

@@ -181,7 +181,7 @@ Another way to apply references is through the configuration's `ExternalReferenc
 {: .prompt-warning }
 
 ```c#
-var config = new SchemaGenerationConfiguration
+var config = new SchemaGeneratorConfiguration
 {
     ExternalReferences = 
     {
