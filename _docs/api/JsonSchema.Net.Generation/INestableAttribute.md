@@ -3,7 +3,7 @@ layout: "page"
 title: "INestableAttribute Interface"
 bookmark: "INestableAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.05.035"
+order: "10.05.037"
 ---
 **Namespace:** Json.Schema.Generation
 

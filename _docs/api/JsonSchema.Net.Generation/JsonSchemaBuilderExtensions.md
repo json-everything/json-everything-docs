@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonSchemaBuilderExtensions Class"
 bookmark: "JsonSchemaBuilderExtensions"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.05.043"
+order: "10.05.045"
 ---
 **Namespace:** Json.Schema.Generation
 
