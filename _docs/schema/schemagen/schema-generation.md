@@ -21,7 +21,7 @@ Done.
 
 ## IMPORTANT {#schema-schemagen-disclaimer}
 
-Ideally, this functionality should be used to create a starting point in authoring a schema.  The schemas output by this library should be reviewed by actual people prior to being put into a production system.
+Ideally, this functionality should be used to create a starting point in authoring a schema.  The schemas output by this library should be reviewed by actual people prior to being put into a production system.  This can be accomplished via approval tests or some other change review mechanism.
 
 > The JSON Schema team generally recommends against real-time schema generation.
 {: .prompt-danger }

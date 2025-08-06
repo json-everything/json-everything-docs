@@ -10,6 +10,8 @@ order: "01.2"
 
 To enable this support, you'll need to include the `ValidatingJsonConverter` in the serialization options and then annotate any types that need validation with the `[JsonSchema()]` attribute, pointing the the schema for that type.
 
+*JsonSchema.Net.Generation* also provides a version of this converter that allows the schema to be generated instead of being explicitly defined.  This is probably best for most use cases, but it's a good idea to verify any generated schemas before using them in production systems.
+
 Let's walk through it.
 
 > More on JSON Schema support during deserialization can be found on the `json-everything` [blog](https://blog.json-everything.net/posts/deserialization-with-schemas/).
@@ -27,7 +29,32 @@ When preparing to deserialize your payload, create an options object and add the
 ```c#
 var options = new JsonSerializationOptions
 {
-    Converters = { new ValidatingJsonConverter() }
+    Converters = { new ValidatingJsonConverter
+    {
+        Options = 
+        {
+            // set evaluation options
+        }
+    }
+};
+```
+
+or
+
+```c#
+var options = new JsonSerializationOptions
+{
+    Converters = { new ValidatingJsonConverter
+    {
+        Options = 
+        {
+            // set evaluation options
+        },
+        GeneratorConfiguration =
+        {
+            // set generation options
+        }
+    }
 };
 ```
 
@@ -45,10 +72,10 @@ If the data isn't valid, then a `JsonException` will be thrown.  The validation 
 
 The validation can be configured using properties on the converter.
 
-- `OutputFormat` configures the JSON Schema output format to be used.  By default, this value is `Flag` (the same as on `EvaluationOptions`).
-- `RequireFormatValidation` will validate the `format` keyword when set to true.  By default `format` is an annotation.
+- `Options`, which is available on both converters, configures schema evaluations.
+- `GeneratorConfiguration`, which is available on the generative version only, configures schema generation.
 
-> The `ValidatingJsonConverter` is a factory that creates individual typed converters and caches them.  Be aware, however, that when a typed converter is used, its options are overwritten with the options you've set on the factory.  This has a side effect of rendering the typed converter unsafe in multithreaded environments when using varying options.  It'll be fine if you always use the same options, however.
+> The `ValidatingJsonConverter` and `GenerativeValidatingJsonConverter` are factories that create individual typed converters and cache them.  Be aware, however, that when a typed converter is used, its options are overwritten with the options you've set on the factory.  This has a side effect of rendering the typed converter unsafe in multithreaded environments when using varying options.  It'll be fine if you always use the same options, however.
 {: .prompt-warning }
 
 ## Declaring a JSON Schema for a type {#schema-deserialization-attribute-usage}
@@ -103,7 +130,23 @@ public class MyModel
 }
 ```
 
-That's it.
+## Generating a JSON Schema for a type {#schema-deserialization-generation}
+
+To do the same kind of validation for the generative case, add the `[GenerateJsonSchema]` attribute and any applicable schema attributes.  You can find out more about schema generation attributes [here](./schemagen/schema-generation).
+
+```c#
+[GenerateJsonSchema]
+[AdditionalProperties(false)]
+public class MyModel
+{
+    [MinLength(10)]
+    [MaxLength(50)]
+    [Required]
+    public string Foo { get; set; }
+}
+```
+
+This has the same outcome as creating the explicit schema from the previous section.  However, it's important to remember that writing your schema explicitly will always be more flexible that generation.  If the schemas you want have fairly complex logic, perhaps explicitly writing your schemas is the right approach for you.
 
 ## Why not use `System.ComponentModel.DataAnnotations` to annotate and validate the model? {#schema-deserialization-why}
 
