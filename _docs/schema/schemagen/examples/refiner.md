@@ -28,7 +28,7 @@ internal class NullabilityRefiner : ISchemaRefiner
     public void Run(SchemaGeneratorContextBase context)
     {
         // find the type keyword
-        var typeIntent = context.Intents.OfType<TypeIntent>().Firs();
+        var typeIntent = context.Intents.OfType<TypeIntent>().First();
         // determine if the property has an override attribute
         var nullableAttribute = context.Attributes.OfType<NullableAttribute>().FirstOrDefault();
         var nullabilityOverride = nullableAttribute?.IsNullable;
