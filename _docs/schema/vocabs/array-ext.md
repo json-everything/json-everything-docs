@@ -4,7 +4,7 @@ title: A Vocabulary for Extended Validation of Arrays
 bookmark: Array Extensions
 permalink: /schema/vocabs/array-ext/
 icon: fas fa-tag
-order: "01.8.2"
+order: "01.09.2"
 ---
 
 ## 1. Purpose {#purpose}

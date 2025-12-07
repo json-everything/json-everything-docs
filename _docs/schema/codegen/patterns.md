@@ -3,7 +3,7 @@ layout: page
 title: Supported Patterns
 permalink: /schema/codegen/:title/
 icon: fas fa-tag
-order: "01.6.2"
+order: "01.07.2"
 ---
 > **DEPRECATION NOTICE**
 >

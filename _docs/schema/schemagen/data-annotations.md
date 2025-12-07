@@ -4,7 +4,7 @@ title: JSON Schema Generation with System.ComponentModel.DataAnnotations
 bookmark: Data Annotations
 permalink: /schema/schemagen/:title/
 icon: fas fa-tag
-order: "01.5.3"
+order: "01.06.3"
 ---
 The _System.ComponentModel.DataAnnotations_ namespace defines numerous attributes that are commonly used within ASP.Net and other areas to validate data models.
 

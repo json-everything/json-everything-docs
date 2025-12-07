@@ -4,7 +4,7 @@ title: Using Attributes to Add Constraints
 bookmark: Attributes
 permalink: /schema/examples/:title/
 icon: fas fa-tag
-order: "01.5.4.3"
+order: "01.06.4.3"
 ---
 In the [previous example](/schema/examples/intent/) we created a keyword intent to represent the [`maxDate` keyword](/schema/examples/custom-vocabs/#example-schema-vocabs-keyword) during generation.
 

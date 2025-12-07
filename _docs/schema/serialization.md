@@ -4,7 +4,7 @@ title: Enhancing Deserialization with JSON Schema
 bookmark: Serialization with Validation
 permalink: /schema/:title/
 icon: fas fa-tag
-order: "01.2"
+order: "01.02"
 ---
 *JsonSchema.Net* includes a JSON converter implementation that provides JSON validation support _during_ deserialization.
 
@@ -24,29 +24,35 @@ Let's walk through it.
 
 Custom JSON converters are added via the `JsonSerializationOptions.Converters` property.  Any converters in this collection will have priority over the default set of converters that ship with .Net.  You can read more about custom converters in their [documentation](https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/converters-how-to?pivots=dotnet-7-0).
 
-When preparing to deserialize your payload, create an options object and add the `ValidatingJsonConverter` from JsonSchema.Net:
+When preparing to deserialize your payload, create an options object and add the `ValidatingJsonConverter` from _JsonSchema.Net_:
 
 ```c#
 var options = new JsonSerializationOptions
 {
-    Converters = { new ValidatingJsonConverter
-    {
-        Options = 
+    Converters = {
+        new ValidatingJsonConverter
         {
-            // set evaluation options
+            EvaluationOptions = 
+            {
+                // set evaluation options
+            }
         }
     }
 };
 ```
 
-or
+or the `GenerativeValidatingJsonConverter` from _JsonSchema.Net.Generation_:
 
 ```c#
 var options = new JsonSerializationOptions
 {
-    Converters = { new ValidatingJsonConverter
+    Converters = { new GenerativeValidatingJsonConverter
     {
-        Options = 
+        BuildOptions = 
+        {
+            // set build options
+        },
+        EvaluationOptions = 
         {
             // set evaluation options
         },
@@ -58,7 +64,7 @@ var options = new JsonSerializationOptions
 };
 ```
 
-Whenever you deserialize with these options, this converter will be queried to see if the type to deserialize is configured with a `[JsonSchema()]` attribute.  If it is, then the payload will be validated against the schema prior to deserialization.
+Whenever you deserialize with these options, this converter will be queried to see if the type to deserialize is configured with a `[JsonSchema()]` attribute or a `[GenerateJsonSchema]` attribute.  If it is, then the payload will be validated against the schema prior to deserialization.
 
 ```c#
 var myModel = JsonSerializer.Deserialize<MyModel>(jsonText, options);
@@ -72,7 +78,8 @@ If the data isn't valid, then a `JsonException` will be thrown.  The validation 
 
 The validation can be configured using properties on the converter.
 
-- `Options`, which is available on both converters, configures schema evaluations.
+- `EvaluationOptions`, which is available on both converters, configures schema evaluations.
+- `BuildOptions`, which is available on the generative version only, configures the schema build step.
 - `GeneratorConfiguration`, which is available on the generative version only, configures schema generation.
 
 > The `ValidatingJsonConverter` and `GenerativeValidatingJsonConverter` are factories that create individual typed converters and cache them.  Be aware, however, that when a typed converter is used, its options are overwritten with the options you've set on the factory.  This has a side effect of rendering the typed converter unsafe in multithreaded environments when using varying options.  It'll be fine if you always use the same options, however.

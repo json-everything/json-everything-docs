@@ -5,7 +5,7 @@ md_title: _JsonSchema.Net_ Basics
 bookmark: Basics
 permalink: /schema/:title/
 icon: fas fa-tag
-order: "01.1"
+order: "01.01"
 ---
 The occasion may arise when you wish to validate that a JSON object is in the correct form (has the appropriate keys and the right types of values), or perhaps you wish to annotate that data.  Enter JSON Schema.  Much like XML Schema with XML, JSON Schema defines a pattern for JSON data.  A JSON Schema validator can verify that a given JSON object meets the requirements as defined by the JSON Schema as well as provide additional information to the application about the data.  This evaluation can come in handy as a precursor step before deserializing.
 
@@ -13,9 +13,18 @@ More information about JSON Schema can be found at [json-schema.org](http://json
 
 To support JSON Schema, *JsonSchema.Net* exposes the `JsonSchema` type.  This type is implemented as a list of keywords, each of which correspond to one of the keywords defined in the JSON Schema specifications.
 
-## Specification versions {#schema-versions}
+> Keep this mantra in your head while using this library: **Build once; evaluate many times.**
+{: .prompt-tip }
 
-There are currently six drafts of the JSON Schema specification that have known use:
+## Keywords {#schema-keywords}
+
+JSON Schema is expressed as a collection of keywords, each of which provides a specific constraint on a JSON instance.  For example, the `type` keyword specifies what JSON type an instance may be, whereas the `minimum` keyword specifies a minimum numeric value *for only numeric data* (it will not apply any assertion to non-numeric values).  These keywords can be combined to express the expected shape of any JSON instance.  Once defined, the schema evaluates the instance, providing feedback on what errors occurred, including where in the instance and in the schema produced them.
+
+_JsonSchema.Net_ implements keywords using singleton keyword handlers.  These handlers are responsible for validating that the keyword data is valid in the schema, building any subschemas, and instance evaluation.
+
+## Versions, Meta-schemas, and Dialects {#schema-versions}
+
+There are currently six versions of the JSON Schema specification that have known use:
 
 - Draft 3
 - Draft 4
@@ -24,83 +33,78 @@ There are currently six drafts of the JSON Schema specification that have known 
 - Draft 2019-09
 - Draft 2020-12
 
-The JSON Schema team recommends using draft 7 or later.  *JsonSchema.Net* supports draft 6 and later.
+The JSON Schema team recommends using draft 7 or 2020-12.  *JsonSchema.Net* supports draft 6 and later.
 
-> The next version of JSON Schema, which is supported by v4.0.0 and later of this library, is currently in development and will start a new era for the project which includes various backward- and forward-compatibility guarantees.  Have a read of the various discussions happening in the [JSON Schema GitHub org](https://github.com/json-schema-org) for more information.
+> The next version of JSON Schema, v1/2026, which is also supported by this library, is currently in development and will start a new era for the project which includes various backward- and forward-compatibility guarantees.  Have a read of the various discussions happening in the [JSON Schema GitHub org](https://github.com/json-schema-org) for more information.
 {: .prompt-tip }
 
-> This library uses [`decimal`](https://learn.microsoft.com/en-us/dotnet/api/system.decimal?view=net-8.0) for floating point number representation.  While `double` (and even `float`) may support a larger range, the higher precision of `decimal` is often more important (for example, in financial applications).  This also aligns with [JSON](https://datatracker.ietf.org/doc/html/rfc8259#section-6) itself, which uses arbitrary-precision numbers.  [This site](https://www.geeksforgeeks.org/difference-between-decimal-float-and-double-in-net/) has a good summary of the differences between the numeric types.
-{: .prompt-warning }
+Each of these specification versions define a _dialect_.  A dialect is the specific group of keywords that a schema can use.  A dialect usually has a URI identifier.  A schema declares the dialect it's using by placing the dialect identifier in the `$schema` keyword.  Generally, though not required, a dialect will be accompanied by a meta-schema that uses the same URI in its `$id`.
 
-### Meta-schemas {#schema-metaschemas}
+A meta-schema is a special JSON Schema that syntactically describes all of the keywords available for the associated dialect.  They are intended to be used to validate other schemas.
 
-Each version defines a meta-schema.  This is a special JSON Schema that describes all of the keywords available for that version.  They are intended to be used to validate other schemas.  Usually, a schema will declare the version it should adhere to using the `$schema` keyword.
+Draft 2019-09 introduced the idea of vocabularies as re-usable collections of keywords, a kind of sub-dialect, if you will.  A vocabulary isn't a dialect on its own, but they can be combined to create a dialect, as 2019-09 is.  As part of this new feature, the meta-schemas for this version and those which follow it have been split into vocabulary-specific meta-schemas.
 
-*JsonSchema.Net* declares the meta-schemas for the supported versions as members of the `MetaSchemas` static class.
+The specification recognizes that the meta-schemas aren't perfect and may need to be updated occasionally.  As such, the meta-schemas defined by this library will be updated to match, in most cases only triggering a patch release.
+{: .prompt-info }
 
-Draft 2019-09 introduced vocabularies.  As part of this new feature, the meta-schemas for this version and those which follow it have been split into vocabulary-specific meta-schemas.  Additionally, the specification recognizes that the meta-schemas aren't perfect and may need to be updated occasionally.  As such, the meta-schemas defined by this library will be updated to match, in most cases only triggering a patch release.
+In _JsonSchema.Net_, dialects are supported through the `Dialect` class, which is instantiated using a URI identifier and the keywords supported by that dialect, and meta-schemas.  All of the dialects and meta-schemas assocated with supported JSON Schema specification versions are predefined by the library; you can also make your own.
 
-## Keywords {#schema-keywords}
-
-JSON Schema is expressed as a collection of keywords, each of which provides a specific constraint on a JSON instance.  For example, the `type` keyword specifies what JSON type an instance may be, whereas the `minimum` keyword specifies a minimum numeric value *for only numeric data* (it will not apply any assertion to non-numeric values).  These keywords can be combined to express the expected shape of any JSON instance.  Once defined, the schema evaluates the instance, providing feedback on what errors occurred, including where in the instance and in the schema produced them.
+Since keyword behavior has evolved over the various specification versions, each different behavior for a given keyword has its own keyword handler.  Customization of keyword behavior is done by creating new keyword handlers and supporting them through custom dialects.
 
 # Building a schema {#schema-build}
 
-There are two options when building a schema: defining it inline using the fluent builder and defining it externally and deserializing.  Which method you use depends on your specific requirements.
+This library follows a two-phase approach to JSON Schema evaluation: build then evaluate.  The build phase produces a abstract graph that represents the schema and attempts to resolve all references.  Schemas are built using a selection of options that can be passed to the build process using the `BuildOptions` object.  These options include the dialect you want to use and registries for schemas (to resolve references), dialects (for dialect auto-selection via `$schema`), and vocabularies (for handling 2019-09 and 2020-12 meta-schemas which declare a `$vocabulary` keyword).
 
-## Serialization and Deserialization {#schema-deserialization}
+There are two main ways to build a schema: parsing text into a `JsonElement` and passing it to `JsonSchema.Build()` and defining it inline using the fluent builder.  (Serialization is also an option, but the converter merely extracts a `JsonElement` and builds directly.)
 
-Serialization is how we convert between the textual representation of JSON Schema and a `JsonSchema` .Net object.  In many cases, you'll compose your schemas in separate JSON files and deserialize them into the `JsonSchema` model.  However if you [define your schemas in code](#schema-inlining) or [generate them from a type](/schema/schemagen/schema-generation/) you won't have a textual representation of those schemas on hand.
+> Because _JsonSchema.Net_ builds schemas directly from `JsonElement`, serialization has been mostly removed from the process of building schemas.  Where serialization is performed, this library and its extensions do include support for [Native AOT applications](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/).
+{: .prompt-info }
 
-To facilitate this, _JsonSchema.Net_ schemas are fully serializable.
+## Options
 
-```c#
-var mySchema = JsonSchema.FromText(content);
-```
-
-which just does
+A schema is always based on the registries and dialect you provide it through the build options.
 
 ```c#
-var mySchema = JsonSerializer.Deserialize<JsonSchema>(content);
-```
-
-Done.
-
-> You can either use the JSON serializer as shown above, or the YAML serializer found in [_Yaml2JsonNode_](/yaml/basics/).
-{: .prompt-tip}
-
-### Ahead of Time (AOT) compatibility {#aot}
-
-_JsonSchema.Net_ v6 includes updates to support [Native AOT applications](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/).  In order to take advantage of this, there are a few things you'll need to do.
-
-First, on your `JsonSerializerContext`, add the following attributes:
-
-```c#
-[JsonSerializable(typeof(JsonSchema))]
-[JsonSerializable(typeof(EvaluationResults))]
-```
-
-It's recommended that you create a single `JsonSerializerOptions` object (or a few if you need different configurations) and reuse it rather than creating them ad-hoc.  When you create one, you'll need to configure its `TypeInfoResolverChain` with your serializer context:
-
-```c#
-var serializerOptions = new()
+var buildOptions = new BuildOptions
 {
-    TypeInfoResolverChain = { MySerializerContext.Default }
-};
+    Dialect = Dialect.Draft202012,
+    SchemaRegistry = new(),
+    DialectRegistry = new(),
+    VocabularyRegistry = new()
+}
 ```
 
-If you don't have any custom keywords, you're done.  Congratulations.
+All of these properties are optional.
 
-If you do have custom keywords, please see the AOT section on the [Vocabularies docs](/schema/vocabs#aot).
+The dialect you choose determines which properties will be recognized as keywords.  The dialect also defines whether unknown keywords are allowed (the upcoming spec version will disallow unknown keywords) and whether `$ref` allows or ignores other keywords in the same schema object (drafts 6 & 7 cause `$ref` to ignore sibling keywords, so they're not processed).  The default dialect is managed by `Dialect.Default`; out of the box, it's V1 to prepare for the upcoming specification release, but until then, it's recommended you set the default to Draft 2020-12.
 
-> The vocabulary library extensions for _JsonSchema.Net_ are also AOT-compatible and require no further setup.
-{: .prompt-tip}
+```c#
+Dialect.Default = Dialect.Draft202012;
+```
+
+The registries are available so that you can keep your registrations separate or if you want to build the same schema under differing conditions.  This can come in handy for concurrency or other scenarios where you might encounter conflicts or you need to rebuild the same schema under differing conditions.  For most scenarios, you should be able to just use the global registries, which is the default.
+
+> If you're using a custom meta-schema, you'll need to load it per the [Schema Registration](json-schema#schema-registration) section below.  Custom meta-schemas form a chain of meta-schemas (e.g. your custom meta-schema may reference another which references the draft 2020-12 meta-schema).  Ultimately, the chain MUST end at a JSON-Schema-defined meta-schema as this defines the processing rules for the schema.  An error will be produced if the meta-schema chain ends at a meta-schema that is unrecognized.
+{: .prompt-info }
+
+## Via `JsonElement`
+
+The simplest way to build a schema is through the `JsonSchema.Build()` static method.
+
+```c#
+var schemaJson = JsonDocument.Parse("""{"type": "object"}""").RootElement;
+var schema = JsonSchema.Build(schemaJson); // optionally include build options
+```
+
+Building the schema this way will perform validation on the incoming schema data, handle building subschemas, and attempt to resolve references.  It resolves as much behavior as it can up front in order to keep the evaluation step as quick as possible.
+
+Both this approach and the following inline approach will auto-register the schema in the schema registry provided by the options.
 
 ## Inline {#schema-inlining}
 
-There are many reasons why you would want to hard-code your schemas.  This library actually hard-codes all of the meta-schemas.  Whatever your reason, the `JsonSchemaBuilder` class is going to be your friend.
+The `JsonSchemaBuilder` is a fluent approach to building schemas that uses a builder and extension methods to ensure that all keyword values are valid.  This is a more type-safe way to build schemas, but it can also be a bit more verbose.  The API has been crafted in an attempt to mimic the JSON representation of the schema.
 
-The builder class itself is pretty simple.  It just has an `.Add()` method which takes an instance of `IJsonSchemaKeyword`.  The real power comes from the multitudes of extension methods.  There's at least one for every keyword, and they all take the appropriate types for the data that the keyword expects.
+The `JsonSchemaBuilder` class itself is pretty simple.  It just has an `.Add()` method which takes an instance of `IJsonSchemaKeyword`.  The real power comes from the multitudes of extension methods.  There's at least one for every keyword, and they all take the appropriate types for the data that the keyword expects.
 
 Once you've added all of your properties, just call the `.Build()` method to get your schema object.
 
@@ -111,77 +115,15 @@ var builder = new JsonSchemaBuilder()
 var schema = builder.Build();
 ```
 
-Let's take a look at some of the builder extension methods.
+Both the `JsonSchemaBuilder` constructor and the `.Build()` method can take a `BuildOptions` parameter.  The options passed into the `.Build()` method takes priority over one passed into the constructor.
 
-### Easy mode {#schema-how-to-1}
-
-Some of the more straightforward builder methods are for like the `title` and `$comment` keywords, which just take a string:
+Here's an example of creating a simple schema using the builder.
 
 ```c#
-builder.Comment("a comment")
-    .Title("A title for my schema");
-```
-
-Notice that these methods implement a fluent interface so that you can chain them together.
-
-### A little spice {#schema-how-to-2}
-
-Other extension methods can take multiple values.  These have been overloaded to accept both `IEnumerable<T>` and `params` arrays just to keep things flexible.
-
-```c#
-var required = new List<string>{"prop1", "prop2"};
-builder.Required(required);
-```
-
-or just
-
-```c#
-builder.Required("prop1", "prop2");
-```
-
-### Now you're cooking with gas {#schema-how-to-3}
-
-Lastly, we have the extension methods which take advantage of C# 7 tuples.  These include keywords like `$defs` and `properties` which take objects to mimic their JSON form.
-
-```c#
-builder.Properties(
-        ("prop1", new JsonSchemaBuilder()
-            .Type(SchemaValueType.String)
-            .MinLength(8)
-        ),
-        ("prop2", new JsonSchemaBuilder()
-            .Type(SchemaValueType.Number)
-            .MultipleOf(42)
-        )
-    );
-```
-
-Did you notice how the `JsonSchemaBuilder` is just included directly without the `.Build()` method?  These methods actually require `JsonSchema` objects.  This leads us into the next part.
-
-### Conversions {#schema-implicit-cast}
-
-`JsonSchemaBuilder` defines an implicit cast to `JsonSchema` which calls the `.Build()` method.
-
-To help things further, `JsonSchema` also defines implicit conversions from `bool`.  This allows you to simply use `true` and `false` to create their respective schemas.
-
-```c#
-builder.Properties(
-        ("prop1", new JsonSchemaBuilder()
-            .Type(SchemaValueType.String)
-            .MinLength(8)
-        ),
-        ("prop2", new JsonSchemaBuilder()
-            .Type(SchemaValueType.Number)
-            .MultipleOf(42)
-        ),
-        ("prop3", true)
-    );
-```
-
-This cast can be used anywhere a `JsonSchema` is needed, such as in the `additionalProperties` or `items` keywords.
-
-```c#
-builder.Properties(
+JsonSchema schema = new JsonSchemaBuilder()
+    .Schema(MetaSchemas.Draft202012Id)
+    .Type(SchemaValueType.Object)
+    .Properties(
         ("prop1", new JsonSchemaBuilder()
             .Type(SchemaValueType.String)
             .MinLength(8)
@@ -198,6 +140,9 @@ builder.Properties(
     )
     .AdditionalProperties(false);
 ```
+
+>`JsonSchemaBuilder` defines an implicit cast to `JsonSchema` which calls the `.Build()` method with the default options.  To help things further, `JsonSchema` also defines implicit conversions from `bool`.  This allows you to simply use `true` and `false` to create their respective schemas.
+{: .prompt-tip }
 
 # Evaluation & annotations {#schema-evaluation}
 
@@ -238,12 +183,12 @@ JsonSchema schema = new JsonSchemaBuilder()
     .Required("myProperty");
 
 // you can build or parse you JsonNode however you like
-var emptyJson = new JsonObject();
-var booleanJson = JsonNode.Parse("{\"myProperty\":false}");
-var stringJson = new JsonObject { ["myProperty"] = "some string" };
-var shortJson = new JsonObject { ["myProperty"] = "short" };
-var numberJson = new JsonObject { ["otherProperty"] = 35.4 };
-var nonObject = JsonNode.Parse("\"not an object\"");
+var emptyJson = JsonDocument.Parse("{}").RootElement;
+var booleanJson = JsonDocument.Parse("""{"myProperty":false}""").RootElement;
+var stringJson = JsonDocument.Parse("""{"myProperty":"some string"}""").RootElement;
+var shortJson = JsonDocument.Parse("""{"myProperty":"short"}""").RootElement;
+var numberJson = JsonDocument.Parse("""{"otherProperty":35.4}""").RootElement;
+var nonObject = JsonDocument.Parse("\"not an object\"").RootElement;
 
 var emptyResults = schema.Evaluate(emptyJson);
 var booleanResults = schema.Evaluate(booleanJson);
@@ -252,9 +197,6 @@ var shortResults = schema.Evaluate(shortJson);
 var numberResults = schema.Evaluate(numberJson);
 var nonObjectResults = schema.Evaluate(nonObject);
 ```
-
-> Don't pass your JSON to `Evaluate()` as a string.  You must parse it with `JsonNode.Parse()` first.  Otherwise, your string will be implicitly cast to `JsonNode` and you're just validating a string instance.
-{: .prompt-warning }
 
 The various results objects are of type `EvaluationResults`.  More information about the results object can be found in the next section.
 
@@ -436,6 +378,9 @@ The default output format is Flag, but this can be configured via the `Evaluatio
 
 The `format` keyword has been around a while.  It's available in all of the versions supported by *JsonSchema.Net*.  Although this keyword is technically classified as an annotation, the specification does allow (the word used is "SHOULD") that implementation provide some level of validation on it so long as that validation may be configured on and off.
 
+> In the upcoming JSON Schema v1 specification, `format` will validate by default.
+{: .prompt-warning }
+
 *JsonSchema.Net* makes a valiant attempt at validating a few of them.  These are hardcoded as static fields on the `Formats` class.  Out of the box, these are available:
 
 - `date`
@@ -461,26 +406,16 @@ New formats must be registered via the `Formats.Register()` static method.  This
 > Format implementations MUST not contain state as the same instance will be shared by all of the schema instances that use it.
 {: .prompt-warning }
 
-## Options {#schema-options}
-
-> For the best performance, use a cached evaluation options object.
->
-> *JsonSchema.Net* optimizes repeated evaluations with the same schema by performing some static analysis during the first evaluation.  However because changes to evaluation options can affect this analysis, the analysis is recalculated if the options change or a new options object is detected.
-{: .prompt-warning }
+## Evaluation Options {#evaluation-options}
 
 The `EvaluationOptions` class gives you a few configuration points for customizing how the evaluation process behaves.  It is an instance class and can be passed into the `JsonSchema.Evaluate()` method.  If no options are explicitly passed, a copy of `JsonSchemaOptions.Default` will be used.
 
-- `EvaluateAs` - Indicates which schema version to process as.  This will filter the keywords of a schema based on their support.  This means that if any keyword is not supported by this version, it will be ignored.  This will need to be set when you create the options.
-- `SchemaRegistry` - Provides a way to register schemas only for the evaluations that use this set of options.
-- `ValidateAgainstMetaSchema` - Indicates whether the schema should be validated against its `$schema` value (its meta-schema).  This is not typically necessary.  Note that the evaluation process will still attempt to resolve the meta-schema. \*
 - `OutputFormat` - You already read about output formats above.  This is the property that controls it all.  By default, a single "flag" node is returned.  This also yields the fastest evaluation times as it enables certain optimizations.
 - `RequireFormatValidation` - Forces `format` validation.
-- `OnlyKnownFormats` - Limits `format` validation to only those formats which have been registered through `Formats.Register()`.  Unknown formats will fail validation.
-- `ProcessCustomKeywords` - For schema versions which support the vocabulary system (i.g. 2019-09 and after), allows custom keywords to be processed which haven't been included in a vocabulary.  This still requires the keyword type to be registered with `SchemaRegistry`.
 - `PreserveDroppedAnnotations` - Adds a `droppedAnnotations` property to the output nodes for subschemas that fail validation.
+- `AddAnnotationForUnknownKeywords` - Adds an `$unknownKeywords` annotation that lists the names of keywords in a subschema that were not known.
 - `IgnoredAnnotations` - Gets the set of annotations that will be excluded from the output.
-
-_\* If you're using a custom meta-schema, you'll need to load it per the [Schema Registration](json-schema#schema-registration) section below.  Custom meta-schemas form a chain of meta-schemas (e.g. your custom meta-schema may reference another which references the draft 2020-12 meta-schema).  Ultimately, the chain MUST end at a JSON-Schema-defined meta-schema as this defines the processing rules for the schema.  An error will be produced if the meta-schema chain ends at a meta-schema that is unrecognized._
+- `Cuture` - Sets the culture to be used for error messages.
 
 ### Annotation management {#annotation-mgmt}
 
@@ -517,11 +452,13 @@ options.CollectAnnotationsFrom<TitleKeyword>();
 
 By default, *JsonSchema.Net* handles all references as defined in the draft 2020-12 version of the JSON Schema specification.  What this means for draft 2019-09 and later schemas is that `$ref` can now exist alongside other keywords; for earlier versions (i.e. Drafts 6 and 7), keywords as siblings to `$ref` will be ignored.
 
+In _JsonSchema.Net_ this sibling-keyword behavior is controlled by the dialect that's used during the build step.  For a new dialect, the default behavior is to allow sibling keywords to be processed.  This can be disabled by setting the `RefIgnoresSiblingKeywords` property to `true`.
+
 ## Schema resolution {#schema-ref-resolution}
 
-In order to resolve references more quickly, *JsonSchema.Net* maintains two registries for all schemas and identifiable subschemas that it has encountered.  The first is a global registry, and the second is a local registry that is contained in the options and is passed around on the evaluation context.  If a schema is not found in the local registry, it will automatically search the global registry.
+In order to resolve references more quickly, *JsonSchema.Net* maintains two registries for all schemas and identifiable subschemas that it has encountered.  The first is a global registry, and the second is a local registry that is contained in the options and is passed around on the build context.  If a schema is not found in the local registry, it will automatically search the global registry.
 
-A `JsonSchema` instance will automatically register itself with the local registry upon calling `Evaluate()`.  However, there are some cases where this may be insufficient.  For example, in cases where schemas are separated across multiple files, it is necessary to register the schema instances prior to evaluation.
+A `JsonSchema` instance will automatically register itself with the local registry during the build step.  Generally, build order is important.  You want to build dependencies first.
 
 For example, given these two schemas
 
@@ -540,47 +477,32 @@ For example, given these two schemas
 }
 ```
 
-Here's the schema with an inline declaration:
-
-```c#
-var schema = new JsonSchemaBuilder()
-    .Id("http://localhost/my-schema")
-    .Type(SchemaValueType.Object)
-    .Properties(("refProp", new JsonSchemaBuilder().Ref("http://localhost/random-string")))
-    .Build();
-```
-
-You must register `random-string` before you attempt to evaluate with `my-schema`.
+You must build `random-string` before you build `my-schema`.
 
 ```c#
 var randomString = JsonSchema.FromFile("random-string.json");
-SchemaRegistry.Global.Register(new Uri("http://localhost/random-string"), randomString);
+var mySchema = JsonSchema.FromFile("my-schema.json");
 ```
 
 Now _JsonSchema.Net_ will be able to resolve the reference.
 
-> `JsonSchema.FromFile()` automatically sets the schema's base URI to the file path.  If you intend to use file paths in your references (e.g. `file:///C:\random-string.json`), then just register the schema without passing a URI:
->
-> ```c#
-> SchemaRegistry.Global.Register(randomString);
-> ```
-{: .prompt-warning}
+_JsonSchema.Net_ will automatically handle reference loops, where one schema references another in such a way that some later reference eventually references the first.
 
 ## Resolving embedded schemas {#schema-embedded-schemas}
 
 In addition to schemas, other identifiable documents can be registered.  For example, Open API documents _contain_ schemas but are not themselves schemas.  Additionally, references between schemas within these documents are relative to the document root.  Registering the Open API document will allow these references to be resolved.
 
-A type may be registered if it implements `IBaseDocument`.  For convenience, `JsonNodeBaseDocument` is included to support general JSON data.
+A type may be registered if it implements `IBaseDocument`.  For convenience, `JsonElementBaseDocument` is included to support general JSON data.
 
-To create referenceable JSON data, simply create a `JsonNodeBaseDocument` wrapper for it and pass the data along with the URI that will be used to identify it.
+To create referenceable JSON data, simply create a `JsonElementBaseDocument` wrapper for it and pass the data along with the URI that will be used to identify it.
 
 ```c#
-var json = JsonNode.Parse(@"{
+var json = JsonDocument.Parse(@"{
   ""foo"": 42,
   ""schema"": { ""type"": ""string"" }
-}");
+}").RootElement;
 
-var referenceableJson = new JsonNodeBaseDocument(json, "http://localhost/jsondata");
+var referenceableJson = new JsonElementBaseDocument(json, "http://localhost/jsondata");
 SchemaRegistry.Global.Register(referenceableJson);
 
 var schema = new JsonSchemaBuilder()
@@ -592,11 +514,11 @@ With the JSON document registered, the reference can resolve properly.
 
 ## Automatic resolution {#schema-ref-fetch}
 
-In order to support scenarios where schemas cannot be registered ahead of time, the `SchemaRegistry` class exposes the `Fetch` property which is defined as `Func<Uri, JsonSchema>`.  This property can be set to a method which downloads the content from the supplied URI and deserializes it into a `JsonSchema` object.
+In order to support scenarios where schemas cannot be registered ahead of time, the `SchemaRegistry` class exposes the `Fetch` property which is defined as `Func<Uri, SchemaRegistry, IBaseDocument?>`.  This property can be set to a method which downloads the content from the supplied URI and deserializes it into an `IBaseDocument` object.
 
 The URI that is passed may need to be transformed, based on the schemas you're dealing with.  For instance if you're loading schemas from a local filesystem, and the schema `$ref`s use relative paths, you may need to prepend the working folder to the URI in order to locate it.
 
-## Bundling
+<!-- ## Bundling
 
 JSON Schema can be bundled so that they include all of their referenced documents.  This process can make sharing schemas significantly easier as only a single file need to be shared.
 
@@ -659,13 +581,13 @@ generates the following bundled schema:
 ```
 
 > This process requires that all external documents are registered or automatic resolution be enabled.
-{: .prompt-info }
+{: .prompt-info } -->
 
-## Customizing error messages {#schema-errors}
+# Customizing error messages {#schema-errors}
 
 The library exposes the `ErrorMessages` static type which includes read/write properties for all of the error messages.  Customization of error messages can be achieved by setting these properties.
 
-### Templates {#schema-error-templates}
+## Templates {#schema-error-templates}
 
 Most of the error messages support token replacement.  Tokens will use the format `[[foo]]` and will be replaced by the JSON serialization of the associated value.
 
@@ -684,7 +606,7 @@ In this case, `[[received]]` will be replaced by the value in the JSON instance,
 > Since this example uses numbers, they appear without any particular formatting as this is how numbers serialize into JSON.  Similarly, strings will render surrounded by double quotes, `true`, `false`, and `null` will appear using those literals, and more complex values like object and arrays will be rendered in their JSON representation.
 {: .prompt-info }
 
-### Localization {#schema-error-localization}
+## Localization {#schema-error-localization}
 
 In addition to customization, using resource files enables support for localization.  The default locale is determined by `CultureInfo.CurrentCulture` and can be overridden by setting the `ErrorMessages.Culture` static property.
 

@@ -4,7 +4,7 @@ title: Example - Handling References to External Schemas
 bookmark: External References
 permalink: /schema/examples/:title/
 icon: fas fa-tag
-order: "01.4.2"
+order: "01.05.2"
 ---
 JSON Schema has multiple ways to reference other schemas.  This is done to both reduce the size of the schemas that we humans have to deal with as well as to promote code reuse.  Defining a schema once to be used in multiple places is often a better approach than rewriting it in all of those places.  It also allows us to define recursive schemas.
 
@@ -17,7 +17,7 @@ References typically come in two flavors: internal and external.  Internal refer
 
 *JsonSchema.Net* will automatically handle internal references.  The schema document is loaded, and the library can easily resolve pointers inside of it.
 
-In order for *JsonSchema.Net* to handle external schemas, however, the schemas must be loaded and registered before validation starts.
+In order for *JsonSchema.Net* to handle external schemas, however, the external schemas must be built (which registers them) before the schemas that reference them.
 
 Suppose you have a subfolder where you store your schema files.  To load them, just iterate through the files and register them with `SchemaRegistry`.
 
@@ -25,20 +25,44 @@ Suppose you have a subfolder where you store your schema files.  To load them, j
 var files = Directory.GetFiles("my-schemas", "*.json");
 foreach (var file in files)
 {
+    // automatically adds to the global registry
     var schema = JsonSchema.FromFile(file);
-    SchemaRegistry.Global.Register(schema);
 }
 ```
 
 It's best practice to ensure all of your schemas declare an `$id` keyword at their root.  If a schema doesn't have this keyword, `FromFile()` will automatically assign the `file:///` URI of the full file name in order to reference this schema.
 
-`SchemaRegistry.Global.Register()` is the part that matters here.  This adds the schema to the internal registry so that, when the schema is needed, it can be found.
+### Reference loops
+
+Sometimes, you may have a reference loop where one schema references another which references back to the first.  As long as this does result in an infinite cycle, you're good (the specifications require implementations to detect and reject such loops).  As an extremely contrived example, consider these schemas which describe a linked list of alternating integers and strings:
+
+```json
+{
+  "$id": "integer-node",
+  "type": "object",
+  "properties": {
+    "value": { "type": "integer" },
+    "next": { "$ref": "string-node" }
+  }
+}
+
+{
+  "$id": "string-node",
+  "type": "object",
+  "properties": {
+    "value": { "type": "string" },
+    "next": { "$ref": "integer-node" }
+  }
+}
+```
+
+You can see that it's impossible to determine a "correct" build order because they depend on each other.  To support this, _JsonSchema.Net_ will leave references unresolved while building `integer-node` without throwing a `RefResolutionException`.  When `string-node` is then built, it will propertly resolve `integer-node` and then attempt to also resolve its references, thereby closing the loop.
 
 ## Dynamically loading references {#example-schema-fetching}
 
-An alternative to preloading schemas is setting up an automatic download by setting the `SchemaRegistry.Global.Fetch` function property.
+An alternative to preloading schemas is setting up an automatic download by setting the `Fetch` function property of the schema registry.
 
-> Automatically downloading external data is [explicitly recommended against](https://json-schema.org/draft/2020-12/json-schema-core.html#name-schema-references) by the specification.  This functionality is added for convenience and disabled by default.
+> Automatically downloading external data is [explicitly discouraged](https://json-schema.org/draft/2020-12/json-schema-core.html#name-schema-references) by the specification.  This functionality is added for convenience and disabled by default.
 {: .prompt-warning }
 
 ```c#
@@ -58,7 +82,7 @@ JsonSchema? DownloadSchema(Uri uri)
 SchemaRegistry.Global.Fetch = DownloadSchema;
 ```
 
-To clear the download function, simply set `null`.  The property isn't declared as nullable, but this will reset the property to a function that just returns null.
+To clear the download function, simply set `null`.  The property isn't declared as nullable, but this will reset the property to a no-op function.
 
 ```c#
 SchemaRegistry.Global.Fetch = null!;

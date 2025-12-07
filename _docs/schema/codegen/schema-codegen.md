@@ -4,7 +4,7 @@ title: Generating Code from JSON Schema
 bookmark: Basics
 permalink: /schema/codegen/:title/
 icon: fas fa-tag
-order: "01.6.1"
+order: "01.07.1"
 ---
 > **DEPRECATION NOTICE**
 >
