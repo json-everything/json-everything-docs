@@ -3,7 +3,7 @@ layout: "page"
 title: "ErrorMessages Class"
 bookmark: "ErrorMessages"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.053"
+order: "10.01.038"
 ---
 **Namespace:** Json.Schema
 
@@ -25,41 +25,65 @@ Each message will specify the tokens it supports.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Const** | string | Gets or sets the error message for **Json.Schema.ConstKeyword**. |
-| **ContainsTooFew** | string | Gets or sets the error message for **Json.Schema.ContainsKeyword** when there are too few matching items. |
-| **ContainsTooMany** | string | Gets or sets the error message for **Json.Schema.ContainsKeyword** when there are too many matching items. |
+| **Const** | string | Gets or sets the error message for **Json.Schema.Keywords.ConstKeyword**. |
+| **ContainsTooFew** | string | Gets or sets the error message for **Json.Schema.Keywords.ContainsKeyword** when there are too few matching items. |
+| **ContainsTooMany** | string | Gets or sets the error message for **Json.Schema.Keywords.ContainsKeyword** when there are too many matching items. |
 | **Culture** | CultureInfo | Gets or sets a culture to use for error messages.  Default is **System.Globalization.CultureInfo.CurrentCulture**. |
-| **DependentRequired** | string | Gets or sets the error message for **Json.Schema.DependentRequiredKeyword**. |
-| **DependentSchemas** | string | Gets or sets the error message for **Json.Schema.DependentSchemasKeyword**. |
-| **Enum** | string | Gets or sets the error message for **Json.Schema.EnumKeyword**. |
-| **ExclusiveMaximum** | string | Gets or sets the error message for **Json.Schema.ExclusiveMaximumKeyword**. |
-| **ExclusiveMinimum** | string | Gets or sets the error message for **Json.Schema.ExclusiveMinimumKeyword**. |
+| **DependentRequired** | string | Gets or sets the error message for **Json.Schema.Keywords.DependentRequiredKeyword**. |
+| **DependentSchemas** | string | Gets or sets the error message for **Json.Schema.Keywords.DependentSchemasKeyword**. |
+| **Enum** | string | Gets or sets the error message for **Json.Schema.Keywords.EnumKeyword**. |
+| **ExclusiveMaximum** | string | Gets or sets the error message for **Json.Schema.Keywords.ExclusiveMaximumKeyword**. |
+| **ExclusiveMinimum** | string | Gets or sets the error message for **Json.Schema.Keywords.ExclusiveMinimumKeyword**. |
 | **FalseSchema** | string | Gets or sets the error message for the "false" schema. |
-| **Format** | string | Gets or sets the error message for the **Json.Schema.FormatKeyword**. |
-| **FormatWithDetail** | string | Gets or sets the error message for the **Json.Schema.FormatKeyword** with additional information from the format validation. |
-| **Maximum** | string | Gets or sets the error message for **Json.Schema.MinimumKeyword**. |
-| **MaxItems** | string | Gets or sets the error message for **Json.Schema.MaxItemsKeyword**. |
-| **MaxLength** | string | Gets or sets the error message for **Json.Schema.MaxLengthKeyword**. |
-| **MaxProperties** | string | Gets or sets the error message for **Json.Schema.MaxPropertiesKeyword**. |
+| **Format** | string | Gets or sets the error message for the **Json.Schema.Keywords.FormatKeyword**. |
+| **FormatWithDetail** | string | Gets or sets the error message for the **Json.Schema.Keywords.FormatKeyword** with additional information from the format validation. |
+| **Maximum** | string | Gets or sets the error message for **Json.Schema.Keywords.MinimumKeyword**. |
+| **MaxItems** | string | Gets or sets the error message for **Json.Schema.Keywords.MaxItemsKeyword**. |
+| **MaxLength** | string | Gets or sets the error message for **Json.Schema.Keywords.MaxLengthKeyword**. |
+| **MaxProperties** | string | Gets or sets the error message for **Json.Schema.Keywords.MaxPropertiesKeyword**. |
 | **MetaSchemaValidation** | string | Gets or sets the error message for when the schema cannot be validated against the meta-schema. |
-| **Minimum** | string | Gets or sets the error message for **Json.Schema.MinimumKeyword**. |
-| **MinItems** | string | Gets or sets the error message for **Json.Schema.MinItemsKeyword**. |
-| **MinLength** | string | Gets or sets the error message for **Json.Schema.MinLengthKeyword**. |
-| **MinProperties** | string | Gets or sets the error message for **Json.Schema.MinPropertiesKeyword**. |
-| **MultipleOf** | string | Gets or sets the error message for **Json.Schema.MultipleOfKeyword**. |
-| **OneOf** | string | Gets or sets the error message for **Json.Schema.OneOfKeyword**. |
-| **Pattern** | string | Gets or sets the error message for **Json.Schema.PatternKeyword**. |
-| **Required** | string | Gets or sets the error message for **Json.Schema.RequiredKeyword**. |
-| **Type** | string | Gets or sets the error message for **Json.Schema.TypeKeyword**. |
-| **UniqueItems** | string | Gets or sets the error message for **Json.Schema.UniqueItemsKeyword**. |
+| **Minimum** | string | Gets or sets the error message for **Json.Schema.Keywords.MinimumKeyword**. |
+| **MinItems** | string | Gets or sets the error message for **Json.Schema.Keywords.MinItemsKeyword**. |
+| **MinLength** | string | Gets or sets the error message for **Json.Schema.Keywords.MinLengthKeyword**. |
+| **MinProperties** | string | Gets or sets the error message for **Json.Schema.Keywords.MinPropertiesKeyword**. |
+| **MultipleOf** | string | Gets or sets the error message for **Json.Schema.Keywords.MultipleOfKeyword**. |
+| **OneOf** | string | Gets or sets the error message for **Json.Schema.Keywords.OneOfKeyword**. |
+| **Pattern** | string | Gets or sets the error message for **Json.Schema.Keywords.PatternKeyword**. |
+| **Required** | string | Gets or sets the error message for **Json.Schema.Keywords.RequiredKeyword**. |
+| **Type** | string | Gets or sets the error message for **Json.Schema.Keywords.TypeKeyword**. |
+| **UniqueItems** | string | Gets or sets the error message for **Json.Schema.Keywords.UniqueItemsKeyword**. |
 | **UnknownFormat** | string | Gets or sets the error message for an unknown format. |
-| **UnknownVocabularies** | string | Gets or sets the error message for when a vocabulary is unknown but required. |
 
 ## Methods
 
+### Get(CultureInfo culture, string key)
+
+Retrieves a localized error message string for the specified key and culture.
+
+#### Declaration
+
+```c#
+public static string Get(CultureInfo culture, string key)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| culture | CultureInfo | The culture to use when retrieving the error message. If null, the default culture or the current thread's culture |
+| key | string | The resource key identifying the error message to retrieve. If not specified, the caller's member name is used. |
+
+
+#### Returns
+
+A localized error message string corresponding to the specified key and culture.
+
+#### Remarks
+
+If the <paramref name="key" /> parameter begins with "Get", that prefix is removed before looking up
+            the resource. This method is typically used within error-handling code to retrieve user-facing error messages based
+
 ### GetConst(CultureInfo culture)
 
-Gets the error message for **Json.Schema.ConstKeyword** for a specific culture.
+Gets the error message for **Json.Schema.Keywords.ConstKeyword** for a specific culture.
 
 #### Declaration
 
@@ -83,7 +107,7 @@ Available tokens are:
 
 ### GetContainsTooFew(CultureInfo culture)
 
-Gets the error message for **Json.Schema.ContainsKeyword** for a specific culture.
+Gets the error message for **Json.Schema.Keywords.ContainsKeyword** for a specific culture.
 
 #### Declaration
 
@@ -108,7 +132,7 @@ Available tokens are:
 
 ### GetContainsTooMany(CultureInfo culture)
 
-Gets the error message for **Json.Schema.ContainsKeyword** for a specific culture.
+Gets the error message for **Json.Schema.Keywords.ContainsKeyword** for a specific culture.
 
 #### Declaration
 
@@ -133,7 +157,7 @@ Available tokens are:
 
 ### GetDependentRequired(CultureInfo culture)
 
-Gets the error message for **Json.Schema.DependentRequiredKeyword** for a specific culture.
+Gets the error message for **Json.Schema.Keywords.DependentRequiredKeyword** for a specific culture.
 
 #### Declaration
 
@@ -157,7 +181,7 @@ Available tokens are:
 
 ### GetDependentSchemas(CultureInfo culture)
 
-Gets the error message for **Json.Schema.DependentSchemasKeyword** for a specific culture.
+Gets the error message for **Json.Schema.Keywords.DependentSchemasKeyword** for a specific culture.
 
 #### Declaration
 
@@ -181,7 +205,7 @@ Available tokens are:
 
 ### GetEnum(CultureInfo culture)
 
-Gets the error message for **Json.Schema.EnumKeyword** for a specific culture.
+Gets the error message for **Json.Schema.Keywords.EnumKeyword** for a specific culture.
 
 #### Declaration
 
@@ -210,7 +234,7 @@ custom messages.
 
 ### GetExclusiveMaximum(CultureInfo culture)
 
-Gets the error message for **Json.Schema.ExclusiveMaximumKeyword** for a specific culture.
+Gets the error message for **Json.Schema.Keywords.ExclusiveMaximumKeyword** for a specific culture.
 
 #### Declaration
 
@@ -235,7 +259,7 @@ Available tokens are:
 
 ### GetExclusiveMinimum(CultureInfo culture)
 
-Gets the error message for **Json.Schema.ExclusiveMinimumKeyword** for a specific culture.
+Gets the error message for **Json.Schema.Keywords.ExclusiveMinimumKeyword** for a specific culture.
 
 #### Declaration
 
@@ -260,7 +284,7 @@ Available tokens are:
 
 ### GetFormat(CultureInfo culture)
 
-Gets the error message for **Json.Schema.FormatKeyword** for a specific culture.
+Gets the error message for **Json.Schema.Keywords.FormatKeyword** for a specific culture.
 
 #### Declaration
 
@@ -284,7 +308,7 @@ Available tokens are:
 
 ### GetFormatWithDetail(CultureInfo culture)
 
-Gets the error message for **Json.Schema.FormatKeyword** for a specific culture.
+Gets the error message for **Json.Schema.Keywords.FormatKeyword** for a specific culture.
 
 #### Declaration
 
@@ -309,7 +333,7 @@ Available tokens are:
 
 ### GetMaximum(CultureInfo culture)
 
-Gets the error message for **Json.Schema.MinimumKeyword** for a specific culture.
+Gets the error message for **Json.Schema.Keywords.MinimumKeyword** for a specific culture.
 
 #### Declaration
 
@@ -334,7 +358,7 @@ Available tokens are:
 
 ### GetMaxItems(CultureInfo culture)
 
-Gets the error message for **Json.Schema.MaxItemsKeyword** for a specific culture.
+Gets the error message for **Json.Schema.Keywords.MaxItemsKeyword** for a specific culture.
 
 #### Declaration
 
@@ -359,7 +383,7 @@ Available tokens are:
 
 ### GetMaxLength(CultureInfo culture)
 
-Gets the error message for **Json.Schema.MaxLengthKeyword** for a specific culture.
+Gets the error message for **Json.Schema.Keywords.MaxLengthKeyword** for a specific culture.
 
 #### Declaration
 
@@ -384,7 +408,7 @@ Available tokens are:
 
 ### GetMaxProperties(CultureInfo culture)
 
-Gets the error message for **Json.Schema.MaxPropertiesKeyword** for a specific culture.
+Gets the error message for **Json.Schema.Keywords.MaxPropertiesKeyword** for a specific culture.
 
 #### Declaration
 
@@ -434,7 +458,7 @@ Available tokens are:
 
 ### GetMinimum(CultureInfo culture)
 
-Gets the error message for **Json.Schema.MinimumKeyword** for a specific culture.
+Gets the error message for **Json.Schema.Keywords.MinimumKeyword** for a specific culture.
 
 #### Declaration
 
@@ -459,7 +483,7 @@ Available tokens are:
 
 ### GetMinItems(CultureInfo culture)
 
-Gets the error message for **Json.Schema.MinItemsKeyword** for a specific culture.
+Gets the error message for **Json.Schema.Keywords.MinItemsKeyword** for a specific culture.
 
 #### Declaration
 
@@ -484,7 +508,7 @@ Available tokens are:
 
 ### GetMinLength(CultureInfo culture)
 
-Gets the error message for **Json.Schema.MinLengthKeyword** for a specific culture.
+Gets the error message for **Json.Schema.Keywords.MinLengthKeyword** for a specific culture.
 
 #### Declaration
 
@@ -509,7 +533,7 @@ Available tokens are:
 
 ### GetMinProperties(CultureInfo culture)
 
-Gets the error message for **Json.Schema.MinPropertiesKeyword** for a specific culture.
+Gets the error message for **Json.Schema.Keywords.MinPropertiesKeyword** for a specific culture.
 
 #### Declaration
 
@@ -534,7 +558,7 @@ Available tokens are:
 
 ### GetMultipleOf(CultureInfo culture)
 
-Gets the error message for **Json.Schema.MultipleOfKeyword** for a specific culture.
+Gets the error message for **Json.Schema.Keywords.MultipleOfKeyword** for a specific culture.
 
 #### Declaration
 
@@ -559,7 +583,7 @@ Available tokens are:
 
 ### GetOneOf(CultureInfo culture)
 
-Gets the error message for **Json.Schema.OneOfKeyword** for a specific culture.
+Gets the error message for **Json.Schema.Keywords.OneOfKeyword** for a specific culture.
 
 #### Declaration
 
@@ -583,7 +607,7 @@ Available tokens are:
 
 ### GetPattern(CultureInfo culture)
 
-Gets the error message for **Json.Schema.PatternKeyword** for a specific culture.
+Gets the error message for **Json.Schema.Keywords.PatternKeyword** for a specific culture.
 
 #### Declaration
 
@@ -607,7 +631,7 @@ Available tokens are:
 
 ### GetRequired(CultureInfo culture)
 
-Gets the error message for **Json.Schema.RequiredKeyword** for a specific culture.
+Gets the error message for **Json.Schema.Keywords.RequiredKeyword** for a specific culture.
 
 #### Declaration
 
@@ -631,7 +655,7 @@ Available tokens are:
 
 ### GetType(CultureInfo culture)
 
-Gets the error message for **Json.Schema.TypeKeyword** for a specific culture.
+Gets the error message for **Json.Schema.Keywords.TypeKeyword** for a specific culture.
 
 #### Declaration
 
@@ -656,7 +680,7 @@ Available tokens are:
 
 ### GetUniqueItems(CultureInfo culture)
 
-Gets the error message for **Json.Schema.UniqueItemsKeyword** for a specific culture.
+Gets the error message for **Json.Schema.Keywords.UniqueItemsKeyword** for a specific culture.
 
 #### Declaration
 
@@ -702,30 +726,6 @@ public static string GetUnknownFormat(CultureInfo culture)
 Available tokens are:
   - [[format]] - the format key
 
-### GetUnknownVocabularies(CultureInfo culture)
-
-Gets or sets the error message for when a vocabulary is unknown but required.
-
-#### Declaration
-
-```c#
-public static string GetUnknownVocabularies(CultureInfo culture)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| culture | CultureInfo | The culture to retrieve. |
-
-
-#### Returns
-
-
-
-#### Remarks
-
-Available tokens are:
-  - [[vocabs]] - the URI IDs of the missing vocabularies as a comma-delimited list
-
 ### ReplaceToken(this string message, string name, object value)
 
 Replaces tokens in the form of `[[token]]` with a specified value, serialized as JSON.
@@ -741,6 +741,27 @@ public static string ReplaceToken(this string message, string name, object value
 | message | string | The message template. |
 | name | string | The token name (without brackets) |
 | value | object | The value. |
+
+
+#### Returns
+
+The detokenized string.
+
+### ReplaceToken(this string message, string name, bool value)
+
+Replaces tokens in the form of `[[token]]` with a specified value, serialized as JSON.
+
+#### Declaration
+
+```c#
+public static string ReplaceToken(this string message, string name, bool value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| message | string | The message template. |
+| name | string | The token name (without brackets) |
+| value | bool | The value. |
 
 
 #### Returns
@@ -768,21 +789,21 @@ public static string ReplaceToken(this string message, string name, int value)
 
 The detokenized string.
 
-### ReplaceToken(this string message, string name, uint value)
+### ReplaceToken(this string message, string name, long value)
 
 Replaces tokens in the form of `[[token]]` with a specified value, serialized as JSON.
 
 #### Declaration
 
 ```c#
-public static string ReplaceToken(this string message, string name, uint value)
+public static string ReplaceToken(this string message, string name, long value)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | message | string | The message template. |
 | name | string | The token name (without brackets) |
-| value | uint | The value. |
+| value | long | The value. |
 
 
 #### Returns
@@ -804,6 +825,27 @@ public static string ReplaceToken(this string message, string name, decimal valu
 | message | string | The message template. |
 | name | string | The token name (without brackets) |
 | value | decimal | The value. |
+
+
+#### Returns
+
+The detokenized string.
+
+### ReplaceToken(this string message, string name, double value)
+
+Replaces tokens in the form of `[[token]]` with a specified value, serialized as JSON.
+
+#### Declaration
+
+```c#
+public static string ReplaceToken(this string message, string name, double value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| message | string | The message template. |
+| name | string | The token name (without brackets) |
+| value | double | The value. |
 
 
 #### Returns
@@ -873,21 +915,21 @@ public static string ReplaceToken(this string message, string name, Dictionary<s
 
 The detokenized string.
 
-### ReplaceToken(this string message, string name, JsonNode value)
+### ReplaceToken(this string message, string name, JsonElement value)
 
 Replaces tokens in the form of `[[token]]` with a specified value, serialized as JSON.
 
 #### Declaration
 
 ```c#
-public static string ReplaceToken(this string message, string name, JsonNode value)
+public static string ReplaceToken(this string message, string name, JsonElement value)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | message | string | The message template. |
 | name | string | The token name (without brackets) |
-| value | JsonNode | The value. |
+| value | JsonElement | The value. |
 
 
 #### Returns

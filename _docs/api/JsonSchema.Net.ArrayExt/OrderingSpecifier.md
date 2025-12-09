@@ -1,14 +1,16 @@
 ---
 layout: "page"
-title: "OrderingSpecifier Class"
+title: "OrderingSpecifier Struct"
 bookmark: "OrderingSpecifier"
 permalink: "/api/JsonSchema.Net.ArrayExt/:title/"
-order: "10.03.006"
+order: "10.03.005"
 ---
-**Namespace:** Json.Schema.ArrayExt
+**Namespace:** Json.Schema.ArrayExt.Keywords
 
 **Inheritance:**
 `OrderingSpecifier`
+ 🡒 
+`ValueType`
  🡒 
 `object`
 
@@ -27,7 +29,7 @@ Represents a single ordering characteristic.
 
 ### OrderingSpecifier(JsonPointer by, Direction direction, CultureInfo culture, bool ignoreCase)
 
-Creates a new **Json.Schema.ArrayExt.OrderingSpecifier**.
+Creates a new **Json.Schema.ArrayExt.Keywords.OrderingSpecifier**.
 
 #### Declaration
 

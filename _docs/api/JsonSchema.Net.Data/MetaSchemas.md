@@ -3,7 +3,7 @@ layout: "page"
 title: "MetaSchemas Class"
 bookmark: "MetaSchemas"
 permalink: "/api/JsonSchema.Net.Data/:title/"
-order: "10.02.008"
+order: "10.02.009"
 ---
 **Namespace:** Json.Schema.Data
 
@@ -12,14 +12,35 @@ order: "10.02.008"
  🡒 
 `object`
 
-Defines a meta-schema for the
+Provides access to the data extensions vocabulary meta-schema and methods for registering its components.
+
+## Remarks
+
+Use this class to register and retrieve the meta-schema required for working with the data
+            vocabulary in JSON Schema processing. All members are static and intended for application-wide
 
 ## Fields
 
 | Name | Type | Summary |
 |---|---|---|
-| **Data** | JsonSchema | The data vocabulary meta-schema. |
-| **Data_202012** | JsonSchema | A 2020-12 meta-schema which incorporates the data vocabulary. |
-| **Data_202012Id** | Uri | The ID for the draft 2020-12 extension vocabulary which includes the array extensions vocabulary. |
-| **DataId** | Uri | The data vocabulary meta-schema ID. |
+| **Data_202012Id** | Uri | The ID for the draft 2020-12 extension vocabulary which includes the data vocabulary. |
+
+## Properties
+
+| Name | Type | Summary |
+|---|---|---|
+| **Data** | JsonSchema | The array extensions vocabulary meta-schema. |
+
+## Methods
+
+### Register(BuildOptions buildOptions)
+
+Registers the all components required to use the array extensions vocabulary.
+
+#### Declaration
+
+```c#
+public static void Register(BuildOptions buildOptions)
+```
+
 

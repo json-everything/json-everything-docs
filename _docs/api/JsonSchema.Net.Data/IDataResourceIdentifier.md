@@ -3,9 +3,9 @@ layout: "page"
 title: "IDataResourceIdentifier Interface"
 bookmark: "IDataResourceIdentifier"
 permalink: "/api/JsonSchema.Net.Data/:title/"
-order: "10.02.003"
+order: "10.02.005"
 ---
-**Namespace:** Json.Schema.Data
+**Namespace:** Json.Schema.Data.Keywords
 
 **Inheritance:**
 `IDataResourceIdentifier`
@@ -14,24 +14,23 @@ Provides an abstraction for different resource identifier types.
 
 ## Methods
 
-### TryResolve(KeywordEvaluation evaluation, SchemaRegistry registry, out JsonNode value)
+### TryResolve(JsonElement root, out JsonElement value)
 
-Resolves a resource.
+Attempts to resolve a value from the specified JSON element.
 
 #### Declaration
 
 ```c#
-public abstract bool TryResolve(KeywordEvaluation evaluation, SchemaRegistry registry, out JsonNode value)
+public abstract bool TryResolve(JsonElement root, out JsonElement value)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
-| evaluation | KeywordEvaluation | The evaluation being process.  This will help identify. |
-| registry | SchemaRegistry | The schema registry. |
-| value | out JsonNode | The value, if **evaluation** was resolvable. |
+| root | JsonElement | The root **System.Text.Json.JsonElement** to search for the desired value. |
+| value | out JsonElement | When this method returns, contains the resolved **System.Text.Json.JsonElement** if the operation succeeds; otherwise, |
 
 
 #### Returns
 
-True if resolution was successful; false otherwise.
+true if the value was successfully resolved; otherwise, false.
 

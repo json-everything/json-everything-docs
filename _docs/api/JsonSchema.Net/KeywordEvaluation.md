@@ -1,39 +1,55 @@
 ---
 layout: "page"
-title: "KeywordEvaluation Class"
+title: "KeywordEvaluation Struct"
 bookmark: "KeywordEvaluation"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.091"
+order: "10.01.068"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `KeywordEvaluation`
  🡒 
+`ValueType`
+ 🡒 
 `object`
 
-Represents any evaluation-time work (i.e. any work that requires the instance) for keywords.
+Represents the result of evaluating a keyword, including its validity, associated annotation, and any subschema
+evaluation results.
+
+## Remarks
+
+Use this struct to capture the outcome of a keyword evaluation, such as in schema validation
+            scenarios. The struct provides information about the keyword, whether it was valid, any related annotation data,
+            subschema results, and error information if applicable. The static Ignore field can be used to represent a keyword
+
+## Fields
+
+| Name | Type | Summary |
+|---|---|---|
+| **Ignore** | KeywordEvaluation | Represents a special evaluation that indicates a keyword should be ignored during processing. |
 
 ## Properties
 
 | Name | Type | Summary |
 |---|---|---|
-| **ChildEvaluations** | SchemaEvaluation[] | Gets any child evaluations for this keyword. |
-| **LocalInstance** | JsonNode | Gets the local instance to be evaluated. |
-| **Results** | EvaluationResults | Gets the local results object. |
-| **SiblingEvaluations** | KeywordEvaluation[] | Gets any sibling evaluations for this keyword. |
+| **Annotation** | JsonElement? | Gets the a JSON annotation produced by the keyword. |
+| **ContributesToValidation** | bool | Gets a value indicating whether this member participates in validation. |
+| **Details** | EvaluationResults[] | Gets the collection of evaluation results produced by subschemas. |
+| **Error** | string | If validation failed, this may get an error message. |
+| **IsValid** | bool | Gets a value indicating whether a validation succeeded. |
+| **Keyword** | string | Gets the keyword that produced the evaluation. |
 
-## Methods
+## Constructors
 
-### MarkAsSkipped()
+### KeywordEvaluation()
 
-Indicates that the evaluation should be skipped and no work is to be done,
-e.g. `then` is skipped when `if` fails validation.
+Initializes a new instance of the KeywordEvaluation type.
 
 #### Declaration
 
 ```c#
-public void MarkAsSkipped()
+public KeywordEvaluation()
 ```
 
 

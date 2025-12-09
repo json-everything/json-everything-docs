@@ -3,7 +3,7 @@ layout: "page"
 title: "Duration Struct"
 bookmark: "Duration"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.042"
+order: "10.01.031"
 ---
 **Namespace:** Json.Schema
 

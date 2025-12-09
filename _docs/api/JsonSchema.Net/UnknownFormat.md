@@ -3,7 +3,7 @@ layout: "page"
 title: "UnknownFormat Class"
 bookmark: "UnknownFormat"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.174"
+order: "10.01.109"
 ---
 **Namespace:** Json.Schema
 
@@ -41,19 +41,19 @@ public UnknownFormat(string key)
 
 ## Methods
 
-### Validate(JsonNode node, out string errorMessage)
+### Validate(JsonElement value, out string errorMessage)
 
 Validates an instance against a format and provides an error message.
 
 #### Declaration
 
 ```c#
-public override bool Validate(JsonNode node, out string errorMessage)
+public override bool Validate(JsonElement value, out string errorMessage)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
-| node | JsonNode | The node to validate. |
+| value | JsonElement |  |
 | errorMessage | out string | An error message. |
 
 

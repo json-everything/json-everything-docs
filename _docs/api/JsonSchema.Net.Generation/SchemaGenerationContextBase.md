@@ -37,7 +37,7 @@ Applies the keyword to the **Json.Schema.JsonSchemaBuilder**.
 #### Declaration
 
 ```c#
-public JsonSchema Apply(JsonSchemaBuilder builder)
+public JsonSchemaBuilder Apply(JsonSchemaBuilder builder)
 ```
 
 | Parameter | Type | Description |

@@ -3,70 +3,32 @@ layout: "page"
 title: "AnchorKeyword Class"
 bookmark: "AnchorKeyword"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.006"
+order: "10.01.004"
 ---
-**Namespace:** Json.Schema
+**Namespace:** Json.Schema.Keywords.Draft201909
 
 **Inheritance:**
+`AnchorKeyword`
+ 🡒 
 `AnchorKeyword`
  🡒 
 `object`
 
 **Implemented interfaces:**
 
-- IJsonSchemaKeyword
+- IKeywordHandler
 
 Handles `$anchor`.
 
-## Fields
+## Remarks
 
-| Name | Type | Summary |
-|---|---|---|
-| **Name** | string | The JSON name of the keyword. |
+This keyword is used to define a location-independent identifier that can be referenced from elsewhere in the schema.
 
 ## Properties
 
 | Name | Type | Summary |
 |---|---|---|
-| **Anchor** | string | The value of the anchor. |
-
-## Constructors
-
-### AnchorKeyword(string anchor)
-
-Creates a new **Json.Schema.AnchorKeyword**.
-
-#### Declaration
-
-```c#
-public AnchorKeyword(string anchor)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| anchor | string | The anchor value. |
-
-
-## Methods
-
-### GetConstraint(SchemaConstraint schemaConstraint, ReadOnlySpan\<KeywordConstraint\> localConstraints, EvaluationContext context)
-
-Builds a constraint object for a keyword.
-
-#### Declaration
-
-```c#
-public KeywordConstraint GetConstraint(SchemaConstraint schemaConstraint, ReadOnlySpan<KeywordConstraint> localConstraints, EvaluationContext context)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| schemaConstraint | SchemaConstraint | The **Json.Schema.SchemaConstraint** for the schema object that houses this keyword. |
-| localConstraints | ReadOnlySpan\<KeywordConstraint\> | The set of other **Json.Schema.KeywordConstraint**s that have been processed prior to this one.     Will contain the constraints for keyword dependencies. |
-| context | EvaluationContext | The **Json.Schema.EvaluationContext**. |
-
-
-#### Returns
-
-A constraint object.
+| **AnchorPattern** | Regex | The pattern for valid anchor identifiers. |
+| **Instance** | AnchorKeyword | Gets the singleton instance of the **Json.Schema.Keywords.Draft201909.AnchorKeyword**. |
+| **Name** | string | Gets the name of the handled keyword. |
 

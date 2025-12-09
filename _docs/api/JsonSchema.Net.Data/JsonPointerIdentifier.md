@@ -3,9 +3,9 @@ layout: "page"
 title: "JsonPointerIdentifier Class"
 bookmark: "JsonPointerIdentifier"
 permalink: "/api/JsonSchema.Net.Data/:title/"
-order: "10.02.005"
+order: "10.02.007"
 ---
-**Namespace:** Json.Schema.Data
+**Namespace:** Json.Schema.Data.Keywords
 
 **Inheritance:**
 `JsonPointerIdentifier`
@@ -28,7 +28,7 @@ Handles data references that are JSON Pointers.
 
 ### JsonPointerIdentifier(JsonPointer target)
 
-Creates a new instance of **Json.Schema.Data.JsonPointerIdentifier**.
+Creates a new instance of **Json.Schema.Data.Keywords.JsonPointerIdentifier**.
 
 #### Declaration
 
@@ -58,24 +58,23 @@ public override string ToString()
 
 A string that represents the current object.
 
-### TryResolve(KeywordEvaluation evaluation, SchemaRegistry registry, out JsonNode value)
+### TryResolve(JsonElement root, out JsonElement value)
 
-Resolves a resource.
+Attempts to resolve a value from the specified JSON element.
 
 #### Declaration
 
 ```c#
-public bool TryResolve(KeywordEvaluation evaluation, SchemaRegistry registry, out JsonNode value)
+public bool TryResolve(JsonElement root, out JsonElement value)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
-| evaluation | KeywordEvaluation | The evaluation being process.  This will help identify. |
-| registry | SchemaRegistry | The schema registry. |
-| value | out JsonNode | The value, if **evaluation** was resolvable. |
+| root | JsonElement | The root **System.Text.Json.JsonElement** to search for the desired value. |
+| value | out JsonElement | When this method returns, contains the resolved **System.Text.Json.JsonElement** if the operation succeeds; otherwise, |
 
 
 #### Returns
 
-True if resolution was successful; false otherwise.
+true if the value was successfully resolved; otherwise, false.
 

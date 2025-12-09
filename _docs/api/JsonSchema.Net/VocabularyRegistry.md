@@ -3,7 +3,7 @@ layout: "page"
 title: "VocabularyRegistry Class"
 bookmark: "VocabularyRegistry"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.184"
+order: "10.01.113"
 ---
 **Namespace:** Json.Schema
 
@@ -12,77 +12,53 @@ order: "10.01.184"
  🡒 
 `object`
 
-A registry for vocabularies.
+Provides a registry for managing JSON Schema vocabularies, allowing registration and unregistration of custom
+vocabularies in addition to well-known official vocabularies.
+
+## Remarks
+
+The registry maintains a set of official vocabularies that cannot be modified or removed. Use the
+            **Json.Schema.VocabularyRegistry.Global** property to access a shared, application-wide registry instance. Getting vocabularies via
+
+## Properties
+
+| Name | Type | Summary |
+|---|---|---|
+| **Global** | VocabularyRegistry | Gets the global registry of vocabularies available throughout the application. |
 
 ## Methods
 
-### Get(Uri vocabularyId)
-
-Retrieves the vocabulary associated with the URI ID, if known.
-
-#### Declaration
-
-```c#
-public static Vocabulary Get(Uri vocabularyId)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| vocabularyId | Uri | The URI ID. |
-
-
-#### Returns
-
-The vocabulary, if known; otherwise null.
-
-### IsKnown(Uri vocabularyId)
-
-Indicates whether a vocabulary is known by URI ID and/or anchor.
-
-#### Declaration
-
-```c#
-public static bool IsKnown(Uri vocabularyId)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| vocabularyId | Uri | The URI ID. |
-
-
-#### Returns
-
-`true`, if registered in either this or the global registry;
-`false` otherwise.
-
 ### Register(Vocabulary vocabulary)
 
-Registers a vocabulary.  This does not register the vocabulary's
-keywords.  This must be done separately.
+Registers a custom vocabulary for use within the system.
 
 #### Declaration
 
 ```c#
-public static void Register(Vocabulary vocabulary)
+public void Register(Vocabulary vocabulary)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
-| vocabulary | Vocabulary |  |
+| vocabulary | Vocabulary | The vocabulary to register. The vocabulary's identifier must not conflict with any official vocabularies. |
 
 
-### Unregister(Vocabulary vocabulary)
+#### Remarks
 
-Removes a vocabulary from the registry.
+Registering a vocabulary allows it to be referenced and used in subsequent operations. Official
+
+### Unregister(Uri vocabularyId)
+
+Removes the vocabulary identified by the specified URI from the registry.
 
 #### Declaration
 
 ```c#
-public static void Unregister(Vocabulary vocabulary)
+public void Unregister(Uri vocabularyId)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
-| vocabulary | Vocabulary |  |
+| vocabularyId | Uri | The URI that uniquely identifies the vocabulary to remove. Cannot be an official vocabulary. |
 
 

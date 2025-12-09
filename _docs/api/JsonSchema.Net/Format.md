@@ -3,7 +3,7 @@ layout: "page"
 title: "Format Class"
 bookmark: "Format"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.064"
+order: "10.01.046"
 ---
 **Namespace:** Json.Schema
 
@@ -39,19 +39,19 @@ public Format(string key)
 
 ## Methods
 
-### Validate(JsonNode node, out string errorMessage)
+### Validate(JsonElement value, out string errorMessage)
 
 Validates an instance against a format and provides an error message.
 
 #### Declaration
 
 ```c#
-public virtual bool Validate(JsonNode node, out string errorMessage)
+public virtual bool Validate(JsonElement value, out string errorMessage)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
-| node | JsonNode | The node to validate. |
+| value | JsonElement |  |
 | errorMessage | out string | An error message. |
 
 

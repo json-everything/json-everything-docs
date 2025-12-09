@@ -3,9 +3,9 @@ layout: "page"
 title: "DependentRequiredKeyword Class"
 bookmark: "DependentRequiredKeyword"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.032"
+order: "10.01.021"
 ---
-**Namespace:** Json.Schema
+**Namespace:** Json.Schema.Keywords
 
 **Inheritance:**
 `DependentRequiredKeyword`
@@ -14,59 +14,77 @@ order: "10.01.032"
 
 **Implemented interfaces:**
 
-- IJsonSchemaKeyword
+- IKeywordHandler
 
 Handles `dependentRequired`.
 
-## Fields
+## Remarks
 
-| Name | Type | Summary |
-|---|---|---|
-| **Name** | string | The JSON name of the keyword. |
+This keyword specifies that if a property is present in an object, then other properties must also be present.
+The value of this keyword is an object where each key is a property name, and each value is an array of
+strings representing the required properties.
 
 ## Properties
 
 | Name | Type | Summary |
 |---|---|---|
-| **Requirements** | IReadOnlyDictionary\<string, IReadOnlyList\<string\>\> | The collection of "required"-type dependencies. |
-
-## Constructors
-
-### DependentRequiredKeyword(IReadOnlyDictionary\<string, IReadOnlyList\<string\>\> values)
-
-Creates a new **Json.Schema.DependentRequiredKeyword**.
-
-#### Declaration
-
-```c#
-public DependentRequiredKeyword(IReadOnlyDictionary<string, IReadOnlyList<string>> values)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| values | IReadOnlyDictionary\<string, IReadOnlyList\<string\>\> | The collection of "required"-type dependencies. |
-
+| **Instance** | DependentRequiredKeyword | Gets the singleton instance of the **Json.Schema.Keywords.DependentRequiredKeyword**. |
+| **Name** | string | Gets the name of the handled keyword. |
 
 ## Methods
 
-### GetConstraint(SchemaConstraint schemaConstraint, ReadOnlySpan\<KeywordConstraint\> localConstraints, EvaluationContext context)
+### BuildSubschemas(KeywordData keyword, BuildContext context)
 
-Builds a constraint object for a keyword.
+Builds and registers subschemas based on the specified keyword data within the provided build context.
 
 #### Declaration
 
 ```c#
-public KeywordConstraint GetConstraint(SchemaConstraint schemaConstraint, ReadOnlySpan<KeywordConstraint> localConstraints, EvaluationContext context)
+public virtual void BuildSubschemas(KeywordData keyword, BuildContext context)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
-| schemaConstraint | SchemaConstraint | The **Json.Schema.SchemaConstraint** for the schema object that houses this keyword. |
-| localConstraints | ReadOnlySpan\<KeywordConstraint\> | The set of other **Json.Schema.KeywordConstraint**s that have been processed prior to this one.     Will contain the constraints for keyword dependencies. |
-| context | EvaluationContext | The **Json.Schema.EvaluationContext**. |
+| keyword | KeywordData | The keyword data used to determine which subschemas to build. Cannot be null. |
+| context | BuildContext | The context in which subschemas are constructed and registered. Cannot be null. |
+
+
+### Evaluate(KeywordData keyword, EvaluationContext context)
+
+Evaluates the specified keyword using the provided evaluation context and returns the result of the evaluation.
+
+#### Declaration
+
+```c#
+public virtual KeywordEvaluation Evaluate(KeywordData keyword, EvaluationContext context)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| keyword | KeywordData | The keyword data to be evaluated. Cannot be null. |
+| context | EvaluationContext | The context in which the keyword evaluation is performed. Cannot be null. |
 
 
 #### Returns
 
-A constraint object.
+A KeywordEvaluation object containing the results of the evaluation.
+
+### ValidateKeywordValue(JsonElement value)
+
+Validates the specified JSON element as a keyword value and optionally returns a value to be shared across the other methods.
+
+#### Declaration
+
+```c#
+public virtual object ValidateKeywordValue(JsonElement value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| value | JsonElement | The JSON element to validate and convert. Represents the value to be checked for keyword compliance. |
+
+
+#### Returns
+
+An object that is shared with the other methods.  This object is saved to **Json.Schema.KeywordData.Value**.
 

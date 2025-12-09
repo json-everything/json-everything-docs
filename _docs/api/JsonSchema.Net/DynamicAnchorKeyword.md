@@ -3,9 +3,9 @@ layout: "page"
 title: "DynamicAnchorKeyword Class"
 bookmark: "DynamicAnchorKeyword"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.043"
+order: "10.01.032"
 ---
-**Namespace:** Json.Schema
+**Namespace:** Json.Schema.Keywords
 
 **Inheritance:**
 `DynamicAnchorKeyword`
@@ -14,59 +14,78 @@ order: "10.01.043"
 
 **Implemented interfaces:**
 
-- IJsonSchemaKeyword
+- IKeywordHandler
 
 Handles `$dynamicAnchor`.
 
-## Fields
+## Remarks
 
-| Name | Type | Summary |
-|---|---|---|
-| **Name** | string | The JSON name of the keyword. |
+This keyword is used to create a named dynamic anchor at the current schema location.
+This anchor can be used with `$dynamicRef` to reference this schema.  The `$dynamicAnchor` that will be resolved
+is the first occurence of the anchor being referenced found in the schema resources along the evaluation path.
 
 ## Properties
 
 | Name | Type | Summary |
 |---|---|---|
-| **Value** | string | Gets the anchor value. |
-
-## Constructors
-
-### DynamicAnchorKeyword(string value)
-
-Creates a new **Json.Schema.DynamicAnchorKeyword**.
-
-#### Declaration
-
-```c#
-public DynamicAnchorKeyword(string value)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| value | string | The anchor value. |
-
+| **AnchorPattern** | Regex | Gets the regular expression for validating the anchor value. |
+| **Instance** | DynamicAnchorKeyword | Gets the singleton instance of the **Json.Schema.Keywords.DynamicAnchorKeyword**. |
+| **Name** | string | Gets the name of the handled keyword. |
 
 ## Methods
 
-### GetConstraint(SchemaConstraint schemaConstraint, ReadOnlySpan\<KeywordConstraint\> localConstraints, EvaluationContext context)
+### BuildSubschemas(KeywordData keyword, BuildContext context)
 
-Builds a constraint object for a keyword.
+Builds and registers subschemas based on the specified keyword data within the provided build context.
 
 #### Declaration
 
 ```c#
-public KeywordConstraint GetConstraint(SchemaConstraint schemaConstraint, ReadOnlySpan<KeywordConstraint> localConstraints, EvaluationContext context)
+public virtual void BuildSubschemas(KeywordData keyword, BuildContext context)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
-| schemaConstraint | SchemaConstraint | The **Json.Schema.SchemaConstraint** for the schema object that houses this keyword. |
-| localConstraints | ReadOnlySpan\<KeywordConstraint\> | The set of other **Json.Schema.KeywordConstraint**s that have been processed prior to this one.     Will contain the constraints for keyword dependencies. |
-| context | EvaluationContext | The **Json.Schema.EvaluationContext**. |
+| keyword | KeywordData | The keyword data used to determine which subschemas to build. Cannot be null. |
+| context | BuildContext | The context in which subschemas are constructed and registered. Cannot be null. |
+
+
+### Evaluate(KeywordData keyword, EvaluationContext context)
+
+Evaluates the specified keyword using the provided evaluation context and returns the result of the evaluation.
+
+#### Declaration
+
+```c#
+public virtual KeywordEvaluation Evaluate(KeywordData keyword, EvaluationContext context)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| keyword | KeywordData | The keyword data to be evaluated. Cannot be null. |
+| context | EvaluationContext | The context in which the keyword evaluation is performed. Cannot be null. |
 
 
 #### Returns
 
-A constraint object.
+A KeywordEvaluation object containing the results of the evaluation.
+
+### ValidateKeywordValue(JsonElement value)
+
+Validates the specified JSON element as a keyword value and optionally returns a value to be shared across the other methods.
+
+#### Declaration
+
+```c#
+public virtual object ValidateKeywordValue(JsonElement value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| value | JsonElement | The JSON element to validate and convert. Represents the value to be checked for keyword compliance. |
+
+
+#### Returns
+
+An object that is shared with the other methods.  This object is saved to **Json.Schema.KeywordData.Value**.
 

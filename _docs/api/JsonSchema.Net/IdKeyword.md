@@ -3,71 +3,54 @@ layout: "page"
 title: "IdKeyword Class"
 bookmark: "IdKeyword"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.070"
+order: "10.01.052"
 ---
-**Namespace:** Json.Schema
+**Namespace:** Json.Schema.Keywords.Draft06
 
 **Inheritance:**
+`IdKeyword`
+ 🡒 
 `IdKeyword`
  🡒 
 `object`
 
 **Implemented interfaces:**
 
-- IIdKeyword
-- IJsonSchemaKeyword
+- IKeywordHandler
 
-Handles `$id`.
+Handles `id`.
 
-## Fields
+## Remarks
 
-| Name | Type | Summary |
-|---|---|---|
-| **Name** | string | The JSON name of the keyword. |
+This keyword is used to set the base URI for a schema or to identify a location-independent identifier
+for a subschema.
 
 ## Properties
 
 | Name | Type | Summary |
 |---|---|---|
-| **Id** | Uri | Defines the URI ID. |
-
-## Constructors
-
-### IdKeyword(Uri id)
-
-Creates a new **Json.Schema.IdKeyword**.
-
-#### Declaration
-
-```c#
-public IdKeyword(Uri id)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| id | Uri | The ID. |
-
+| **AnchorPattern** | Regex | The pattern for valid anchor identifiers. |
+| **Instance** | IdKeyword | Gets the singleton instance of the **Json.Schema.Keywords.Draft06.IdKeyword**. |
+| **Name** | string | Gets the name of the handled keyword. |
 
 ## Methods
 
-### GetConstraint(SchemaConstraint schemaConstraint, ReadOnlySpan\<KeywordConstraint\> localConstraints, EvaluationContext context)
+### ValidateKeywordValue(JsonElement value)
 
-Builds a constraint object for a keyword.
+Validates the specified JSON element as a keyword value and optionally returns a value to be shared across the other methods.
 
 #### Declaration
 
 ```c#
-public KeywordConstraint GetConstraint(SchemaConstraint schemaConstraint, ReadOnlySpan<KeywordConstraint> localConstraints, EvaluationContext context)
+public override object ValidateKeywordValue(JsonElement value)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
-| schemaConstraint | SchemaConstraint | The **Json.Schema.SchemaConstraint** for the schema object that houses this keyword. |
-| localConstraints | ReadOnlySpan\<KeywordConstraint\> | The set of other **Json.Schema.KeywordConstraint**s that have been processed prior to this one.     Will contain the constraints for keyword dependencies. |
-| context | EvaluationContext | The **Json.Schema.EvaluationContext**. |
+| value | JsonElement | The JSON element to validate and convert. Represents the value to be checked for keyword compliance. |
 
 
 #### Returns
 
-A constraint object.
+An object that is shared with the other methods.  This object is saved to **Json.Schema.KeywordData.Value**.
 

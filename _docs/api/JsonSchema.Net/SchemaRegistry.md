@@ -3,7 +3,7 @@ layout: "page"
 title: "SchemaRegistry Class"
 bookmark: "SchemaRegistry"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.158"
+order: "10.01.100"
 ---
 **Namespace:** Json.Schema
 
@@ -12,13 +12,18 @@ order: "10.01.158"
  🡒 
 `object`
 
-A registry for schemas.
+Provides a registry for storing and retrieving JSON schemas and other base documents by URI and anchor.
+
+## Remarks
+
+The registry supports registering schemas with unique URIs and enables lookup by URI or anchor.
+            Schemas can be fetched automatically using the **Json.Schema.SchemaRegistry.Fetch** delegate if not already registered. The **Json.Schema.SchemaRegistry.Global** property provides a shared, application-wide registry instance. Getting schemas via
 
 ## Properties
 
 | Name | Type | Summary |
 |---|---|---|
-| **Fetch** | Func\<Uri, IBaseDocument\> | Gets or sets a method to enable automatic download of schemas by `$id` URI. |
+| **Fetch** | Func\<Uri, SchemaRegistry, IBaseDocument\> | Gets or sets a method to enable automatic download of schemas by `$id` URI. |
 | **Global** | SchemaRegistry | The global registry. |
 
 ## Methods
@@ -40,24 +45,8 @@ public IBaseDocument Get(Uri uri)
 
 #### Returns
 
-The schema, if registered in either this or the global registry;4
+The schema, if registered in either this or the global registry;
 otherwise null.
-
-### Initialize(Uri baseUri, JsonSchema schema)
-
-Sets base URI and spec version for a schema.  Generally not needed as this happens automatically on registration and evaluation.
-
-#### Declaration
-
-```c#
-public void Initialize(Uri baseUri, JsonSchema schema)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| baseUri | Uri | The base URI for the schema. |
-| schema | JsonSchema | The schema |
-
 
 ### Register(IBaseDocument document)
 
@@ -89,25 +78,4 @@ public void Register(Uri uri, IBaseDocument document)
 | uri | Uri | The URI ID of the schema.. |
 | document | IBaseDocument | The schema. |
 
-
-### RegisterNewSpecVersion(Uri metaSchemaUri, SpecVersion specVersion)
-
-Registers a new meta-schema URI and establishes a new recognized value for the
-**Json.Schema.SpecVersion** enumeration.
-
-#### Declaration
-
-```c#
-public static void RegisterNewSpecVersion(Uri metaSchemaUri, SpecVersion specVersion)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| metaSchemaUri | Uri | The meta-schema URI. |
-| specVersion | SpecVersion | The value of the enum to associate with the meta-schema. |
-
-
-#### Remarks
-
-**WARNING** There be dragons here.  Use only if you know what you're doing.
 

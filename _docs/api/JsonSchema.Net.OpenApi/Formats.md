@@ -3,7 +3,7 @@ layout: "page"
 title: "Formats Class"
 bookmark: "Formats"
 permalink: "/api/JsonSchema.Net.OpenApi/:title/"
-order: "10.04.006"
+order: "10.04.004"
 ---
 **Namespace:** Json.Schema.OpenApi
 

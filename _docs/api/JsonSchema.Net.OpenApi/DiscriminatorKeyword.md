@@ -3,9 +3,9 @@ layout: "page"
 title: "DiscriminatorKeyword Class"
 bookmark: "DiscriminatorKeyword"
 permalink: "/api/JsonSchema.Net.OpenApi/:title/"
-order: "10.04.000"
+order: "10.04.001"
 ---
-**Namespace:** Json.Schema.OpenApi
+**Namespace:** Json.Schema.OpenApi.Keywords
 
 **Inheritance:**
 `DiscriminatorKeyword`
@@ -14,7 +14,7 @@ order: "10.04.000"
 
 **Implemented interfaces:**
 
-- IJsonSchemaKeyword
+- IKeywordHandler
 
 Handles `example`.
 
@@ -22,49 +22,63 @@ Handles `example`.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Extensions** | IReadOnlyDictionary\<string, JsonNode\> | Allows extensions to the OpenAPI Schema. The field name MUST begin with `x-`, for example, `x-internal-id`. Field names beginning `x-oai-` and `x-oas-` are reserved for uses defined by the OpenAPI Initiative. The value can be null, a primitive, an array or an object. |
-| **Mapping** | IReadOnlyDictionary\<string, string\> | An object to hold mappings between payload values and schema names or references. |
-| **PropertyName** | string | The name of the property in the payload that will hold the discriminator value. |
-
-## Constructors
-
-### DiscriminatorKeyword(string propertyName, IReadOnlyDictionary\<string, string\> mapping, IReadOnlyDictionary\<string, JsonNode\> extensions)
-
-Creates a new **Json.Schema.OpenApi.DiscriminatorKeyword**.
-
-#### Declaration
-
-```c#
-public DiscriminatorKeyword(string propertyName, IReadOnlyDictionary<string, string> mapping, IReadOnlyDictionary<string, JsonNode> extensions)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| propertyName | string | The name of the property in the payload that will hold the discriminator value. |
-| mapping | IReadOnlyDictionary\<string, string\> | An object to hold mappings between payload values and schema names or references. |
-| extensions | IReadOnlyDictionary\<string, JsonNode\> | Allows extensions to the OpenAPI Schema. The field name MUST begin with `x-`, for example, `x-internal-id`. Field names beginning `x-oai-` and `x-oas-` are reserved for uses defined by the OpenAPI Initiative. The value can be null, a primitive, an array or an object. |
-
+| **Instance** | DiscriminatorKeyword | Gets the singleton instance of the **Json.Schema.OpenApi.Keywords.DiscriminatorKeyword**. |
+| **Name** | string | Gets the name of the handled keyword. |
 
 ## Methods
 
-### GetConstraint(SchemaConstraint schemaConstraint, ReadOnlySpan\<KeywordConstraint\> localConstraints, EvaluationContext context)
+### BuildSubschemas(KeywordData keyword, BuildContext context)
 
-Builds a constraint object for a keyword.
+Builds and registers subschemas based on the specified keyword data within the provided build context.
 
 #### Declaration
 
 ```c#
-public KeywordConstraint GetConstraint(SchemaConstraint schemaConstraint, ReadOnlySpan<KeywordConstraint> localConstraints, EvaluationContext context)
+public virtual void BuildSubschemas(KeywordData keyword, BuildContext context)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
-| schemaConstraint | SchemaConstraint | The **Json.Schema.SchemaConstraint** for the schema object that houses this keyword. |
-| localConstraints | ReadOnlySpan\<KeywordConstraint\> | The set of other **Json.Schema.KeywordConstraint**s that have been processed prior to this one.     Will contain the constraints for keyword dependencies. |
-| context | EvaluationContext | The **Json.Schema.EvaluationContext**. |
+| keyword | KeywordData | The keyword data used to determine which subschemas to build. Cannot be null. |
+| context | BuildContext | The context in which subschemas are constructed and registered. Cannot be null. |
+
+
+### Evaluate(KeywordData keyword, EvaluationContext context)
+
+Evaluates the specified keyword using the provided evaluation context and returns the result of the evaluation.
+
+#### Declaration
+
+```c#
+public virtual KeywordEvaluation Evaluate(KeywordData keyword, EvaluationContext context)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| keyword | KeywordData | The keyword data to be evaluated. Cannot be null. |
+| context | EvaluationContext | The context in which the keyword evaluation is performed. Cannot be null. |
 
 
 #### Returns
 
-A constraint object.
+A KeywordEvaluation object containing the results of the evaluation.
+
+### ValidateKeywordValue(JsonElement value)
+
+Validates the specified JSON element as a keyword value and optionally returns a value to be shared across the other methods.
+
+#### Declaration
+
+```c#
+public virtual object ValidateKeywordValue(JsonElement value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| value | JsonElement | The JSON element to validate and convert. Represents the value to be checked for keyword compliance. |
+
+
+#### Returns
+
+An object that is shared with the other methods.  This object is saved to **Json.Schema.KeywordData.Value**.
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonSchema Class"
 bookmark: "JsonSchema"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.083"
+order: "10.01.060"
 ---
 **Namespace:** Json.Schema
 
@@ -22,7 +22,6 @@ Represents a JSON Schema.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Empty** | JsonSchema | The empty schema `{}`.  Functionally equivalent to **Json.Schema.JsonSchema.True**. |
 | **False** | JsonSchema | The `false` schema.  Fails all instances. |
 | **True** | JsonSchema | The `true` schema.  Passes all instances. |
 
@@ -30,48 +29,124 @@ Represents a JSON Schema.
 
 | Name | Type | Summary |
 |---|---|---|
-| **BaseUri** | Uri | Gets the base URI that applies to this schema.  This may be defined by a parent schema. |
+| **BaseUri** | Uri |  |
 | **BoolValue** | bool? | For boolean schemas, gets the value.  Null if the schema isn't a boolean schema. |
-| **DeclaredVersion** | SpecVersion | Gets the specification version as determined by analyzing the `$schema` keyword, if it exists. |
-| **IsResourceRoot** | bool | Gets whether the schema defines a new schema resource.  This will only be true if it contains an `$id` keyword. |
-| **Item** | IJsonSchemaKeyword | Gets the keyword class by keyword name. |
-| **Keywords** | IReadOnlyCollection\<IJsonSchemaKeyword\> | Gets the keywords contained in the schema.  Only populated for non-boolean schemas. |
+| **Root** | JsonSchemaNode | Gets the root node of the JSON Schema. |
 
 ## Methods
 
-### Evaluate(JsonNode root, EvaluationOptions options)
+### Build(JsonElement root, BuildOptions options, Uri baseUri)
 
-Evaluates an instance against this schema.
+Builds a JsonSchema instance from the specified JSON schema root element, applying the provided build options and
+base URI if specified.
 
 #### Declaration
 
 ```c#
-public EvaluationResults Evaluate(JsonNode root, EvaluationOptions options)
+public static JsonSchema Build(JsonElement root, BuildOptions options, Uri baseUri)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
-| root | JsonNode | The root instance. |
-| options | EvaluationOptions | The options to use for this evaluation. |
+| root | JsonElement | The root JsonElement representing the JSON schema to be parsed and built. Must be a valid JSON schema object. |
+| options | BuildOptions | Optional build options that control schema parsing behavior, such as registry usage and dialect settings. If null, |
+| baseUri | Uri | An optional base URI to associate with the schema for resolving references if the schema does not contain an $id |
 
 
 #### Returns
 
-A **Json.Schema.EvaluationResults** that provides the outcome of the evaluation.
+A JsonSchema instance representing the parsed schema. Returns a singleton schema for boolean schemas (<see langword="true" /> or <see langword="false" />), or a constructed schema for object-based definitions.
 
-### FromFile(string fileName)
+#### Remarks
 
-Loads text from a file and deserializes a **Json.Schema.JsonSchema**.
+The returned schema is registered with the provided or global schema registry. Reference
+            resolution and cycle detection are performed during the build process. The base URI is set on the resulting schema
+
+### BuildNode(BuildContext context)
+
+Builds a new JSON schema node from the specified build context, interpreting the local schema and its keywords
+according to the active dialect.
 
 #### Declaration
 
 ```c#
-public static JsonSchema FromFile(string fileName)
+public static JsonSchemaNode BuildNode(BuildContext context)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| context | BuildContext | The build context containing the local schema, dialect, base URI, and options used to construct the schema node. |
+
+
+#### Returns
+
+A JsonSchemaNode representing the parsed schema, including its keywords and any registered anchors or embedded
+
+#### Remarks
+
+This method processes schema keywords and handles dialect-specific behaviors, such as anchor
+registration and embedded resource management. The resulting node reflects the schema's structure and metadata as
+defined in the context.
+
+Use this method from keywords to build subschemas.
+            
+Individual keywords may throw various exceptions during the validation phase.
+
+### Evaluate(JsonElement instance, EvaluationOptions options)
+
+Evaluates the specified JSON instance against the schema and returns the results.
+
+#### Declaration
+
+```c#
+public EvaluationResults Evaluate(JsonElement instance, EvaluationOptions options)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| instance | JsonElement | The JSON data to be evaluated against the schema. |
+| options | EvaluationOptions | (Optional) Evaluation settings that control validation behavior. If null, default options are used. |
+
+
+#### Returns
+
+An EvaluationResults object containing the outcome of the schema validation, including any errors or annotations.
+
+### FindSubschema(JsonPointer pointer, BuildContext context)
+
+Finds the subschema node within the root schema that corresponds to the specified JSON pointer.
+
+#### Declaration
+
+```c#
+public JsonSchemaNode FindSubschema(JsonPointer pointer, BuildContext context)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| pointer | JsonPointer | The JSON pointer indicating the location of the subschema to find within the root schema. |
+| context | BuildContext | The build context used for schema evaluation and node construction if the subschema is not found directly. |
+
+
+#### Returns
+
+A **Json.Schema.JsonSchemaNode** representing the subschema at the specified pointer, or <see langword="null" /> if no
+
+### FromFile(string fileName, BuildOptions options, Uri baseUri)
+
+Loads text from a file and builds a **Json.Schema.JsonSchema**.
+
+#### Declaration
+
+```c#
+public static JsonSchema FromFile(string fileName, BuildOptions options, Uri baseUri)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | fileName | string | The filename to load, URL-decoded. |
+| options | BuildOptions | (optional) Serializer options. |
+| baseUri | Uri | (optional) The base URI for this schema. |
 
 
 #### Returns
@@ -82,174 +157,25 @@ A new **Json.Schema.JsonSchema**.
 
 The filename needs to not be URL-encoded as **System.Uri** attempts to encode it.
 
-### FromFile(string fileName, JsonSerializerOptions options)
+### FromText(string jsonText, BuildOptions buildOptions, Uri baseUri, JsonDocumentOptions? jsonOptions)
 
-Loads text from a file and deserializes a **Json.Schema.JsonSchema**.
-
-#### Declaration
-
-```c#
-public static JsonSchema FromFile(string fileName, JsonSerializerOptions options)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| fileName | string | The filename to load, URL-decoded. |
-| options | JsonSerializerOptions | Serializer options. |
-
-
-#### Returns
-
-A new **Json.Schema.JsonSchema**.
-
-#### Remarks
-
-The filename needs to not be URL-encoded as **System.Uri** attempts to encode it.
-
-### FromStream(Stream source)
-
-Deserializes a **Json.Schema.JsonSchema** from a stream.
+Builds a **Json.Schema.JsonSchema** from text.
 
 #### Declaration
 
 ```c#
-public static ValueTask<JsonSchema> FromStream(Stream source)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| source | Stream | A stream. |
-
-
-#### Returns
-
-A new **Json.Schema.JsonSchema**.
-
-### FromStream(Stream source, JsonSerializerOptions options)
-
-Deserializes a **Json.Schema.JsonSchema** from a stream.
-
-#### Declaration
-
-```c#
-public static ValueTask<JsonSchema> FromStream(Stream source, JsonSerializerOptions options)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| source | Stream | A stream. |
-| options | JsonSerializerOptions | Serializer options. |
-
-
-#### Returns
-
-A new **Json.Schema.JsonSchema**.
-
-### FromText(string jsonText)
-
-Deserializes a **Json.Schema.JsonSchema** from text.
-
-#### Declaration
-
-```c#
-public static JsonSchema FromText(string jsonText)
+public static JsonSchema FromText(string jsonText, BuildOptions buildOptions, Uri baseUri, JsonDocumentOptions? jsonOptions)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | jsonText | string | The text to parse. |
+| buildOptions | BuildOptions | (optional) The build options. |
+| baseUri | Uri | (optional) The base URI for this schema. |
+| jsonOptions | JsonDocumentOptions? | (optional) Options for parsing a **System.Text.Json.JsonDocument**. |
 
 
 #### Returns
 
 A new **Json.Schema.JsonSchema**.
-
-### FromText(string jsonText, JsonSerializerOptions options)
-
-Deserializes a **Json.Schema.JsonSchema** from text.
-
-#### Declaration
-
-```c#
-public static JsonSchema FromText(string jsonText, JsonSerializerOptions options)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| jsonText | string | The text to parse. |
-| options | JsonSerializerOptions | Serializer options. |
-
-
-#### Returns
-
-A new **Json.Schema.JsonSchema**.
-
-### GetConstraint(JsonPointer relativeEvaluationPath, JsonPointer baseInstanceLocation, JsonPointer relativeInstanceLocation, EvaluationContext context)
-
-Builds a constraint for the schema.
-
-#### Declaration
-
-```c#
-public SchemaConstraint GetConstraint(JsonPointer relativeEvaluationPath, JsonPointer baseInstanceLocation, JsonPointer relativeInstanceLocation, EvaluationContext context)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| relativeEvaluationPath | JsonPointer | The relative evaluation path in JSON Pointer form.  Generally this will be a keyword name, but may have other segments, such as in the case of `properties` which also has the property name. |
-| baseInstanceLocation | JsonPointer | The base location within the instance that is being evaluated. |
-| relativeInstanceLocation | JsonPointer | The location relative to **baseInstanceLocation** within the instance that is being evaluated. |
-| context | EvaluationContext | The evaluation context. |
-
-
-#### Returns
-
-A schema constraint.
-
-#### Remarks
-
-The constraint returned by this method is cached by the **Json.Schema.JsonSchema** object.
-Different evaluation paths to this schema object may result in different constraints, so
-a new constraint is saved for each dynamic scope.
-
-### GetKeyword()
-
-Gets a specified keyword if it exists.
-
-#### Declaration
-
-```c#
-public T GetKeyword()
-```
-
-
-#### Returns
-
-The keyword if it exists; otherwise null.
-
-### TryGetKeyword(out T keyword)
-
-
-#### Declaration
-
-```c#
-public bool TryGetKeyword(out T keyword)
-```
-
-
-#### Returns
-
-
-### TryGetKeyword(string keywordName, out T keyword)
-
-
-#### Declaration
-
-```c#
-public bool TryGetKeyword(string keywordName, out T keyword)
-```
-
-
-#### Returns
-
 

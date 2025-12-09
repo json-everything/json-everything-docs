@@ -4,5 +4,5 @@ bookmark: Json.More
 permalink: /api/Json.More/:title/
 folder: true
 order: "10.13"
-version: "2.1.3"
+version: "2.2.0"
 ---

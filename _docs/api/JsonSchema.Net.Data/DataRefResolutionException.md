@@ -3,7 +3,7 @@ layout: "page"
 title: "DataRefResolutionException Class"
 bookmark: "DataRefResolutionException"
 permalink: "/api/JsonSchema.Net.Data/:title/"
-order: "10.02.002"
+order: "10.02.001"
 ---
 **Namespace:** Json.Schema
 

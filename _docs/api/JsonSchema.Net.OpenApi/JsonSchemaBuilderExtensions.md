@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonSchemaBuilderExtensions Class"
 bookmark: "JsonSchemaBuilderExtensions"
 permalink: "/api/JsonSchema.Net.OpenApi/:title/"
-order: "10.04.007"
+order: "10.04.005"
 ---
 **Namespace:** Json.Schema.OpenApi
 
@@ -18,7 +18,7 @@ Provides a fluent interface for **Json.Schema.JsonSchemaBuilder**.
 
 ### Discriminator(this JsonSchemaBuilder builder, string propertyName, IReadOnlyDictionary\<string, string\> mapping, IReadOnlyDictionary\<string, JsonNode\> extensions)
 
-
+Adds a `discriminator` keyword.
 
 #### Declaration
 
@@ -38,20 +38,20 @@ public static JsonSchemaBuilder Discriminator(this JsonSchemaBuilder builder, st
 
 The builder.
 
-### Example(this JsonSchemaBuilder builder, JsonNode json)
+### Example(this JsonSchemaBuilder builder, JsonNode value)
 
-
+Adds an `example` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder Example(this JsonSchemaBuilder builder, JsonNode json)
+public static JsonSchemaBuilder Example(this JsonSchemaBuilder builder, JsonNode value)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| json | JsonNode | The example value. |
+| value | JsonNode | The example value. |
 
 
 #### Returns
@@ -60,7 +60,7 @@ The builder.
 
 ### ExternalDocs(this JsonSchemaBuilder builder, Uri url, string description, IReadOnlyDictionary\<string, JsonNode\> extensions)
 
-
+Adds an `externalDocs` keyword.
 
 #### Declaration
 

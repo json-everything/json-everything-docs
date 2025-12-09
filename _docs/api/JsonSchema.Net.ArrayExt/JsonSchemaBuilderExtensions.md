@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonSchemaBuilderExtensions Class"
 bookmark: "JsonSchemaBuilderExtensions"
 permalink: "/api/JsonSchema.Net.ArrayExt/:title/"
-order: "10.03.001"
+order: "10.03.002"
 ---
 **Namespace:** Json.Schema.ArrayExt
 
@@ -16,20 +16,20 @@ Provides a fluent interface for **Json.Schema.JsonSchemaBuilder**.
 
 ## Methods
 
-### Ordering(this JsonSchemaBuilder builder, params OrderingSpecifier[] specifiers)
+### Ordering(this JsonSchemaBuilder builder, IEnumerable\<OrderingSpecifier\> specifiers)
 
 Adds an `ordering` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder Ordering(this JsonSchemaBuilder builder, params OrderingSpecifier[] specifiers)
+public static JsonSchemaBuilder Ordering(this JsonSchemaBuilder builder, IEnumerable<OrderingSpecifier> specifiers)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| specifiers | params OrderingSpecifier[] | The collection of ordering specifiers. |
+| specifiers | IEnumerable\<OrderingSpecifier\> | The collection of ordering specifiers. |
 
 
 #### Returns
@@ -70,46 +70,6 @@ public static JsonSchemaBuilder UniqueKeys(this JsonSchemaBuilder builder, IEnum
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
 | keys | IEnumerable\<string\> | The collection of pointers to the keys which should be unique within the array. |
-
-
-#### Returns
-
-The builder.
-
-### UniqueKeys(this JsonSchemaBuilder builder, params JsonPointer[] keys)
-
-Adds a `uniqueKeys` keyword.
-
-#### Declaration
-
-```c#
-public static JsonSchemaBuilder UniqueKeys(this JsonSchemaBuilder builder, params JsonPointer[] keys)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| builder | JsonSchemaBuilder | The builder. |
-| keys | params JsonPointer[] | The collection of pointers to the keys which should be unique within the array. |
-
-
-#### Returns
-
-The builder.
-
-### UniqueKeys(this JsonSchemaBuilder builder, params string[] keys)
-
-Adds a `uniqueKeys` keyword.
-
-#### Declaration
-
-```c#
-public static JsonSchemaBuilder UniqueKeys(this JsonSchemaBuilder builder, params string[] keys)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| builder | JsonSchemaBuilder | The builder. |
-| keys | params string[] | The collection of pointers to the keys which should be unique within the array. |
 
 
 #### Returns

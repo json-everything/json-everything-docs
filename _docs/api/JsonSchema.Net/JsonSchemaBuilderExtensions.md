@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonSchemaBuilderExtensions Class"
 bookmark: "JsonSchemaBuilderExtensions"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.086"
+order: "10.01.063"
 ---
 **Namespace:** Json.Schema
 
@@ -16,80 +16,80 @@ Provides a fluent interface for **Json.Schema.JsonSchemaBuilder**.
 
 ## Methods
 
-### AdditionalItems(this JsonSchemaBuilder builder, JsonSchema schema)
+### AdditionalItems(this JsonSchemaBuilder builder, JsonSchemaBuilder schema)
 
 Add an `additionalItems` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder AdditionalItems(this JsonSchemaBuilder builder, JsonSchema schema)
+public static JsonSchemaBuilder AdditionalItems(this JsonSchemaBuilder builder, JsonSchemaBuilder schema)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| schema | JsonSchema | The schema for `additionalItems`. |
+| schema | JsonSchemaBuilder | The schema for `additionalItems`. |
 
 
 #### Returns
 
 The builder.
 
-### AdditionalProperties(this JsonSchemaBuilder builder, JsonSchema schema)
+### AdditionalProperties(this JsonSchemaBuilder builder, JsonSchemaBuilder schema)
 
 Add an `additionalProperties` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder AdditionalProperties(this JsonSchemaBuilder builder, JsonSchema schema)
+public static JsonSchemaBuilder AdditionalProperties(this JsonSchemaBuilder builder, JsonSchemaBuilder schema)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| schema | JsonSchema | The schema for `additionalProperties`. |
+| schema | JsonSchemaBuilder | The schema for `additionalProperties`. |
 
 
 #### Returns
 
 The builder.
 
-### AllOf(this JsonSchemaBuilder builder, params JsonSchema[] schemas)
+### AllOf(this JsonSchemaBuilder builder, params JsonSchemaBuilder[] schemas)
 
 Add an `allOf` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder AllOf(this JsonSchemaBuilder builder, params JsonSchema[] schemas)
+public static JsonSchemaBuilder AllOf(this JsonSchemaBuilder builder, params JsonSchemaBuilder[] schemas)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| schemas | params JsonSchema[] | The schemas for `allOf`. |
+| schemas | params JsonSchemaBuilder[] | The schemas for `allOf`. |
 
 
 #### Returns
 
 The builder.
 
-### AllOf(this JsonSchemaBuilder builder, IEnumerable\<JsonSchema\> schemas)
+### AllOf(this JsonSchemaBuilder builder, IEnumerable\<JsonSchemaBuilder\> schemas)
 
 Add an `allOf` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder AllOf(this JsonSchemaBuilder builder, IEnumerable<JsonSchema> schemas)
+public static JsonSchemaBuilder AllOf(this JsonSchemaBuilder builder, IEnumerable<JsonSchemaBuilder> schemas)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| schemas | IEnumerable\<JsonSchema\> | The schemas for `allOf`. |
+| schemas | IEnumerable\<JsonSchemaBuilder\> | The schemas for `allOf`. |
 
 
 #### Returns
@@ -116,40 +116,40 @@ public static JsonSchemaBuilder Anchor(this JsonSchemaBuilder builder, string re
 
 The builder.
 
-### AnyOf(this JsonSchemaBuilder builder, params JsonSchema[] schemas)
+### AnyOf(this JsonSchemaBuilder builder, params JsonSchemaBuilder[] schemas)
 
 Add an `anyOf` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder AnyOf(this JsonSchemaBuilder builder, params JsonSchema[] schemas)
+public static JsonSchemaBuilder AnyOf(this JsonSchemaBuilder builder, params JsonSchemaBuilder[] schemas)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| schemas | params JsonSchema[] | The schemas for `anyOf`. |
+| schemas | params JsonSchemaBuilder[] | The schemas for `anyOf`. |
 
 
 #### Returns
 
 The builder.
 
-### AnyOf(this JsonSchemaBuilder builder, IEnumerable\<JsonSchema\> schemas)
+### AnyOf(this JsonSchemaBuilder builder, IEnumerable\<JsonSchemaBuilder\> schemas)
 
 Add an `anyOf` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder AnyOf(this JsonSchemaBuilder builder, IEnumerable<JsonSchema> schemas)
+public static JsonSchemaBuilder AnyOf(this JsonSchemaBuilder builder, IEnumerable<JsonSchemaBuilder> schemas)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| schemas | IEnumerable\<JsonSchema\> | The schemas for `anyOf`. |
+| schemas | IEnumerable\<JsonSchemaBuilder\> | The schemas for `anyOf`. |
 
 
 #### Returns
@@ -196,20 +196,20 @@ public static JsonSchemaBuilder Const(this JsonSchemaBuilder builder, JsonNode n
 
 The builder.
 
-### Contains(this JsonSchemaBuilder builder, JsonSchema schema)
+### Contains(this JsonSchemaBuilder builder, JsonSchemaBuilder schema)
 
 Add an `contains` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder Contains(this JsonSchemaBuilder builder, JsonSchema schema)
+public static JsonSchemaBuilder Contains(this JsonSchemaBuilder builder, JsonSchemaBuilder schema)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| schema | JsonSchema | The schema for `contains`. |
+| schema | JsonSchemaBuilder | The schema for `contains`. |
 
 
 #### Returns
@@ -236,80 +236,80 @@ public static JsonSchemaBuilder Default(this JsonSchemaBuilder builder, JsonNode
 
 The builder.
 
-### Definitions(this JsonSchemaBuilder builder, IReadOnlyDictionary\<string, JsonSchema\> defs)
+### Definitions(this JsonSchemaBuilder builder, IReadOnlyDictionary\<string, JsonSchemaBuilder\> defs)
 
 Add a `definitions` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder Definitions(this JsonSchemaBuilder builder, IReadOnlyDictionary<string, JsonSchema> defs)
+public static JsonSchemaBuilder Definitions(this JsonSchemaBuilder builder, IReadOnlyDictionary<string, JsonSchemaBuilder> defs)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| defs | IReadOnlyDictionary\<string, JsonSchema\> | The schema definition map. |
+| defs | IReadOnlyDictionary\<string, JsonSchemaBuilder\> | The schema definition map. |
 
 
 #### Returns
 
 The builder.
 
-### Definitions(this JsonSchemaBuilder builder, params (string name, JsonSchema schema)[] defs)
+### Definitions(this JsonSchemaBuilder builder, params (string name, JsonSchemaBuilder schema)[] defs)
 
 Add a `definitions` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder Definitions(this JsonSchemaBuilder builder, params (string name, JsonSchema schema)[] defs)
+public static JsonSchemaBuilder Definitions(this JsonSchemaBuilder builder, params (string name, JsonSchemaBuilder schema)[] defs)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| defs | params (string name, JsonSchema schema)[] | The schema definition map. |
+| defs | params (string name, JsonSchemaBuilder schema)[] | The schema definition map. |
 
 
 #### Returns
 
 The builder.
 
-### Defs(this JsonSchemaBuilder builder, IReadOnlyDictionary\<string, JsonSchema\> defs)
+### Defs(this JsonSchemaBuilder builder, IReadOnlyDictionary\<string, JsonSchemaBuilder\> defs)
 
 Add a `$defs` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder Defs(this JsonSchemaBuilder builder, IReadOnlyDictionary<string, JsonSchema> defs)
+public static JsonSchemaBuilder Defs(this JsonSchemaBuilder builder, IReadOnlyDictionary<string, JsonSchemaBuilder> defs)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| defs | IReadOnlyDictionary\<string, JsonSchema\> | The schema definition map. |
+| defs | IReadOnlyDictionary\<string, JsonSchemaBuilder\> | The schema definition map. |
 
 
 #### Returns
 
 The builder.
 
-### Defs(this JsonSchemaBuilder builder, params (string name, JsonSchema schema)[] defs)
+### Defs(this JsonSchemaBuilder builder, params (string name, JsonSchemaBuilder schema)[] defs)
 
 Add a `$defs` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder Defs(this JsonSchemaBuilder builder, params (string name, JsonSchema schema)[] defs)
+public static JsonSchemaBuilder Defs(this JsonSchemaBuilder builder, params (string name, JsonSchemaBuilder schema)[] defs)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| defs | params (string name, JsonSchema schema)[] | The schema definition map. |
+| defs | params (string name, JsonSchemaBuilder schema)[] | The schema definition map. |
 
 
 #### Returns
@@ -396,40 +396,40 @@ public static JsonSchemaBuilder DependentRequired(this JsonSchemaBuilder builder
 
 The builder.
 
-### DependentSchemas(this JsonSchemaBuilder builder, IReadOnlyDictionary\<string, JsonSchema\> deps)
+### DependentSchemas(this JsonSchemaBuilder builder, IReadOnlyDictionary\<string, JsonSchemaBuilder\> deps)
 
 Add a `dependentSchemas` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder DependentSchemas(this JsonSchemaBuilder builder, IReadOnlyDictionary<string, JsonSchema> deps)
+public static JsonSchemaBuilder DependentSchemas(this JsonSchemaBuilder builder, IReadOnlyDictionary<string, JsonSchemaBuilder> deps)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| deps | IReadOnlyDictionary\<string, JsonSchema\> | The dependencies. |
+| deps | IReadOnlyDictionary\<string, JsonSchemaBuilder\> | The dependencies. |
 
 
 #### Returns
 
 The builder.
 
-### DependentSchemas(this JsonSchemaBuilder builder, params (string name, JsonSchema schema)[] deps)
+### DependentSchemas(this JsonSchemaBuilder builder, params (string name, JsonSchemaBuilder schema)[] deps)
 
 Add a `dependentSchemas` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder DependentSchemas(this JsonSchemaBuilder builder, params (string name, JsonSchema schema)[] deps)
+public static JsonSchemaBuilder DependentSchemas(this JsonSchemaBuilder builder, params (string name, JsonSchemaBuilder schema)[] deps)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| deps | params (string name, JsonSchema schema)[] | The dependencies. |
+| deps | params (string name, JsonSchemaBuilder schema)[] | The dependencies. |
 
 
 #### Returns
@@ -536,20 +536,20 @@ public static JsonSchemaBuilder DynamicRef(this JsonSchemaBuilder builder, strin
 
 The builder.
 
-### Else(this JsonSchemaBuilder builder, JsonSchema schema)
+### Else(this JsonSchemaBuilder builder, JsonSchemaBuilder schema)
 
 Add an `else` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder Else(this JsonSchemaBuilder builder, JsonSchema schema)
+public static JsonSchemaBuilder Else(this JsonSchemaBuilder builder, JsonSchemaBuilder schema)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| schema | JsonSchema | The schema for `else`. |
+| schema | JsonSchemaBuilder | The schema for `else`. |
 
 
 #### Returns
@@ -620,20 +620,20 @@ The builder.
 
 This overload is provided as a convenience as string-only enums are most common.
 
-### Evaluate(this JsonSchemaBuilder builder, JsonNode root, EvaluationOptions options)
+### Evaluate(this JsonSchemaBuilder builder, JsonElement root, EvaluationOptions options)
 
 Convenience method that builds and evaluates with a single call.
 
 #### Declaration
 
 ```c#
-public static EvaluationResults Evaluate(this JsonSchemaBuilder builder, JsonNode root, EvaluationOptions options)
+public static EvaluationResults Evaluate(this JsonSchemaBuilder builder, JsonElement root, EvaluationOptions options)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| root | JsonNode | The root instance. |
+| root | JsonElement | The root instance. |
 | options | EvaluationOptions | The options to use for this evaluation. |
 
 
@@ -801,60 +801,60 @@ public static JsonSchemaBuilder Id(this JsonSchemaBuilder builder, string id)
 
 The builder.
 
-### If(this JsonSchemaBuilder builder, JsonSchema schema)
+### If(this JsonSchemaBuilder builder, JsonSchemaBuilder schema)
 
 Add an `if` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder If(this JsonSchemaBuilder builder, JsonSchema schema)
+public static JsonSchemaBuilder If(this JsonSchemaBuilder builder, JsonSchemaBuilder schema)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| schema | JsonSchema | The schema for `if`. |
+| schema | JsonSchemaBuilder | The schema for `if`. |
 
 
 #### Returns
 
 The builder.
 
-### Items(this JsonSchemaBuilder builder, JsonSchema schema)
+### Items(this JsonSchemaBuilder builder, JsonSchemaBuilder schema)
 
 Add a single-schema `items` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder Items(this JsonSchemaBuilder builder, JsonSchema schema)
+public static JsonSchemaBuilder Items(this JsonSchemaBuilder builder, JsonSchemaBuilder schema)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| schema | JsonSchema | The schema for `items`. |
+| schema | JsonSchemaBuilder | The schema for `items`. |
 
 
 #### Returns
 
 The builder.
 
-### Items(this JsonSchemaBuilder builder, IEnumerable\<JsonSchema\> schemas)
+### Items(this JsonSchemaBuilder builder, IEnumerable\<JsonSchemaBuilder\> schemas)
 
 Add a schema-array `items` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder Items(this JsonSchemaBuilder builder, IEnumerable<JsonSchema> schemas)
+public static JsonSchemaBuilder Items(this JsonSchemaBuilder builder, IEnumerable<JsonSchemaBuilder> schemas)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| schemas | IEnumerable\<JsonSchema\> | The schemas for `items`. |
+| schemas | IEnumerable\<JsonSchemaBuilder\> | The schemas for `items`. |
 
 
 #### Returns
@@ -1081,60 +1081,60 @@ public static JsonSchemaBuilder MultipleOf(this JsonSchemaBuilder builder, decim
 
 The builder.
 
-### Not(this JsonSchemaBuilder builder, JsonSchema schema)
+### Not(this JsonSchemaBuilder builder, JsonSchemaBuilder schema)
 
 Add a `not` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder Not(this JsonSchemaBuilder builder, JsonSchema schema)
+public static JsonSchemaBuilder Not(this JsonSchemaBuilder builder, JsonSchemaBuilder schema)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| schema | JsonSchema | The schema for `not`. |
+| schema | JsonSchemaBuilder | The schema for `not`. |
 
 
 #### Returns
 
 The builder.
 
-### OneOf(this JsonSchemaBuilder builder, params JsonSchema[] schemas)
+### OneOf(this JsonSchemaBuilder builder, params JsonSchemaBuilder[] schemas)
 
 Add a `oneOf` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder OneOf(this JsonSchemaBuilder builder, params JsonSchema[] schemas)
+public static JsonSchemaBuilder OneOf(this JsonSchemaBuilder builder, params JsonSchemaBuilder[] schemas)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| schemas | params JsonSchema[] | The schema for `oneOf`. |
+| schemas | params JsonSchemaBuilder[] | The schema for `oneOf`. |
 
 
 #### Returns
 
 The builder.
 
-### OneOf(this JsonSchemaBuilder builder, IEnumerable\<JsonSchema\> schemas)
+### OneOf(this JsonSchemaBuilder builder, IEnumerable\<JsonSchemaBuilder\> schemas)
 
 Add a `oneOf` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder OneOf(this JsonSchemaBuilder builder, IEnumerable<JsonSchema> schemas)
+public static JsonSchemaBuilder OneOf(this JsonSchemaBuilder builder, IEnumerable<JsonSchemaBuilder> schemas)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| schemas | IEnumerable\<JsonSchema\> | The schemas for `oneOf`. |
+| schemas | IEnumerable\<JsonSchemaBuilder\> | The schemas for `oneOf`. |
 
 
 #### Returns
@@ -1181,220 +1181,180 @@ public static JsonSchemaBuilder Pattern(this JsonSchemaBuilder builder, string p
 
 The builder.
 
-### PatternProperties(this JsonSchemaBuilder builder, IReadOnlyDictionary\<Regex, JsonSchema\> props)
+### PatternProperties(this JsonSchemaBuilder builder, IReadOnlyDictionary\<Regex, JsonSchemaBuilder\> props)
 
 Add a `patternProperties` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder PatternProperties(this JsonSchemaBuilder builder, IReadOnlyDictionary<Regex, JsonSchema> props)
+public static JsonSchemaBuilder PatternProperties(this JsonSchemaBuilder builder, IReadOnlyDictionary<Regex, JsonSchemaBuilder> props)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| props | IReadOnlyDictionary\<Regex, JsonSchema\> | The property schemas. |
+| props | IReadOnlyDictionary\<Regex, JsonSchemaBuilder\> | The property schemas. |
 
 
 #### Returns
 
 The builder.
 
-### PatternProperties(this JsonSchemaBuilder builder, params (Regex pattern, JsonSchema schema)[] props)
+### PatternProperties(this JsonSchemaBuilder builder, params (Regex pattern, JsonSchemaBuilder schema)[] props)
 
 Add a `patternProperties` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder PatternProperties(this JsonSchemaBuilder builder, params (Regex pattern, JsonSchema schema)[] props)
+public static JsonSchemaBuilder PatternProperties(this JsonSchemaBuilder builder, params (Regex pattern, JsonSchemaBuilder schema)[] props)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| props | params (Regex pattern, JsonSchema schema)[] | The property schemas. |
+| props | params (Regex pattern, JsonSchemaBuilder schema)[] | The property schemas. |
 
 
 #### Returns
 
 The builder.
 
-### PatternProperties(this JsonSchemaBuilder builder, IReadOnlyDictionary\<string, JsonSchema\> props)
+### PatternProperties(this JsonSchemaBuilder builder, IReadOnlyDictionary\<string, JsonSchemaBuilder\> props)
 
 Add a `patternProperties` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder PatternProperties(this JsonSchemaBuilder builder, IReadOnlyDictionary<string, JsonSchema> props)
+public static JsonSchemaBuilder PatternProperties(this JsonSchemaBuilder builder, IReadOnlyDictionary<string, JsonSchemaBuilder> props)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| props | IReadOnlyDictionary\<string, JsonSchema\> | The property schemas. |
+| props | IReadOnlyDictionary\<string, JsonSchemaBuilder\> | The property schemas. |
 
 
 #### Returns
 
 The builder.
 
-### PatternProperties(this JsonSchemaBuilder builder, params (string pattern, JsonSchema schema)[] props)
+### PatternProperties(this JsonSchemaBuilder builder, params (string pattern, JsonSchemaBuilder schema)[] props)
 
 Add a `patternProperties` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder PatternProperties(this JsonSchemaBuilder builder, params (string pattern, JsonSchema schema)[] props)
+public static JsonSchemaBuilder PatternProperties(this JsonSchemaBuilder builder, params (string pattern, JsonSchemaBuilder schema)[] props)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| props | params (string pattern, JsonSchema schema)[] | The property schemas. |
+| props | params (string pattern, JsonSchemaBuilder schema)[] | The property schemas. |
 
 
 #### Returns
 
 The builder.
 
-### PrefixItems(this JsonSchemaBuilder builder, params JsonSchema[] schemas)
+### PrefixItems(this JsonSchemaBuilder builder, params JsonSchemaBuilder[] schemas)
 
 Add a `prefixItems` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder PrefixItems(this JsonSchemaBuilder builder, params JsonSchema[] schemas)
+public static JsonSchemaBuilder PrefixItems(this JsonSchemaBuilder builder, params JsonSchemaBuilder[] schemas)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| schemas | params JsonSchema[] | The schemas for `prefixItems`. |
+| schemas | params JsonSchemaBuilder[] | The schemas for `prefixItems`. |
 
 
 #### Returns
 
 The builder.
 
-### PrefixItems(this JsonSchemaBuilder builder, IEnumerable\<JsonSchema\> schemas)
+### PrefixItems(this JsonSchemaBuilder builder, IEnumerable\<JsonSchemaBuilder\> schemas)
 
 Add a `prefixItems` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder PrefixItems(this JsonSchemaBuilder builder, IEnumerable<JsonSchema> schemas)
+public static JsonSchemaBuilder PrefixItems(this JsonSchemaBuilder builder, IEnumerable<JsonSchemaBuilder> schemas)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| schemas | IEnumerable\<JsonSchema\> | The schemas for `prefixItems`. |
+| schemas | IEnumerable\<JsonSchemaBuilder\> | The schemas for `prefixItems`. |
 
 
 #### Returns
 
 The builder.
 
-### Properties(this JsonSchemaBuilder builder, IReadOnlyDictionary\<string, JsonSchema\> props)
+### Properties(this JsonSchemaBuilder builder, IReadOnlyDictionary\<string, JsonSchemaBuilder\> props)
 
 Add a `properties` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder Properties(this JsonSchemaBuilder builder, IReadOnlyDictionary<string, JsonSchema> props)
+public static JsonSchemaBuilder Properties(this JsonSchemaBuilder builder, IReadOnlyDictionary<string, JsonSchemaBuilder> props)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| props | IReadOnlyDictionary\<string, JsonSchema\> | The property schemas. |
+| props | IReadOnlyDictionary\<string, JsonSchemaBuilder\> | The property schemas. |
 
 
 #### Returns
 
 The builder.
 
-### Properties(this JsonSchemaBuilder builder, params (string name, JsonSchema schema)[] props)
+### Properties(this JsonSchemaBuilder builder, params (string name, JsonSchemaBuilder schema)[] props)
 
 Add a `properties` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder Properties(this JsonSchemaBuilder builder, params (string name, JsonSchema schema)[] props)
+public static JsonSchemaBuilder Properties(this JsonSchemaBuilder builder, params (string name, JsonSchemaBuilder schema)[] props)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| props | params (string name, JsonSchema schema)[] | The property schemas. |
+| props | params (string name, JsonSchemaBuilder schema)[] | The property schemas. |
 
 
 #### Returns
 
 The builder.
 
-### PropertyDependencies(this JsonSchemaBuilder builder, IReadOnlyDictionary\<string, PropertyDependency\> dependencies)
-
-Adds a `propertyDependencies` keyword.
-
-#### Declaration
-
-```c#
-public static JsonSchemaBuilder PropertyDependencies(this JsonSchemaBuilder builder, IReadOnlyDictionary<string, PropertyDependency> dependencies)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| builder | JsonSchemaBuilder | The builder. |
-| dependencies | IReadOnlyDictionary\<string, PropertyDependency\> | The property dependency schemas. |
-
-
-#### Returns
-
-The builder.
-
-### PropertyDependencies(this JsonSchemaBuilder builder, params (string property, PropertyDependency dependency)[] dependencies)
-
-Adds a `propertyDependencies` keyword.
-
-#### Declaration
-
-```c#
-public static JsonSchemaBuilder PropertyDependencies(this JsonSchemaBuilder builder, params (string property, PropertyDependency dependency)[] dependencies)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| builder | JsonSchemaBuilder | The builder. |
-| dependencies | params (string property, PropertyDependency dependency)[] | The property dependency schemas. |
-
-
-#### Returns
-
-The builder.
-
-### PropertyNames(this JsonSchemaBuilder builder, JsonSchema schema)
+### PropertyNames(this JsonSchemaBuilder builder, JsonSchemaBuilder schema)
 
 Add a `propertyNames` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder PropertyNames(this JsonSchemaBuilder builder, JsonSchema schema)
+public static JsonSchemaBuilder PropertyNames(this JsonSchemaBuilder builder, JsonSchemaBuilder schema)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| schema | JsonSchema | The schema for `propertyNames`. |
+| schema | JsonSchemaBuilder | The schema for `propertyNames`. |
 
 
 #### Returns
@@ -1605,20 +1565,20 @@ public static JsonSchemaBuilder Schema(this JsonSchemaBuilder builder, string ur
 
 The builder.
 
-### Then(this JsonSchemaBuilder builder, JsonSchema schema)
+### Then(this JsonSchemaBuilder builder, JsonSchemaBuilder schema)
 
 Add a `then` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder Then(this JsonSchemaBuilder builder, JsonSchema schema)
+public static JsonSchemaBuilder Then(this JsonSchemaBuilder builder, JsonSchemaBuilder schema)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| schema | JsonSchema | The schema for `then`. |
+| schema | JsonSchemaBuilder | The schema for `then`. |
 
 
 #### Returns
@@ -1705,40 +1665,40 @@ public static JsonSchemaBuilder Type(this JsonSchemaBuilder builder, IEnumerable
 
 The builder.
 
-### UnevaluatedItems(this JsonSchemaBuilder builder, JsonSchema schema)
+### UnevaluatedItems(this JsonSchemaBuilder builder, JsonSchemaBuilder schema)
 
 Add an `unevaluatedItems` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder UnevaluatedItems(this JsonSchemaBuilder builder, JsonSchema schema)
+public static JsonSchemaBuilder UnevaluatedItems(this JsonSchemaBuilder builder, JsonSchemaBuilder schema)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| schema | JsonSchema | The schema for `unevaluatedItems`. |
+| schema | JsonSchemaBuilder | The schema for `unevaluatedItems`. |
 
 
 #### Returns
 
 The builder.
 
-### UnevaluatedProperties(this JsonSchemaBuilder builder, JsonSchema schema)
+### UnevaluatedProperties(this JsonSchemaBuilder builder, JsonSchemaBuilder schema)
 
 Add an `unevaluatedProperties` keyword.
 
 #### Declaration
 
 ```c#
-public static JsonSchemaBuilder UnevaluatedProperties(this JsonSchemaBuilder builder, JsonSchema schema)
+public static JsonSchemaBuilder UnevaluatedProperties(this JsonSchemaBuilder builder, JsonSchemaBuilder schema)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | builder | JsonSchemaBuilder | The builder. |
-| schema | JsonSchema | The schema for `unevaluatedProperties`. |
+| schema | JsonSchemaBuilder | The schema for `unevaluatedProperties`. |
 
 
 #### Returns

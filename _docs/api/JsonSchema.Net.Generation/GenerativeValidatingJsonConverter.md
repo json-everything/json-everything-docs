@@ -25,10 +25,9 @@ schema generation using **Json.Schema.Generation.Serialization.GenerateJsonSchem
 
 | Name | Type | Summary |
 |---|---|---|
+| **BuildOptions** | BuildOptions | Gets the build options used for the schema build step. |
+| **EvaluationOptions** | EvaluationOptions |  |
 | **GeneratorConfiguration** | SchemaGeneratorConfiguration | Provides options for the generator. |
-| **Options** | EvaluationOptions |  |
-| **OutputFormat** | OutputFormat? |  |
-| **RequireFormatValidation** | bool? |  |
 | **Type** | Type |  |
 
 ## Methods

@@ -3,9 +3,9 @@ layout: "page"
 title: "OptionalDataKeyword Class"
 bookmark: "OptionalDataKeyword"
 permalink: "/api/JsonSchema.Net.Data/:title/"
-order: "10.02.009"
+order: "10.02.010"
 ---
-**Namespace:** Json.Schema.Data
+**Namespace:** Json.Schema.Data.Keywords
 
 **Inheritance:**
 `OptionalDataKeyword`
@@ -14,59 +14,71 @@ order: "10.02.009"
 
 **Implemented interfaces:**
 
-- IJsonSchemaKeyword
+- IKeywordHandler
 
 Represents the `data` keyword.
-
-## Fields
-
-| Name | Type | Summary |
-|---|---|---|
-| **Name** | string | The JSON name of the keyword. |
 
 ## Properties
 
 | Name | Type | Summary |
 |---|---|---|
-| **References** | IReadOnlyDictionary\<string, IDataResourceIdentifier\> | The collection of keywords and references. |
-
-## Constructors
-
-### OptionalDataKeyword(IReadOnlyDictionary\<string, IDataResourceIdentifier\> references)
-
-Creates an instance of the **Json.Schema.Data.DataKeyword** class.
-
-#### Declaration
-
-```c#
-public OptionalDataKeyword(IReadOnlyDictionary<string, IDataResourceIdentifier> references)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| references | IReadOnlyDictionary\<string, IDataResourceIdentifier\> | The collection of keywords and references. |
-
+| **Instance** | OptionalDataKeyword | Gets or sets the singleton instance of the **Json.Schema.Data.Keywords.OptionalDataKeyword** class used for keyword operations. |
+| **Name** | string | The JSON name of the keyword. |
 
 ## Methods
 
-### GetConstraint(SchemaConstraint schemaConstraint, ReadOnlySpan\<KeywordConstraint\> localConstraints, EvaluationContext context)
+### BuildSubschemas(KeywordData keyword, BuildContext context)
 
-Builds a constraint object for a keyword.
+Builds and registers subschemas based on the specified keyword data within the provided build context.
 
 #### Declaration
 
 ```c#
-public KeywordConstraint GetConstraint(SchemaConstraint schemaConstraint, ReadOnlySpan<KeywordConstraint> localConstraints, EvaluationContext context)
+public virtual void BuildSubschemas(KeywordData keyword, BuildContext context)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
-| schemaConstraint | SchemaConstraint | The **Json.Schema.SchemaConstraint** for the schema object that houses this keyword. |
-| localConstraints | ReadOnlySpan\<KeywordConstraint\> | The set of other **Json.Schema.KeywordConstraint**s that have been processed prior to this one.     Will contain the constraints for keyword dependencies. |
-| context | EvaluationContext | The **Json.Schema.EvaluationContext**. |
+| keyword | KeywordData | The keyword data used to determine which subschemas to build. Cannot be null. |
+| context | BuildContext | The context in which subschemas are constructed and registered. Cannot be null. |
+
+
+### Evaluate(KeywordData keyword, EvaluationContext context)
+
+Evaluates the specified keyword using the provided evaluation context and returns the result of the evaluation.
+
+#### Declaration
+
+```c#
+public virtual KeywordEvaluation Evaluate(KeywordData keyword, EvaluationContext context)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| keyword | KeywordData | The keyword data to be evaluated. Cannot be null. |
+| context | EvaluationContext | The context in which the keyword evaluation is performed. Cannot be null. |
 
 
 #### Returns
 
-A constraint object.
+A KeywordEvaluation object containing the results of the evaluation.
+
+### ValidateKeywordValue(JsonElement value)
+
+Validates the specified JSON element as a keyword value and optionally returns a value to be shared across the other methods.
+
+#### Declaration
+
+```c#
+public virtual object ValidateKeywordValue(JsonElement value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| value | JsonElement | The JSON element to validate and convert. Represents the value to be checked for keyword compliance. |
+
+
+#### Returns
+
+An object that is shared with the other methods.  This object is saved to **Json.Schema.KeywordData.Value**.
 

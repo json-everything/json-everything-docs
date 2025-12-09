@@ -3,14 +3,14 @@ layout: "page"
 title: "IBaseDocument Interface"
 bookmark: "IBaseDocument"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.068"
+order: "10.01.050"
 ---
 **Namespace:** Json.Schema
 
 **Inheritance:**
 `IBaseDocument`
 
-Represents an identifiable or locatable base document that may be or contain a JSON Schema.
+Represents an identifiable base document that may be or may contain a JSON Schema.
 
 ## Properties
 
@@ -20,20 +20,20 @@ Represents an identifiable or locatable base document that may be or contain a J
 
 ## Methods
 
-### FindSubschema(JsonPointer pointer, EvaluationOptions options)
+### FindSubschema(JsonPointer pointer, BuildContext context)
 
 Finds a schema within the document.
 
 #### Declaration
 
 ```c#
-public abstract JsonSchema FindSubschema(JsonPointer pointer, EvaluationOptions options)
+public abstract JsonSchemaNode FindSubschema(JsonPointer pointer, BuildContext context)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | pointer | JsonPointer | A JSON Pointer to the location of the schema within the document. |
-| options | EvaluationOptions | Evaluation options.  This is needed for internal processing. |
+| context | BuildContext | Build context. |
 
 
 #### Returns

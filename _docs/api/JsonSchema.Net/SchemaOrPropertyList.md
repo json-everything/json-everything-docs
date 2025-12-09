@@ -3,7 +3,7 @@ layout: "page"
 title: "SchemaOrPropertyList Class"
 bookmark: "SchemaOrPropertyList"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.156"
+order: "10.01.099"
 ---
 **Namespace:** Json.Schema
 
@@ -12,44 +12,10 @@ order: "10.01.156"
  🡒 
 `object`
 
-A holder for either a schema dependency or a requirements dependency.
+Represents either a JSON schema definition or a list of required property names for use in schema composition and
+validation scenarios.
 
-## Properties
+## Remarks
 
-| Name | Type | Summary |
-|---|---|---|
-| **Requirements** | List\<string\> | The property dependency. |
-| **Schema** | JsonSchema | The schema dependency. |
-
-## Constructors
-
-### SchemaOrPropertyList(JsonSchema schema)
-
-Creates a schema dependency.
-
-#### Declaration
-
-```c#
-public SchemaOrPropertyList(JsonSchema schema)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| schema | JsonSchema | The schema dependency. |
-
-
-### SchemaOrPropertyList(IEnumerable\<string\> requirements)
-
-Creates a property dependency.
-
-#### Declaration
-
-```c#
-public SchemaOrPropertyList(IEnumerable<string> requirements)
-```
-
-| Parameter | Type | Description |
-|---|---|---|
-| requirements | IEnumerable\<string\> | The property dependency. |
-
+This type will not need to be interacted with directly. Use implicit conversion from a **Json.Schema.JsonSchemaBuilder**
 

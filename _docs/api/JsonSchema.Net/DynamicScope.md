@@ -3,7 +3,7 @@ layout: "page"
 title: "DynamicScope Class"
 bookmark: "DynamicScope"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.047"
+order: "10.01.035"
 ---
 **Namespace:** Json.Schema
 
@@ -28,6 +28,7 @@ Dynamic scope is the collection of URIs (defined by `$id`) represented by the ev
 
 | Name | Type | Summary |
 |---|---|---|
+| **Count** | int | Gets the number of elements contained in the scope. |
 | **LocalScope** | Uri | Gets the local scope, or the most recent schema URI encountered. |
 
 ## Methods

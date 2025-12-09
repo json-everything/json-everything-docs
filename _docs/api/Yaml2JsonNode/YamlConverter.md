@@ -16,6 +16,63 @@ Provides extensions to convert YAML models to JSON models.
 
 ## Methods
 
+### ToJsonElement(this YamlStream yaml)
+
+Converts all of the documents in a YAML stream to **System.Text.Json.JsonElement**s.
+
+#### Declaration
+
+```c#
+public static IEnumerable<JsonElement> ToJsonElement(this YamlStream yaml)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| yaml | YamlStream | The YAML stream. |
+
+
+#### Returns
+
+A collection of elements representing the YAML documents in the stream.
+
+### ToJsonElement(this YamlDocument yaml)
+
+Converts a single YAML document to a **System.Text.Json.JsonElement**.
+
+#### Declaration
+
+```c#
+public static JsonElement ToJsonElement(this YamlDocument yaml)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| yaml | YamlDocument | The YAML document. |
+
+
+#### Returns
+
+A `JsonElement` representative of the YAML document.
+
+### ToJsonElement(this YamlNode yaml)
+
+Converts a single YAML node to a **System.Text.Json.JsonElement**.
+
+#### Declaration
+
+```c#
+public static JsonElement ToJsonElement(this YamlNode yaml)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| yaml | YamlNode | The YAML node. |
+
+
+#### Returns
+
+A `JsonElement` representative of the YAML node.
+
 ### ToJsonNode(this YamlStream yaml)
 
 Converts all of the documents in a YAML stream to **System.Text.Json.Nodes.JsonNode**s.
