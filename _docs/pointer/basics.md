@@ -62,12 +62,8 @@ There are three ways create pointers:
   ```c#
   var pointer = JsonPointer.Create("object", "and", 3, "arrays");
   ```
-- building with `Create<T>()` and supplying a LINQ expression (also see [below](#linq))
-  ```c#
-  var pointer = JsonPointer.Create<MyObject>(x => x.objects.and[3].arrays);
-  ```
 
-All of these options will give you an instance of the model that can be used to evaluate JSON data.
+Both of these options will give you an instance of the model that can be used to evaluate JSON data.
 
 ```c#
 using var element = JsonDocument.Parse("{\"objects\":{\"and\":[\"item zero\",null,2,{\"arrays\":\"found me\"}]}}");
@@ -121,42 +117,15 @@ Get the immediate parent:
 
 ```c#
 var pointer = JsonPointer.Parse("/objects/and/3/arrays");
-var parent = pointer[..^1];  // /objects/and/3
+var parent = pointer.GetParent();  // /objects/and/3
 ```
 
 Or get the local pointer (imagine you've navigated to `/objects/and/` and you need the pointer relative to where you are):
 
 ```c#
 var pointer = JsonPointer.Parse("/objects/and/3/arrays");
-var local = pointer[^2..];  // /3/arrays
+var local = pointer.GetLocal(2);  // /3/arrays
 ```
-
-There are also method versions of this functionality, which are also available if you're not yet using .Net 8: `.GetAncestor(int)` and `.GetLocal()`.
-
-> Accessing pointers acts like accessing strings: getting segments has no allocations (like getting a `char` via the string's `int` indexer), but creating a sub-pointer _does_ allocate a new `JsonPointer` instance (like creating a substring via the string's `Range` indexer).
-{: .prompt-info }
-
-### Building pointers using Linq expressions {#linq}
-
-When building a pointer using the `Create<T>()` method which takes a Linq expression, there are a couple of things to be aware of.
-
-First, JSON Pointer supports using `-` as a segment to indicate the index beyond the last item in an array.  This has several use cases including creating a JSON Patch to add items to arrays.
-
-Secondly, you have some name transformation options at your disposal.
-
-The first way to customize your pointer is by using the `[JsonPropertyName]` attribute to provide a custom name.  Since this attribute controls how System.Text.Json serializes the property, this attribute will override any other options.
-
-The second way to customize your pointer is by providing a `PointerCreationOptions` object as the second parameter.  Currently there is only the single option: `PropertyNamingResolver`.  This property is a function that takes a `MemberInfo` and returns the string to use in the pointer.  Several presets have been created for you and are available in the `PropertyNamingResolvers` static class:
-
-| Name | Summary |
-|---|---|
-| **AsDeclared** | Makes no changes. Properties are generated with the name of the property in code. |
-| **CamelCase** | Property names to camel case (e.g. `camelCase`). |
-| **KebabCase** | Property names to kebab case (e.g. `Kebab-Case`). |
-| **PascalCase** | Property names to pascal case (e.g. `PascalCase`). |
-| **SnakeCase** | Property names to snake case (e.g. `Snake_Case`). |
-| **UpperKebabCase** | Property names to upper kebab case (e.g. `UPPER-KEBAB-CASE`). |
-| **UpperSnakeCase** | Property names to upper snake case (e.g. `UPPER_SNAKE_CASE`). |
 
 ## Relative JSON Pointers {#pointer-relative}
 

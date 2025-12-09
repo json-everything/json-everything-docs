@@ -4,49 +4,48 @@ title: Example - JSON Schema Specification Version Selection
 bookmark: Schema Version
 permalink: /schema/examples/:title/
 icon: fas fa-tag
-order: "01.4.3"
+order: "01.05.3"
 ---
-Selecting the right JSON Schema version (historically known as "draft") can be an important factor in ensuring evaluation works as expected.  Selecting the wrong draft may result in some keywords not being processed.  For example, `prefixItems` was only added with draft 2020-12.  Evaluating a schema with this keyword under a previous draft will ignore the keyword completely.
+Selecting the right JSON Schema version (historically known as "draft") can be an important factor in ensuring evaluation works as expected.  Selecting the wrong draft may result in some keywords not being processed.  For example, `prefixItems` was only added with Draft 2020-12.  Evaluating a schema with this keyword under a previous draft will ignore the keyword completely.
 
 *JsonSchema.Net* has a couple ways to specify which version a evaluation should use.
 
 ## `$schema`
 
-Including this keyword in the schema itself is the preferred way to specify which version to use when interpreting a schema.  The specification itself _strongly recommends_ that all schemas contain this keyword.
+Including this keyword in the schema is the preferred way to specify which version to use when interpreting a schema.  The specification itself _strongly recommends_ that all schemas contain this keyword.
 
 If you're the author of your schemas, just include this keyword, and all will be well.
 
 *JsonSchema.Net* will always respect this keyword when present.
 
-## Evaluation Options {#example-schema-versions-options}
+## Build Options {#example-schema-versions-options}
 
-If the schema you're working with is out of your control, meaning you can't add a `$schema` keyword, there is some logic to determine the best candidate automatically, however the `EvaluationOptions.EvaluateAs` property will be your friend.
-
-This option allows you to specify which draft you want to use during evaluation.
-
-By default, the latest supported version will be used.
+If the schema you're working with is out of your control, meaning you can't add a `$schema` keyword, you can specify which draft you want to use during evaluation using the `BuildOptions.Dialect` property.
 
 > The value for `$schema` is a URI (identifier), not a URL (location).  This means that the value must exactly match the `$id` from a known meta-schema.  This also means there is no `https`-for-`http` substitution.
 {: .prompt-warning }
+
+By default, the latest supported version will be used.  At the time of this writing, that is the preview v1/2026.
 
 # Examples {#example-schema-versions-examples}
 
 ## Behaviors of Explicitly Specifying Different Versions {#example-schema-versions-explicit}
 
 ```c#
-JsonSchema schema = new JsonSchemaBuilder()
-    .Type(SchemaValueType.Array)
-    .PrefixItems(
-        new JsonSchemaBuilder()
-            .Type(SchemaValueType.Integer),
-        new JsonSchemaBuilder()
-            .Type(SchemaValueType.Boolean)
-    )
-    .Items(new JsonSchemaBuilder()
-        .Type(SchemaValueType.String)
-    )
+var schemaJson = JsonDocument.Parse(
+    """
+    {
+      "type": "array",
+      "prefixItems": [
+        { "type": "integer" },
+        { "type": "boolean" }
+      ],
+      "items": { "type": "string" }
+    }
+    """).RootElement;
+JsonSchema schema = JsonSchema.Build(schemaJson);
 
-var instance = new JsonArray { 1, true, "foo", "bar" };
+var instance = JsonDocument.Parse("""[1, true, "foo", "bar"]""").RootElement;
 ```
 
 This builds a schema that evaluates JSON instances which are arrays with:

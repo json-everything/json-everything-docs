@@ -4,7 +4,7 @@ title: OpenAPI v3.1 Vocabulary
 bookmark: Open API
 permalink: /schema/vocabs/openapi/
 icon: fas fa-tag
-order: "01.8.3"
+order: "01.09.3"
 ---
 
 This library adds support for the vocabularies, meta-schemas, and keywords defined by the [OpenAPI v3.1 specification](https://spec.openapis.org/oas/latest.html).
@@ -12,7 +12,8 @@ This library adds support for the vocabularies, meta-schemas, and keywords defin
 To enable this vocabulary, include the following in your startup logic to register everything.
 
 ```c#
-Json.Schema.OpenApi.Vocabularies.Register();
+// optionally takes a build options to add support only to those registries.
+Json.Schema.OpenApi.MetaSchemas.Register();
 ```
 
 Note that all of the keywords defined by this vocabulary are annotative: they will produce annotations but provide no validation logic.  The output from these keywords is intended to be used by other OpenAPI tooling.

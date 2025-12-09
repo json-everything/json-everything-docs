@@ -4,7 +4,7 @@ title: A Vocabulary for Identifying Uniqueness of Array Items
 bookmark: "[deprecated] uniqueKeys"
 permalink: /schema/vocabs/uniquekeys/
 icon: fas fa-tag
-order: "01.8.5"
+order: "01.09.5"
 ---
 
 > This vocabulary has been deprecated and replaced by the more general [Array Extensions vocabulary](/schema/vocabs/array-ext).
