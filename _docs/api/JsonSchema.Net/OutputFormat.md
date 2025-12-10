@@ -3,7 +3,7 @@ layout: "page"
 title: "OutputFormat Enum"
 bookmark: "OutputFormat"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.083"
+order: "10.01.084"
 ---
 # OutputFormat Enum
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "IBaseDocument Interface"
 bookmark: "IBaseDocument"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.050"
+order: "10.01.051"
 ---
 **Namespace:** Json.Schema
 

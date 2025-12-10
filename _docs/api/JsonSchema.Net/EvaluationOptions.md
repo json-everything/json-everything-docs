@@ -21,6 +21,7 @@ Allows configuration of the evaluation process.
 | **AddAnnotationForUnknownKeywords** | bool | Outputs an annotation that lists any unknown keywords.  Can be useful for catching typos. |
 | **Culture** | CultureInfo | Gets or sets the culture for error messages.  Overrides **Json.Schema.ErrorMessages.Culture**. |
 | **Default** | EvaluationOptions | The default settings. |
+| **FormatRegistry** | FormatRegistry | The local format registry.  If a format is not found here, it will automatically check the global registry as well. |
 | **IgnoredAnnotations** | IEnumerable\<Type\> | Gets the set of keyword types from which annotations will be ignored. |
 | **OutputFormat** | OutputFormat | Specifies the output format. |
 | **PreserveDroppedAnnotations** | bool | If enabled, annotations that are dropped as a result of a failing subschema will be reported in a `droppedAnnotations` property in the output. |

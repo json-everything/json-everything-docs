@@ -3,7 +3,7 @@ layout: "page"
 title: "RecursiveAnchorKeyword Class"
 bookmark: "RecursiveAnchorKeyword"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.092"
+order: "10.01.093"
 ---
 **Namespace:** Json.Schema.Keywords.Draft201909
 
