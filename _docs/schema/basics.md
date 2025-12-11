@@ -84,6 +84,8 @@ Dialect.Default = Dialect.Draft202012;
 
 The registries are available so that you can keep your registrations separate or if you want to build the same schema under differing conditions.  This can come in handy for concurrency or other scenarios where you might encounter conflicts or you need to rebuild the same schema under differing conditions.  For most scenarios, you should be able to just use the global registries, which is the default.
 
+The build process will automatically add itself to the schema registry provided by the options, or the global registry if no options are provided.  Additionally, because the registry disallows overwriting a registration, building the same schema twice using the same registry will throw an exception.
+
 > If you're using a custom meta-schema, you'll need to load it per the [Schema Registration](json-schema#schema-registration) section below.  Custom meta-schemas form a chain of meta-schemas (e.g. your custom meta-schema may reference another which references the draft 2020-12 meta-schema).  Ultimately, the chain MUST end at a JSON-Schema-defined meta-schema as this defines the processing rules for the schema.  An error will be produced if the meta-schema chain ends at a meta-schema that is unrecognized.
 {: .prompt-info }
 
