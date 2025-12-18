@@ -1,14 +1,14 @@
 ---
 layout: "page"
-title: "WriteOnlyKeyword Class"
-bookmark: "WriteOnlyKeyword"
+title: "PropertyDependenciesKeyword Class"
+bookmark: "PropertyDependenciesKeyword"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.116"
+order: "10.01.091"
 ---
 **Namespace:** Json.Schema.Keywords
 
 **Inheritance:**
-`WriteOnlyKeyword`
+`PropertyDependenciesKeyword`
  🡒 
 `object`
 
@@ -16,17 +16,12 @@ order: "10.01.116"
 
 - IKeywordHandler
 
-Handles `writeOnly`.
-
-## Remarks
-
-This keyword is used to indicate that a property is write-only.  It does not affect validation, but it does produce an annotation.
+Handles 'propertyDependencies'.
 
 ## Properties
 
 | Name | Type | Summary |
 |---|---|---|
-| **Instance** | WriteOnlyKeyword | Gets the singleton instance of the **Json.Schema.Keywords.WriteOnlyKeyword**. |
 | **Name** | string | Gets the name of the handled keyword. |
 
 ## Methods
@@ -38,7 +33,7 @@ Builds and registers subschemas based on the specified keyword data within the p
 #### Declaration
 
 ```c#
-public virtual void BuildSubschemas(KeywordData keyword, BuildContext context)
+public void BuildSubschemas(KeywordData keyword, BuildContext context)
 ```
 
 | Parameter | Type | Description |
@@ -54,7 +49,7 @@ Evaluates the specified keyword using the provided evaluation context and return
 #### Declaration
 
 ```c#
-public virtual KeywordEvaluation Evaluate(KeywordData keyword, EvaluationContext context)
+public KeywordEvaluation Evaluate(KeywordData keyword, EvaluationContext context)
 ```
 
 | Parameter | Type | Description |
@@ -74,7 +69,7 @@ Validates the specified JSON element as a keyword value and optionally returns a
 #### Declaration
 
 ```c#
-public virtual object ValidateKeywordValue(JsonElement value)
+public object ValidateKeywordValue(JsonElement value)
 ```
 
 | Parameter | Type | Description |

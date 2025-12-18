@@ -28,7 +28,8 @@ The EvaluationContext struct encapsulates all relevant data required for evaluat
 
 | Name | Type | Summary |
 |---|---|---|
-| **EvaluatedKeywords** | List\<KeywordEvaluation\> | Gets the collection of keyword evaluations that have been performed for the current instance. |
+| **CanOptimize** | bool | Gets a value indicating whether the current configuration allows optimization. |
+| **EvaluatedKeywords** | KeywordEvaluation[] | Gets the collection of keyword evaluations that have been performed for the current instance. |
 | **EvaluationPath** | JsonPointer | Gets or sets a JSON Pointer representing the path through the schemas and across references to the currently evaluated subschema. |
 | **Instance** | JsonElement | Gets the JSON element that represents the instance data. |
 | **InstanceLocation** | JsonPointer | Gets or sets the JSON Pointer indicating the location of the instance within the JSON document. |
