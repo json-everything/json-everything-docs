@@ -50,20 +50,29 @@
       {% endif %}
     </div>
 
-    {% if true %}
-    <i id="search-trigger" class="fas fa-search fa-fw"></i>
-    <span id="search-wrapper" class="align-items-center">
-      <i class="fas fa-search fa-fw"></i>
-      <input
-        class="form-control"
-        id="search-input"
-        type="search"
-        aria-label="search"
-        autocomplete="off"
-        placeholder="{{ site.data.locales[include.lang].search.hint | capitalize }}..."
-      >
-    </span>
-    <span id="search-cancel">{{ site.data.locales[include.lang].search.cancel }}</span>
-    {% endif %}
+    <div id="topbar-right" class="d-flex align-items-center">
+      <button class="mode-toggle btn" aria-label="Switch Mode">
+        <span class="tooltip-icon">
+          <i class="material-icons">lightbulb</i>
+          <span class="tooltip-text header-tooltip">Switch to dark mode</span>
+        </span>
+      </button>
+
+      {% if true %}
+      <i id="search-trigger" class="fas fa-search fa-fw"></i>
+      <span id="search-wrapper" class="align-items-center">
+        <i class="fas fa-search fa-fw"></i>
+        <input
+          class="form-control"
+          id="search-input"
+          type="search"
+          aria-label="search"
+          autocomplete="off"
+          placeholder="{{ site.data.locales[include.lang].search.hint | capitalize }}..."
+        >
+      </span>
+      <span id="search-cancel">{{ site.data.locales[include.lang].search.cancel }}</span>
+      {% endif %}
+    </div>
   </div>
 </div>

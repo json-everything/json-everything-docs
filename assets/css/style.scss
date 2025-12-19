@@ -38,6 +38,42 @@ $tab-count: {{ site.tabs | size | plus: 1 }}; // plus 1 for home tab
   transition: color .35s ease-in-out;
 }
 
+/* Custom tooltips for mode toggle */
+.tooltip-icon {
+  position: relative;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  position: fixed;
+  z-index: 999;
+  min-width: 200px;
+  max-width: 400px;
+  font-size: 14px;
+  background-color: #271a3b;
+  border-radius: 5px;
+  padding: 10px;
+  pointer-events: none;
+  color: rgb(175, 176, 177);
+}
+
+.tooltip-icon:hover .tooltip-text {
+  visibility: visible;
+}
+
+.header-tooltip {
+  position: absolute;
+  top: 30px;
+  transform: translateX(-65%);
+  text-wrap: nowrap;
+  max-width: none;
+}
+
+html[data-mode="light"] .header-tooltip {
+  background-color: #271a3b;
+  color: rgb(175, 176, 177);
+}
+
 #sidebar .nav-item {
   height: 1rem;
   line-height: normal;

@@ -989,6 +989,58 @@ $sidebar-display: 'sidebar-display';
   }
 }
 
+/* Topbar right section with mode toggle and search */
+#topbar-right {
+  gap: 0;
+}
+
+/* Topbar mode toggle button */
+#topbar .mode-toggle {
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  color: #999999;
+  margin-right: 1rem;
+
+  i {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+  }
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+/* Keep search wrapper with dark theme colors always */
+#search-wrapper {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+
+  i {
+    color: #999999 !important;
+  }
+
+  input {
+    background: transparent !important;
+    color: #fff !important;
+
+    &::placeholder {
+      color: #999999 !important;
+    }
+  }
+}
+
+/* Keep sidebar hover and active colors with dark theme always */
+#sidebar a:hover {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+#sidebar .nav-item.active .nav-link {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
 /* 'Cancel' link */
 #search-cancel {
   color: var(--link-color);
