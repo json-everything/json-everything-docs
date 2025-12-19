@@ -460,33 +460,10 @@ In _JsonSchema.Net_ this sibling-keyword behavior is controlled by the dialect t
 
 In order to resolve references more quickly, *JsonSchema.Net* maintains two registries for all schemas and identifiable subschemas that it has encountered.  The first is a global registry, and the second is a local registry that is contained in the options and is passed around on the build context.  If a schema is not found in the local registry, it will automatically search the global registry.
 
-A `JsonSchema` instance will automatically register itself with the local registry during the build step.  Generally, build order is important.  You want to build dependencies first.
+A `JsonSchema` instance will automatically register itself with the local registry during the build step.  Reference resolution can occur at two points: as the final stage of building and as the first step of evaluation.  Each schema keeps track of whether it has been fully resolved, so the check at evaluation time is incurred at most once.
 
-For example, given these two schemas
-
-```json
-{
-  "$id": "http://localhost/my-schema",
-  "type": "object",
-  "properties": {
-    "refProp": { "$ref": "http://localhost/random-string" }
-  }
-}
-
-{
-  "$id": "http://localhost/random-string",
-  "type": "string"
-}
-```
-
-You must build `random-string` before you build `my-schema`.
-
-```c#
-var randomString = JsonSchema.FromFile("random-string.json");
-var mySchema = JsonSchema.FromFile("my-schema.json");
-```
-
-Now _JsonSchema.Net_ will be able to resolve the reference.
+> The check before evaluation was introduced with v8.0.4 to enable build/registration in any order.
+{: .prompt-tip }
 
 _JsonSchema.Net_ will automatically handle reference loops, where one schema references another in such a way that some later reference eventually references the first.
 
