@@ -3,5 +3,5 @@ title: __title
 bookmark: Examples
 permalink: /schema/vocabs/examples/:title/
 folder: true
-order: "01.09.6"
+order: "01.10.6"
 ---

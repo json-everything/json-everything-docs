@@ -4,7 +4,7 @@ title: OpenAPI v3.1 Vocabulary
 bookmark: Open API
 permalink: /schema/vocabs/openapi/
 icon: fas fa-tag
-order: "01.09.3"
+order: "01.10.3"
 ---
 
 This library adds support for the vocabularies, meta-schemas, and keywords defined by the [OpenAPI v3.1 specification](https://spec.openapis.org/oas/latest.html).

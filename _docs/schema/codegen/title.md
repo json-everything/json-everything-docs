@@ -3,5 +3,5 @@ title: __title
 bookmark: Code Generation
 permalink: /schema/codegen/:title/
 folder: true
-order: "01.07"
+order: "01.08"
 ---

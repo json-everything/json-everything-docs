@@ -3,7 +3,7 @@ layout: page
 title: Mini-Meta-Schema Reference
 permalink: /schema/codegen/:title/
 icon: fas fa-tag
-order: "01.07.3"
+order: "01.08.3"
 ---
 > **DEPRECATION NOTICE**
 >

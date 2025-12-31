@@ -4,7 +4,7 @@ title: Generating Sample JSON Data from a Schema
 bookmark: Basics
 permalink: /schema/datagen/:title/
 icon: fas fa-tag
-order: "01.06.1"
+order: "01.07.1"
 ---
 *JsonSchema.Net.DataGeneration* is a tool that can create JSON data instances using a JSON schema as a framework.
 
