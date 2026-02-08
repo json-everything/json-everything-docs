@@ -3,7 +3,7 @@ layout: "page"
 title: "IfAttribute Class"
 bookmark: "IfAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.05.032"
+order: "10.055.032"
 ---
 **Namespace:** Json.Schema.Generation
 

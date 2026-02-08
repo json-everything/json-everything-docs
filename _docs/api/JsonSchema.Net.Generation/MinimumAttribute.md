@@ -3,7 +3,7 @@ layout: "page"
 title: "MinimumAttribute Class"
 bookmark: "MinimumAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.05.054"
+order: "10.055.054"
 ---
 **Namespace:** Json.Schema.Generation
 

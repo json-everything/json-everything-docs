@@ -3,7 +3,7 @@ layout: "page"
 title: "TypeIntent Class"
 bookmark: "TypeIntent"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.05.085"
+order: "10.055.085"
 ---
 **Namespace:** Json.Schema.Generation.Intents
 

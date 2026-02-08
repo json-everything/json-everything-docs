@@ -3,7 +3,7 @@ layout: "page"
 title: "DocXmlReader Class"
 bookmark: "DocXmlReader"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.05.017"
+order: "10.055.017"
 ---
 **Namespace:** Json.Schema.Generation.XmlComments
 

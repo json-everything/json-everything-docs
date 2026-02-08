@@ -3,7 +3,7 @@ layout: "page"
 title: "PropertyOrder Enum"
 bookmark: "PropertyOrder"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.05.071"
+order: "10.055.071"
 ---
 # PropertyOrder Enum
 

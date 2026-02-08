@@ -3,7 +3,7 @@ layout: "page"
 title: "NullableAttribute Class"
 bookmark: "NullableAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.05.064"
+order: "10.055.064"
 ---
 **Namespace:** Json.Schema.Generation
 
