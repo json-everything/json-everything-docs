@@ -48,3 +48,24 @@ A common pattern is to implement **Json.Schema.Generation.IAttributeHandler** on
 attribute itself.  In this case, the <paramref name="attribute" /> parameter
 will be the same instance as the handler and can likely be ignored.
 
+### Apply(JsonSchemaBuilder builder, object minimum, object maximum)
+
+Applies constraints for source generation.
+
+#### Declaration
+
+```c#
+public static JsonSchemaBuilder Apply(JsonSchemaBuilder builder, object minimum, object maximum)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| builder | JsonSchemaBuilder | The schema builder. |
+| minimum | object | The minimum value. |
+| maximum | object | The maximum value. |
+
+
+#### Returns
+
+The builder for chaining.
+

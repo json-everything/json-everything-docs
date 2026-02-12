@@ -3,7 +3,7 @@ layout: "page"
 title: "UniqueItemsAttribute Class"
 bookmark: "UniqueItemsAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.055.087"
+order: "10.055.089"
 ---
 **Namespace:** Json.Schema.Generation
 

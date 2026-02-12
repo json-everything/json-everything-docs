@@ -38,3 +38,24 @@ public EmailAddressAttributeHandler()
 ```
 
 
+## Methods
+
+### Apply(JsonSchemaBuilder builder)
+
+Applies constraints for source generation.
+
+#### Declaration
+
+```c#
+public static JsonSchemaBuilder Apply(JsonSchemaBuilder builder)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| builder | JsonSchemaBuilder | The schema builder. |
+
+
+#### Returns
+
+The builder for chaining.
+

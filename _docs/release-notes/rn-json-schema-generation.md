@@ -4,7 +4,11 @@ title: JsonSchema.Net.Generation
 icon: fas fa-tag
 order: "09.05"
 ---
-# [7.0.0](https://github.com/gregsdennis/json-everything/pull/990) {#release-schemagen-7.0.1}
+# [7.1.0](https://github.com/gregsdennis/json-everything/pull/991) {#release-schemagen-7.1.0}
+
+[#986](https://github.com/gregsdennis/json-everything/issues/986) - Improves AOT compatibility by adding a source generator to produce schemas at compile time.  Thanks to [@ThomasNieto](https://github.com/ThomasNieto) for suggesting.
+
+# [7.0.1](https://github.com/gregsdennis/json-everything/pull/990) {#release-schemagen-7.0.1}
 
 [#986](https://github.com/gregsdennis/json-everything/issues/986) - Improves AOT compatibility by adding attributes to prevent metadata trimming on types for which schemas are generated.
 

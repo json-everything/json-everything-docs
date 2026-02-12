@@ -18,6 +18,12 @@ order: "10.01.112"
 
 Adds schema validation for types decorated with the **Json.Schema.Serialization.JsonSchemaAttribute**.
 
+## Fields
+
+| Name | Type | Summary |
+|---|---|---|
+| **DefaultOptionsFactory** | Func\<JsonSerializerOptions, JsonSerializerOptions\> | Default options factory used when creating validating converters. Creates a new JsonSerializerOptions without ValidatingJsonConverter instances to avoid recursion. |
+
 ## Properties
 
 | Name | Type | Summary |
@@ -80,5 +86,22 @@ public static void MapType(JsonSchema schema)
 | Parameter | Type | Description |
 |---|---|---|
 | schema | JsonSchema |  |
+
+
+### RegisterConverter(Type type, JsonConverter converter)
+
+Registers a pre-created converter for a specific type.
+Used primarily by source-generated code to register converters for AOT scenarios.
+
+#### Declaration
+
+```c#
+public static void RegisterConverter(Type type, JsonConverter converter)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| type | Type | The type to register the converter for. |
+| converter | JsonConverter | The converter instance to register. |
 
 

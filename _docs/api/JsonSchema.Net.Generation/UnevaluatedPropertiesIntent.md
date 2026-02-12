@@ -3,7 +3,7 @@ layout: "page"
 title: "UnevaluatedPropertiesIntent Class"
 bookmark: "UnevaluatedPropertiesIntent"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.055.086"
+order: "10.055.088"
 ---
 **Namespace:** Json.Schema.Generation.Intents
 
