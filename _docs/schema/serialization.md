@@ -10,14 +10,14 @@ order: "01.02"
 
 To enable this support, you'll need to include the `ValidatingJsonConverter` in the serialization options and then annotate any types that need validation with the `[JsonSchema()]` attribute, pointing the the schema for that type.
 
-*JsonSchema.Net.Generation* also provides a version of this converter that allows the schema to be generated instead of being explicitly defined.  This is probably best for most use cases, but it's a good idea to verify any generated schemas before using them in production systems.
+*JsonSchema.Net.Generation* also provides schema generation in two flavors: compile-time source generation (which works with Native AOT) and runtime generation using reflection (which doesn't).  This is probably best for most use cases, but it's a good idea to verify any generated schemas before using them in production systems.
 
 Let's walk through it.
 
 > More on JSON Schema support during deserialization can be found on the `json-everything` [blog](https://blog.json-everything.net/posts/deserialization-with-schemas/).
 {: .prompt-tip }
 
-> The validating converter described in this document requires AOT-incompatible reflection to operate, so it will not be usable in a Native AOT context.
+> For Native AOT support with `GenerativeValidatingJsonConverter`, use `[GenerateJsonSchema]` for source generation and add your models to a `JsonSerializerContext`.
 {: .prompt-warning}
 
 ## Setting up the converter {#schema-deserialization-setup}
@@ -139,7 +139,7 @@ public class MyModel
 
 ## Generating a JSON Schema for a type {#schema-deserialization-generation}
 
-To do the same kind of validation for the generative case, add the `[GenerateJsonSchema]` attribute and any applicable schema attributes.  You can find out more about schema generation attributes [here](./schemagen/schema-generation).
+Alternatively, you can use source generation to create the schema at compile time.  Just add the `[GenerateJsonSchema]` attribute along with any schema attributes.  You can find out more about schema generation attributes [here](./schemagen/schema-generation).
 
 ```c#
 [GenerateJsonSchema]
@@ -152,6 +152,11 @@ public class MyModel
     public string Foo { get; set; }
 }
 ```
+
+The source generator creates a static schema at build time.  You still need to use `GenerativeValidatingJsonConverter` to get the validation behavior during serialization.
+
+> Source generation works with Native AOT (unlike runtime generation) as long as you also add your models to a `JsonSerializerContext`.
+{: .prompt-tip}
 
 This has the same outcome as creating the explicit schema from the previous section.  However, it's important to remember that writing your schema explicitly will always be more flexible that generation.  If the schemas you want have fairly complex logic, perhaps explicitly writing your schemas is the right approach for you.
 

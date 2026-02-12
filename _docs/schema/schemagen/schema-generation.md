@@ -8,16 +8,42 @@ order: "01.06.1"
 ---
 _JsonSchema.Net.Generation_ is an extension package to _JsonSchema.Net_ that provides JSON Schema generation from .Net types.
 
-Using it is quite simple.  First you need a `JsonSchemaBuilder`.  Then...
+## Source generation {#schema-schemagen-source-generation}
+
+If you're building for Native AOT or just want your schemas generated at compile time, use the source generator:
 
 ```c#
-var schema = schemaBuilder.FromType<MyType>().Build();
+[GenerateJsonSchema]
+public class MyType
+{
+    [Required]
+    public string Name { get; set; }
+    
+    [Minimum(0)]
+    public int Value { get; set; }
+}
 ```
 
-Done.
+This creates a static property you can use directly:
 
-> This library uses AOT-incompatible reflection to operate, so it may cause errors in a Native AOT context.
-{: .prompt-warning}
+```c#
+var schema = GeneratedJsonSchemas.MyType;
+```
+
+> The source generator doesn't use runtime reflection, so it works everywhere, including Native AOT.
+{: .prompt-tip}
+
+More details on the [Source Generation](./automatic-generation) page.
+
+## Runtime generation {#schema-schemagen-runtime}
+
+You can also generate schemas using `.FromType<T>()`:
+
+```c#
+var schema = new JsonSchemaBuilder().FromType<MyType>().Build();
+```
+
+This method uses reflection and won't work with Native AOT.
 
 ## IMPORTANT {#schema-schemagen-disclaimer}
 

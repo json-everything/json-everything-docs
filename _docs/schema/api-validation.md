@@ -13,8 +13,8 @@ This library combines the power of [_JsonSchema.Net_](https://www.nuget.org/pack
 > More information about schema-based validation can be found in the [Enhancing Deserialization with JSON Schema](/schema/serialization/) documentation.
 {: .prompt-tip }
 
-> This library uses reflection to generate schemas and may not be compatible with Native AOT applications.
-{: .prompt-warning }
+> By default, this library uses source generation to create schemas at compile time, which works with Native AOT.  If you need runtime schema generation, you can enable it via configuration, but that won't work with Native AOT.
+{: .prompt-info }
 
 ## Configuration {#schema-api-configuration}
 
@@ -44,7 +44,7 @@ builder.Services.AddControllers()
         // Specify dialect or register other dialects, vocabularies, or external schemas
         converter.BuildOptions.Dialect = Dialect.Draft202012;
 
-        // Customize schema generation
+        // Customize schema generation (for runtime generation only)
         converter.GeneratorConfiguration.PropertyNameResolver = PropertyNameResolvers.SnakeCase;
         converter.GeneratorConfiguration.Nullability = Nullability.AllowForNullableValueTypes;
         
@@ -63,12 +63,15 @@ If no configuration is provided, the following defaults are used:
 > JSON Schema typically does not validate the `format` keyword, however users generally expect this behavior, so it has been enabled by default for request body validation.
 {: .prompt-info}
 
+> When using source generation (the default), property naming, property order, and strict conditionals must be configured on the `[GenerateJsonSchema]` attribute itself, not in `GeneratorConfiguration`.  Runtime-only settings like `PropertyNameResolver` and `Nullability` in `GeneratorConfiguration` only apply when you disable source generation.
+{: .prompt-warning}
+
 ## Defining validation schemas {#schema-api-schemas}
 
 To validate a model, decorate it with the `[GenerateJsonSchema]` attribute and any applicable validation attributes:
 
 ```c#
-[GenerateJsonSchema]
+[GenerateJsonSchema]  // Source generation is used by default
 [AdditionalProperties(false)]
 public class CreateUserRequest
 {
@@ -85,6 +88,19 @@ public class CreateUserRequest
     [Minimum(18)]
     [Maximum(120)]
     public int Age { get; set; }
+}
+```
+
+If you need to customize property naming or ordering for source generation, configure it on the attribute:
+
+```c#
+[GenerateJsonSchema(
+    PropertyNaming = NamingConvention.SnakeCase,
+    PropertyOrder = PropertyOrder.ByName
+)]
+public class CreateUserRequest
+{
+    // properties...
 }
 ```
 
@@ -231,7 +247,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers()
     .AddJsonSchemaValidation(converter =>
     {
-        converter.GeneratorConfiguration.PropertyNameResolver = PropertyNameResolvers.CamelCase;
+        // Configure schema evaluation options
         converter.EvaluationOptions.RequireFormatValidation = true;
     });
 
@@ -240,7 +256,7 @@ app.MapControllers();
 app.Run();
 
 // Models/CreateProductRequest.cs
-[GenerateJsonSchema]
+[GenerateJsonSchema(PropertyNaming = NamingConvention.CamelCase)]
 [AdditionalProperties(false)]
 public class CreateProductRequest
 {
