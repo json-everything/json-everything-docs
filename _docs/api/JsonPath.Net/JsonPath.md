@@ -25,6 +25,54 @@ Represents a JSON Path.
 
 ## Methods
 
+### Append(string name)
+
+Appends a new segment with the specified name to the current JSON path and returns the resulting path.
+
+#### Declaration
+
+```c#
+public JsonPath Append(string name)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| name | string | The name of the segment to append to the JSON path. This value cannot be null or empty. |
+
+
+#### Returns
+
+A new instance of the JsonPath class that includes the appended segment.
+
+#### Remarks
+
+This method can be used to build more complex JSON paths by successively appending named segments.
+            The original JsonPath instance remains unchanged; this method returns a new instance with the additional
+
+### Append(int index)
+
+Appends an array index selector to the current JSON path, enabling access to a specific element within a JSON
+array.
+
+#### Declaration
+
+```c#
+public JsonPath Append(int index)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| index | int | The zero-based index of the element to select from the array. Must be within the bounds of the target array. |
+
+
+#### Returns
+
+A new JsonPath instance that includes the appended index selector.
+
+#### Remarks
+
+Use this method to navigate to a particular element in a JSON array by its index. Supplying an
+
 ### BuildString(StringBuilder builder)
 
 Builds a string representation of the path using a **System.Text.StringBuilder**.
