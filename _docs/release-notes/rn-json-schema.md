@@ -4,6 +4,10 @@ title: JsonSchema.Net
 icon: fas fa-tag
 order: "09.01"
 ---
+# [9.1.1](https://github.com/gregsdennis/json-everything/pull/1003) {#release-schema-9.1.1}
+
+[#999](https://github.com/gregsdennis/json-everything/issues/9990 ([PR](https://github.com/gregsdennis/json-everything/pull/1000)) - Resolved concurrency issue in `SchemaRegistry`.  Thanks to [@denispaluca](https://github.com/denispaluca) for providing the fix.
+
 # [9.1.0](https://github.com/gregsdennis/json-everything/pull/991) {#release-schema-9.1.0}
 
 [#986](https://github.com/gregsdennis/json-everything/issues/986) - Exposed types needed to support source generation in _JsonSchema.Net.Generation_ v7.1.0.  Thanks to [@ThomasNieto](https://github.com/ThomasNieto) for suggesting.
