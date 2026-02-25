@@ -4,6 +4,10 @@ title: JsonPatch.Net
 icon: fas fa-tag
 order: "09.09"
 ---
+# [5.0.1](https://github.com/gregsdennis/json-everything/pull/1005) {#release-patch-5.0.1}
+
+[#1004](https://github.com/json-everything/json-everything/issues/1004) - Adding values to leaf locations should return error.  Thanks to [@mcrumley](https://github.com/cptjazz) for reporting.
+
 # [5.0.0](https://github.com/gregsdennis/json-everything/pull/982) {#release-patch-5.0.0}
 
 Enacted Open Source Maintenance Fee.
