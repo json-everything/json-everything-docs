@@ -4,6 +4,10 @@ title: JsonSchema.Net.Generation
 icon: fas fa-tag
 order: "09.05"
 ---
+# [7.1.1](https://github.com/gregsdennis/json-everything/pull/1009) {#release-schemagen-7.1.1}
+
+[#1008](https://github.com/gregsdennis/json-everything/issues/1008) - Adds a warning suppression pragma to source-generated code since that can't be edited to suppress it.  Thanks to [@ThomasNieto](https://github.com/ThomasNieto) for flagging this.
+
 # [7.1.0](https://github.com/gregsdennis/json-everything/pull/991) {#release-schemagen-7.1.0}
 
 [#986](https://github.com/gregsdennis/json-everything/issues/986) - Improves AOT compatibility by adding a source generator to produce schemas at compile time.  Thanks to [@ThomasNieto](https://github.com/ThomasNieto) for suggesting.
