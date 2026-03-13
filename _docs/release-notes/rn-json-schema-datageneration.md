@@ -4,6 +4,14 @@ title: JsonSchema.Net.DataGeneration
 icon: fas fa-tag
 order: "09.07"
 ---
+# [3.0.0](https://github.com/gregsdennis/json-everything/pull/1012) {#release-schema-3.0.0}
+
+Updates for JsonSchema.Net v9 compability.
+
+Enacted Open Source Maintenance Fee.
+
+See the [blog post](https://blog.json-everything.net/posts/expensive/) for more information.
+
 # [2.3.1](https://github.com/gregsdennis/json-everything/pull/934) {#release-schemadatagen-2.3.1}
 
 [#892](https://github.com/gregsdennis/json-everything/issues/892) - Removed unnecessary `Console.WriteLine()`.  Thanks to [@ruanmed](https://github.com/ruanmed) for reporting.
