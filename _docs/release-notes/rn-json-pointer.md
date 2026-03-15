@@ -4,6 +4,10 @@ title: JsonPointer.Net
 icon: fas fa-tag
 order: "09.10"
 ---
+# [7.0.1](https://github.com/gregsdennis/json-everything/pull/1013) {#release-pointer-7.0.1}
+
+Updated nuget packages & EULA.
+
 # [7.0.0](https://github.com/gregsdennis/json-everything/pull/982) {#release-pointer-7.0.0}
 
 Enacted Open Source Maintenance Fee.

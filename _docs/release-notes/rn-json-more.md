@@ -4,6 +4,10 @@ title: Json.More.Net
 icon: fas fa-tag
 order: "09.13"
 ---
+# [3.0.1](https://github.com/gregsdennis/json-everything/pull/1013) {#release-more-3.0.1}
+
+Updated nuget packages & EULA.
+
 # [3.0.0](https://github.com/gregsdennis/json-everything/pull/982) {#release-more-3.0.0}
 
 Enacted Open Source Maintenance Fee.

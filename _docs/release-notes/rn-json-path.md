@@ -4,6 +4,10 @@ title: JsonPath.Net
 icon: fas fa-tag
 order: "09.08"
 ---
+# [3.0.2](https://github.com/gregsdennis/json-everything/pull/1013) {#release-path-3.0.2}
+
+Updated nuget packages & EULA.
+
 # [3.0.1](https://github.com/gregsdennis/json-everything/pull/995) {#release-path-3.0.1}
 
 [#875](https://github.com/json-everything/json-everything/issues/875) - Add `[StringSyntax("jsonpath")]` to parse methods to support IDE syntax highlighting (may not be supported by all IDEs).  Thanks to [@robfe](https://github.com/robfe) for suggesting.

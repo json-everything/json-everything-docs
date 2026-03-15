@@ -4,6 +4,10 @@ title: JsonSchema.Net
 icon: fas fa-tag
 order: "09.01"
 ---
+# [9.1.3](https://github.com/gregsdennis/json-everything/pull/1013) {#release-schema-9.1.3}
+
+Updated nuget packages & EULA.
+
 # [9.1.2](https://github.com/gregsdennis/json-everything/pull/1010) {#release-schema-9.1.2}
 
 [#977](https://github.com/gregsdennis/json-everything/issues/977 - Resolves an issue with reusing `JsonNode`s that already have parents.  Issue generally presents when using schema generation.

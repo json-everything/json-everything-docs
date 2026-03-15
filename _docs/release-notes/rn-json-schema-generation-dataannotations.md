@@ -4,11 +4,15 @@ title: JsonSchema.Net.Generation.DataAnnotations
 icon: fas fa-tag
 order: "09.06"
 ---
-# [3.1.0](https://github.com/gregsdennis/json-everything/pull/991) {#release-schemagen-3.1.0}
+# [3.1.1](https://github.com/gregsdennis/json-everything/pull/1013) {#release-schemagendataannotations-3.1.1}
+
+Updated nuget packages & EULA.
+
+# [3.1.0](https://github.com/gregsdennis/json-everything/pull/991) {#release-schemagendataannotations-3.1.0}
 
 [#986](https://github.com/gregsdennis/json-everything/issues/986) - Adds source generation support with _JsonSchema.Net.Generation_ v7.1.0.  Thanks to [@ThomasNieto](https://github.com/ThomasNieto) for suggesting.
 
-# [3.0.0](https://github.com/gregsdennis/json-everything/pull/982) {#release-schemagen-3.0.0}
+# [3.0.0](https://github.com/gregsdennis/json-everything/pull/982) {#release-schemagendataannotations-3.0.0}
 
 Enacted Open Source Maintenance Fee.
 

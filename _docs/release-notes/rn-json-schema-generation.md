@@ -4,6 +4,10 @@ title: JsonSchema.Net.Generation
 icon: fas fa-tag
 order: "09.05"
 ---
+# [7.1.3](https://github.com/gregsdennis/json-everything/pull/1013) {#release-schemagen-7.1.3}
+
+Updated nuget packages & EULA.
+
 # [7.1.2](https://github.com/gregsdennis/json-everything/pull/1010) {#release-schemagen-7.1.2}
 
 [#1008](https://github.com/gregsdennis/json-everything/issues/1008) - Updates warning suppression to `[GlobalSuppressMessage]` to support post-compilation publish operations.
