@@ -48,6 +48,31 @@ true if the dividend is evenly divisible by the divisor; otherwise, false.
 
 Both parameters must represent valid JSON numbers. If the divisor is zero or not a valid number,
 
+### IsInteger(JsonElement value)
+
+Determines whether the numeric value represented by the specified JSON element is a mathematical integer (i.e.
+has no fractional part), without converting to a .NET numeric type.
+
+#### Declaration
+
+```c#
+public static bool IsInteger(JsonElement value)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| value | JsonElement | A **System.Text.Json.JsonElement** whose **System.Text.Json.JsonElement.ValueKind** must be |
+
+
+#### Returns
+
+<see langword="true" /> if the value has no fractional part; otherwise <see langword="false" />.
+
+#### Remarks
+
+Works directly from the JSON text representation so arbitrarily large integers are recognised correctly,
+avoiding overflow issues that arise when using `TryGetInt64`.
+
 ### NumberCompare(JsonElement a, JsonElement b)
 
 Compares two JSON number values represented by **System.Text.Json.JsonElement** instances and determines their relative

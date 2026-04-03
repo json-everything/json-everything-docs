@@ -4,6 +4,14 @@ title: JsonSchema.Net.DataGeneration
 icon: fas fa-tag
 order: "09.07"
 ---
+# [3.1.0](https://github.com/gregsdennis/json-everything/pull/1015) {#release-schemadatagen-3.1.0}
+
+- Replaced Fare with internal regex value generation to significantly improve regex support
+- Improved conditional support
+- Added `propertyNames` support
+- Increased test coverage to find and fix bugs
+- Added generation error reporting
+
 # [3.0.1](https://github.com/gregsdennis/json-everything/pull/1013) {#release-schemadatagen-3.0.1}
 
 Updated nuget packages & EULA.
