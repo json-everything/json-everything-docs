@@ -29,19 +29,93 @@ it can generate a JSON document like
 
 Under the covers, the library uses the fabulous [Bogus](https://github.com/bchavez/Bogus) library, which is commonly used to generate random test data, and a few other tricks.
 
+## Use Cases {#schema-datagen-use-cases}
+
+### Schema Debugging {#schema-datagen-debugging}
+
+One of the more practical uses of a data generator is checking whether a schema actually says what you think it says.  The generator just follows the rules, so if the output looks wrong, the schema isn't strict enough.
+
+#### Missing `required` {#schema-datagen-debug-required}
+
+Suppose you want a user record that always has a `username`:
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "username": { "type": "string" },
+    "email":    { "type": "string", "format": "email" }
+  }
+}
+```
+
+`properties` only describes what a property looks like _if it shows up_.  It doesn't make the property show up.  So the generator is perfectly happy producing:
+
+```json
+{}
+```
+
+or
+
+```json
+{ "email": "someone@example.com" }
+```
+
+Both are valid.  Adding `"required": ["username"]` is what actually makes `username` mandatory, and the generator will reflect that.
+
+#### Overly Permissive Types {#schema-datagen-debug-types}
+
+A schema for an age field written as:
+
+```json
+{ "type": "number" }
+```
+
+will cheerfully produce `3.14` or `-7.9`.  Those are valid numbers, just not valid ages.  The schema should be:
+
+```json
+{
+  "type": "integer",
+  "minimum": 0,
+  "maximum": 130
+}
+```
+
+#### `additionalProperties` Surprises {#schema-datagen-debug-additional}
+
+Without `"additionalProperties": false`, the generator can (and will) tack on extra properties beyond whatever is listed in `properties`:
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" }
+  }
+}
+```
+
+might produce:
+
+```json
+{
+  "id": 42,
+  "xQ7": true,
+  "lorem": "ipsum dolor"
+}
+```
+
+If you only want `id`, say so with `"additionalProperties": false`.
+
 ## Capabilities {#schema-datagen-capabilities}
 
 This library is quite powerful.  It supports most JSON Schema keywords, including `if`/`then`/`else` and aggregation keywords (`oneOf`, `allOf`, etc.).
 
 It currently does not support:
 
-- anything complex involving RegEx\*
 - `$dynamicRef`
 - annotation / metadata keywords (e.g. `title`, `description`)
 - `content*` keywords
 - `dependencies` / `dependent*` keywords
-
-*\* There are some libraries which provide limited RegEx-based string generation, but these do not support look-aheads which are required to combine multiple RegEx's with boolean logic.  This functionality is required to support them alongside the aggregation keywords.  I opted to just not support them at all until I can find a sufficient library.*
 
 Everything else _should_ be mostly supported.  Feel free to [open an issue](https://github.com/gregsdennis/json-everything/issues/new/choose) if you find something isn't working as you expect.
 
@@ -60,14 +134,16 @@ If a format is specified, it will be used.
 
 #### `pattern` {#schema-datagen-pattern}
 
-Regular expressions specified via `pattern` are supported in a very limited capacity.  Only simple subschemas with a single `pattern` is supported.
+Regular expressions specified via `pattern` support combined constraint evaluation, including scenarios where multiple required patterns must be satisfied together.
 
-- Combining multiple regular expressions using `allOf`, `anyOf`, or `oneOf` is not supported.
-- Inverting regular expressions using `not` is not supported.
-- Any regular expression not supported by the [FARE library](https://github.com/moodmosaic/Fare) is not supported.
-- Combining `pattern` with `minLength`/`maxLength` is not supported.  RegEx supports length requirements, so they should be specified within the expression.
+Supported scenarios include:
 
-If the above scenarios are detected, a `NotSupportedException` will be thrown.
+- multiple `pattern` constraints across composed schemas
+- forbidden patterns via `not`
+- interactions between `pattern` and `minLength`/`maxLength`
+- interactions between `pattern` and `format`
+
+Some highly complex or mutually incompatible regex combinations may still be impossible to satisfy.  In those cases, generation fails with [detailed error information](#schema-datagen-error-reporting).
 
 ### Numerics {#schema-datagen-numbers}
 
@@ -140,11 +216,54 @@ The result object has several properties:
 - `Result` holds the value as a `JsonElement`, if successful
 - `ErrorMessage` holds any error message, if unsuccessful
 - `InnerResults` holds result objects from nested generations.  This can be useful for debugging.
+- `Location` (if available) identifies where generation failed in the target instance, as a `JsonPointer`
+- `SchemaLocations` (if available) identifies one or more schema locations related to the failure, also as `JsonPointer`s
+
+## Error Reporting {#schema-datagen-error-reporting}
+
+When generation fails, start with the top-level `GenerationResult` returned by `.GenerateData()`:
+
+- If `IsSuccess` is `false`, inspect `ErrorMessage` and `InnerResults`.
+- `InnerResults` contains nested failures from branches, properties, array items, or composed schemas.
+- Leaf failures can provide:
+  - `Location` for the relative instance path that failed
+  - `SchemaLocations` for the schema path(s) involved in that failure
+
+In practice, a single generation failure can contain multiple nested reasons.  Walking the `InnerResults` tree is the best way to produce a full error report.
+
+```c#
+void PrintFailures(GenerationResult result, string indent = "")
+{
+    if (result.IsSuccess) return;
+
+    if (!string.IsNullOrWhiteSpace(result.ErrorMessage))
+    {
+        Console.WriteLine($"{indent}Reason: {result.ErrorMessage}");
+        if (result.Location != null)
+            Console.WriteLine($"{indent}At: {result.Location}");
+
+        if (result.SchemaLocations is { Count: > 0 })
+        {
+            Console.WriteLine($"{indent}Schema path(s):");
+            foreach (var schemaLocation in result.SchemaLocations)
+                Console.WriteLine($"{indent}- {schemaLocation}");
+        }
+    }
+
+    if (result.InnerResults == null) return;
+    foreach (var inner in result.InnerResults)
+        PrintFailures(inner, indent + "  ");
+}
+
+var schema = JsonSchema.FromFile("myFile.json");
+var generationResult = schema.GenerateData();
+
+if (!generationResult.IsSuccess)
+    PrintFailures(generationResult);
+```
 
 # Summary {#schema-datagen-summary}
 
 So, uh, yeah.  I guess that's it really.
-
-The generation isn't 100%, but most of the time it will succeed in producing a value for schemas that can have one.  You may want to validate the value against the schema as a sanity check.
 
 Happy generating.
