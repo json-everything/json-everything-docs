@@ -4,6 +4,10 @@ title: JsonSchema.Net.Generation
 icon: fas fa-tag
 order: "09.05"
 ---
+# [7.2.0](https://github.com/gregsdennis/json-everything/pull/1013) {#release-schemagen-7.2.0}
+
+Updated source generation to produce a schema per type, not just top-level types.
+
 # [7.1.3](https://github.com/gregsdennis/json-everything/pull/1013) {#release-schemagen-7.1.3}
 
 Updated nuget packages & EULA.
