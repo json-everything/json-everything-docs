@@ -19,6 +19,8 @@ Provides additional configuration for the generator.
 | Name | Type | Summary |
 |---|---|---|
 | **Current** | SchemaGeneratorConfiguration | Thread-static storage of the current configuration. Only to be used for reading the configuration. Setting values on this object will be overwritten when starting generation. |
+| **Default** | SchemaGeneratorConfiguration | Gets the default configuration instance for the schema generator. |
+| **DefaultDialect** | Uri | Gets or sets the default dialect included in generated schemas. |
 | **ExternalReferences** | Dictionary\<Type, Uri\> | Allows mapping of types to external schema `$id`s.  When encountering one of these types, a `$ref` keyword will be generated instead of a full schema. |
 | **Generators** | List\<ISchemaGenerator\> | A collection of generators in addition to the global set. |
 | **PropertyNameResolver** | PropertyNameResolver | Gets or sets the property name resolving method. Default is **Json.Schema.Generation.PropertyNameResolvers.AsDeclared**. |

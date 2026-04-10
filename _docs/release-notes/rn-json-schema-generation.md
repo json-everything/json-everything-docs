@@ -4,6 +4,17 @@ title: JsonSchema.Net.Generation
 icon: fas fa-tag
 order: "09.05"
 ---
+# [7.3.0](https://github.com/gregsdennis/json-everything/pull/1020) {#release-schemagen-7.3.0}
+
+[#1018](https://github.com/gregsdennis/json-everything/issues/1018)
+- Support for `[JsonRequired]` (also in runtime generation)
+- Bug fix: support `[Id]`, `[Default]`, `[Nullable]`, and `[AdditionalProperties]`
+- Adds `$schema` as 2020-12 by default
+
+Adds extension mechanism for source generation handlers for third-party types.
+
+Adds `SchemaGeneratorConfiguration.Default` and `SchemaGeneratorConfiguration.DefaultDialect`.
+
 # [7.2.0](https://github.com/gregsdennis/json-everything/pull/1013) {#release-schemagen-7.2.0}
 
 Updated source generation to produce a schema per type, not just top-level types.
