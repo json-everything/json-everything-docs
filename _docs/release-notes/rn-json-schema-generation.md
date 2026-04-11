@@ -4,9 +4,13 @@ title: JsonSchema.Net.Generation
 icon: fas fa-tag
 order: "09.05"
 ---
-# [7.3.0](https://github.com/gregsdennis/json-everything/pull/1021) {#release-schemagen-7.3.1}
+# [7.3.2](https://github.com/gregsdennis/json-everything/pull/1022) {#release-schemagen-7.3.2}
 
-[#1018](https://github.com/gregsdennis/json-everything/issues/1018) - further updates to source generation
+[#1018](https://github.com/gregsdennis/json-everything/issues/1018) - Manage same-name types in different namespaces.  We're gonna get through this.
+
+# [7.3.1](https://github.com/gregsdennis/json-everything/pull/1021) {#release-schemagen-7.3.1}
+
+[#1018](https://github.com/gregsdennis/json-everything/issues/1018) - Collapse schemas to a common type.
 
 # [7.3.0](https://github.com/gregsdennis/json-everything/pull/1020) {#release-schemagen-7.3.0}
 
