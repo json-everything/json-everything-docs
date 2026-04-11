@@ -4,6 +4,10 @@ title: JsonSchema.Net.Generation
 icon: fas fa-tag
 order: "09.05"
 ---
+# [7.3.3](https://github.com/gregsdennis/json-everything/commits/5c9264cf2) {#release-schemagen-7.3.2}
+
+[#1018](https://github.com/gregsdennis/json-everything/issues/1018) - Name nullables separately from the base type.  Hang in there.
+
 # [7.3.2](https://github.com/gregsdennis/json-everything/pull/1022) {#release-schemagen-7.3.2}
 
 [#1018](https://github.com/gregsdennis/json-everything/issues/1018) - Manage same-name types in different namespaces.  We're gonna get through this.
