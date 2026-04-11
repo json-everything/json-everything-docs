@@ -4,7 +4,13 @@ title: JsonSchema.Net.Generation
 icon: fas fa-tag
 order: "09.05"
 ---
-# [7.3.3](https://github.com/gregsdennis/json-everything/commits/5c9264cf2) {#release-schemagen-7.3.2}
+# [7.3.4](https://github.com/gregsdennis/json-everything/commits/d9ed49cf134e4b22282da90e2da0d2348c06a9b1) {#release-schemagen-7.3.4}
+
+[#1018](https://github.com/gregsdennis/json-everything/issues/1018)
+- `[Nullable(false)]` is not handled properly
+- Multiline XML comments cause compile failure
+
+# [7.3.3](https://github.com/gregsdennis/json-everything/commits/5c9264cf2c3a740bd397efdae17375042c61120d) {#release-schemagen-7.3.3}
 
 [#1018](https://github.com/gregsdennis/json-everything/issues/1018) - Name nullables separately from the base type.  Hang in there.
 
