@@ -110,10 +110,10 @@ public static class Schemas
 {
     public static JsonSchema MyModelSchema =
         new JsonSchemaBuilder()
-            .Type(JsonSchemaType.Object)
+            .Type(SchemaValueType.Object)
             .Properties(
                 (nameof(MyModel.Foo), new JsonSchemaBuilder()
-                    .Type(JsonSchemaType.String)
+                    .Type(SchemaValueType.String)
                     .MinLength(10)
                     .MaxLength(50)
                 )
