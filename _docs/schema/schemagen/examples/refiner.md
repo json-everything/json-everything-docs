@@ -10,57 +10,34 @@ order: "01.06.4.4"
 
 Sometimes, you may need to have custom logic that changes the generated schema in a way that can't be fulfilled with Generators, Intents, or Attributes.
 
-As an example, this library handles nullability outside of these mechanisms by making use of a _refiner_.
-
-This example shows how this kind of custom logic can be accomplished.
-
-It first looks at the generated schema to determine whether it can add a `null` to the `type` keyword.  To do this, it needs to look at a configuration option as well as a special `[Nullable(bool)]` attribute that is used to override the option.
+As an illustration, consider a refiner that ensures every generated string schema requires at least one character, unless a `MinLength` is already present.
 
 ```c#
-internal class NullabilityRefiner : ISchemaRefiner
+internal class NonEmptyStringRefiner : ISchemaRefiner
 {
-    public bool ShouldRun(SchemaGeneratorContextBase context)
+    public bool ShouldRun(SchemaGenerationContextBase context)
     {
-        // we only want to run this if the generated schema has a `type` keyword
-        return context.Intents.OfType<TypeIntent>().Any();
+        // Only run when the schema has a string type
+        return context.Intents.OfType<TypeIntent>()
+            .Any(t => t.Type.HasFlag(SchemaValueType.String));
     }
 
-    public void Run(SchemaGeneratorContextBase context)
+    public void Run(SchemaGenerationContextBase context)
     {
-        // find the type keyword
-        var typeIntent = context.Intents.OfType<TypeIntent>().First();
-        // determine if the property has an override attribute
-        var nullableAttribute = context.Attributes.OfType<NullableAttribute>().FirstOrDefault();
-        var nullabilityOverride = nullableAttribute?.IsNullable;
+        // Skip if a MinLength is already specified
+        if (context.Intents.OfType<MinLengthIntent>().Any()) return;
 
-        // if there's an override, use it
-        if (nullabilityOverride.HasValue)
-        {
-            if (nullabilityOverride.Value)
-                typeIntent.Type |= SchemaValueType.Null;
-            else
-                typeIntent.Type &= ~SchemaValueType.Null;
-            return;
-        }
-
-        // otherwise, look at the options to determine what to do
-        if (context.Configuration.Nullability.HasFlag(Nullability.AllowForNullableValueTypes) &&
-            context.Type.IsGenericType && context.Type.GetGenericTypeDefinition() == typeof(Nullable<>))
-            typeIntent.Type |= SchemaValueType.Null;
-
-        if (context.Configuration.Nullability.HasFlag(Nullability.AllowForReferenceTypes) &&
-            !context.Type.IsValueType)
-            typeIntent.Type |= SchemaValueType.Null;
+        context.Intents.Add(new MinLengthIntent(1));
     }
 }
 ```
 
-Because this refiner is defined in the library, it's added automatically.  But to include your refiner in the generation process, you'll need to add it to the `Refiners` collection in the configuration options.
+To include a refiner in the generation process, add it to the `Refiners` collection in the configuration.
 
 ```c#
 var configuration = new SchemaGeneratorConfiguration
 {
-    Refiners = {new MyRefiner()}
+    Refiners = { new NonEmptyStringRefiner() }
 };
-JsonSchema actual = new JsonSchemaBuilder().FromType<SomeType>(configuration);
+var schema = new JsonSchemaBuilder().FromType<SomeType>(configuration).Build();
 ```

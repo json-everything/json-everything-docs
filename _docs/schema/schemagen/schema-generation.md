@@ -43,6 +43,8 @@ You can also generate schemas using `.FromType<T>()`:
 var schema = new JsonSchemaBuilder().FromType<MyType>().Build();
 ```
 
+A non-generic overload, `FromType(Type, ...)`, is also available for cases where the type is not known at compile time.
+
 This method uses reflection and won't work with Native AOT.
 
 ## IMPORTANT {#schema-schemagen-disclaimer}
@@ -78,6 +80,9 @@ All of these and more are supplied via a set of attributes that can be applied t
   - `MinItems`
   - `MaxItems`
   - `UniqueItems`
+  - `AdditionalItems`
+- Objects
+  - `AdditionalProperties`
 - All
   - `Id`
   - `Required` & `Nullable` (see below)
@@ -91,16 +96,17 @@ All of these and more are supplied via a set of attributes that can be applied t
   - `WriteOnly`
 - Conditional (see [Conditionals](./conditional-generation))
   - `If`
-  - `Then`
-  - `Else`
+  - `IfEnum`
+  - `IfMin`
+  - `IfMax`
 
-\* The `[Obsolete]` attribute is `System.Obsolete`.  All of the others have been defined within this library.  `System.ComponentModel.DataAnnotations` support is currently [in discussion](https://github.com/gregsdennis/json-everything/issues/143).
+\* The `[Obsolete]` attribute is `System.Obsolete`.  All of the others have been defined within this library.  `System.ComponentModel.DataAnnotations` support is available via the separate [Data Annotations](./data-annotations) package.
 
 \*\* The `[JsonExclude]` attribute functions equivalently to `[JsonIgnore]` (see below).  It is included to allow generation to skip a property or an enum member while allowing serialization to consider it.
 
  \*\*\* Even though the `const` and `default` keywords in JSON Schema can accept any JSON value, because they are attributes, `[Const]` and `[Default]` can only accept values which are compile-time constants.
 
-> The `System.ComponentModel.DataAnnotations` annotations are not (and likely will not be) supported by this library.  Defining the above attributes separately allows alignment with JSON Schema and separation of concerns between serialization and validation.
+> `System.ComponentModel.DataAnnotations` attributes are not handled by this library directly.  Support is provided via the separate [Data Annotations](./data-annotations) package.
 {: .prompt-info }
 
 Simply add the attributes directly to the properties and the corresponding keywords will be added to the schema.
@@ -276,23 +282,6 @@ To this end, the `[Required]` attribute will only be represented in generated sc
 
 As of v5 of this library, nullability follows the code as closely as possible, using the `[Nullable]` attribute as an override.  If a property is declared as nullable (either value or reference type), it will be generated as such.  Applying `[Nullable(false)]` to a nullable property will disable this behavior, while applying `[Nullable(true)]` (or just `[Nullable]`) to a non-nullable property will force nullability in the schema. 
 
-#### Prior to v5
-
-For nullable types, it may or may not be appropriate to include `null` in the `type` keyword.  JsonSchema.Net.Generation controls this behavior via the `SchemaGeneratorConfiguration.Nullability` option with individual properties being overrideable via the `[Nullable(bool)]` attribute.
-
-There are four options:
-
-- `Disabled` - This is the default.  The resulting schemas will not have `null` in the `type` keyword unless `[Nullable(true)]` is used.
-- `AllowForNullableValueTypes` - This will add `null` to the `type` keyword for nullable value types (i.e. `Nullable<T>`) unless `[Nullable(false)]` is used.
-- `AllowForReferenceTypes` - This will add `null` to the `type` keyword for reference types unless `[Nullable(false)]` is used.
-- `AllowForAllTypes` - This is a combination of the previous two and will add `null` to the type keyword for any type unless `[Nullable(false)]` is used.
-
-> This library was unable to [detect](https://stackoverflow.com/a/62186551/878701) whether the consuming code has nullable reference types enabled.  Therefore all reference types are considered nullable.
-{: .prompt-info }
-
-> The library makes a distinction between nullable value types and reference types because value types must be explicitly nullable.  This differs from reference types which are implicitly nullable, and there's not a way (via the type itself) to make a reference type non-nullable.
-{: .prompt-info }
-
 ### Property naming {#schema-schemagen-property-names}
 
 In addition to the `[JsonPropertyName]` attribute, `SchemaGeneratorConfiguration.PropertyNameResolver` allows you to define a custom method for altering property names from your code into the schema. The system will adjust property names accordingly.
@@ -307,14 +296,16 @@ SchemaGeneratorConfiguration config = new()
 
 For your convenience, the `PropertyNameResolvers` static class defines a few commonly-used conventions:
 
-| ResolvedName                           | Example             |
+| Resolver                               | Example             |
 |----------------------------------------|---------------------|
-| PropertyNameResolvers.CamelCase        | `camelCase`         |
-| PropertyNameResolvers.PascalCase       | `PascalCase`        |
-| PropertyNameResolvers.KebabCase        | `kebab-case`        |
-| PropertyNameResolvers.UpperKebabCase   | `UPPER-KEBAB-CASE`  |
-| PropertyNameResolvers.SnakeCase        | `snake_case`        |
-| PropertyNameResolvers.UpperSnakeCase   | `UPPER_SNAKE_CASE`  |
+| `PropertyNameResolvers.AsDeclared`     | `MyProperty`        |
+| `PropertyNameResolvers.CamelCase`      | `camelCase`         |
+| `PropertyNameResolvers.PascalCase`     | `PascalCase`        |
+| `PropertyNameResolvers.KebabCase`      | `kebab-case`        |
+| `PropertyNameResolvers.UpperKebabCase` | `UPPER-KEBAB-CASE`  |
+| `PropertyNameResolvers.SnakeCase`      | `snake_case`        |
+| `PropertyNameResolvers.LowerSnakeCase` | `snake_case`        |
+| `PropertyNameResolvers.UpperSnakeCase` | `UPPER_SNAKE_CASE`  |
 
 They can be applied directly to the configuration property:
 
@@ -369,6 +360,8 @@ Generating a properly descriptive-while-terse name is generally hard.  This libr
 > If you only want to handle specific types in your generator and are happy with the library's generation for others, simply return null from your generator and the library's generation will be used.
 {: .prompt-tip }
 
+To add a `$schema` keyword to generated schemas identifying the dialect, set `SchemaGeneratorConfiguration.DefaultDialect` to the appropriate URI.
+
 ## Extending support {#schema-schemagen-extension}
 
 The above will work most of the time, but occasionally you may find that you need some additional support.  Happily, the library is configured for you to provide that support yourself.
@@ -386,9 +379,9 @@ These do not _all_ need to be implemented.
 
 These are the first phase of generation.  When encountering a type, the system will find the first registered generator that can handle that type.  The generator then creates keyword intents (see "Intents" below).  The supported types list above is merely a list of the built-in generators.
 
-To create a new generator, you'll need to implement the `ISchemaGenerator` interface and register it using the `GeneratorRegistry.Register()` static method.  This will insert your generator at the top of the list so that it has priority.
+To create a new generator, you'll need to implement the `ISchemaGenerator` interface.  To register it globally, use `GeneratorRegistry.Register()`, which inserts it at the top of the list.  To restrict it to a specific configuration instance, add it to `SchemaGeneratorConfiguration.Generators` instead.
 
-> This means that the order your generators are registered is important: last one wins.  So if you want one generator to have priority over another, register the higher priority one last.
+> Registration order matters: last registered wins.  If multiple generators can handle a given type, the one registered last will be used.
 {: .prompt-warning }
 
 This class doesn't need to be complex.  Here's the implementation for the `BooleanSchemaGenerator`:
@@ -401,7 +394,7 @@ internal class BooleanSchemaGenerator : ISchemaGenerator
         return type == typeof(bool);
     }
 
-    public void AddConstraints(SchemaGeneratorContextBase context)
+    public void AddConstraints(SchemaGenerationContextBase context)
     {
         context.Intents.Add(new TypeIntent(SchemaValueType.Boolean));
     }
@@ -414,7 +407,7 @@ To explain _how_ it does, we need to discuss intents.
 
 ### The Context Object {#schema-schemagen-context}
 
-The context holds all of the data you need to determine which intents need to be applied.  It is defined by a base class, `SchemaGeneratorContextBase`, and two derivations, `TypeGenerationContext` and `MemberGenerationContext`.
+The context holds all of the data you need to determine which intents need to be applied.  It is defined by a base class, `SchemaGenerationContextBase`, and two derivations, `TypeGenerationContext` and `MemberGenerationContext`.
 
 `TypeGenerationContext` represents generation of just a type (including attributes present on the type itself), whereas `MemberGenerationContext` represents generation of an object member, which will have a type (and its attributes) _and_ possibly additional attributes as a member.
 
@@ -424,14 +417,18 @@ The context holds all of the data you need to determine which intents need to be
 The data exposed by contexts are:
 
 - `Type` - the type for which a schema is being generated
-- `ReferenceCount` - the number of times this context has been used
 - `Intents` - the collection of intents that represent this type
-- `Hash` - a hash value that can be used to identify this object
+
+Each context also exposes an `Apply()` method that builds and returns a `JsonSchemaBuilder` with all intents applied.
+
+The class also exposes two static instances, `True` and `False`, which represent boolean schemas.
 
 `MemberGenerationContext` also defines:
 
-- `BasedOn` - a context on which this context builds
+- `BasedOn` - the `TypeGenerationContext` on which this member context builds
 - `Attributes` - additional attributes defined on the member
+- `NullableRef` - true when the member is declared as a nullable reference type
+- `Parameter` - the index of the generic type argument this member applies to; -1 indicates the root type
 
 ### Intents {#schema-schemagen-intents}
 
@@ -475,16 +472,16 @@ The attribute itself is pretty simple.  It's just a class that inherits from `At
 [AttributeUsage(AttributeTargets.Property)]
 public class MaximumAttribute : Attribute, IAttributeHandler<MaximumAttribute>
 {
-    public uint Value { get; }
+    public decimal Value { get; }
 
-    public MaximumAttribute(uint value)
+    public MaximumAttribute(double value)
     {
-        Value = value;
+        Value = (decimal)value;
     }
 
-    void IAttributeHandler.AddConstraints(SchemaGeneratorContextBase context)
+    void IAttributeHandler.AddConstraints(SchemaGenerationContextBase context, Attribute attribute)
     {
-        if (!context.Type.IsNumber()) return;
+        if (!context.Type.IsNumber() && !context.Type.IsNullableNumber()) return;
 
         context.Intents.Add(new MaximumIntent(Value));
     }
@@ -518,8 +515,8 @@ Refiners are called after all intents have been generated for each type, recursi
 
 To implement a refiner, two methods will be needed:
 
-- `bool ShouldRun(SchemaGeneratorContextBase)` which determines whether the refiner needs to run for the current generation iteration.
-- `void Run(SchemaGeneratorContextBase)` which makes whatever modifications are needed.
+- `bool ShouldRun(SchemaGenerationContextBase)` which determines whether the refiner needs to run for the current generation iteration.
+- `void Run(SchemaGenerationContextBase)` which makes whatever modifications are needed.
 
 Remember that a this point, you're stil working with intents.  You can add new ones as well as modify or remove existing ones.  You really have complete freedom within a refiner.
 

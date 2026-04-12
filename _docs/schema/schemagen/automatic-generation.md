@@ -96,6 +96,17 @@ If you need to use runtime generation instead, you can disable source generation
 > Remember that runtime generation won't work with Native AOT.
 {: .prompt-warning}
 
+Two additional MSBuild properties let you set project-wide defaults without repeating them on every attribute:
+
+```xml
+<PropertyGroup>
+    <JsonSchemaDefaultPropertyNaming>CamelCase</JsonSchemaDefaultPropertyNaming>
+    <JsonSchemaDefaultPropertyOrder>AsDeclared</JsonSchemaDefaultPropertyOrder>
+</PropertyGroup>
+```
+
+`JsonSchemaDefaultPropertyNaming` accepts any `NamingConvention` value (`AsDeclared`, `CamelCase`, `PascalCase`, `LowerSnakeCase`, `UpperSnakeCase`, `KebabCase`, `UpperKebabCase`).  `JsonSchemaDefaultPropertyOrder` accepts `AsDeclared` or `ByName`.  The `[GenerateJsonSchema]` attribute properties override these defaults per type.
+
 ## Automatic validation integration {#source-generation-validation}
 
 To use the generated schemas for validation during deserialization, add the `GenerativeValidatingJsonConverter` to your serializer options:
@@ -208,3 +219,13 @@ var schema = new JsonSchemaBuilder()
 ```
 
 This gives you complete control over the schema, but you'll need to keep it in sync with your types manually.
+
+## Diagnostics {#source-generation-diagnostics}
+
+The source generator emits the following diagnostics:
+
+| ID | Severity | Description |
+|----|----------|-------------|
+| `JSGEN001` | Error | Open generic types are not supported by the source generator. |
+| `JSGEN002` | Error | The `GeneratedJsonSchemas` class must be declared `partial`. |
+| `JSGEN003` | Warning | A type contains duplicate schema property names. |
