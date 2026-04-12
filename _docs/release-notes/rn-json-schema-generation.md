@@ -4,6 +4,14 @@ title: JsonSchema.Net.Generation
 icon: fas fa-tag
 order: "09.05"
 ---
+# [7.3.6](https://github.com/gregsdennis/json-everything/pull/1025) {#release-schemagen-7.3.6}
+
+[#1024](https://github.com/gregsdennis/json-everything/issues/1024)
+
+- improves dictionary support
+- generate explicit schemas for enums (no inlining)
+- handle schema generation across multiple projects
+- 
 # [7.3.5](https://github.com/gregsdennis/json-everything/pull/1023) {#release-schemagen-7.3.5}
 
 [#1018](https://github.com/gregsdennis/json-everything/issues/1018)
