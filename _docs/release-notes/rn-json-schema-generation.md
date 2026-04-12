@@ -4,6 +4,21 @@ title: JsonSchema.Net.Generation
 icon: fas fa-tag
 order: "09.05"
 ---
+# [7.3.5](https://github.com/gregsdennis/json-everything/pull/1023) {#release-schemagen-7.3.5}
+
+[#1018](https://github.com/gregsdennis/json-everything/issues/1018)
+
+- Fixes
+  - Runtime type initialization failure in source-generated code
+  - Multiple `[If]` attributes that use the same property
+  - Array types support
+  - Better nullability tracking
+  - Better support for external types
+- Added project attributes (.csproj) that allow setting generation defaults for
+  - enabling/disabling source generation
+  - property naming (casing)
+  - property order
+
 # [7.3.4](https://github.com/gregsdennis/json-everything/commits/d9ed49cf134e4b22282da90e2da0d2348c06a9b1) {#release-schemagen-7.3.4}
 
 [#1018](https://github.com/gregsdennis/json-everything/issues/1018)

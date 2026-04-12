@@ -4,9 +4,13 @@ title: JsonSchema.Net
 icon: fas fa-tag
 order: "09.055"
 ---
-# [1.1.0](https://github.com/gregsdennis/json-everything/pull/1013) {#release-schemaapi-1.0.3}
+# [1.1.1](https://github.com/gregsdennis/json-everything/pull/1023) {#release-schemaapi-1.1.1}
 
-Updated nuget packages & EULA.
+Add debug logging for full validation results on failure.
+
+# [1.1.0](https://github.com/gregsdennis/json-everything/pull/1013) {#release-schemaapi-1.1.0}
+
+Added Minimal API support.
 
 # [1.0.3](https://github.com/gregsdennis/json-everything/pull/1013) {#release-schemaapi-1.0.3}
 
