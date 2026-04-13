@@ -28,6 +28,33 @@ The registry supports registering schemas with unique URIs and enables lookup by
 
 ## Methods
 
+### CreateBundle(Uri rootUri, Uri bundleUri, BuildOptions options)
+
+Creates a bundled JSON Schema document that includes the root schema and all referenced schemas as definitions.
+
+#### Declaration
+
+```c#
+public JsonSchema CreateBundle(Uri rootUri, Uri bundleUri, BuildOptions options)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| rootUri | Uri | The URI of the root JSON Schema to bundle. This schema and all schemas it references will be included in the |
+| bundleUri | Uri | The URI to assign as the $id of the resulting bundled schema document. |
+| options | BuildOptions | The options to use when building the bundled schema, such as validation or parsing settings. |
+
+
+#### Returns
+
+A new JsonSchema instance representing the bundled schema document, or null if the root schema cannot be found.
+
+#### Remarks
+
+The bundled schema will contain all referenced schemas under the `$defs` property, allowing for
+self-contained schema validation. If any referenced schema cannot be resolved, a **Json.Schema.RefResolutionException**
+will be thrown.
+
 ### Get(Uri uri)
 
 Gets a schema by URI ID and/or anchor.

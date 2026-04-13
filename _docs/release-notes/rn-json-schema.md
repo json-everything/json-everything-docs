@@ -4,6 +4,12 @@ title: JsonSchema.Net
 icon: fas fa-tag
 order: "09.01"
 ---
+# [9.1.5](https://github.com/gregsdennis/json-everything/pull/1028) {#release-schema-9.1.5}
+
+Adds `SchemaRegistry.CreateBundle()`.
+
+[#996](https://github.com/gregsdennis/json-everything/pull/996) - Fixes a validation error message for `pattern`.  Thanks to [@anthonypuppo](https://github.com/anthonypuppo) for submitting the fix.
+
 # [9.1.4](https://github.com/gregsdennis/json-everything/pull/1015) {#release-schema-9.1.4}
 
 Fixed an issue with `type` keyword and bigint values.
