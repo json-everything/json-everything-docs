@@ -4,6 +4,10 @@ title: JsonLogic
 icon: fas fa-tag
 order: "09.11"
 ---
+# [6.0.2](https://github.com/gregsdennis/json-everything/pull/1027) {#release-logic-6.0.2}
+
+[#1019](https://github.com/gregsdennis/json-everything/issues/1019) - Fix array->string coercion for loose-equals.  Thanks to [@dkorunda-tp]https://github.com/dkorunda-tp) for reporting this issue.
+
 # [6.0.1](https://github.com/gregsdennis/json-everything/pull/1013) {#release-logic-6.0.1}
 
 Updated nuget packages & EULA.
