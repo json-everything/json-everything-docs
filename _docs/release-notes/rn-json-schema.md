@@ -4,6 +4,11 @@ title: JsonSchema.Net
 icon: fas fa-tag
 order: "09.01"
 ---
+# [9.2.0](https://github.com/gregsdennis/json-everything/pull/1031) {#release-schema-9.2.0}
+
+- Update `ValidatingJsonConverter` to properly handle dictionary keys.
+- Update `[JsonSchema]` attribute so that it can be applied to enums.
+
 # [9.1.5](https://github.com/gregsdennis/json-everything/pull/1028) {#release-schema-9.1.5}
 
 Adds `SchemaRegistry.CreateBundle()`.

@@ -75,6 +75,27 @@ public override T Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerial
 
 The deserialized object.
 
+### ReadAsPropertyName(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+
+Reads a dictionary key from a JSON property name.
+
+#### Declaration
+
+```c#
+public override T ReadAsPropertyName(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| reader | ref Utf8JsonReader | The **System.Text.Json.Utf8JsonReader** to read from. |
+| typeToConvert | Type | The type to convert. |
+| options | JsonSerializerOptions | The options to use when reading the value. |
+
+
+#### Returns
+
+The value that was converted.
+
 ### Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
 
 Writes the JSON representation of the object.
@@ -90,5 +111,22 @@ public override void Write(Utf8JsonWriter writer, T value, JsonSerializerOptions
 | writer | Utf8JsonWriter | The writer to use for writing JSON. |
 | value | T | The value to serialize. |
 | options | JsonSerializerOptions | The serializer options. |
+
+
+### WriteAsPropertyName(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
+
+Writes a dictionary key as a JSON property name.
+
+#### Declaration
+
+```c#
+public override void WriteAsPropertyName(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| writer | Utf8JsonWriter | The **System.Text.Json.Utf8JsonWriter** to write to. |
+| value | T | The value to convert. The value of **System.Text.Json.Serialization.JsonConverter`1.HandleNull** determines if the converter handles \<see langword="null" /\> values. |
+| options | JsonSerializerOptions | The options to use when writing the value. |
 
 
