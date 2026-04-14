@@ -6,6 +6,12 @@ order: "09.07"
 ---
 # [3.1.0](https://github.com/gregsdennis/json-everything/pull/1015) {#release-schemadatagen-3.1.0}
 
+- [#892](https://github.com/gregsdennis/json-everything/issues/892) - Support recursive references.  Thanks to [@Frassle](https://github.com/Frassle) for the suggestion.
+- Support `$dynamicRef`
+- Removes the `BuildOptions` parameter from the `.GenerateData()` method since it's not used
+
+# [3.1.0](https://github.com/gregsdennis/json-everything/pull/1015) {#release-schemadatagen-3.1.0}
+
 - Replaced Fare with internal regex value generation to significantly improve regex support
 - Improved conditional support
 - Added `propertyNames` support
