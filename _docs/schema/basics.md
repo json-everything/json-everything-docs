@@ -497,70 +497,15 @@ In order to support scenarios where schemas cannot be registered ahead of time, 
 
 The URI that is passed may need to be transformed, based on the schemas you're dealing with.  For instance if you're loading schemas from a local filesystem, and the schema `$ref`s use relative paths, you may need to prepend the working folder to the URI in order to locate it.
 
-<!-- ## Bundling
+## Bundling schemas {#schema-bundling}
 
-JSON Schema can be bundled so that they include all of their referenced documents.  This process can make sharing schemas significantly easier as only a single file need to be shared.
+When you need to distribute a schema and all of its referenced documents as a single file, use schema bundling.
 
-This library bundles schemas by collecting all of the referenced documents along with the root schema into a new schema's `$defs` keyword, then adding a `$ref` to the definition for the root schema.
+The dedicated [Bundling](/schema/bundling) page explains:
 
-For example, given this root and external schema:
-
-```jsonc
-// root
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://json-everything.net/foo",
-  "type": "object",
-  "properties": {
-    "bar": {
-      "$ref": "bar"
-    }
-  }
-}
-
-// external
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://json-everything.net/bar",
-  "type": "string"
-}
-```
-
-calling `schema.Bundle()`
-
-```c#
-var bundled = rootSchema.Bundle();
-```
-
-generates the following bundled schema:
-
-```json
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://json-everything.net/foo(bundled)",
-  "$defs": {
-    "26f6f0d167": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "$id": "https://json-everything.net/foo",
-      "type": "object",
-      "properties": {
-        "bar": {
-          "$ref": "bar"
-        }
-      }
-    },
-    "c6e748adb1": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "$id": "https://json-everything.net/bar",
-      "type": "string"
-    }
-  },
-  "$ref": "https://json-everything.net/foo"
-}
-```
-
-> This process requires that all external documents are registered or automatic resolution be enabled.
-{: .prompt-info } -->
+- how `SchemaRegistry.CreateBundle()` structures bundled output
+- which reference types are supported
+- setup requirements and a full example
 
 # Customizing error messages {#schema-errors}
 
