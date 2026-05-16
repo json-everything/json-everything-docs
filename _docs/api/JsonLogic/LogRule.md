@@ -3,7 +3,7 @@ layout: "page"
 title: "LogRule Class"
 bookmark: "LogRule"
 permalink: "/api/JsonLogic/:title/"
-order: "10.11.018"
+order: "10.11.020"
 ---
 **Namespace:** Json.Logic.Rules
 
@@ -19,6 +19,12 @@ order: "10.11.018"
 - IRule
 
 Handles the `log` operation.
+
+## Properties
+
+| Name | Type | Summary |
+|---|---|---|
+| **Logger** | ILogicLogger | Gets or sets the logger used for logic operations. |
 
 ## Methods
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "IRule Interface"
 bookmark: "IRule"
 permalink: "/api/JsonLogic/:title/"
-order: "10.11.010"
+order: "10.11.011"
 ---
 **Namespace:** Json.Logic
 

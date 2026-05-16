@@ -3,7 +3,7 @@ layout: "page"
 title: "MergeRule Class"
 bookmark: "MergeRule"
 permalink: "/api/JsonLogic/:title/"
-order: "10.11.023"
+order: "10.11.025"
 ---
 **Namespace:** Json.Logic.Rules
 

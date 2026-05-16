@@ -3,7 +3,7 @@ layout: "page"
 title: "LooseNotEqualsRule Class"
 bookmark: "LooseNotEqualsRule"
 permalink: "/api/JsonLogic/:title/"
-order: "10.11.020"
+order: "10.11.022"
 ---
 **Namespace:** Json.Logic.Rules
 

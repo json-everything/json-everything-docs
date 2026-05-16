@@ -3,7 +3,7 @@ layout: "page"
 title: "LogicComponentConverter Class"
 bookmark: "LogicComponentConverter"
 permalink: "/api/JsonLogic/:title/"
-order: "10.11.017"
+order: "10.11.018"
 ---
 **Namespace:** Json.Logic
 
