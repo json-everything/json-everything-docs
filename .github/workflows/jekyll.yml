@@ -54,6 +54,15 @@ jobs:
       - name: Install Node dependencies
         run: npm ci
 
+      - name: Checkout json-everything source
+        run: |
+          git clone --branch main --depth 1 --filter=blob:none --sparse https://github.com/json-everything/json-everything.git /tmp/json-everything
+          cd /tmp/json-everything
+          git sparse-checkout set src
+
+      - name: Generate source index
+        run: node tools/generate-source-index.mjs --repo-root /tmp/json-everything --repo json-everything/json-everything --ref main --output assets/js/data/source-index.json
+
       - name: Build JavaScript
         run: npm run build
 

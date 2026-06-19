@@ -70,6 +70,10 @@
           autocomplete="off"
           placeholder="{{ site.data.locales[include.lang].search.hint | capitalize }}..."
         >
+        <button id="ai-chat-trigger" class="ai-chat-trigger-btn" aria-label="Ask AI" title="Ask AI (or Ctrl+Enter in search)">
+          <i class="fas fa-robot fa-fw"></i>
+          <span class="ai-chat-trigger-btn__label">Ask AI</span>
+        </button>
       </span>
       <span id="search-cancel">{{ site.data.locales[include.lang].search.cancel }}</span>
       {% endif %}

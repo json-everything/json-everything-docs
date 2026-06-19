@@ -126,6 +126,10 @@ assets:
 pwa:
   enabled: true # the option for PWA feature
 
+# AI chat widget (OpenRouter)
+openrouter_api_key: <%= ENV['OPENROUTER_API_KEY'] %>
+openrouter_model: "openrouter/auto"
+
 paginate: 10
 
 # ------------ The following options are not recommended to be modified ------------------

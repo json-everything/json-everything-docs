@@ -1506,7 +1506,14 @@ $sidebar-display: 'sidebar-display';
   }
 
   #search-wrapper {
-    max-width: $search-max-width;
+    width: auto;
+    max-width: none;
+    flex: 0 0 $search-max-width;
+    transition: flex-basis 0.2s ease-in-out;
+
+    &:focus-within {
+      flex-basis: $search-max-width * 2;
+    }
   }
 
   #search-result-wrapper {

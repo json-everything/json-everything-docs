@@ -45,6 +45,47 @@ layout: compress
       <i class="fas fa-angle-up"></i>
     </a>
 
+    <!-- AI chat modal -->
+    <div id="ai-chat-modal" class="ai-chat-modal" role="dialog" aria-modal="true" aria-label="Ask AI" hidden>
+      <div class="ai-chat-dialog">
+        <div class="ai-chat-resize-handle" id="ai-chat-resize-handle" aria-hidden="true"></div>
+        <div class="ai-chat-header">
+          <span class="ai-chat-title"><i class="fas fa-robot"></i> Ask AI</span>
+          <div class="ai-chat-header-actions">
+            <button class="ai-chat-clear-btn" id="ai-chat-clear" aria-label="Clear conversation" title="Clear conversation">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+            <button class="ai-chat-close-btn" id="ai-chat-close" aria-label="Close">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <div class="ai-chat-messages" id="ai-chat-messages"></div>
+        <div class="ai-chat-input-row">
+          <input
+            type="text"
+            id="ai-chat-input"
+            class="ai-chat-input"
+            placeholder="Ask a question about json-everything..."
+            autocomplete="off"
+            aria-label="Your question"
+          >
+          <button class="ai-chat-send-btn" id="ai-chat-send" aria-label="Send">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+        <div class="ai-chat-powered-by">
+          Powered by <a href="https://openrouter.ai/" target="_blank" rel="noopener">OpenRouter</a>
+        </div>
+      </div>
+    </div>
+    <!-- end AI chat modal -->
+
+    <script>
+      window.OPENROUTER_KEY = '{{ site.openrouter_api_key }}';
+      window.OPENROUTER_MODEL = '{{ site.openrouter_model | default: "openrouter/auto" }}';
+    </script>
+
     {% if site.pwa.enabled %}
       <div
         id="notification"
@@ -72,5 +113,7 @@ layout: compress
     {% include search-loader.html %}
 
     {% include js-selector.html %}
+
+    <script defer src="{{ '/assets/js/chat-widget.js' | relative_url }}"></script>
   </body>
 </html>
