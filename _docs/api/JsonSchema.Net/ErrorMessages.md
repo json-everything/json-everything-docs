@@ -25,18 +25,23 @@ Each message will specify the tokens it supports.
 
 | Name | Type | Summary |
 |---|---|---|
+| **AdditionalProperties** | string | Gets or sets the error message for **Json.Schema.Keywords.AdditionalPropertiesKeyword**. |
+| **AllOf** | string | Gets or sets the error message for **Json.Schema.Keywords.AllOfKeyword**. |
+| **AnyOf** | string | Gets or sets the error message for **Json.Schema.Keywords.AnyOfKeyword**. |
 | **Const** | string | Gets or sets the error message for **Json.Schema.Keywords.ConstKeyword**. |
 | **ContainsTooFew** | string | Gets or sets the error message for **Json.Schema.Keywords.ContainsKeyword** when there are too few matching items. |
 | **ContainsTooMany** | string | Gets or sets the error message for **Json.Schema.Keywords.ContainsKeyword** when there are too many matching items. |
 | **Culture** | CultureInfo | Gets or sets a culture to use for error messages.  Default is **System.Globalization.CultureInfo.CurrentCulture**. |
 | **DependentRequired** | string | Gets or sets the error message for **Json.Schema.Keywords.DependentRequiredKeyword**. |
 | **DependentSchemas** | string | Gets or sets the error message for **Json.Schema.Keywords.DependentSchemasKeyword**. |
+| **Else** | string | Gets or sets the error message for **Json.Schema.Keywords.ElseKeyword**. |
 | **Enum** | string | Gets or sets the error message for **Json.Schema.Keywords.EnumKeyword**. |
 | **ExclusiveMaximum** | string | Gets or sets the error message for **Json.Schema.Keywords.ExclusiveMaximumKeyword**. |
 | **ExclusiveMinimum** | string | Gets or sets the error message for **Json.Schema.Keywords.ExclusiveMinimumKeyword**. |
 | **FalseSchema** | string | Gets or sets the error message for the "false" schema. |
 | **Format** | string | Gets or sets the error message for the **Json.Schema.Keywords.FormatKeyword**. |
 | **FormatWithDetail** | string | Gets or sets the error message for the **Json.Schema.Keywords.FormatKeyword** with additional information from the format validation. |
+| **Items** | string | Gets or sets the error message for **Json.Schema.Keywords.ItemsKeyword**. |
 | **Maximum** | string | Gets or sets the error message for **Json.Schema.Keywords.MinimumKeyword**. |
 | **MaxItems** | string | Gets or sets the error message for **Json.Schema.Keywords.MaxItemsKeyword**. |
 | **MaxLength** | string | Gets or sets the error message for **Json.Schema.Keywords.MaxLengthKeyword**. |
@@ -47,10 +52,19 @@ Each message will specify the tokens it supports.
 | **MinLength** | string | Gets or sets the error message for **Json.Schema.Keywords.MinLengthKeyword**. |
 | **MinProperties** | string | Gets or sets the error message for **Json.Schema.Keywords.MinPropertiesKeyword**. |
 | **MultipleOf** | string | Gets or sets the error message for **Json.Schema.Keywords.MultipleOfKeyword**. |
+| **Not** | string | Gets or sets the error message for **Json.Schema.Keywords.NotKeyword**. |
 | **OneOf** | string | Gets or sets the error message for **Json.Schema.Keywords.OneOfKeyword**. |
 | **Pattern** | string | Gets or sets the error message for **Json.Schema.Keywords.PatternKeyword**. |
+| **PatternProperties** | string | Gets or sets the error message for **Json.Schema.Keywords.PatternPropertiesKeyword**. |
+| **PrefixItems** | string | Gets or sets the error message for **Json.Schema.Keywords.PrefixItemsKeyword**. |
+| **Properties** | string | Gets or sets the error message for **Json.Schema.Keywords.PropertiesKeyword**. |
+| **PropertyDependencies** | string | Gets or sets the error message for **Json.Schema.Keywords.PropertyDependenciesKeyword**. |
+| **PropertyNames** | string | Gets or sets the error message for **Json.Schema.Keywords.PropertyNamesKeyword**. |
 | **Required** | string | Gets or sets the error message for **Json.Schema.Keywords.RequiredKeyword**. |
+| **Then** | string | Gets or sets the error message for **Json.Schema.Keywords.ThenKeyword**. |
 | **Type** | string | Gets or sets the error message for **Json.Schema.Keywords.TypeKeyword**. |
+| **UnevaluatedItems** | string | Gets or sets the error message for **Json.Schema.Keywords.UnevaluatedItemsKeyword**. |
+| **UnevaluatedProperties** | string | Gets or sets the error message for **Json.Schema.Keywords.UnevaluatedPropertiesKeyword**. |
 | **UniqueItems** | string | Gets or sets the error message for **Json.Schema.Keywords.UniqueItemsKeyword**. |
 | **UnknownFormat** | string | Gets or sets the error message for an unknown format. |
 
@@ -80,6 +94,77 @@ A localized error message string corresponding to the specified key and culture.
 
 If the <paramref name="key" /> parameter begins with "Get", that prefix is removed before looking up
             the resource. This method is typically used within error-handling code to retrieve user-facing error messages based
+
+### GetAdditionalProperties(CultureInfo culture)
+
+Gets the error message for **Json.Schema.Keywords.AdditionalPropertiesKeyword** for a specific culture.
+
+#### Declaration
+
+```c#
+public static string GetAdditionalProperties(CultureInfo culture)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| culture | CultureInfo | The culture to retrieve. |
+
+
+#### Returns
+
+
+
+#### Remarks
+
+Available tokens are:
+  - [[failed]] - the properties that did not match the schema
+
+### GetAllOf(CultureInfo culture)
+
+Gets the error message for **Json.Schema.Keywords.AllOfKeyword** for a specific culture.
+
+#### Declaration
+
+```c#
+public static string GetAllOf(CultureInfo culture)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| culture | CultureInfo | The culture to retrieve. |
+
+
+#### Returns
+
+
+
+#### Remarks
+
+Available tokens are:
+  - [[failed]] - the indexes of the subschemas that failed
+
+### GetAnyOf(CultureInfo culture)
+
+Gets the error message for **Json.Schema.Keywords.AnyOfKeyword** for a specific culture.
+
+#### Declaration
+
+```c#
+public static string GetAnyOf(CultureInfo culture)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| culture | CultureInfo | The culture to retrieve. |
+
+
+#### Returns
+
+
+
+#### Remarks
+
+No tokens are supported.
 
 ### GetConst(CultureInfo culture)
 
@@ -202,6 +287,29 @@ public static string GetDependentSchemas(CultureInfo culture)
 
 Available tokens are:
   - [[value]] - the value in the schema
+
+### GetElse(CultureInfo culture)
+
+Gets the error message for **Json.Schema.Keywords.ElseKeyword** for a specific culture.
+
+#### Declaration
+
+```c#
+public static string GetElse(CultureInfo culture)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| culture | CultureInfo | The culture to retrieve. |
+
+
+#### Returns
+
+
+
+#### Remarks
+
+No tokens are supported.
 
 ### GetEnum(CultureInfo culture)
 
@@ -330,6 +438,30 @@ public static string GetFormatWithDetail(CultureInfo culture)
 Available tokens are:
   - [[format]] - the format key
   - [[detail]] - the detail
+
+### GetItems(CultureInfo culture)
+
+Gets the error message for **Json.Schema.Keywords.ItemsKeyword** for a specific culture.
+
+#### Declaration
+
+```c#
+public static string GetItems(CultureInfo culture)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| culture | CultureInfo | The culture to retrieve. |
+
+
+#### Returns
+
+
+
+#### Remarks
+
+Available tokens are:
+  - [[failed]] - the indexes of the items that did not match the schema
 
 ### GetMaximum(CultureInfo culture)
 
@@ -581,6 +713,29 @@ Available tokens are:
   - [[received]] - the value provided in the JSON instance
   - [[divisor]] - the required divisor
 
+### GetNot(CultureInfo culture)
+
+Gets the error message for **Json.Schema.Keywords.NotKeyword** for a specific culture.
+
+#### Declaration
+
+```c#
+public static string GetNot(CultureInfo culture)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| culture | CultureInfo | The culture to retrieve. |
+
+
+#### Returns
+
+
+
+#### Remarks
+
+No tokens are supported.
+
 ### GetOneOf(CultureInfo culture)
 
 Gets the error message for **Json.Schema.Keywords.OneOfKeyword** for a specific culture.
@@ -629,6 +784,125 @@ public static string GetPattern(CultureInfo culture)
 Available tokens are:
   - [[pattern]] - the regular expression
 
+### GetPatternProperties(CultureInfo culture)
+
+Gets the error message for **Json.Schema.Keywords.PatternPropertiesKeyword** for a specific culture.
+
+#### Declaration
+
+```c#
+public static string GetPatternProperties(CultureInfo culture)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| culture | CultureInfo | The culture to retrieve. |
+
+
+#### Returns
+
+
+
+#### Remarks
+
+Available tokens are:
+  - [[failed]] - the properties that did not match their pattern-based schemas
+
+### GetPrefixItems(CultureInfo culture)
+
+Gets the error message for **Json.Schema.Keywords.PrefixItemsKeyword** for a specific culture.
+
+#### Declaration
+
+```c#
+public static string GetPrefixItems(CultureInfo culture)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| culture | CultureInfo | The culture to retrieve. |
+
+
+#### Returns
+
+
+
+#### Remarks
+
+Available tokens are:
+  - [[failed]] - the indexes of the prefix items that did not match the schema
+
+### GetProperties(CultureInfo culture)
+
+Gets the error message for **Json.Schema.Keywords.PropertiesKeyword** for a specific culture.
+
+#### Declaration
+
+```c#
+public static string GetProperties(CultureInfo culture)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| culture | CultureInfo | The culture to retrieve. |
+
+
+#### Returns
+
+
+
+#### Remarks
+
+No tokens are supported.
+
+### GetPropertyDependencies(CultureInfo culture)
+
+Gets the error message for **Json.Schema.Keywords.PropertyDependenciesKeyword** for a specific culture.
+
+#### Declaration
+
+```c#
+public static string GetPropertyDependencies(CultureInfo culture)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| culture | CultureInfo | The culture to retrieve. |
+
+
+#### Returns
+
+
+
+#### Remarks
+
+Available tokens are:
+  - [[failed]] - the properties that failed their dependencies
+
+### GetPropertyNames(CultureInfo culture)
+
+Gets the error message for **Json.Schema.Keywords.PropertyNamesKeyword** for a specific culture.
+
+#### Declaration
+
+```c#
+public static string GetPropertyNames(CultureInfo culture)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| culture | CultureInfo | The culture to retrieve. |
+
+
+#### Returns
+
+
+
+#### Remarks
+
+Available tokens are:
+  - [[failed]] - the property names that did not match the schema
+
 ### GetRequired(CultureInfo culture)
 
 Gets the error message for **Json.Schema.Keywords.RequiredKeyword** for a specific culture.
@@ -652,6 +926,29 @@ public static string GetRequired(CultureInfo culture)
 
 Available tokens are:
   - [[missing]] - the properties missing from the JSON instance
+
+### GetThen(CultureInfo culture)
+
+Gets the error message for **Json.Schema.Keywords.ThenKeyword** for a specific culture.
+
+#### Declaration
+
+```c#
+public static string GetThen(CultureInfo culture)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| culture | CultureInfo | The culture to retrieve. |
+
+
+#### Returns
+
+
+
+#### Remarks
+
+No tokens are supported.
 
 ### GetType(CultureInfo culture)
 
@@ -677,6 +974,54 @@ public static string GetType(CultureInfo culture)
 Available tokens are:
   - [[received]] - the type of value provided in the JSON instance
   - [[expected]] - the type(s) required by the schema
+
+### GetUnevaluatedItems(CultureInfo culture)
+
+Gets the error message for **Json.Schema.Keywords.UnevaluatedItemsKeyword** for a specific culture.
+
+#### Declaration
+
+```c#
+public static string GetUnevaluatedItems(CultureInfo culture)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| culture | CultureInfo | The culture to retrieve. |
+
+
+#### Returns
+
+
+
+#### Remarks
+
+Available tokens are:
+  - [[failed]] - the indexes of the items that did not match the schema
+
+### GetUnevaluatedProperties(CultureInfo culture)
+
+Gets the error message for **Json.Schema.Keywords.UnevaluatedPropertiesKeyword** for a specific culture.
+
+#### Declaration
+
+```c#
+public static string GetUnevaluatedProperties(CultureInfo culture)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| culture | CultureInfo | The culture to retrieve. |
+
+
+#### Returns
+
+
+
+#### Remarks
+
+Available tokens are:
+  - [[failed]] - the properties that did not match the schema
 
 ### GetUniqueItems(CultureInfo culture)
 
