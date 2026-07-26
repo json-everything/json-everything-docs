@@ -4,6 +4,12 @@ title: JsonSchema.Net
 icon: fas fa-tag
 order: "09.01"
 ---
+# [9.4.0](https://github.com/json-everything/json-everything/pull/1053) {#release-schema-9.4.0}
+
+[#1052](https://github.com/json-everything/json-everything/issues/1052) - Adds an evaluation option to allow exclusion of error messages from applicators. Thanks to [@ladeak](https://github.com/ladeak) for reporting.
+
+[#1043](https://github.com/json-everything/json-everything/issues/1043) - Refines URI/IRI validation to only consider syntax. Thanks to [@awalterschulze](https://github.com/awalterschulze) for reporting and discussing.
+
 # [9.3.0](https://github.com/json-everything/json-everything/pull/1046) {#release-schema-9.3.0}
 
 [#1050](https://github.com/json-everything/json-everything/issues/1050) - Adds error messages for all validation keywords. Thanks to [@pawlos](https://github.com/pawlos) for reporting.

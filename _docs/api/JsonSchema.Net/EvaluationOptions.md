@@ -23,6 +23,7 @@ Allows configuration of the evaluation process.
 | **Default** | EvaluationOptions | The default settings. |
 | **FormatRegistry** | FormatRegistry | The local format registry.  If a format is not found here, it will automatically check the global registry as well. |
 | **IgnoredAnnotations** | IEnumerable\<Type\> | Gets the set of keyword types from which annotations will be ignored. |
+| **IncludeApplicatorErrors** | bool | Gets or sets whether applicators such as `properties` produce error messages. Default is `true`. |
 | **OutputFormat** | OutputFormat | Specifies the output format. |
 | **PreserveDroppedAnnotations** | bool | If enabled, annotations that are dropped as a result of a failing subschema will be reported in a `droppedAnnotations` property in the output. |
 | **RequireFormatValidation** | bool | Specifies whether the `format` keyword should be required to provide validation results.  Default is false, which just produces annotations for drafts 2019-09 and prior or follows the behavior set forth by the format-annotation vocabulary requirement in the `$vocabulary` keyword in a meta-schema declaring draft 2020-12. |

@@ -4,6 +4,10 @@ title: JsonPointer.Net
 icon: fas fa-tag
 order: "09.10"
 ---
+# [7.0.2](https://github.com/json-everything/json-everything/pull/1053) {#release-pointer-7.0.2}
+
+Bug fix: Relative JSON Pointers must begin with an ASCII number - international numerals are disallowed. Discovered while updating the JSON Schema Test Suite.
+
 # [7.0.1](https://github.com/json-everything/json-everything/pull/1013) {#release-pointer-7.0.1}
 
 Updated nuget packages & EULA.

@@ -830,7 +830,7 @@ public static string GetPrefixItems(CultureInfo culture)
 #### Remarks
 
 Available tokens are:
-  - [[failed]] - the indexes of the prefix items that did not match the schema
+  - [[failed]] - the indexes of the items that did not match the schema
 
 ### GetProperties(CultureInfo culture)
 
@@ -853,7 +853,8 @@ public static string GetProperties(CultureInfo culture)
 
 #### Remarks
 
-No tokens are supported.
+Available tokens are:
+  - [[failed]] - the names of the properties that did not match the associated schema
 
 ### GetPropertyDependencies(CultureInfo culture)
 
