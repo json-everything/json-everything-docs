@@ -4,6 +4,10 @@ title: JsonPointer.Net
 icon: fas fa-tag
 order: "09.10"
 ---
+# [7.0.3](https://github.com/json-everything/json-everything/pull/1057) {#release-pointer-7.0.3}
+
+[#1055](https://github.com/json-everything/json-everything/issues/1055) - Pointer segments should be decoded as part of `.ToString()`.  Thanks to [awalterschulze](https://github.com/awalterschulze) for reporting.
+
 # [7.0.2](https://github.com/json-everything/json-everything/pull/1053) {#release-pointer-7.0.2}
 
 Bug fix: Relative JSON Pointers must begin with an ASCII number - international numerals are disallowed. Discovered while updating the JSON Schema Test Suite.

@@ -4,6 +4,10 @@ title: JsonSchema.Net.Generation
 icon: fas fa-tag
 order: "09.05"
 ---
+# [7.3.11](https://github.com/json-everything/json-everything/pull/1057) {#release-schemagen-7.3.11}
+
+[#1056](https://github.com/json-everything/json-everything/issues/1056) - Source-generated schema should respect explicit `[JsonSchema()]` attributes.
+
 # [7.3.10](https://github.com/json-everything/json-everything/pull/1046) {#release-schemagen-7.3.10}
 
 Source-generated schema registration has been updated to better handle aliased collection shapes by avoiding duplicate schema registrations and duplicate converter registrations for equivalent shapes.
