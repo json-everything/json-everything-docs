@@ -13,6 +13,9 @@ This library combines the power of [_JsonSchema.Net_](https://www.nuget.org/pack
 > More information about schema-based validation can be found in the [Enhancing Deserialization with JSON Schema](/schema/serialization/) documentation.
 {: .prompt-tip }
 
+> The same schemas can describe your API in OpenAPI 3.1.  See [Describing APIs with OpenAPI](/schema/api-openapi/).
+{: .prompt-tip }
+
 > By default, this library uses source generation to create schemas at compile time, which works with Native AOT.  If you need runtime schema generation, you can enable it via configuration, but that won't work with Native AOT.
 {: .prompt-info }
 
