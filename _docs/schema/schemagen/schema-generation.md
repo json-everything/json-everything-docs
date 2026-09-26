@@ -155,7 +155,7 @@ The generator will handle most common types:
 - numeric types (`int`, `decimal`, etc.)
 - `bool`
 - `string`
-- enumerations (mapped to strings)
+- enumerations (mapped to strings; [source generation](./automatic-generation#source-generation-enums) can instead describe them as integers, or either, to match their serialization)
 - `Uri`
 - `JsonPointer` (from [JsonPointer.Net](https://www.nuget.org/packages/JsonPointer.Net/))
 - `JsonObject`, `JsonArray`, & `JsonValue` (from namespace `System.Text.Json.Nodes`)

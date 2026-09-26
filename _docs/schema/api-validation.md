@@ -35,6 +35,7 @@ This single call configures:
 - A validation filter that intercepts requests and validates JSON bodies
 - A custom model binder that performs schema validation during model binding
 - JSON serialization options with the generative validating converter
+- An enum converter matching what the generated schemas describe (see [Enumerations](#schema-api-enums))
 
 ### Customizing validation behavior {#schema-api-custom-config}
 
@@ -68,6 +69,27 @@ If no configuration is provided, the following defaults are used:
 
 > When using source generation (the default), property naming, property order, and strict conditionals must be configured on the `[GenerateJsonSchema]` attribute itself, not in `GeneratorConfiguration`.  Runtime-only settings like `PropertyNameResolver` and `Nullability` in `GeneratorConfiguration` only apply when you disable source generation.
 {: .prompt-warning}
+
+### Enumerations {#schema-api-enums}
+
+Source-generated schemas describe an enum by its member names by default, but System.Text.Json's default configuration only accepts integers.  Left alone, a request body with `"category": "Toys"` would pass schema validation and then fail deserialization.
+
+To keep the two in agreement, validation registers the converter that matches the enum format the schemas describe:
+
+| `JsonSchemaDefaultEnumFormat` | Converter registered |
+|:--|:--|
+| `Names` (default) | `JsonStringEnumConverter(allowIntegerValues: false)` |
+| `NamesAndValues` | `JsonStringEnumConverter()` |
+| `Values` | none; integers are the default |
+
+The converter is appended to both the MVC and the minimal-API `JsonSerializerOptions`, so a `JsonStringEnumConverter` the application registered first, or a `[JsonConverter]` on the enum type itself, wins.  Nothing is added when a `JsonStringEnumConverter` is already present.
+
+When the application spans several assemblies with `[GenerateJsonSchema]` types, one serializer configuration has to satisfy all of them: if any assembly describes names and any describes integers, the converter accepts both.
+
+See [Enumerations](/schema/schemagen/automatic-generation/#source-generation-enums) in the source generation docs for how the schema side is decided, including per-type and per-property `[JsonConverter]` handling.
+
+> This registration was added in _JsonSchema.Net.Api_ v1.2.1 with _JsonSchema.Net.Generation_ v7.4.0.
+{: .prompt-info}
 
 ## Defining validation schemas {#schema-api-schemas}
 

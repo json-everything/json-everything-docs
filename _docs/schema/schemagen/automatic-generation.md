@@ -83,6 +83,34 @@ public class MyModel
 > The source generator uses the same attribute system as `.FromType<T>()`, so all of the attributes described in [the basics page](./schema-generation) work here too.
 {: .prompt-info}
 
+### Enumerations {#source-generation-enums}
+
+Source generation describes an enumeration the way it will be serialized, so the schema and the serializer agree on what an enum value looks like.
+
+When the enum type carries a `[JsonConverter]`, the schema is derived from the converter:
+
+| Converter | Schema |
+|:--|:--|
+| System.Text.Json `JsonStringEnumConverter` (or `JsonStringEnumConverter<TEnum>`) | `anyOf` of the member names or an `integer`, matching what that converter accepts |
+| Json.More `EnumStringConverter<T>` | `enum` of the member names |
+
+A `[JsonConverter]` on a *property* applies to that property alone.  Its schema is inlined in the format the converter implies, while other uses of the same enum type keep the shared `$ref`.
+
+An enum without a converter follows the `JsonSchemaDefaultEnumFormat` build property:
+
+| Value | Schema |
+|:--|:--|
+| `Names` (default) | `{ "enum": ["Books", "Toys"] }` |
+| `Values` | `{ "type": "integer" }` |
+| `NamesAndValues` | `{ "anyOf": [ { "enum": ["Books", "Toys"] }, { "type": "integer" } ] }` |
+
+When the enum is inlined for a nullable property, `null` is admitted alongside.
+
+> The schema is fixed at compile time, so the serializer has to accept what it describes.  With the default `Names`, System.Text.Json needs a `JsonStringEnumConverter`; [_JsonSchema.Net.Api_](/schema/api-validation/#schema-api-enums) registers one for you.
+>
+> This applies to source generation only.  Runtime generation (`.FromType<T>()`) always describes enumerations by name.
+{: .prompt-info}
+
 ### Disabling source generation {#source-generation-disabling}
 
 If you need to use runtime generation instead, you can disable source generation by adding this to your project file:
@@ -96,16 +124,17 @@ If you need to use runtime generation instead, you can disable source generation
 > Remember that runtime generation won't work with Native AOT.
 {: .prompt-warning}
 
-Two additional MSBuild properties let you set project-wide defaults without repeating them on every attribute:
+Three additional MSBuild properties let you set project-wide defaults without repeating them on every attribute:
 
 ```xml
 <PropertyGroup>
     <JsonSchemaDefaultPropertyNaming>CamelCase</JsonSchemaDefaultPropertyNaming>
     <JsonSchemaDefaultPropertyOrder>AsDeclared</JsonSchemaDefaultPropertyOrder>
+    <JsonSchemaDefaultEnumFormat>Names</JsonSchemaDefaultEnumFormat>
 </PropertyGroup>
 ```
 
-`JsonSchemaDefaultPropertyNaming` accepts any `NamingConvention` value (`AsDeclared`, `CamelCase`, `PascalCase`, `LowerSnakeCase`, `UpperSnakeCase`, `KebabCase`, `UpperKebabCase`).  `JsonSchemaDefaultPropertyOrder` accepts `AsDeclared` or `ByName`.  The `[GenerateJsonSchema]` attribute properties override these defaults per type.
+`JsonSchemaDefaultPropertyNaming` accepts any `NamingConvention` value (`AsDeclared`, `CamelCase`, `PascalCase`, `LowerSnakeCase`, `UpperSnakeCase`, `KebabCase`, `UpperKebabCase`).  `JsonSchemaDefaultPropertyOrder` accepts `AsDeclared` or `ByName`.  The `[GenerateJsonSchema]` attribute properties override these defaults per type.  `JsonSchemaDefaultEnumFormat` is covered under [Enumerations](#source-generation-enums).
 
 ## Automatic validation integration {#source-generation-validation}
 
