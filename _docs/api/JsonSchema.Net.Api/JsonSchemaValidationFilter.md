@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonSchemaValidationFilter Class"
 bookmark: "JsonSchemaValidationFilter"
 permalink: "/api/JsonSchema.Net.Api/:title/"
-order: "10.05.001"
+order: "10.05.015"
 ---
 **Namespace:** Json.Schema.Api
 

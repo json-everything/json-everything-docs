@@ -3,7 +3,7 @@ layout: "page"
 title: "ValidatingJsonModelBinderProvider Class"
 bookmark: "ValidatingJsonModelBinderProvider"
 permalink: "/api/JsonSchema.Net.Api/:title/"
-order: "10.05.003"
+order: "10.05.063"
 ---
 **Namespace:** Json.Schema.Api
 
