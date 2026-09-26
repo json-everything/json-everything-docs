@@ -8,7 +8,7 @@ order: "01.026"
 ---
 _JsonSchema.Net.Api_ can describe an ASP.NET Core application in [OpenAPI 3.1](https://spec.openapis.org/oas/v3.1.1.html).  The description is assembled at compile time from your controllers and minimal-API route registrations, served as JSON or YAML, and presented on a built-in reference page.
 
-The schemas in the description are the same ones used for [request validation](/schema/api-validation/), so what the description promises is what the server enforces.
+The schemas in the description are the same ones used for [request validation](/schema/api-validation/).
 
 > OpenAPI support was added in _JsonSchema.Net.Api_ v1.2.0.
 {: .prompt-info }
@@ -28,7 +28,7 @@ app.MapControllers();
 app.Run();
 ```
 
-That single call is the opt-in.  With no further configuration, the application:
+With no further configuration, the application:
 
 - serves the description at `/openapi.json` and `/openapi.yaml`
 - serves an interactive reference page at `/openapi/reference`
@@ -50,10 +50,11 @@ builder.Services.AddOpenApi(c =>
 });
 ```
 
-The governing rule is that **paths enable what they name**.  A description is served only when `DocumentPath` has a value, the reference page only when `InteractivePath` does, and a file is written only when `FileOutputPath` does.  Setting a path to null turns that piece off.
+A description is served only when `DocumentPath` has a value, the reference page only when `InteractivePath` does, and a file is written only when `FileOutputPath` does.  Set a path to null to turn that piece off.
 
 | Option | Default | Purpose |
 |:--|:--|:--|
+| `Name` | null | The description's name, read-only; null for the default description (see [Publishing several descriptions](#schema-api-openapi-named)) |
 | `Document` | assembled from the API | The description itself, exposed for editing |
 | `DocumentPath` | `/openapi` | Where the description is served, without an extension |
 | `DocumentFormats` | `Json \| Yaml` | Which extensions resolve at `DocumentPath` |
@@ -64,7 +65,7 @@ The governing rule is that **paths enable what they name**.  A description is se
 
 ### Editing the description {#schema-api-openapi-document}
 
-`Document` is the assembled `OpenApiDocument`.  It is built before your delegate runs, so anything the generator cannot infer is added by editing it directly: contact details, servers, security schemes, operation summaries, tags.
+`Document` is the assembled `OpenApiDocument`.  It is built before your delegate runs, so anything the generator cannot infer is added by editing it directly: contact details, servers, security schemes, license and terms of service.
 
 ```c#
 builder.Services.AddOpenApi(c =>
@@ -95,7 +96,7 @@ builder.Services.AddOpenApi(c =>
 });
 ```
 
-The full OpenAPI 3.1 model is available under `Document`, so any part of the specification can be expressed.  The path items and operations are reachable through `Document.Paths` if you need to add a summary or description to a discovered operation.
+The full OpenAPI 3.1 model is available under `Document`, so any part of the specification can be expressed.  The path items and operations are reachable through `Document.Paths` if you need to adjust a discovered operation beyond what [its metadata](#schema-api-openapi-metadata) supplies.
 
 > A later `AddOpenApi()` call replaces an earlier one, so a test host or an environment-specific setup can reconfigure the description.
 {: .prompt-tip }
@@ -110,7 +111,7 @@ The full OpenAPI 3.1 model is available under `Document`, so any part of the spe
 | `Json` | `/openapi.json` |
 | `Yaml` | `/openapi.yaml`, `/openapi.yml` |
 
-The bare path serves nothing.  Requesting `/openapi` returns 404, since it names no format.
+Requesting the bare path `/openapi` returns 404.
 
 To build the description without serving it, set `DocumentPath` to null.  This is useful when you only want a file written, or when the description should be published only outside production:
 
@@ -129,7 +130,9 @@ builder.Services.AddOpenApi(c =>
 
 `InteractivePath` is where the [reference page](#schema-api-openapi-page) is served.  The page reads the description over HTTP, so it requires that `DocumentPath` has a value and `DocumentFormats` includes `Json`.
 
-Violating either constraint throws `InvalidOperationException` from `AddOpenApi()` at startup.  There is no silent fallback: a page with nothing to read is a configuration error, and it is reported as one.
+One page covers every description the application publishes, so `InteractivePath` is configured on the `AddOpenApi()` call that takes no name.  Setting it on a named description is an error.
+
+If any of these constraints is violated, `AddOpenApi()` throws `InvalidOperationException` at startup.
 
 Set `InteractivePath` to null to serve the description without a page.
 
@@ -188,7 +191,48 @@ builder.Services.AddOpenApi();
 ```
 
 > If you previously called `AddJsonSchemaValidation()` yourself, nothing changes.  If you did not, adding `AddOpenApi()` turns validation on.  Set `AddValidation` to false to describe an API without validating requests.
-{: .prompt-warning }
+{: .prompt-info }
+
+## Publishing several descriptions {#schema-api-openapi-named}
+
+An application can publish more than one description, split by controller.  Place `[OpenApiDocument]` on a controller to put its endpoints in a named description:
+
+```c#
+[OpenApiDocument("admin")]
+[ApiController]
+[Route("api/admin")]
+public class AdminController : ControllerBase
+{
+    // ...
+}
+```
+
+The attribute takes any number of names, so a controller that serves two audiences can name both and appears in each.  Three rules govern where a controller lands:
+
+- A controller **without** the attribute appears in the default description.
+- A controller **with** the attribute appears only in the descriptions it names, never in the default one.
+- Adding the attribute to one controller does not move any other controller.
+
+Minimal APIs always land in the default description.
+
+Each named description is registered with its own `AddOpenApi()` call, passing the name:
+
+```c#
+builder.Services.AddOpenApi();                     // default
+builder.Services.AddOpenApi("admin", c =>          // named
+{
+    c.Document.Info.Title = "Admin API";
+});
+```
+
+A named description is served at `/openapi/{name}.json` and `/openapi/{name}.yaml` by default, so several can be published without configuring paths, and each remains independently addressable for client generators and CI.  A named description carries no reference page of its own; the one page, configured on the unnamed call, covers all of them with a selector in its header.
+
+Each description carries only the component schemas its own operations reach.  Splitting the API does not give every description every schema.
+
+If two descriptions share a `DocumentPath`, `InteractivePath`, or `FileOutputPath`, `AddOpenApi()` throws `InvalidOperationException` at startup.  Calling `AddOpenApi()` a second time with the same name replaces the earlier registration.
+
+> Only the default description can be resolved from dependency injection as a bare `OpenApiDocument`.  Named descriptions are reachable through their `OpenApiOptions`.
+{: .prompt-info }
 
 ## How the description is assembled {#schema-api-openapi-discovery}
 
@@ -196,14 +240,47 @@ The description is produced at compile time by a source generator.  There is no 
 
 The generator reads two kinds of declaration:
 
-- **Controllers** — public methods carrying `[HttpGet]`, `[HttpPost]`, `[HttpPut]`, `[HttpDelete]`, `[HttpPatch]`, `[HttpHead]`, or `[HttpOptions]`.  The route is composed from the class's `[Route]` prefix and the method attribute's template, with `[controller]` and `[action]` substituted.  The method name becomes the operation ID.
-- **Minimal APIs** — `MapGet`, `MapPost`, `MapPut`, `MapDelete`, and `MapPatch` calls with a constant route template, including those made on a `MapGroup` (nested groups compose their prefixes).  A chained `.WithName()` sets the operation ID, and `.Produces<T>()` declares a response.
+- **Controllers** — public methods carrying `[HttpGet]`, `[HttpPost]`, `[HttpPut]`, `[HttpDelete]`, `[HttpPatch]`, `[HttpHead]`, or `[HttpOptions]`.  The route is composed from the class's `[Route]` prefix and the method attribute's template, with `[controller]` and `[action]` substituted.
+- **Minimal APIs** — `MapGet`, `MapPost`, `MapPut`, `MapDelete`, and `MapPatch` calls with a constant route template, including those made on a `MapGroup` (nested groups compose their prefixes).  `.Produces<T>()` declares a response.
+
+Route templates are written in their OpenAPI form.  ASP.NET constraints, defaults, optional markers, and catch-alls are stripped, so `/users/{id:int}` is described as `/users/{id}`.
 
 For each operation, the generator determines:
 
+- **Operation ID** — for a controller action, the controller name without its `Controller` suffix, an underscore, and the action name: `Users_GetById` for `UsersController.GetById`.  OpenAPI requires operation IDs to be unique across a description, and action names alone collide as soon as two controllers share one.  A minimal API has an operation ID only when `.WithName()` is chained onto its registration.
 - **Request body** — a `[FromBody]` parameter on a controller, or any complex-typed parameter on either style, mirroring ASP.NET's own binding inference.  The body is documented as required `application/json`.
-- **Parameters** — the remaining parameters.  A parameter named in the route template (including one with a constraint, such as `{id:int}`) is a path parameter and is always required; any other is a query parameter.  On controllers, `[FromRoute]`, `[FromQuery]`, and `[FromHeader]` override this.
+- **Parameters** — the remaining parameters.  A parameter named in the route template is a path parameter and is always required; any other is a query parameter.  On controllers, `[FromRoute]`, `[FromQuery]`, and `[FromHeader]` override this.
 - **Responses** — `[ProducesResponseType]` attributes or `.Produces<T>()` calls when present.  Otherwise a 200 response whose payload type is read from an `ActionResult<T>` return type, from a concrete return type, or from the argument of a `Results.Ok(...)` call in a minimal-API handler body.
+
+### Summaries, descriptions, and tags {#schema-api-openapi-metadata}
+
+Operations carry summaries, descriptions, tags, and descriptions for their parameters, request body, and responses.  These come from two sources.
+
+**ASP.NET's own metadata** is read first.  On controllers, `[EndpointSummary]`, `[EndpointDescription]`, and `[Tags]` on an action, plus `[Tags]` on the controller class, which applies to every action in it.  On minimal APIs, `.WithSummary()`, `.WithDescription()`, and `.WithTags()` chained onto the registration.  These are the framework's attributes from `Microsoft.AspNetCore.Http`, so an application migrating from another OpenAPI generator already has them.
+
+**XML documentation comments** fill whatever the attributes left unset.  The comment on a controller action is read, as is the comment on the method a minimal-API method group points at.  A lambda has no documentation comment.
+
+| Element | Where it lands |
+|:--|:--|
+| `<summary>` | the operation's `summary` |
+| `<remarks>` | the operation's `description` |
+| `<param name="x">` | that parameter's `description`, or the request body's when `x` is the body parameter |
+| `<returns>` | the 200 response's `description` |
+| `<response code="404">` | that response's `description`; the response is added if the action does not declare it |
+
+Inline elements are flattened to text.  `<see cref="Foo"/>` becomes `Foo`, `<paramref name="id"/>` becomes `id`, `<c>` and `<code>` keep their contents, and `<para>` separates paragraphs with a blank line.  Tags come only from attributes and fluent calls.
+
+> The compiler only parses documentation comments when the project generates a documentation file.  Without this setting, the description silently carries no summaries or descriptions.
+>
+> ```xml
+> <PropertyGroup>
+>   <GenerateDocumentationFile>true</GenerateDocumentationFile>
+>   <NoWarn>$(NoWarn);CS1591</NoWarn>
+> </PropertyGroup>
+> ```
+>
+> `CS1591` warns on every public member without a comment, which is rarely wanted on an API project.
+{: .prompt-warning }
 
 ### Schemas {#schema-api-openapi-schemas}
 
@@ -234,9 +311,7 @@ The description documents this.  Each validated operation gets a `400` response 
 }
 ```
 
-You write nothing to get this.  An operation that already declares its own `400` keeps that declaration.
-
-This is a genuine difference from metadata-driven tools.  The validation error response is not visible to anything that reads action metadata, so a description produced by those tools omits it, and client generators built on that description have no type for the error they will actually receive.
+This response is added automatically to every validated operation.  If an operation already declares a `400` response, that declaration is kept.
 
 ## Example {#schema-api-openapi-example}
 
@@ -269,8 +344,14 @@ public class User
 // Controllers/UsersController.cs
 [ApiController]
 [Route("api/[controller]")]
+[Tags("Users")]
 public class UsersController : ControllerBase
 {
+    /// <summary>
+    /// Creates a user.
+    /// </summary>
+    /// <param name="request">The user to create.</param>
+    /// <returns>The created user.</returns>
     [HttpPost]
     public ActionResult<User> CreateUser([FromBody] CreateUserRequest request)
     {
@@ -292,18 +373,21 @@ produces this description:
   "paths": {
     "/api/Users": {
       "post": {
-        "operationId": "CreateUser",
+        "tags": ["Users"],
+        "summary": "Creates a user.",
+        "operationId": "Users_CreateUser",
         "requestBody": {
-          "required": true,
+          "description": "The user to create.",
           "content": {
             "application/json": {
               "schema": { "$ref": "#/components/schemas/CreateUserRequest" }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "The created user.",
             "content": {
               "application/json": {
                 "schema": { "$ref": "#/components/schemas/User" }
@@ -355,7 +439,7 @@ produces this description:
 }
 ```
 
-The same endpoint as a minimal API is discovered the same way:
+The same endpoint as a minimal API is discovered the same way, with the metadata supplied by fluent calls:
 
 ```c#
 app.MapPost("/api/users", (CreateUserRequest request, IUserService users) =>
@@ -363,20 +447,21 @@ app.MapPost("/api/users", (CreateUserRequest request, IUserService users) =>
         var user = users.CreateUser(request);
         return Results.Ok(user);
     })
-    .WithName("CreateUser");
+    .WithName("Users_CreateUser")
+    .WithSummary("Creates a user.")
+    .WithTags("Users");
 ```
 
 ## The reference page {#schema-api-openapi-page}
 
-The page at `InteractivePath` presents the description for a reader and lets them exercise the API from the browser.  It is a single page with no external dependencies, and it fetches the description from `DocumentPath` rather than embedding it.
+The page at `InteractivePath` presents the description for a reader and lets them exercise the API from the browser.  It is a single page with no external dependencies.  It fetches each description from its `DocumentPath`.
 
 The page has three regions:
 
-- **Navigation** lists every operation by method and path.  Scrolling the documentation keeps the current operation highlighted.
-- **Documentation** shows each operation's parameters, request body, and responses.  Body schemas are rendered as property lists showing type, whether the property is required, `const` values, descriptions, and nested properties.  A schema with `additionalProperties: false` says so.
-- **Request console** follows the selected operation.  It shows a request in cURL, JavaScript, C#, Python, or Go, with a copy button.  Below that, inputs for each parameter and a body editor prefilled with an example built from the schema.  Sending the request shows the status, elapsed time, and response body.
+- **Navigation** lists every operation by method and path.  Clicking one scrolls the documentation to it and opens it in the request console.
+- **Documentation** shows each operation's summary, description, tags, parameters, request body, and responses.  Body schemas are rendered as property lists showing type, whether the property is required, `const` values, descriptions, and nested properties.  A schema with `additionalProperties: false` says so.  Clicking an operation's heading opens it in the request console.
+- **Request console** shows the selected operation: a request in cURL, JavaScript, C#, Python, or Go with a copy button; inputs for each parameter and a body editor prefilled with an example built from the schema; and the full request body schema.  Sending the request shows the status, elapsed time, and response body.
 
-The header carries a server selector populated from `Document.Servers`, a theme toggle that persists the reader's choice, and an authentication panel when `Document.Components.SecuritySchemes` is set.  The panel supports HTTP bearer, HTTP basic, and API key schemes (header or query).  Credentials entered there are held in page memory only and applied to the sample code and to sent requests.
+The console changes only when the reader selects an operation.  Scrolling the documentation does not change it, and each operation keeps its edited inputs and its last response for as long as the page is open.  The navigation and console panes can be resized by dragging their edges; the widths are remembered by the browser.
 
-> Requests sent from the console are subject to the browser's cross-origin rules.  If the selected server is a different origin than the page and does not send CORS headers, the request fails in the browser.  The generated code samples carry no such restriction.
-{: .prompt-info }
+The header carries a description selector when the application publishes more than one (labeled by each description's title), a server selector populated from `Document.Servers`, a theme toggle that persists the reader's choice, and an authentication panel when `Document.Components.SecuritySchemes` is set.  The panel supports HTTP bearer, HTTP basic, and API key schemes (header or query).  Credentials entered there are held in page memory only and applied to the sample code and to sent requests.
