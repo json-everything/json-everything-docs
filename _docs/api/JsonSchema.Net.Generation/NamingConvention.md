@@ -3,7 +3,7 @@ layout: "page"
 title: "NamingConvention Enum"
 bookmark: "NamingConvention"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.055.064"
+order: "10.055.065"
 ---
 # NamingConvention Enum
 

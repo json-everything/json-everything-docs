@@ -3,7 +3,7 @@ layout: "page"
 title: "PropertyNameResolvers Class"
 bookmark: "PropertyNameResolvers"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.055.071"
+order: "10.055.072"
 ---
 **Namespace:** Json.Schema.Generation
 

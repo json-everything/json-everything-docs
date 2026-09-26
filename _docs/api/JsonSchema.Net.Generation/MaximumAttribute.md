@@ -3,7 +3,7 @@ layout: "page"
 title: "MaximumAttribute Class"
 bookmark: "MaximumAttribute"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.055.047"
+order: "10.055.048"
 ---
 **Namespace:** Json.Schema.Generation
 

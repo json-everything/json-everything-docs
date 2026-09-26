@@ -3,7 +3,7 @@ layout: "page"
 title: "ISchemaGenerator Interface"
 bookmark: "ISchemaGenerator"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.055.038"
+order: "10.055.039"
 ---
 **Namespace:** Json.Schema.Generation.Generators
 

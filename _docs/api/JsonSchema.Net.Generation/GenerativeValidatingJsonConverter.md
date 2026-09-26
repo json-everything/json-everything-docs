@@ -3,7 +3,7 @@ layout: "page"
 title: "GenerativeValidatingJsonConverter Class"
 bookmark: "GenerativeValidatingJsonConverter"
 permalink: "/api/JsonSchema.Net.Generation/:title/"
-order: "10.055.026"
+order: "10.055.027"
 ---
 **Namespace:** Json.Schema.Generation.Serialization
 
