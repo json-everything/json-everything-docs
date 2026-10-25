@@ -24,7 +24,29 @@ Use the FormatRegistry to register, unregister, and look up format definitions b
 
 | Name | Type | Summary |
 |---|---|---|
+| **Draft06** | FormatRegistry | Gets the formats defined by the Draft 6 dialect. |
+| **Draft07** | FormatRegistry | Gets the formats defined by the Draft 7 dialect. |
+| **Draft201909** | FormatRegistry | Gets the formats defined by the Draft 2019-09 dialect. |
+| **Draft202012** | FormatRegistry | Gets the formats defined by the Draft 2020-12 dialect. |
 | **Global** | FormatRegistry | Gets the global registry of formats available throughout the application. |
+| **V1** | FormatRegistry | Gets the formats defined by the V1 dialect. |
+
+## Constructors
+
+### FormatRegistry(IEnumerable\<Format\> formats)
+
+Creates a new format registry.
+
+#### Declaration
+
+```c#
+public FormatRegistry(IEnumerable<Format> formats)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| formats | IEnumerable\<Format\> | The list of formats for the registry to provide. |
+
 
 ## Methods
 

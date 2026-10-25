@@ -32,6 +32,7 @@ A dialect encapsulates the behavior and interpretation of JSON Schema keywords a
 | **Draft07** | Dialect | Gets the JSON Schema dialect definition for Draft 7. |
 | **Draft201909** | Dialect | Gets the JSON Schema dialect definition for Draft 2019-09. |
 | **Draft202012** | Dialect | Gets the JSON Schema dialect definition for Draft 2020-12. |
+| **FormatRegistry** | FormatRegistry | The local format registry.  If a format is not found here, it will automatically check the global registry as well. |
 | **Id** | Uri | Gets the unique identifier for the dialect. |
 | **RefIgnoresSiblingKeywords** | bool | Gets a value indicating whether references ignore sibling keywords during processing. |
 | **V1** | Dialect | Gets the JSON Schema dialect definition for v1.  This is the same as the latest yearly release in the v1 version. |
