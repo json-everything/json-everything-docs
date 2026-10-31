@@ -15,15 +15,34 @@ order: "10.01.028"
 Provides extension methods for creating modified instances of the **Json.Schema.Dialect** type by adding or removing
 keyword handlers.
 
-## Remarks
-
-These methods enable fluent customization of **Json.Schema.Dialect** objects without altering the
-            original instance. Use **Json.Schema.DialectExtensions.With(Json.Schema.Dialect,System.Collections.Generic.IEnumerable{Json.Schema.IKeywordHandler},System.Uri,System.Nullable{System.Boolean},System.Nullable{System.Boolean})** to add keyword handlers and **Json.Schema.DialectExtensions.Without(Json.Schema.Dialect,System.Collections.Generic.IEnumerable{Json.Schema.IKeywordHandler},System.Uri,System.Nullable{System.Boolean},System.Nullable{System.Boolean})** to remove them,
-            optionally overriding dialect properties such as `Id`, `RefIgnoresSiblingKeywords`, and
-
 ## Methods
 
-### With(this Dialect dialect, IEnumerable\<IKeywordHandler\> add, Uri id, bool? refIgnoresSiblingKeywords, bool? allowUnknownKeywords)
+### With(this Dialect dialect, Uri id, FormatRegistry formatRegistry)
+
+Creates a new Dialect instance by extending the specified dialect with a new format registry.
+
+#### Declaration
+
+```c#
+public static Dialect With(this Dialect dialect, Uri id, FormatRegistry formatRegistry)
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| dialect | Dialect | The base Dialect to extend. Cannot be null. |
+| id | Uri | An optional identifier for the new Dialect. |
+| formatRegistry | FormatRegistry | An optional format registry to use with the new Dialect. If null, the registry from the base dialect is used. |
+
+
+#### Returns
+
+A new Dialect instance containing the combined keyword handlers and configuration settings.
+
+#### Remarks
+
+This method is useful for creating customized dialects based on an existing one, allowing selective
+
+### With(this Dialect dialect, IEnumerable\<IKeywordHandler\> add, Uri id, bool? refIgnoresSiblingKeywords, bool? allowUnknownKeywords, FormatRegistry formatRegistry)
 
 Creates a new Dialect instance by extending the specified dialect with additional keyword handlers and optional
 configuration overrides.
@@ -31,16 +50,17 @@ configuration overrides.
 #### Declaration
 
 ```c#
-public static Dialect With(this Dialect dialect, IEnumerable<IKeywordHandler> add, Uri id, bool? refIgnoresSiblingKeywords, bool? allowUnknownKeywords)
+public static Dialect With(this Dialect dialect, IEnumerable<IKeywordHandler> add, Uri id, bool? refIgnoresSiblingKeywords, bool? allowUnknownKeywords, FormatRegistry formatRegistry)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | dialect | Dialect | The base Dialect to extend. Cannot be null. |
 | add | IEnumerable\<IKeywordHandler\> | A collection of keyword handlers to add to the new Dialect. Cannot be null. |
-| id | Uri | An optional identifier for the new Dialect. If null, the identifier from the base dialect is used. |
+| id | Uri | An optional identifier for the new Dialect. |
 | refIgnoresSiblingKeywords | bool? | An optional value indicating whether '$ref' keywords ignore sibling keywords. If null, the value from the base |
 | allowUnknownKeywords | bool? | An optional value indicating whether unknown keywords are allowed. If null, the value from the base dialect is |
+| formatRegistry | FormatRegistry | An optional format registry to use with the new Dialect. If null, the registry from the base dialect is used. |
 
 
 #### Returns
