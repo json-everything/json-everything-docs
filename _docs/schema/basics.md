@@ -390,6 +390,8 @@ The `format` keyword has been around a while.  It's available in all of the vers
 - `duration`
 - `email`
 - `hostname`
+- `idn-email`
+- `idn-hostname`
 - `ipv4`
 - `ipv6`
 - `iri`
@@ -397,13 +399,54 @@ The `format` keyword has been around a while.  It's available in all of the vers
 - `json-pointer`
 - `regex`
 - `relative-json-pointer`
+- `time`
 - `uri`
 - `uri-reference`
-- `uri-template` (not supported by default, see [this user solution](https://github.com/gregsdennis/json-everything/issues/244#issuecomment-1081842470) for a workaround)
+- `uri-template`
+- `uuid`
 
 I'm not going to claim that the validation on any of these is perfect, but it will likely suffice for most applications.  In the (rare) event that it doesn't support your needs, they are completely overridable.  Additionally, if you find a method that works better than what's in the library, feel free to [contribute a PR](https://github.com/gregsdennis/json-everything/pulls) and make the library better for everyone.
 
-New formats must be registered via the `Formats.Register()` static method.  This method will overwrite any existing registration for that format, so this can be used to override the default behavior for known formats.  This also makes the format available for deserialization.
+### Format registries {#schema-format-registries}
+
+Formats are resolved through a `FormatRegistry`, and the registry is part of the dialect.  Each predefined dialect exposes its registry through the `Dialect.FormatRegistry` property, and each of those registries contains only the formats that its specification version defines:
+
+| Dialect | Registry |
+|---|---|
+| `Dialect.Draft06` | `FormatRegistry.Draft06` |
+| `Dialect.Draft07` | `FormatRegistry.Draft07` |
+| `Dialect.Draft201909` | `FormatRegistry.Draft201909` |
+| `Dialect.Draft202012` | `FormatRegistry.Draft202012` |
+| `Dialect.V1` | `FormatRegistry.V1` |
+
+Because the dialect is supplied through `BuildOptions`, the format registry is selected when the schema is built, and that registry is used whenever the schema is evaluated.
+
+When the `format` keyword is evaluated, the format is looked up in the dialect's registry first, then in `FormatRegistry.Global`.  If neither contains it, the format is treated as unknown, and unknown formats always pass validation.
+
+### Custom formats {#schema-format-custom}
+
+To add or override formats, create a new registry from an existing one, then create a dialect that uses it.  The `.With()` and `.Without()` extension methods produce new registries and leave the source registry unchanged, mirroring the same methods on `Dialect` for adding and removing keywords.
+
+```c#
+var formatRegistry = FormatRegistry.Draft202012
+    .With(new RegexFormat("product-code", "^[A-Z]{3}-[0-9]{4}$"));
+var buildOptions = new BuildOptions
+{
+    Dialect = Dialect.Draft202012.With(formatRegistry: formatRegistry)
+};
+var schema = JsonSchema.Build(schemaJson, buildOptions);
+```
+
+- `.With(params IEnumerable<Format>)` adds formats.  A format whose key is already in the registry replaces the existing one, so this is also how to override the behavior of a known format.
+- `.Without(params IEnumerable<string>)` and `.Without(params IEnumerable<Format>)` remove formats, matched by key.
+
+> Removing a format from a dialect's registry doesn't make it unknown if `FormatRegistry.Global` still has it, because the lookup falls back to the global registry.
+{: .prompt-info }
+
+`FormatRegistry` also has `.Register()` and `.Unregister()` methods, which modify the registry in place.  The predefined registries are shared by every schema that uses their dialect, so prefer `.With()` and `.Without()` over modifying them directly.
+
+> Prior to v9.5.0, format registries were supplied at evaluation time through `EvaluationOptions.FormatRegistry`.  That property is now obsolete.  It is still honored, and when set, it takes priority over the dialect's registry.  Similarly, `Formats.Register()` and `Formats.Get()` are obsolete and forward to `FormatRegistry.Global`.
+{: .prompt-info }
 
 > Format implementations MUST not contain state as the same instance will be shared by all of the schema instances that use it.
 {: .prompt-warning }
