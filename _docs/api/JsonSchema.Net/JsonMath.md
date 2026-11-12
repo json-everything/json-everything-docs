@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonMath Class"
 bookmark: "JsonMath"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.061"
+order: "10.01.063"
 ---
 **Namespace:** Json.Schema
 

@@ -3,7 +3,7 @@ layout: "page"
 title: "ValidatingJsonConverter<T> Class"
 bookmark: "ValidatingJsonConverter`1"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.114"
+order: "10.01.116"
 ---
 **Namespace:** Json.Schema.Serialization
 

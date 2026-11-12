@@ -3,7 +3,7 @@ layout: "page"
 title: "JsonElementBaseDocument Class"
 bookmark: "JsonElementBaseDocument"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.059"
+order: "10.01.061"
 ---
 **Namespace:** Json.Schema
 

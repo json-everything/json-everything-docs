@@ -3,7 +3,7 @@ layout: "page"
 title: "UniqueItemsKeyword Class"
 bookmark: "UniqueItemsKeyword"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.111"
+order: "10.01.113"
 ---
 **Namespace:** Json.Schema.Keywords
 

@@ -38,7 +38,6 @@ A `+` rule.
 
 ### Add(Rule a, ReadOnlySpan\<Rule\> more)
 
-Creates a `+` ("add") rule.
 
 #### Declaration
 
@@ -46,15 +45,9 @@ Creates a `+` ("add") rule.
 public static Rule Add(Rule a, ReadOnlySpan<Rule> more)
 ```
 
-| Parameter | Type | Description |
-|---|---|---|
-| a | Rule | The first rule. |
-| more | ReadOnlySpan\<Rule\> | Subsequent rules. |
-
 
 #### Returns
 
-A `+` rule.
 
 ### All(Rule input, Rule rule)
 
@@ -98,7 +91,6 @@ An `and` rule.
 
 ### And(Rule a, ReadOnlySpan\<Rule\> more)
 
-Creates an `and` rule.
 
 #### Declaration
 
@@ -106,15 +98,9 @@ Creates an `and` rule.
 public static Rule And(Rule a, ReadOnlySpan<Rule> more)
 ```
 
-| Parameter | Type | Description |
-|---|---|---|
-| a | Rule | The first rule. |
-| more | ReadOnlySpan\<Rule\> | Subsequent rules. |
-
 
 #### Returns
 
-An `and` rule.
 
 ### Apply(JsonNode rule, JsonNode context)
 
@@ -240,7 +226,6 @@ A `cat` rule.
 
 ### Cat(Rule a, ReadOnlySpan\<Rule\> more)
 
-Creates a `cat` ("concatenation") rule.
 
 #### Declaration
 
@@ -248,15 +233,9 @@ Creates a `cat` ("concatenation") rule.
 public static Rule Cat(Rule a, ReadOnlySpan<Rule> more)
 ```
 
-| Parameter | Type | Description |
-|---|---|---|
-| a | Rule | The first rule. |
-| more | ReadOnlySpan\<Rule\> | Subsequent rules. |
-
 
 #### Returns
 
-A `cat` rule.
 
 ### Divide(Rule a, Rule b)
 
@@ -497,7 +476,6 @@ A `max` rule.
 
 ### Max(Rule a, ReadOnlySpan\<Rule\> more)
 
-Creates a `max` rule.
 
 #### Declaration
 
@@ -505,15 +483,9 @@ Creates a `max` rule.
 public static Rule Max(Rule a, ReadOnlySpan<Rule> more)
 ```
 
-| Parameter | Type | Description |
-|---|---|---|
-| a | Rule | The first rule. |
-| more | ReadOnlySpan\<Rule\> | Subsequent rules. |
-
 
 #### Returns
 
-A `max` rule.
 
 ### Merge(params Rule[] items)
 
@@ -556,7 +528,6 @@ A `min` rule.
 
 ### Min(Rule a, ReadOnlySpan\<Rule\> more)
 
-Creates a `min` rule.
 
 #### Declaration
 
@@ -564,15 +535,9 @@ Creates a `min` rule.
 public static Rule Min(Rule a, ReadOnlySpan<Rule> more)
 ```
 
-| Parameter | Type | Description |
-|---|---|---|
-| a | Rule | The first rule. |
-| more | ReadOnlySpan\<Rule\> | Subsequent rules. |
-
 
 #### Returns
 
-A `min` rule.
 
 ### Missing(params Rule[] components)
 
@@ -695,7 +660,6 @@ A `*` rule.
 
 ### Multiply(Rule a, ReadOnlySpan\<Rule\> more)
 
-Creates a `*` ("multiply") rule.
 
 #### Declaration
 
@@ -703,15 +667,9 @@ Creates a `*` ("multiply") rule.
 public static Rule Multiply(Rule a, ReadOnlySpan<Rule> more)
 ```
 
-| Parameter | Type | Description |
-|---|---|---|
-| a | Rule | The first rule. |
-| more | ReadOnlySpan\<Rule\> | Subsequent rules. |
-
 
 #### Returns
 
-A `*` rule.
 
 ### None(Rule input, Rule rule)
 
@@ -774,7 +732,6 @@ An `or` rule.
 
 ### Or(Rule a, ReadOnlySpan\<Rule\> more)
 
-Creates an `or` rule.
 
 #### Declaration
 
@@ -782,15 +739,9 @@ Creates an `or` rule.
 public static Rule Or(Rule a, ReadOnlySpan<Rule> more)
 ```
 
-| Parameter | Type | Description |
-|---|---|---|
-| a | Rule | The first rule. |
-| more | ReadOnlySpan\<Rule\> | Subsequent rules. |
-
 
 #### Returns
 
-An `or` rule.
 
 ### Reduce(Rule input, Rule rule, Rule initial)
 
@@ -936,7 +887,6 @@ A `-` rule.
 
 ### Subtract(Rule a, ReadOnlySpan\<Rule\> more)
 
-Creates a `-` ("subtract") rule.
 
 #### Declaration
 
@@ -944,15 +894,9 @@ Creates a `-` ("subtract") rule.
 public static Rule Subtract(Rule a, ReadOnlySpan<Rule> more)
 ```
 
-| Parameter | Type | Description |
-|---|---|---|
-| a | Rule | The first rule. |
-| more | ReadOnlySpan\<Rule\> | Subsequent rules. |
-
 
 #### Returns
 
-A `-` rule.
 
 ### Variable(Rule input)
 

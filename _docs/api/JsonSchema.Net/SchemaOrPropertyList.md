@@ -3,7 +3,7 @@ layout: "page"
 title: "SchemaOrPropertyList Class"
 bookmark: "SchemaOrPropertyList"
 permalink: "/api/JsonSchema.Net/:title/"
-order: "10.01.102"
+order: "10.01.104"
 ---
 **Namespace:** Json.Schema
 
