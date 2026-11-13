@@ -34,18 +34,19 @@ Applies a `multipleOf` keyword.
 
 ## Constructors
 
-### MultipleOfAttribute(double value)
+### MultipleOfAttribute(double value, bool useNet10CompatibleRounding)
 
 Creates a new **Json.Schema.Generation.MultipleOfAttribute** instance.
 
 #### Declaration
 
 ```c#
-public MultipleOfAttribute(double value)
+public MultipleOfAttribute(double value, bool useNet10CompatibleRounding)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | value | double | The value. |
+| useNet10CompatibleRounding | bool | (.Net 11 only) `>true` forces .Net 10 and earlier rounding from `>double` to `>decimal` |
 
 

@@ -40,19 +40,20 @@ As such, to prevent overflows, the value is clamped to the `decimal` range prior
 
 ## Constructors
 
-### MaximumAttribute(double value)
+### MaximumAttribute(double value, bool useNet10CompatibleRounding)
 
 Creates a new **Json.Schema.Generation.MaximumAttribute** instance.
 
 #### Declaration
 
 ```c#
-public MaximumAttribute(double value)
+public MaximumAttribute(double value, bool useNet10CompatibleRounding)
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | value | double | The value. |
+| useNet10CompatibleRounding | bool | (.Net 11 only) `>true` forces .Net 10 and earlier rounding from `>double` to `>decimal` |
 
 
 #### Remarks

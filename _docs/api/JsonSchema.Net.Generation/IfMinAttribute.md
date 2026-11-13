@@ -36,6 +36,7 @@ The specific keywords which are added depend on the type of the targeted propert
 | **IsExclusive** | bool | Gets or sets whether the value should be exclusive. |
 | **PropertyName** | string | The property name. |
 | **TypeId** | object |  |
+| **UseNet10CompatibleRounding** | bool | (.Net 11 only) Gets or sets whether to force .Net 10 and earlier rounding from `double` to `decimal`. |
 | **Value** | double | The expected minimum value. |
 
 ## Constructors
